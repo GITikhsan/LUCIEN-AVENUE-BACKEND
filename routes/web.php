@@ -22,5 +22,8 @@ Route::get('/4,240', function () {
     return view('jordan/4,240'); // pastikan ada file resources/views/aboutus.blade.php
 });
 
+Route::get('/4,240', function () {
+    return view('jordan/4,240'); // pastikan ada file resources/views/aboutus.blade.php
+});
 
 
