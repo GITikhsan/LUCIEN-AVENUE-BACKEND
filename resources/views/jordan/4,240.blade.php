@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Beli Air Jordan 1 Retro Low OG SP Travis Scott Velvet Brown</title>
-  <link rel="stylesheet" href="/css/4,240Style.css" />
+  <link href="{{ asset('css/4,240.css')}}" rel="stylesheet" type="text/css">
 </head>
 <body>
   <div class="container">
