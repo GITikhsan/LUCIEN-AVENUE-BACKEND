@@ -1,21 +1,5 @@
-<header class="w-full shadow-sm relative">
-  <div class="container mx-auto px-6 py-4 flex justify-between items-center relative">
-    <!-- Kiri -->
-    <div class="flex space-x-6 text-gray-800 text-lg">
-      <a href="/html/fashion.html" class="hover:underline">Home</a>
-      <a href="/html/homePage.html" class="hover:underline">Shop</a>
-      <a href="#contact" class="hover:underline">Contact</a>
-    </div>
 
-    <h1 class="absolute left-1/2 transform -translate-x-1/2 text-2xl font-bold text-green-900">VELLARE</h1>
-]
-    <div class="flex space-x-6 text-gray-800 text-lg">
-      <a href="/html/Login.html" class="hover:underline">Login</a>
-      <a href="/html/registerPage.html" class="hover:underline">Register</a>
-    </div>
-  </div>
-</header>
-
+@include('partial.header')
 
 <section class="bg-gray-100 py-16 text-center">
   <h1 class="text-4xl font-bold mb-4">Meet our team</h1>

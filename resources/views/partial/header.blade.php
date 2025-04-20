@@ -1,20 +1,16 @@
 <header class="relative flex justify-between items-center px-6 py-4 border-b">
-  <!-- Kiri -->
-  <nav class="flex space-x-8">
-    <a href="#" class="font-medium text-gray-900 hover:text-blue-600">Product</a>
-    <a href="#" class="font-medium text-gray-900 hover:text-blue-600">Features</a>
-    <a href="#" class="font-medium text-gray-900 hover:text-blue-600">Company</a>
+
+  <nav class="flex space-x-8 font-medium text-gray-900 flex items-center gap-1">
+    <a href="{{ url('/fashion') }}" class="px-3 py-1 rounded-md hover:bg-gray-200 transition">Home</a>
+    <a href="{{ url('/aboutus') }}" class="px-3 py-1 rounded-md hover:bg-gray-200 transition">About</a>
+    <a href="#" class="px-3 py-1 rounded-md hover:bg-gray-200 transition">Shop</a>
   </nav>
-  <!-- Tengah (logo di tengah absolut) -->
+
   <div class="absolute left-1/2 transform -translate-x-1/2">
-  <img src="{{ asset('images/WEBPpic3.webp') }}" alt="Logo" class="h-6 w-6">>
+  <h1 class="font-bold py-2 px-4 text-lg">VELLARE</h1>
   </div>
-  <!-- Kanan -->
-  <div>
-    <a href="#" class="font-medium text-gray-900 hover:text-blue-600 flex items-center gap-1">
-      Log in
-      <span>→</span>
-    </a>
-    
+  <div class="font-medium text-gray-900 flex items-center gap-1">
+    <a href="#" class="px-3 py-1 rounded-md hover:bg-gray-200 transition">Log in</a>
+    <a href="#" class="px-3 py-1 rounded-md hover:bg-gray-200 transition">Register</a>
   </div>
 </header>
