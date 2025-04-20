@@ -87,3 +87,4 @@
 
 <script src="https://cdn.tailwindcss.com"></script>
 
+@include('partial.footer')
