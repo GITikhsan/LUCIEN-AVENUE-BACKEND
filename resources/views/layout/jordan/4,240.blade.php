@@ -29,6 +29,43 @@
         margin-left: auto;
         margin-right: auto;
       }
+      .custom-nav {
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0.75rem;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+        cursor: pointer;
+        background-color: white;
+        color: black;
+        transition: background-color 0.2s ease, color 0.2s ease;
+      }
+
+      .custom-nav:hover,
+      .custom-nav:active {
+        background-color: black;
+        color: white;
+      }
+
+      .swiper-button-prev {
+        left: 12px;
+      }
+
+      .swiper-button-next {
+        right: 12px;
+      }
+
+      /* Hide default Swiper arrows */
+      .swiper-button-next::after,
+      .swiper-button-prev::after {
+        display: none !important;
+      }
     </style>
   </head>
   
@@ -36,9 +73,10 @@
     <div class="max-w-[1140px] mx-auto px-6">
       <header class="text-center text-3xl font-bold my-10">VELLARE</header>
 
-      <section class="flex flex-wrap gap-10 mb-16">
+      <section class="border-2 border-gray-300 rounded-xl p-8 text-base md:text-lg">
+      <div class="flex flex-wrap md:flex-nowrap gap-15">
         <!-- Swiper Slider -->
-        <div class="w-full md:max-w-[600px] mx-auto">
+        <div class="w-full md:max-w-[520px] mx-auto md:pr-8">
           <div class="swiper product-image-slider">
             <div class="swiper-wrapper">
               <div class="swiper-slide">
@@ -62,52 +100,69 @@
                 </div>
               </div>
             </div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev custom-nav">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+              </svg>
+            </div>
+            <div class="swiper-button-next custom-nav">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </div>
           </div>
         </div>
 
         <!-- Detail Produk -->
-        <div class="flex-1 min-w-[320px]">
-          <h2 class="text-xl font-medium mb-3">
+        <div class="flex-1 min-w-[320px] space-y-4">
+          <h2 class="text-2xl font-medium">
             <strong>Air Jordan 1 Retro Low OG SP Travis Scott Velvet Brown</strong>
           </h2>
-          <div class="uppercase text-xs mb-1">start from</div>
-          <div class="text-xl font-bold mb-6">IDR 4,240,000</div>
+          <div class="uppercase text-sm">start from</div>
+          <div class="text-2xl font-bold">IDR 4,240,000</div>
 
-          <div class="flex gap-2 mb-6">
-            <button class="flex-1 bg-black text-white py-2 rounded-lg">Brand New</button>
-            <button class="flex-1 bg-black text-white py-2 rounded-lg">Used</button>
-            <button class="flex-1 bg-black text-white py-2 rounded-lg">Pre-Order</button>
+          <div class="flex gap-3">
+            <button class="flex-1 bg-black text-white py-3 rounded-lg text-base">Brand New</button>
+            <button class="flex-1 bg-black text-white py-3 rounded-lg text-base">Used</button>
+            <button class="flex-1 bg-black text-white py-3 rounded-lg text-base">Pre-Order</button>
           </div>
 
-          <div class="space-y-3">
-            <div class="flex justify-between font-medium text-base">
+          <div class="space-y-4">
+            <div class="flex justify-between font-medium">
               <span>Please Make Sure The Size Fits You.</span>
-              <span>+</span>
+              <button>+</button>
             </div>
             <hr class="border-t border-gray-300" />
-            <div class="flex justify-between font-medium text-base">
+            <div class="flex justify-between font-medium">
               <span>Authentic. Guaranteed.</span>
-              <span>+</span>
+              <button>+</button>
             </div>
             <hr class="border-t border-gray-300" />
           </div>
 
           <div class="mt-6">
             <p class="mb-3">Share this product to your friends!</p>
-            <div class="flex gap-3">
-              <img src="/images/instagram.png" alt="Instagram" class="w-7" />
-              <img src="/images/facebook.png" alt="Facebook" class="w-7" />
-              <img src="/images/whatsapp.png" alt="WhatsApp" class="w-7" />
-              <img src="/images/twitter.png" alt="Twitter" class="w-7" />
-              <img src="/images/email.png" alt="Email" class="w-7" />
+            <div class="flex gap-4">
+              <img src="/images/instagram.png" alt="Instagram" class="w-8" />
+              <img src="/images/facebook.png" alt="Facebook" class="w-8" />
+              <img src="/images/whatsapp.png" alt="WhatsApp" class="w-8" />
+              <img src="/images/twitter.png" alt="Twitter" class="w-8" />
+              <img src="/images/email.png" alt="Email" class="w-8" />
             </div>
           </div>
         </div>
       </section>
 
-      <hr class="border-t-2 border-gray-300 mb-4" />
+      <div class="mt-20">
+  <h2 class="text-2xl font-bold mb-2">Description</h2>
+  <hr class="border-t-2 border-gray-300 mb-4" />
+  <p class="text-base leading-relaxed">
+  Air Jordan 1 Retro Low OG SP Travis Scott Velvet Brown blends Travis Scott’s signature style with
+  Jordan Brand’s iconic silhouette. Featuring a reversed Swoosh, premium suede in earthy tones, and
+  Cactus Jack branding, this low-top delivers both standout looks and everyday comfort. A must-have
+  for fans and collectors alike.
+  </p>
+</div>
 
       <section class="mb-20 mt-16"> 
         <div class="border border-gray-300 rounded-xl overflow-hidden mt-8">
