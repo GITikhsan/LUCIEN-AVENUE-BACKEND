@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 @include('partial.navbar')
-  <head>
+  
+    <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Beli Air Jordan 1 Retro Low OG SP Travis Scott Velvet Brown</title>
@@ -23,7 +24,7 @@
     </script>
     <style>
       .swiper-slide img {
-        max-width: 500px;
+        max-width: 350px;
         width: 100%;
         height: auto;
         object-fit: contain;
@@ -71,11 +72,10 @@
   </head>
   
   <body class="font-sans text-black text-sm bg-white">
-    <div class="max-w-[1140px] mx-auto px-6">
-      <header class="text-center text-3xl font-bold my-10">VELLARE</header>
+    <div class="max-w-[1140px] mx-auto px-6 mt-10">
 
       <section class="border-2 border-gray-300 rounded-xl p-8 text-base md:text-lg">
-      <div class="flex flex-wrap md:flex-nowrap gap-15">
+      <div class="flex flex-wrap md:flex-nowrap gap-15 items-center">
         <!-- Swiper Slider -->
         <div class="w-full md:max-w-[520px] mx-auto md:pr-8">
           <div class="swiper product-image-slider">
@@ -170,27 +170,28 @@
           <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
             <div class="p-4 text-center border-r border-b border-gray-300">
               <strong class="block text-base mb-2">SKU</strong>
-              <div>DM7866 202</div>
+              <div class="text-sm">DM7866 202</div>
             </div>
             <div class="p-4 text-center border-r border-b border-gray-300">
               <strong class="block text-base mb-2">Color</strong>
-              <div>DARK MOCHA/BLACK/VELVET BROWN</div>
+              <div class="text-sm">DARK MOCHA/BLACK/VELVET BROWN</div>
             </div>
             <div class="p-4 text-center border-r border-b border-gray-300">
               <strong class="block text-base mb-2">Material</strong>
-              <div>-</div>
+              <div class="text-sm">-</div>
+
             </div>
             <div class="p-4 text-center border-r border-b border-gray-300">
               <strong class="block text-base mb-2">Dimension</strong>
-              <div>-</div>
+              <div class="text-sm">-</div>
             </div>
             <div class="p-4 text-center border-r border-b border-gray-300">
               <strong class="block text-base mb-2">Release Date</strong>
-              <div>-</div>
+              <div class="text-sm">-</div>
             </div>
             <div class="p-4 text-center border-b border-gray-300">
               <strong class="block text-base mb-2">Retail (approx).</strong>
-              <div>-</div>
+              <div class="text-sm">-</div>
             </div>
           </div>
         </div>
