@@ -12,7 +12,7 @@ Route::get('/test', function () {
     return view('layout.test');
 });
 Route::get('/4,240', function () {
-    return view('jordan/4,240'); 
+    return view('layout.jordan/4,240'); 
 });
 
 

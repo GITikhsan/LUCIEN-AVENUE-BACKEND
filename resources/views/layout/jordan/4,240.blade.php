@@ -31,6 +31,7 @@
       }
     </style>
   </head>
+  
   <body class="font-sans text-black text-sm bg-white">
     <div class="max-w-[1140px] mx-auto px-6">
       <header class="text-center text-3xl font-bold my-10">VELLARE</header>

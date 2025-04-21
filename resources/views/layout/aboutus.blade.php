@@ -13,7 +13,6 @@
   <p class="text-gray-700 mb-6">
     Berawal dari project di salah satu mata kuliah, kami 6 mahasiswa aktif...
   </p>
-
   <h2 class="text-2xl font-bold mb-4">Misi Kami</h2>
   <ul class="space-y-3 text-gray-700">
     <li class="flex items-start">
