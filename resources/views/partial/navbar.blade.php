@@ -18,7 +18,7 @@
 
   <!-- Tengah: Brand -->
   <div class="absolute left-1/2 -translate-x-1/2 transform">
-    <h1 class="text-3xl font-serif font-semibold tracking-widest text-black">VELLARE</h1>
+    <h1 class="text-3xl font-serif font-semibold tracking-widest text-black">LUCIEN AVENUE</h1>
   </div>
 
   <!-- Kanan: Icons + Menu -->
