@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 @include('partial.navbar')
-  
+
     <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -30,7 +30,14 @@
         object-fit: contain;
         margin-left: auto;
         margin-right: auto;
+        cursor: grab;
       }
+
+      .swiper-slide img:active{
+        cursor: grabbing;
+      }
+
+
       .custom-nav {
         width: 36px;
         height: 36px;
@@ -87,19 +94,21 @@
 
       .swiper-pagination-bullet-active {
         background-color: #000;
-        opacity: 1;     
+        opacity: 1;
       }
 
     </style>
-  </head> 
+  </head>
 
   <body class="font-sans text-black text-sm bg-white">
     <div class="max-w-[1140px] mx-auto px-6 mt-10">
 
       <section class="border-2 border-gray-300 rounded-xl p-8 text-base md:text-lg">
-      <div class="flex flex-wrap md:flex-nowrap gap-15 items-center">
+      <div class="flex flex-wrap md:flex-nowrap gap-15 items-center relative">
+ <!-- Garis tengah -->
+ <div class="hidden md:block absolute top-0 bottom-0 left-1/2 w-px bg-gray-300"></div>
         <!-- Swiper Slider -->
-        <div class="relative w-full max-w-[530px] mx-auto">
+        <div class="relative w-full max-w-[530px] mx-auto pr-9">
   <div class="swiper product-image-slider rounded-xl overflow-hidden">
     <div class="swiper-wrapper">
       <div class="swiper-slide">
@@ -193,7 +202,7 @@
   </p>
 </div>
 
-      <section class="mb-20 mt-16"> 
+      <section class="mb-20 mt-16">
         <div class="border border-gray-300 rounded-xl overflow-hidden mt-8">
           <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
             <div class="p-4 text-center border-r border-b border-gray-300">
@@ -225,10 +234,10 @@
         </div>
       </section>
 
-      <section class="mb-20">
+      <section class="bg-gradient-to-b from-white via-[#f9f9f9] to-white py-10">
       <h3 class="text-sm text-center mb-6 font-semibold">Similar Products</h3>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-x-20 gap-y-10">
-    
+
         <div class="text-left">
           <a href="#" class="text-black no-underline">
            <img src="/images/20JT/22,000,000.png" alt="..." class="rounded-xl w-40 md:w-52 lg:w-64 mx-auto" />
@@ -314,34 +323,7 @@
 
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script>
-  const swiper = new Swiper('.product-image-slider', {
-    loop: true,
-    zoom: true,
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: false,
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    on: {
-      touchStart: function () {
-        const scale = swiper.zoom.scale || 1;
-        swiper.allowTouchMove = scale <= 1;
-      },
-      zoomChange: function (scale) {
-        swiper.allowTouchMove = scale <= 1;
-      }
-    }
-  });
-</script>
-
+    @vite('resources/js/swiper1page.js')
 
   </body>
 </html>
