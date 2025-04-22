@@ -14,8 +14,9 @@
 
 
     <div id="header">
-        <!-------
+   
             <div class="container">
+                 <!-------
             <h1 class="logo">VELLARE</h1>
             <nav>
                 <ul id="sidemenu">
@@ -29,7 +30,6 @@
             </nav>
             ------------>
             <div class="header-text">
-            
                 <h2>Your Fashion, Your Future</h2>
                 <p class="tagline">Explore the world of stylish sneakers 🌍</p>
                 <a href="/html/homePage.html" class="cta-buttonY">Explore Now</a>
