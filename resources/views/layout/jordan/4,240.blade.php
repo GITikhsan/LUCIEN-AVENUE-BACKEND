@@ -105,15 +105,12 @@
 
       <section class="border-2 border-gray-300 rounded-xl p-8 text-base md:text-lg">
       <div class="flex flex-wrap md:flex-nowrap gap-15 items-center relative">
-<<<<<<< HEAD
+        
  <!-- Garis tengah -->
  <div class="hidden md:block absolute top-0 bottom-0 left-1/2 w-px bg-gray-300"></div>
-=======
 
         <!-- Garis tengah -->
         <div class="hidden md:block absolute top-0 bottom-0 left-1/2 w-px bg-gray-300"></div>
-
->>>>>>> 6ecd8763583f708a54a2da8d6d1db212b66320cf
         <!-- Swiper Slider -->
         <div class="relative w-full max-w-[530px] mx-auto pr-9">
   <div class="swiper product-image-slider rounded-xl overflow-hidden">
