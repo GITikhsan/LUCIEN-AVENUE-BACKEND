@@ -1,5 +1,5 @@
 
-@include('partial.header')
+@include('partial.navbar')
 
 <section class="bg-gray-100 py-16 text-center">
   <h1 class="text-4xl font-bold mb-4">Meet our team</h1>

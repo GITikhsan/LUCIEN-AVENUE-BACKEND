@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+@include('partial.navbar')
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,12 @@
 </head>
 <body>
     
-        <!------ Header ----->
+    
+<!------ Header ----->
+
+
     <div id="header">
+        <!-------
             <div class="container">
             <h1 class="logo">VELLARE</h1>
             <nav>
@@ -22,6 +27,7 @@
                     <li><a href="/html/registerPage.html"">Register</a></li>
                 </ul>
             </nav>
+            ------------>
             <div class="header-text">
             
                 <h2>Your Fashion, Your Future</h2>
@@ -30,7 +36,7 @@
             </div>
         </div>
     </div>
-
+------------>
 
     <!---------------GALLERY SECTION ------------->
     <section id="gallery">
@@ -109,6 +115,8 @@
         </div>
         </div>
     </section>
+
+    @include('partial.footer')
 
 
 </body>

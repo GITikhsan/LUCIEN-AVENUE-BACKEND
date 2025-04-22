@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+@include('partial.navbar')
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Profile Page</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-white font-sans m-0">
-  <div class="grid grid-cols-[250px_1fr] grid-rows-[70px_1fr] h-screen grid-areas-[header_header] [sidebar_form]">
+<body class="bg-white font-sans m-0 ">
+  <div class="grid grid-cols-[250px_1fr] grid-rows-[70px_1fr] h-screen grid-areas-[header_header] [sidebar_form]" style="padding-top: 200px;">
 
-    <!-- Header -->
-    <header class="col-span-2 bg-gradient-to-r from-gray-500 to-black text-black flex justify-center items-center text-2xl font-bold">
-      VELLARE
-    </header>
+    <!-- Header --
 
     <!-- Sidebar -->
     <aside class="bg-white border-r-[10px] border-gray-500 flex items-center justify-center">
@@ -68,3 +66,4 @@
   </div>
 </body>
 </html>
+
