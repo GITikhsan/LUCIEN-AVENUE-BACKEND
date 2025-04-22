@@ -12,16 +12,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Extend Tailwind config to use Inter -->
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            inter: ['Inter', 'sans-serif'],
-          }
-        }
-      }
-    }
+  
   </script>
 </head>
 <body class="min-h-screen bg-white flex items-center justify-center font-inter text-center">
