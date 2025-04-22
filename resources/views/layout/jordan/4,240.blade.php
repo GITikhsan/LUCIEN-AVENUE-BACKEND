@@ -97,9 +97,13 @@
     <div class="max-w-[1140px] mx-auto px-6 mt-10">
 
       <section class="border-2 border-gray-300 rounded-xl p-8 text-base md:text-lg">
-      <div class="flex flex-wrap md:flex-nowrap gap-15 items-center">
+      <div class="flex flex-wrap md:flex-nowrap gap-15 items-center relative">
+
+        <!-- Garis tengah -->
+        <div class="hidden md:block absolute top-0 bottom-0 left-1/2 w-px bg-gray-300"></div>
+
         <!-- Swiper Slider -->
-        <div class="relative w-full max-w-[530px] mx-auto">
+        <div class="relative w-full max-w-[530px] mx-auto pr-9">
   <div class="swiper product-image-slider rounded-xl overflow-hidden">
     <div class="swiper-wrapper">
       <div class="swiper-slide">
@@ -225,7 +229,7 @@
         </div>
       </section>
 
-      <section class="mb-20">
+      <section class="bg-gradient-to-b from-white via-[#f9f9f9] to-white py-10">
       <h3 class="text-sm text-center mb-6 font-semibold">Similar Products</h3>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-x-20 gap-y-10">
     
