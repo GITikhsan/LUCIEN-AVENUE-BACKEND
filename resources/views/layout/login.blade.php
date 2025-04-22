@@ -45,7 +45,7 @@
       <form class="flex flex-col gap-4 mb-4">
         <input type="email" placeholder="Email address" required class="px-4 py-3 border border-gray-300 rounded-md text-base focus:outline-none focus:ring-2 focus:ring-green-500"/>
         <input type="password" placeholder="Password" required class="px-4 py-3 border border-gray-300 rounded-md text-base focus:outline-none focus:ring-2 focus:ring-green-500"/>
-        <button type="submit" class="bg-gray-300 hover:bg-black hover:text-white transition-colors duration-300 text-base font-bold py-3 rounded-lg">
+        <button type="submit" class="bg-gray-300 hover:bg-green-800 hover:text-white transition-colors duration-300 text-base font-bold py-3 rounded-lg">
           Login
         </button>
       </form>
