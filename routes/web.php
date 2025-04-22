@@ -20,6 +20,8 @@ Route::get('/profile', function () {
 Route::get('/license', function () {
     return view('layout.license');
 });
-
+Route::get('/login', function () {
+    return view('layout.login');
+});
 
 
