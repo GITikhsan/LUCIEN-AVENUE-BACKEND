@@ -27,7 +27,7 @@
 
         <!-- Links -->
         <div class="mt-auto mb-5 text-center">
-          <a href="/html/License.html" class="block text-green-600 text-sm mb-2 hover:underline">License</a>
+          <a href="license" class="block text-green-600 text-sm mb-2 hover:underline">License</a>
         </div>
 
         <!-- Support -->

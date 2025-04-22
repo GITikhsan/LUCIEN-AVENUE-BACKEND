@@ -17,6 +17,9 @@ Route::get('/4,240', function () {
 Route::get('/profile', function () {
     return view('layout.profile');
 });
+Route::get('/license', function () {
+    return view('layout.license');
+});
 
 
 
