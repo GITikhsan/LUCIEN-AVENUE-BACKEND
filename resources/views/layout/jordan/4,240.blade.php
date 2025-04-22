@@ -50,7 +50,7 @@
       }
 
       .custom-nav:hover,
-      .custom-nav:active {
+      .custom-nav:active{
         background-color: black;
         color: white;
       }
@@ -68,51 +68,79 @@
       .swiper-button-prev::after {
         display: none !important;
       }
+
+      .swiper-pagination {
+        margin-top: 4.5rem; /* tambahin jarak pagination ke bawah */
+        text-align: center;
+        position: relative;
+      }
+
+      .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+        background-color: #aaa;
+        opacity: 0.6;
+        margin: 0 6px;
+        border-radius: 9999px;
+        transition: all 0.3s ease;
+      }
+
+      .swiper-pagination-bullet-active {
+        background-color: #000;
+        opacity: 1;     
+      }
+
     </style>
-  </head>
-  
+  </head> 
+
   <body class="font-sans text-black text-sm bg-white">
     <div class="max-w-[1140px] mx-auto px-6 mt-10">
 
       <section class="border-2 border-gray-300 rounded-xl p-8 text-base md:text-lg">
       <div class="flex flex-wrap md:flex-nowrap gap-15 items-center">
         <!-- Swiper Slider -->
-        <div class="w-full md:max-w-[520px] mx-auto md:pr-8">
-          <div class="swiper product-image-slider">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <div class="swiper-zoom-container zoom-follow">
-                  <img src="/images/4JT/4,240,000.png" alt="Air Jordan 1 Retro Low OG SP Travis Scott Velvet Brown" class="rounded-xl" />
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="swiper-zoom-container zoom-follow">
-                  <img src="/images/4JT/4,240,000(2).png" alt="..." class="rounded-xl" />
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="swiper-zoom-container zoom-follow">
-                  <img src="/images/4JT/4,240,000(3).png" alt="..." class="rounded-xl" />
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="swiper-zoom-container zoom-follow">
-                  <img src="/images/4JT/4,240,000(4).png" alt="..." class="rounded-xl" />
-                </div>
-              </div>
-            </div>
-            <div class="swiper-button-prev custom-nav">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-              </svg>
-            </div>
-            <div class="swiper-button-next custom-nav">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-              </svg>
-            </div>
-          </div>
+        <div class="relative w-full max-w-[530px] mx-auto">
+  <div class="swiper product-image-slider rounded-xl overflow-hidden">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="swiper-zoom-container zoom-follow">
+          <img src="/images/4JT/4,240,000.png" alt="Air Jordan 1 Retro Low OG SP Travis Scott Velvet Brown" />
         </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="swiper-zoom-container zoom-follow">
+          <img src="/images/4JT/4,240,000(2).png" alt="" />
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="swiper-zoom-container zoom-follow">
+          <img src="/images/4JT/4,240,000(3).png" alt="" />
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="swiper-zoom-container zoom-follow">
+          <img src="/images/4JT/4,240,000(4).png" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Bullet pagination -->
+    <div class="swiper-pagination mt-8"></div>
+
+    <!-- Navigation buttons -->
+    <div class="swiper-button-prev custom-nav left-2 top-1/2 -translate-y-1/2 absolute z-10">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+    </div>
+    <div class="swiper-button-next custom-nav right-2 top-1/2 -translate-y-1/2 absolute z-10">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+    </div>
+  </div>
+</div>
+
 
         <!-- Detail Produk -->
         <div class="flex-1 min-w-[320px] space-y-4">
@@ -286,16 +314,35 @@
 
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-      const swiper = new Swiper('.product-image-slider', {
-        loop: true,
-        zoom: true,
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-      });
-    </script>
+<script>
+  const swiper = new Swiper('.product-image-slider', {
+    loop: true,
+    zoom: true,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    on: {
+      touchStart: function () {
+        const scale = swiper.zoom.scale || 1;
+        swiper.allowTouchMove = scale <= 1;
+      },
+      zoomChange: function (scale) {
+        swiper.allowTouchMove = scale <= 1;
+      }
+    }
+  });
+</script>
+
+
   </body>
 </html>
 
