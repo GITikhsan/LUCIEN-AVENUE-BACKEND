@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Login</title>
-
+  <link href="{{ asset('css/login.css')}}" rel="stylesheet" type="text/css">
   <!-- Import Inter font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
@@ -12,16 +12,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Extend Tailwind config to use Inter -->
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            inter: ['Inter', 'sans-serif'],
-          }
-        }
-      }
-    }
+
   </script>
 </head>
 <body class="min-h-screen bg-white flex items-center justify-center font-inter text-center">
@@ -45,7 +36,7 @@
       <form class="flex flex-col gap-4 mb-4">
         <input type="email" placeholder="Email address" required class="px-4 py-3 border border-gray-300 rounded-md text-base focus:outline-none focus:ring-2 focus:ring-green-500"/>
         <input type="password" placeholder="Password" required class="px-4 py-3 border border-gray-300 rounded-md text-base focus:outline-none focus:ring-2 focus:ring-green-500"/>
-        <button type="submit" class="bg-gray-300 hover:bg-green-800 hover:text-white transition-colors duration-300 text-base font-bold py-3 rounded-lg">
+        <button type="submit" class="cta-buttonY">
           Login
         </button>
       </form>
