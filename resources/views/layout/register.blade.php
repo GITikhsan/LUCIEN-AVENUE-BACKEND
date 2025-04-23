@@ -31,7 +31,7 @@
         </div>
 
         <input id="password" type="password" placeholder="Password" required class="border rounded-md w-full p-3 text-base"/>
-        <input id="password" type="Confirm password" placeholder="Confirm Password" required class="border rounded-md w-full p-3 text-base"/>
+        
         <div class="flex items-center gap-2 mt-2">
           <input type="checkbox" id="showPassword" class="w-4 h-4"/>
           <label for="showPassword" class="text-gray-700">Show Password</label>
