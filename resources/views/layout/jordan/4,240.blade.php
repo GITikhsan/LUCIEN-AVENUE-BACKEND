@@ -99,9 +99,8 @@
 
       /* tampilan button hitam brand new dkk */
       .toggle-btn.active {
-        background-color: white;
-        color: black;
-        border: 1px solid black;
+        background-color: black;
+        color: white;
       }
 
     </style>
@@ -172,10 +171,18 @@
 
 
       <div class="flex gap-3" id="toggleGroup">
-        <button class="toggle-btn flex-1 bg-black text-white py-3 rounded-lg text-base">Brand New</button>
-        <button class="toggle-btn flex-1 bg-black text-white py-3 rounded-lg text-base">Used</button>
-        <button class="toggle-btn flex-1 bg-black text-white py-3 rounded-lg text-base">Pre-Order</button>
-      </div>
+  <button class="toggle-btn flex-1 bg-black text-white py-3 rounded-lg text-base border border-transparent hover:bg-white hover:text-black hover:border-black">
+    Brand New
+  </button>
+  <button class="toggle-btn flex-1 bg-black text-white py-3 rounded-lg text-base border border-transparent hover:bg-white hover:text-black hover:border-black">
+    Used
+  </button>
+  <button class="toggle-btn flex-1 bg-black text-white py-3 rounded-lg text-base border border-transparent hover:bg-white hover:text-black hover:border-black">
+    Pre-Order
+  </button>
+</div>
+
+
 
 
       <div class="space-y-4" id="accordion">
