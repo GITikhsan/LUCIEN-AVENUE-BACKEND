@@ -8,13 +8,13 @@
     <link href="{{ asset('css/fashionStyle.css')}}" rel="stylesheet" type="text/css">
 </head>
 <body>
-    
-    
+
+
 <!------ Header ----->
 
 
     <div id="header">
-   
+
             <div class="container">
                  <!-------
             <h1 class="logo">VELLARE</h1>
@@ -50,7 +50,7 @@
                 <div class="gallery-item"><img src="/images/6JT/6,040,000.png" alt="Fashion 5"></div>
                 <div class="gallery-item"><img src="/images/6JT/6,470,000.png" alt="Fashion 6"></div>
                 <div class="gallery-item"><img src="/images/7JT/7,950,000.png" alt="Fashion 7"></div>
-                <div class="gallery-item"><img src="/images/100JT/130,000,000.png" alt="Fashion 8"></div>            
+                <div class="gallery-item"><img src="/images/100JT/130,000,000.png" alt="Fashion 8"></div>
         </div>
     </section>
 
@@ -66,7 +66,7 @@
         </div>
     </section>
 
-    
+
     <!---------------Highlight------------------->
     <section id="featured-products">
         <h2>Our Featured Products</h2>

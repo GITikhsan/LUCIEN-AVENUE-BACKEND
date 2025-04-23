@@ -13,7 +13,7 @@
 
 
     <aside class="grid-in-sidebar  flex items-center justify-center">
-      <div class="bg-white w-[90%] p-5 rounded-lg shadow-md flex flex-col items-center">
+      <div class="bg-white w-[90%] p-5 rounded-lg flex flex-col items-center">
         <div class="text-center mb-4">
           <img src="/images/User.png" alt="UserIcon" class="w-32 mx-auto" />
           <h2 class="mt-2 text-lg font-semibold">USERNAME</h2>
