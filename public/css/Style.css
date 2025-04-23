@@ -1,0 +1,21 @@
+
+/* WAJIB PAKE INI UNTUK KETENTUAN WARNA, PAKENYA TINGGAL PANGGIL NAMANYA DI STYLE HTML/PHP NYA */
+
+warnaBtn{
+    color: #355E3B;
+}
+
+hitam{
+    color: black;
+}
+
+putih{
+    color: #fff;
+}
+
+inter{
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+}
+
+
