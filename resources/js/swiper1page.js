@@ -17,6 +17,24 @@ document.addEventListener("DOMContentLoaded", function () {
     
   });
 
+  const accordionToggles = document.querySelectorAll('.accordion-toggle');
+
+accordionToggles.forEach(toggle => {
+  toggle.addEventListener('click', () => {
+    const content = toggle.closest('.accordion-item').querySelector('.accordion-content');
+    const isOpen = content.style.maxHeight && content.style.maxHeight !== "0px";
+
+    if (isOpen) {
+      content.style.maxHeight = null;
+      toggle.textContent = '+';
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+      toggle.textContent = '−';
+    }
+  });
+});
+
+
   const zoomContainers = document.querySelectorAll('.zoom-follow');
 
   zoomContainers.forEach(container => {

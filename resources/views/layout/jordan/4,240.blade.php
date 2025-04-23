@@ -178,18 +178,32 @@
       </div>
 
 
-      <div class="space-y-4">
-        <div class="flex justify-between font-medium text-sm md:text-base">
-          <span>Please Make Sure The Size Fits You.</span>
-          <button>+</button>
-        </div>
-        <hr class="border-t border-gray-300" />
-        <div class="flex justify-between font-medium text-sm md:text-base">
+      <div class="space-y-4" id="accordion">
+        <div class="accordion-item border-b border-gray-300 pb-2">
+          <div class="flex justify-between font-medium text-sm md:text-base cursor-pointer">
+            <span>Please Make Sure The Size Fits You.</span>
+            <button class="accordion-toggle text-xl font-bold">+</button>
+          </div>
+        <div class="accordion-content overflow-hidden max-h-0 transition-all duration-300 ease-in-out text-sm text-gray-600">
+      <p class="pt-2">
+        If you are unsure about your size, please click the size chart button and browse through the chart to find your correct measurements. Our company policy does not accept refunds or returns for sizing-related issues. For more details, kindly contact our Customer Service to consult further.
+      </p>
+    </div>
+  </div>
+
+      <div class="accordion-item border-b border-gray-300 pb-2">
+        <div class="flex justify-between font-medium text-sm md:text-base cursor-pointer">
           <span>Authentic. Guaranteed.</span>
-          <button>+</button>
+          <button class="accordion-toggle text-xl font-bold">+</button>
         </div>
-        <hr class="border-t border-gray-300" />
+        <div class="accordion-content overflow-hidden max-h-0 transition-all duration-300 ease-in-out text-sm text-gray-600">
+          <p class="pt-2">
+            All products sold are 100% authentic and verified by our team of experts. We guarantee original items only.
+          </p>
+        </div>
       </div>
+    </div>
+
 
       <div class="mt-6">
         <p class="mb-3">Share this product to your friends!</p>
