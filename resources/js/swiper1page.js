@@ -38,6 +38,18 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
+      // Toggle button state
+  const toggleButtons = document.querySelectorAll('.toggle-btn');
+
+  toggleButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      toggleButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+    });
+  });
+  
+
+
     container.addEventListener('mousemove', (e) => {
       if (!zoomActive) return;
 
@@ -54,6 +66,8 @@ document.addEventListener("DOMContentLoaded", function () {
         img.style.transform = 'scale(1)';
       }
     });
+
+    
 });
 
 });
