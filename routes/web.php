@@ -23,5 +23,8 @@ Route::get('/license', function () {
 Route::get('/login', function () {
     return view('layout.login');
 });
+Route::get('/register', function () {
+    return view('layout.register');
+});
 
 
