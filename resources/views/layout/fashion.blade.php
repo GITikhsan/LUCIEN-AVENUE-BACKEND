@@ -70,7 +70,7 @@
     <!---------------Highlight------------------->
     <section id="featured-products">
         <h2>Our Featured Products</h2>
-        <div class="product-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-15">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mt-15">
             <div class="product-card">
                 <img src="/images/100JT/130,000,000.png" alt="Product 1">
                 <h3>Air Jordan 1 Retro Low OG SP Travis Scott Velvet Browny Pink Foam</h3>
@@ -94,8 +94,11 @@
                 <h3>Air Jordan 1 Retro Low OG SP Travis Scott Medium Olive (Toddler)</h3>
                 <p>Rp 2.350.000</p>
                 <a href="#" class="buy-button">Detail</a>
-            
+            </div>
             <!-- untuk Tambah produk lainnya -->
+        </div>
+        <div class="explore-highlight">
+        <a href="/html/homePage.html" class="cta-buttonY">Explore Now</a>
         </div>
     </section>
 
