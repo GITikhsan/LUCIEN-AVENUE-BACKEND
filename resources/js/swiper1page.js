@@ -14,13 +14,14 @@ document.addEventListener("DOMContentLoaded", function () {
       el: '.swiper-pagination',
       clickable: true,
     },
-    
+
   });
 
   const zoomContainers = document.querySelectorAll('.zoom-follow');
 
   zoomContainers.forEach(container => {
     const img = container.querySelector('img');
+    img.style.transition = 'transform 0.5s ease';
     let zoomActive = false;
 
     container.addEventListener('dblclick', () => {
