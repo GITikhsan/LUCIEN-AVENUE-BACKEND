@@ -170,17 +170,64 @@
       </div>
 
 
-      <div class="flex gap-3" id="toggleGroup">
-  <button class="toggle-btn flex-1 bg-black text-white py-3 rounded-lg text-base border border-transparent hover:bg-white hover:text-black hover:border-black">
-    Brand New
-  </button>
-  <button class="toggle-btn flex-1 bg-black text-white py-3 rounded-lg text-base border border-transparent hover:bg-white hover:text-black hover:border-black">
-    Used
-  </button>
-  <button class="toggle-btn flex-1 bg-black text-white py-3 rounded-lg text-base border border-transparent hover:bg-white hover:text-black hover:border-black">
-    Pre-Order
-  </button>
+    <div class="flex gap-3" id="toggleGroup">
+        <button class="toggle-btn flex-1 bg-black text-white py-3 rounded-lg text-base border border-transparent hover:bg-white hover:text-black hover:border-black">
+            Brand New
+        </button>
+        <button class="toggle-btn flex-1 bg-black text-white py-3 rounded-lg text-base border border-transparent hover:bg-white hover:text-black hover:border-black">
+            Used
+        </button>
+
+    <!-- Tombol untuk menampilkan dropdown -->
+    <button id="toggleButton" class="toggle-btn flex-1 bg-black text-white py-3 rounded-lg text-base border border-transparent hover:bg-white hover:text-black hover:border-black">
+        Pre-Order
+    </button>
+
+    <!-- Dropdown ukuran (sembunyi awalnya) -->
+    <div class="relative inline-block left-[-172px]">
+    <div id="sizeDropdown" class="absolute left-0 top-full mt-2 w-40 bg-white border border-gray-200 rounded-lg shadow-lg hidden z-50">
+        <ul class="py-2 text-sm text-gray-700 max-h-60 overflow-y-auto">
+            @foreach (range(36, 44) as $size)
+                <li>
+                    <button class="size-option w-full text-left px-4 py-2 hover:bg-gray-100">
+                        {{ $size }}
+                    </button>
+                </li>
+            @endforeach
+        </ul>
+    </div>
 </div>
+
+<!-- jQuery CDN -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Script
+<script>
+    $(document).ready(function() {
+        // Ketika tombol diklik, toggle dropdown
+        $('#toggleButton').click(function(e) {
+            e.stopPropagation(); // biar gak nutup langsung
+            $('#sizeDropdown').toggleClass('hidden');
+        });
+
+        // Klik di luar dropdown untuk menutup
+        $(document).click(function(event) {
+            if (!$(event.target).closest('#sizeDropdown, #toggleButton').length) {
+                $('#sizeDropdown').addClass('hidden');
+            }
+        });
+
+        // Pilih ukuran dan update teks tombol
+        $('.size-option').click(function() {
+            var selectedSize = $(this).text();
+            $('#toggleButton').text('Ukuran: ' + selectedSize);
+            $('#sizeDropdown').addClass('hidden');
+        });
+    });
+</script>-->
+
+
+    </div>
 
 
 
