@@ -97,100 +97,134 @@
         opacity: 1;
       }
 
+      /* tampilan button hitam brand new dkk */
+      .toggle-btn.active {
+        background-color: black;
+        color: white;
+      }
+
     </style>
   </head>
 
   <body class="font-sans text-black text-sm bg-white">
-    <div class="max-w-[1140px] mx-auto px-6 mt-10">
+    <div class="max-w-[1240px] mx-auto px-6 mt-10">
 
-      <section class="border-2 border-gray-300 rounded-xl p-8 text-base md:text-lg">
-      <div class="flex flex-wrap md:flex-nowrap gap-15 items-center relative">
+    <section class="relative border-2 border-gray-300 rounded-xl p-6 md:p-12 text-base md:text-lg min-h-[560px]">
+  <!-- Garis Tengah -->
+  <div class="hidden md:block absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-px bg-gray-300 z-10"></div>
 
-        <!-- Garis tengah -->
-        <div class="hidden md:block absolute top-0 bottom-0 left-1/2 w-px bg-gray-300"></div>
-        <!-- Swiper Slider -->
-        <div class="relative w-full max-w-[530px] mx-auto pr-9">
-  <div class="swiper product-image-slider rounded-xl overflow-hidden">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <div class="swiper-zoom-container zoom-follow">
-          <img src="/images/4JT/4,240,000.png" alt="Air Jordan 1 Retro Low OG SP Travis Scott Velvet Brown" />
+  <!-- Container Utama -->
+  <div class="flex flex-col md:flex-row w-full h-full gap-8">
+
+    <!-- SWIPER -->
+    <div class="w-full md:max-w-[520px] mx-auto md:mx-0 md:pr-6 flex items-end">
+      <div class="swiper product-image-slider rounded-xl overflow-hidden">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="swiper-zoom-container zoom-follow">
+              <img src="/images/4JT/4,240,000.png" alt="Air Jordan 1 Retro Low OG SP Travis Scott Velvet Brown" class="w-full h-auto object-contain" />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="swiper-zoom-container zoom-follow">
+              <img src="/images/4JT/4,240,000(2).png" alt="" class="w-full h-auto object-contain" />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="swiper-zoom-container zoom-follow">
+              <img src="/images/4JT/4,240,000(3).png" alt="" class="w-full h-auto object-contain" />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="swiper-zoom-container zoom-follow">
+              <img src="/images/4JT/4,240,000(4).png" alt="" class="w-full h-auto object-contain" />
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="swiper-slide">
-        <div class="swiper-zoom-container zoom-follow">
-          <img src="/images/4JT/4,240,000(2).png" alt="" />
+
+        <!-- Bullet pagination -->
+        <div class="swiper-pagination mt-6"></div>
+
+        <!-- Navigation -->
+        <div class="swiper-button-prev custom-nav left-2 top-1/2 -translate-y-1/2 absolute z-10">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
         </div>
-      </div>
-      <div class="swiper-slide">
-        <div class="swiper-zoom-container zoom-follow">
-          <img src="/images/4JT/4,240,000(3).png" alt="" />
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <div class="swiper-zoom-container zoom-follow">
-          <img src="/images/4JT/4,240,000(4).png" alt="" />
+        <div class="swiper-button-next custom-nav right-2 top-1/2 -translate-y-1/2 absolute z-10">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
         </div>
       </div>
     </div>
 
-    <!-- Bullet pagination -->
-    <div class="swiper-pagination mt-8"></div>
+    <!-- DETAIL PRODUK -->
+    <div class="flex-1 min-w-[320px] space-y-5 md:pl-6">
+      <h2 class="text-2xl font-semibold leading-snug">
+        Air Jordan 1 Retro Low OG SP Travis Scott Velvet Brown
+      </h2>
+      <div class="space-y-1">
+        <div class="uppercase text-sm tracking-wide text-gray-600">Start From</div>
+        <div class="text-2xl font-bold text-black">IDR 4,240,000</div>
+      </div>
 
-    <!-- Navigation buttons -->
-    <div class="swiper-button-prev custom-nav left-2 top-1/2 -translate-y-1/2 absolute z-10">
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-      </svg>
-    </div>
-    <div class="swiper-button-next custom-nav right-2 top-1/2 -translate-y-1/2 absolute z-10">
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-      </svg>
-    </div>
-  </div>
+
+      <div class="flex gap-3" id="toggleGroup">
+  <button class="toggle-btn flex-1 bg-black text-white py-3 rounded-lg text-base border border-transparent hover:bg-white hover:text-black hover:border-black">
+    Brand New
+  </button>
+  <button class="toggle-btn flex-1 bg-black text-white py-3 rounded-lg text-base border border-transparent hover:bg-white hover:text-black hover:border-black">
+    Used
+  </button>
+  <button class="toggle-btn flex-1 bg-black text-white py-3 rounded-lg text-base border border-transparent hover:bg-white hover:text-black hover:border-black">
+    Pre-Order
+  </button>
 </div>
 
 
-        <!-- Detail Produk -->
-        <div class="flex-1 min-w-[320px] space-y-4">
-          <h2 class="text-2xl font-medium">
-            <strong>Air Jordan 1 Retro Low OG SP Travis Scott Velvet Brown</strong>
-          </h2>
-          <div class="uppercase text-sm">start from</div>
-          <div class="text-2xl font-bold">IDR 4,240,000</div>
 
-          <div class="flex gap-3">
-            <button class="flex-1 bg-black text-white py-3 rounded-lg text-base">Brand New</button>
-            <button class="flex-1 bg-black text-white py-3 rounded-lg text-base">Used</button>
-            <button class="flex-1 bg-black text-white py-3 rounded-lg text-base">Pre-Order</button>
-          </div>
 
-          <div class="space-y-4">
-            <div class="flex justify-between font-medium">
-              <span>Please Make Sure The Size Fits You.</span>
-              <button>+</button>
-            </div>
-            <hr class="border-t border-gray-300" />
-            <div class="flex justify-between font-medium">
-              <span>Authentic. Guaranteed.</span>
-              <button>+</button>
-            </div>
-            <hr class="border-t border-gray-300" />
+      <div class="space-y-4" id="accordion">
+        <div class="accordion-item border-b border-gray-300 pb-2">
+          <div class="flex justify-between font-medium text-sm md:text-base cursor-pointer">
+            <span>Please Make Sure The Size Fits You.</span>
+            <button class="accordion-toggle text-xl font-bold">+</button>
           </div>
+        <div class="accordion-content overflow-hidden max-h-0 transition-all duration-300 ease-in-out text-sm text-gray-600">
+      <p class="pt-2">
+        If you are unsure about your size, please click the size chart button and browse through the chart to find your correct measurements. Our company policy does not accept refunds or returns for sizing-related issues. For more details, kindly contact our Customer Service to consult further.
+      </p>
+    </div>
+  </div>
 
-          <div class="mt-6">
-            <p class="mb-3">Share this product to your friends!</p>
-            <div class="flex gap-4">
-              <img src="/images/instagram.png" alt="Instagram" class="w-8" />
-              <img src="/images/facebook.png" alt="Facebook" class="w-8" />
-              <img src="/images/whatsapp.png" alt="WhatsApp" class="w-8" />
-              <img src="/images/twitter.png" alt="Twitter" class="w-8" />
-              <img src="/images/email.png" alt="Email" class="w-8" />
-            </div>
-          </div>
+      <div class="accordion-item border-b border-gray-300 pb-2">
+        <div class="flex justify-between font-medium text-sm md:text-base cursor-pointer">
+          <span>Authentic. Guaranteed.</span>
+          <button class="accordion-toggle text-xl font-bold">+</button>
         </div>
-      </section>
+        <div class="accordion-content overflow-hidden max-h-0 transition-all duration-300 ease-in-out text-sm text-gray-600">
+          <p class="pt-2">
+            All products sold are 100% authentic and verified by our team of experts. We guarantee original items only.
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+      <div class="mt-6">
+        <p class="mb-3">Share this product to your friends!</p>
+        <div class="flex gap-4 items-center">
+          <img src="/images/instagram.png" alt="Instagram" class="w-7 md:w-8" />
+          <img src="/images/facebook.png" alt="Facebook" class="w-7 md:w-8" />
+          <img src="/images/whatsapp.png" alt="WhatsApp" class="w-7 md:w-8" />
+          <img src="/images/twitter.png" alt="Twitter" class="w-7 md:w-8" />
+          <img src="/images/email.png" alt="Email" class="w-7 md:w-8" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
       <div class="mt-20">
   <h2 class="text-2xl font-bold mb-2">Description</h2>

@@ -20,7 +20,7 @@
     <div class="flex-1 p-10">
       <h2 class="text-2xl font-semibold mb-2">Register</h2>
       <p class="mb-5">Already have an account?
-        <a href="Login.html" class="text-green-700 font-bold hover:underline">Login here</a>
+        <a href="/login" class="text-green-700 font-bold hover:underline">Login here</a>
       </p>
 
       <form class="flex flex-col gap-3">
@@ -30,26 +30,45 @@
           <input id="phone" type="tel" placeholder="Phone number" inputmode="numeric" pattern="[0-9]*" maxlength="13" class="flex-1 p-3 border rounded-md text-base w-full"/>
         </div>
 
-        <input id="password" type="password" placeholder="Password" required class="border rounded-md w-full p-3 text-base"/>
-        <input id="password" type="Confirm password" placeholder="Confirm Password" required class="border rounded-md w-full p-3 text-base"/>
-        <div class="flex items-center gap-2 mt-2">
-          <input type="checkbox" id="showPassword" class="w-4 h-4"/>
-          <label for="showPassword" class="text-gray-700">Show Password</label>
-        </div>
+
+        <div class="flex items-center gap-3 mb-4">
+            <input id="password" type="password" placeholder="Password" required
+                   class="border rounded-md w-full p-3 text-base"/>
+
+            <div class="flex items-center gap-1">
+              <input type="checkbox" id="showPassword" class="w-4 h-4"/>
+              <label for="showPassword" class="text-sm text-gray-700">Show</label>
+            </div>
+          </div>
+
+          <!-- Confirm Password Field with checkbox next to it -->
+          <div class="flex items-center gap-3 mb-4">
+            <input id="confirmPassword" type="password" placeholder="Confirm Password" required
+                   class="border rounded-md w-full p-3 text-base"/>
+
+            <div class="flex items-center gap-1">
+              <input type="checkbox" id="showConfirmPassword" class="w-4 h-4"/>
+              <label for="showConfirmPassword" class="text-sm text-gray-700">Show</label>
+            </div>
+          </div>
 
         <button type="submit" class="cta-buttonY">Confirm</button>
       </form>
 
-      <small class="text-gray-500 text-sm mt-3 block">Your data will be protected and will not be shared</small>
+      <small class="text-gray-500 text-sm text-center mt-3 block">Your data will be protected and will not be shared</small>
     </div>
   </div>
 
   <script>
-    const checkbox = document.getElementById("showPassword");
-    const passwordField = document.getElementById("password");
-    checkbox.addEventListener("change", function () {
-      passwordField.type = this.checked ? "text" : "password";
-    });
+    const toggleVisibility = (checkboxId, inputId) => {
+      document.getElementById(checkboxId).addEventListener("change", function () {
+        const input = document.getElementById(inputId);
+        input.type = this.checked ? "text" : "password";
+      });
+    };
+
+    toggleVisibility("showPassword", "password");
+    toggleVisibility("showConfirmPassword", "confirmPassword");
   </script>
   <script src="/javascript/countryCode.js"></script>
 </body>

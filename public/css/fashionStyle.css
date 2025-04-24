@@ -447,6 +447,8 @@ form button:hover {
     text-align: center;
     background-color: #fff;
     color: black;
+
+    
 }
 
 #featured-products h2 {
@@ -455,12 +457,17 @@ form button:hover {
     color: black;
 }
 
-.product-grid {
+.explore-highlight{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+/*.product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 30px;
-}
-
+}*/
 .product-card {
     background-color: #fff;
     color: black;
@@ -497,6 +504,8 @@ form button:hover {
     
 
 }
+
+
 
 /*-------------------------PROMO-----------------------*/
 

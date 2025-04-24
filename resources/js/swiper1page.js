@@ -17,6 +17,36 @@ document.addEventListener("DOMContentLoaded", function () {
 
   });
 
+  const accordionToggles = document.querySelectorAll('.accordion-toggle');
+ 
+  accordionToggles.forEach(toggle => {
+    toggle.addEventListener('click', () => {
+      const content = toggle.closest('.accordion-item').querySelector('.accordion-content');
+      const isOpen = content.style.maxHeight && content.style.maxHeight !== "0px";
+  
+      if (isOpen) {
+        content.style.maxHeight = null;
+        toggle.textContent = '+';
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+        toggle.textContent = '−';
+      }
+    });
+  });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggleButtons = document.querySelectorAll('.toggle-btn');
+  
+    toggleButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        toggleButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+      });
+    });
+  });
+  
+
+
   const zoomContainers = document.querySelectorAll('.zoom-follow');
 
   zoomContainers.forEach(container => {
@@ -39,6 +69,18 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
+      // Toggle button state
+  const toggleButtons = document.querySelectorAll('.toggle-btn');
+
+  toggleButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      toggleButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+    });
+  });
+  
+
+
     container.addEventListener('mousemove', (e) => {
       if (!zoomActive) return;
 
@@ -55,6 +97,8 @@ document.addEventListener("DOMContentLoaded", function () {
         img.style.transform = 'scale(1)';
       }
     });
+
+    
 });
 
 });
