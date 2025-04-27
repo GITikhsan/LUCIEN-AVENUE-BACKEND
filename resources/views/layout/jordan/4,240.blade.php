@@ -241,48 +241,44 @@
 
 </section>
 
-      <div class="mt-20">
-  <h2 class="text-2xl font-bold mb-2">Description</h2>
-  <hr class="border-t-2 border-gray-300 mb-4" />
-  <p class="text-base leading-relaxed">
-  Air Jordan 1 Retro Low OG SP Travis Scott Velvet Brown blends Travis Scott’s signature style with
-  Jordan Brand’s iconic silhouette. Featuring a reversed Swoosh, premium suede in earthy tones, and
-  Cactus Jack branding, this low-top delivers both standout looks and everyday comfort. A must-have
-  for fans and collectors alike.
+<div class="bg-white rounded-2xl shadow-lg p-6 mt-16 mb-16">
+  <h2 class="text-2xl font-bold mb-4">Description</h2>
+  <hr class="border-gray-300 mb-4">
+  <p class="text-gray-700 mb-8">
+    Air Jordan 1 Retro Low OG SP Travis Scott Velvet Brown blends Travis Scott’s signature style with Jordan Brand’s iconic silhouette. Featuring a reversed Swoosh, premium suede in earthy tones, and Cactus Jack branding, this low-top delivers both standout looks and everyday comfort. A must-have for fans and collectors alike.
   </p>
+
+  <div class="bg-gray-50 rounded-2xl shadow-md p-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+        <h3 class="text-sm text-gray-500">SKU</h3>
+        <p class="text-lg font-semibold text-gray-900">DM7866 202</p>
+      </div>
+      <div>
+        <h3 class="text-sm text-gray-500">Color</h3>
+        <p class="text-lg font-semibold text-gray-900">Dark Mocha / Black / Velvet Brown</p>
+      </div>
+      <div>
+        <h3 class="text-sm text-gray-500">Material</h3>
+        <p class="text-lg font-semibold text-gray-900">-</p>
+      </div>
+      <div>
+        <h3 class="text-sm text-gray-500">Dimension</h3>
+        <p class="text-lg font-semibold text-gray-900">-</p>
+      </div>
+      <div>
+        <h3 class="text-sm text-gray-500">Release Date</h3>
+        <p class="text-lg font-semibold text-gray-900">-</p>
+      </div>
+      <div>
+        <h3 class="text-sm text-gray-500">Retail (approx.)</h3>
+        <p class="text-lg font-semibold text-gray-900">-</p>
+      </div>
+    </div>
+  </div>
 </div>
 
-      <section class="mb-20 mt-16">
-        <div class="border border-gray-300 rounded-xl overflow-hidden mt-8">
-          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
-            <div class="p-4 text-center border-r border-b border-gray-300">
-              <strong class="block text-base mb-2">SKU</strong>
-              <div class="text-sm">DM7866 202</div>
-            </div>
-            <div class="p-4 text-center border-r border-b border-gray-300">
-              <strong class="block text-base mb-2">Color</strong>
-              <div class="text-sm">DARK MOCHA/BLACK/VELVET BROWN</div>
-            </div>
-            <div class="p-4 text-center border-r border-b border-gray-300">
-              <strong class="block text-base mb-2">Material</strong>
-              <div class="text-sm">-</div>
 
-            </div>
-            <div class="p-4 text-center border-r border-b border-gray-300">
-              <strong class="block text-base mb-2">Dimension</strong>
-              <div class="text-sm">-</div>
-            </div>
-            <div class="p-4 text-center border-r border-b border-gray-300">
-              <strong class="block text-base mb-2">Release Date</strong>
-              <div class="text-sm">-</div>
-            </div>
-            <div class="p-4 text-center border-b border-gray-300">
-              <strong class="block text-base mb-2">Retail (approx).</strong>
-              <div class="text-sm">-</div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <section class="bg-gradient-to-b from-white via-[#f9f9f9] to-white py-10">
       <h3 class="text-sm text-center mb-6 font-semibold">Similar Products</h3>
