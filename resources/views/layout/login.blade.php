@@ -50,7 +50,7 @@
       </form>
 
       <div class="text-center">
-        <a href="/html/forgotPage.html" class="text-green-700 font-bold hover:underline">
+        <a href="/forgot" class="text-green-700 font-bold hover:underline">
           Forgot password?
         </a>
 

@@ -26,5 +26,8 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('layout.register');
 });
+Route::get('/forgot', function () {
+    return view('layout.forgot');
+});
 
 
