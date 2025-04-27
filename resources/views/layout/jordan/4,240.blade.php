@@ -201,8 +201,8 @@
 <!-- jQuery CDN -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<!-- Script
-<script>
+
+<!-- <script>
     $(document).ready(function() {
         // Ketika tombol diklik, toggle dropdown
         $('#toggleButton').click(function(e) {
@@ -224,7 +224,7 @@
             $('#sizeDropdown').addClass('hidden');
         });
     });
-</script>-->
+</script> -->
 
 
     </div>
