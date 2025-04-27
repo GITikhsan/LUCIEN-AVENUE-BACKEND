@@ -31,26 +31,17 @@
         </div>
 
 
-        <div class="flex items-center gap-3 mb-4">
-            <input id="password" type="password" placeholder="Password" required
-                   class="border rounded-md w-full p-3 text-base"/>
+        <div class="relative mb-4">
+            <input id="password" type="password" placeholder="Password"
+                   class="w-full border rounded-md p-3 pr-10 text-base"/>
 
-            <div class="flex items-center gap-1">
-              <input type="checkbox" id="showPassword" class="w-4 h-4"/>
-              <label for="showPassword" class="text-sm text-gray-700">Show</label>
-            </div>
+            <!-- Eye icon button -->
+            <button type="button" id="togglePassword"
+                    class="absolute right-3 top-1/2 transform -translate-y-1/2 focus:outline-none">
+              <img id="eyeIcon" src="/public/images/password_hide.png" alt="Toggle Eye" class="w-5 h-5">
+            </button>
           </div>
 
-          <!-- Confirm Password Field with checkbox next to it -->
-          <div class="flex items-center gap-3 mb-4">
-            <input id="confirmPassword" type="password" placeholder="Confirm Password" required
-                   class="border rounded-md w-full p-3 text-base"/>
-
-            <div class="flex items-center gap-1">
-              <input type="checkbox" id="showConfirmPassword" class="w-4 h-4"/>
-              <label for="showConfirmPassword" class="text-sm text-gray-700">Show</label>
-            </div>
-          </div>
 
         <button type="submit" class="cta-buttonY">Confirm</button>
       </form>
@@ -60,16 +51,21 @@
   </div>
 
   <script>
-    const toggleVisibility = (checkboxId, inputId) => {
-      document.getElementById(checkboxId).addEventListener("change", function () {
-        const input = document.getElementById(inputId);
-        input.type = this.checked ? "text" : "password";
-      });
-    };
+    const passwordInput = document.getElementById("password");
+    const toggleButton = document.getElementById("togglePassword");
+    const eyeIcon = document.getElementById("eyeIcon");
 
-    toggleVisibility("showPassword", "password");
-    toggleVisibility("showConfirmPassword", "confirmPassword");
+    toggleButton.addEventListener("click", () => {
+      const isPasswordVisible = passwordInput.type === "text";
+
+      passwordInput.type = isPasswordVisible ? "password" : "text";
+
+      // Change the image based on visibility
+      eyeIcon.src = isPasswordVisible ? "/public/images/password_hide.png" : "/public/images/password_show.png";
+      eyeIcon.alt = isPasswordVisible ? "Show password" : "Hide password";
+    });
   </script>
+
   <script src="/javascript/countryCode.js"></script>
 </body>
 </html>
