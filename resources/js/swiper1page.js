@@ -16,10 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
       el: '.swiper-pagination',
       clickable: true,
     },
-<<<<<<< HEAD
-=======
 
->>>>>>> d162a10565d3eb3608a0fe0ed372ea2607077d63
   });
 
   // ========================================
@@ -64,17 +61,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let quantity = 1;
 
-<<<<<<< HEAD
+
   increaseBtn.addEventListener('click', () => {
     quantity++;
     quantityDisplay.textContent = quantity;
   });
-=======
+
   zoomContainers.forEach(container => {
     const img = container.querySelector('img');
     img.style.transition = 'transform 0.5s ease';
     let zoomActive = false;
->>>>>>> d162a10565d3eb3608a0fe0ed372ea2607077d63
+
 
   decreaseBtn.addEventListener('click', () => {
     if (quantity > 1) {

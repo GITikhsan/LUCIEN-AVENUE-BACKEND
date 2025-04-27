@@ -164,7 +164,6 @@
       <h2 class="text-2xl font-semibold leading-snug">
         Air Jordan 1 Retro Low OG SP Travis Scott Velvet Brown
       </h2>
-<<<<<<< HEAD
       <!-- Harga -->
 <div class="mb-6">
   <p class="text-sm text-gray-500 font-semibold uppercase mb-1">Price</p>
@@ -193,7 +192,7 @@
       <button id="increase" class="w-8 h-8 flex items-center justify-center border rounded-md text-lg">+</button>
     </div>
   </div>
-=======
+
       <div class="space-y-1">
         <div class="uppercase text-sm tracking-wide text-gray-600">Start From</div>
         <div class="text-2xl font-bold text-black">IDR 4,240,000</div>
@@ -258,8 +257,6 @@
 
 
     </div>
-
->>>>>>> d162a10565d3eb3608a0fe0ed372ea2607077d63
 
 
 <!-- Tombol Action -->
