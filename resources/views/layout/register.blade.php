@@ -14,12 +14,12 @@
   <div class="flex flex-col md:flex-row max-w-5xl w-full p-5">
 
     <div class="flex-1 flex items-center justify-center">
-      <img src="/images/doggy.png" alt="Illustration" class="w-full h-auto max-w-md"/>
+      <img src="/images/LoginIcon.png" alt="Illustration" class="w-full h-auto max-w-md"/>
     </div>
 
     <div class="flex-1 p-10">
       <h2 class="text-2xl font-semibold mb-2">Register</h2>
-      <p class="mb-5">Already have an account?
+      <p class="text-gray-600 text-sm">Already have an account?
         <a href="/login" class="text-green-700 font-bold hover:underline">Login here</a>
       </p>
 
@@ -27,9 +27,8 @@
         <input type="email" placeholder="Email address" required class="border rounded-md w-full p-3 text-base"/>
 
 
-
         <div class="relative mb-4">
-            <input id="password" type="password" placeholder="Pasword"
+            <input id="password" type="password" placeholder="Password"
                    class="w-full border rounded-md p-3 pr-10 text-base"/>
 
             <!-- Eye icon button -->

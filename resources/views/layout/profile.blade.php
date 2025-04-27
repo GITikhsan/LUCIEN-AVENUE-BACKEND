@@ -50,10 +50,16 @@
         <input type="email" placeholder="Email" class="w-full p-2 mt-1 border border-black rounded"/>
 
         <label class="font-bold mt-5 block">Your password</label>
-        <div class="relative flex items-center mt-1">
-          <input type="password" placeholder="Password" class="w-full p-2 border border-black rounded pr-10"/>
-          <img src="/images/Password_Eye.png" alt="EyeIcon" class="absolute right-3 w-5 cursor-pointer"/>
-        </div>
+        <div class="relative mb-4">
+            <input id="password" type="password" placeholder="Password"
+                   class="w-full p-2 mt-1 border border-black rounded"/>
+
+            <!-- Eye icon button -->
+            <button type="button" id="togglePassword"
+                    class="absolute right-3 top-1/2 transform -translate-y-1/2 focus:outline-none">
+              <img id="eyeIcon" src="/images/password_hide.png" alt="Toggle Eye" class="w-5 h-5">
+            </button>
+          </div>
       </form>
     </main>
   </div>
@@ -75,7 +81,19 @@
       grid-area: form;
     }
   </style>
+<script>
+    const passwordInput = document.getElementById("password");
+        const toggleButton = document.getElementById("togglePassword");
+        const eyeIcon = document.getElementById("eyeIcon");
 
+      toggleButton.addEventListener("click", () => {
+        const isPasswordVisible = passwordInput.type === "text";
+        passwordInput.type = isPasswordVisible ? "password" : "text";
+        eyeIcon.src = isPasswordVisible ? "/images/password_hide.png" : "/images/password_show.png";
+        eyeIcon.alt = isPasswordVisible ? "Show password" : "Hide password";
+      });
+    </script>
+      <script src="/javascript/countryCode.js"></script>
 </body>
 </html>
 @include("partial.footer")
