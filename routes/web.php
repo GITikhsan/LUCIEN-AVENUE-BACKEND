@@ -11,8 +11,8 @@ Route::get('/fashion', function () {
 Route::get('/test', function () {
     return view('layout.test');
 });
-Route::get('/4,240', function () {
-    return view('layout.jordan.4,240');
+Route::get('/4_240', function () {
+    return view('layout.jordan.4_240');
 });
 Route::get('/profile', function () {
     return view('layout.profile');
