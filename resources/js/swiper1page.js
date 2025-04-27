@@ -91,6 +91,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const img = container.querySelector('img');
     let zoomActive = false;
 
+    img.style.transition = 'transform 0.5s ease';
+
     container.addEventListener('dblclick', () => {
       zoomActive = !zoomActive;
       if (!zoomActive) {
