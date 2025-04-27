@@ -26,19 +26,27 @@
       <form class="flex flex-col gap-3">
         <input type="email" placeholder="Email address" required class="border rounded-md w-full p-3 text-base"/>
 
-        <div class="flex gap-3 items-center">
-          <input id="phone" type="tel" placeholder="Phone number" inputmode="numeric" pattern="[0-9]*" maxlength="13" class="flex-1 p-3 border rounded-md text-base w-full"/>
-        </div>
 
 
         <div class="relative mb-4">
-            <input id="password" type="password" placeholder="Password"
+            <input id="password" type="password" placeholder="Pasword"
                    class="w-full border rounded-md p-3 pr-10 text-base"/>
 
             <!-- Eye icon button -->
             <button type="button" id="togglePassword"
                     class="absolute right-3 top-1/2 transform -translate-y-1/2 focus:outline-none">
-              <img id="eyeIcon" src="/public/images/password_hide.png" alt="Toggle Eye" class="w-5 h-5">
+              <img id="eyeIcon" src="/images/password_hide.png" alt="Toggle Eye" class="w-5 h-5">
+            </button>
+          </div>
+
+          <div class="relative mb-4">
+            <input id="confirmPassword" type="password" placeholder="Confirm Password"
+                   class="w-full border rounded-md p-3 pr-10 text-base"/>
+
+            <!-- Eye icon button -->
+            <button type="button" id="toggleConfirmPassword"
+                    class="absolute right-3 top-1/2 transform -translate-y-1/2 focus:outline-none">
+              <img id="confirmEyeIcon" src="/images/password_hide.png" alt="Toggle Eye" class="w-5 h-5">
             </button>
           </div>
 
@@ -55,14 +63,22 @@
     const toggleButton = document.getElementById("togglePassword");
     const eyeIcon = document.getElementById("eyeIcon");
 
+    const confirmPasswordInput = document.getElementById("confirmPassword");
+    const toggleConfirmButton = document.getElementById("toggleConfirmPassword");
+    const confirmEyeIcon = document.getElementById("confirmEyeIcon");
+
     toggleButton.addEventListener("click", () => {
       const isPasswordVisible = passwordInput.type === "text";
-
       passwordInput.type = isPasswordVisible ? "password" : "text";
-
-      // Change the image based on visibility
-      eyeIcon.src = isPasswordVisible ? "/public/images/password_hide.png" : "/public/images/password_show.png";
+      eyeIcon.src = isPasswordVisible ? "/images/password_hide.png" : "/images/password_show.png";
       eyeIcon.alt = isPasswordVisible ? "Show password" : "Hide password";
+    });
+
+    toggleConfirmButton.addEventListener("click", () => {
+      const isConfirmPasswordVisible = confirmPasswordInput.type === "text";
+      confirmPasswordInput.type = isConfirmPasswordVisible ? "password" : "text";
+      confirmEyeIcon.src = isConfirmPasswordVisible ? "/images/password_hide.png" : "/images/password_show.png";
+      confirmEyeIcon.alt = isConfirmPasswordVisible ? "Show password" : "Hide password";
     });
   </script>
 
