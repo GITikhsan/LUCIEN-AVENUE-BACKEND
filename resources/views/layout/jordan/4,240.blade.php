@@ -164,66 +164,81 @@
       <h2 class="text-2xl font-semibold leading-snug">
         Air Jordan 1 Retro Low OG SP Travis Scott Velvet Brown
       </h2>
-      <div class="space-y-1">
-        <div class="uppercase text-sm tracking-wide text-gray-600">Start From</div>
-        <div class="text-2xl font-bold text-black">IDR 4,240,000</div>
-      </div>
-
-
-      <div class="flex gap-3" id="toggleGroup">
-  <button class="toggle-btn flex-1 bg-black text-white py-3 rounded-lg text-base border border-transparent hover:bg-white hover:text-black hover:border-black">
-    Brand New
-  </button>
-  <button class="toggle-btn flex-1 bg-black text-white py-3 rounded-lg text-base border border-transparent hover:bg-white hover:text-black hover:border-black">
-    Used
-  </button>
-  <button class="toggle-btn flex-1 bg-black text-white py-3 rounded-lg text-base border border-transparent hover:bg-white hover:text-black hover:border-black">
-    Pre-Order
-  </button>
+      <!-- Harga -->
+<div class="mb-6">
+  <p class="text-sm text-gray-500 font-semibold uppercase mb-1">Price</p>
+  <p class="text-3xl font-bold text-gray-900">IDR 4,240,000</p>
 </div>
 
+<!-- Pilih Size -->
+<div class="mb-6">
+  <p class="text-sm text-gray-700 font-medium mb-2">Select Size</p>
+  <div class="flex flex-wrap gap-2">
+    <button class="size-button px-3 py-2 border border-gray-300 rounded-md text-gray-700 text-sm hover:bg-black hover:text-white transition-all">39</button>
+    <button class="size-button px-3 py-2 border border-gray-300 rounded-md text-gray-700 text-sm hover:bg-black hover:text-white transition-all">40</button>
+    <button class="size-button px-3 py-2 border border-gray-300 rounded-md text-gray-700 text-sm hover:bg-black hover:text-white transition-all">41</button>
+    <button class="size-button px-3 py-2 border border-gray-300 rounded-md text-gray-700 text-sm hover:bg-black hover:text-white transition-all">42</button>
+    <button class="size-button px-3 py-2 border border-gray-300 rounded-md text-gray-700 text-sm hover:bg-black hover:text-white transition-all">43</button>
+    <button class="size-button px-3 py-2 border border-gray-300 rounded-md text-gray-700 text-sm hover:bg-black hover:text-white transition-all">44</button>
+  </div>
+  <p id="selected-size" class="text-xs text-gray-500 mt-2"></p>
+</div>
+
+<div>
+    <p class="text-sm text-gray-700 font-medium mb-2">Quantity</p>
+    <div class="flex items-center gap-2">
+      <button id="decrease" class="w-8 h-8 flex items-center justify-center border rounded-md text-lg">-</button>
+      <span id="quantity" class="w-8 text-center">1</span>
+      <button id="increase" class="w-8 h-8 flex items-center justify-center border rounded-md text-lg">+</button>
+    </div>
+  </div>
 
 
+<!-- Tombol Action -->
+<div class="flex flex-col md:flex-row gap-4">
+  <button class="w-full bg-black text-white py-3 rounded-full font-semibold text-sm hover:bg-gray-800 transition-all">Add to Cart</button>
+  <button class="w-full bg-yellow-400 text-black py-3 rounded-full font-semibold text-sm hover:bg-yellow-500 transition-all">Buy Now</button>
+</div>
 
-      <div class="space-y-4" id="accordion">
-        <div class="accordion-item border-b border-gray-300 pb-2">
-          <div class="flex justify-between font-medium text-sm md:text-base cursor-pointer">
-            <span>Please Make Sure The Size Fits You.</span>
-            <button class="accordion-toggle text-xl font-bold">+</button>
-          </div>
-        <div class="accordion-content overflow-hidden max-h-0 transition-all duration-300 ease-in-out text-sm text-gray-600">
+<!-- Accordion -->
+<div class="space-y-4 mt-6" id="accordion">
+  <div class="accordion-item border-b border-gray-300 pb-2">
+    <div class="flex justify-between font-medium text-sm md:text-base cursor-pointer">
+      <span>Please Make Sure The Size Fits You.</span>
+      <button class="accordion-toggle text-xl font-bold">+</button>
+    </div>
+    <div class="accordion-content overflow-hidden max-h-0 transition-all duration-300 ease-in-out text-sm text-gray-600">
       <p class="pt-2">
         If you are unsure about your size, please click the size chart button and browse through the chart to find your correct measurements. Our company policy does not accept refunds or returns for sizing-related issues. For more details, kindly contact our Customer Service to consult further.
       </p>
     </div>
   </div>
 
-      <div class="accordion-item border-b border-gray-300 pb-2">
-        <div class="flex justify-between font-medium text-sm md:text-base cursor-pointer">
-          <span>Authentic. Guaranteed.</span>
-          <button class="accordion-toggle text-xl font-bold">+</button>
-        </div>
-        <div class="accordion-content overflow-hidden max-h-0 transition-all duration-300 ease-in-out text-sm text-gray-600">
-          <p class="pt-2">
-            All products sold are 100% authentic and verified by our team of experts. We guarantee original items only.
-          </p>
-        </div>
-      </div>
+  <div class="accordion-item border-b border-gray-300 pb-2">
+    <div class="flex justify-between font-medium text-sm md:text-base cursor-pointer">
+      <span>Authentic. Guaranteed.</span>
+      <button class="accordion-toggle text-xl font-bold">+</button>
     </div>
-
-
-      <div class="mt-6">
-        <p class="mb-3">Share this product to your friends!</p>
-        <div class="flex gap-4 items-center">
-          <img src="/images/instagram.png" alt="Instagram" class="w-7 md:w-8" />
-          <img src="/images/facebook.png" alt="Facebook" class="w-7 md:w-8" />
-          <img src="/images/whatsapp.png" alt="WhatsApp" class="w-7 md:w-8" />
-          <img src="/images/twitter.png" alt="Twitter" class="w-7 md:w-8" />
-          <img src="/images/email.png" alt="Email" class="w-7 md:w-8" />
-        </div>
-      </div>
+    <div class="accordion-content overflow-hidden max-h-0 transition-all duration-300 ease-in-out text-sm text-gray-600">
+      <p class="pt-2">
+        All products sold are 100% authentic and verified by our team of experts. We guarantee original items only.
+      </p>
     </div>
   </div>
+</div>
+
+<!-- Share -->
+<div class="mt-6">
+  <p class="mb-3">Share this product to your friends!</p>
+  <div class="flex gap-4 items-center">
+    <img src="/images/instagram.png" alt="Instagram" class="w-7 md:w-8" />
+    <img src="/images/facebook.png" alt="Facebook" class="w-7 md:w-8" />
+    <img src="/images/whatsapp.png" alt="WhatsApp" class="w-7 md:w-8" />
+    <img src="/images/twitter.png" alt="Twitter" class="w-7 md:w-8" />
+    <img src="/images/email.png" alt="Email" class="w-7 md:w-8" />
+  </div>
+</div>
+
 </section>
 
       <div class="mt-20">

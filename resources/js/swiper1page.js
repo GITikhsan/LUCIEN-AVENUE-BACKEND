@@ -1,6 +1,8 @@
-
 document.addEventListener("DOMContentLoaded", function () {
- const swiper = new Swiper('.product-image-slider', {
+  // ========================================
+  // Handle Swiper (Product Image Slider)
+  // ========================================
+  const swiper = new Swiper('.product-image-slider', {
     loop: true,
     autoplay: {
       delay: 3000,
@@ -14,16 +16,17 @@ document.addEventListener("DOMContentLoaded", function () {
       el: '.swiper-pagination',
       clickable: true,
     },
-    
   });
 
+  // ========================================
+  // Handle Accordion Toggle
+  // ========================================
   const accordionToggles = document.querySelectorAll('.accordion-toggle');
- 
   accordionToggles.forEach(toggle => {
     toggle.addEventListener('click', () => {
       const content = toggle.closest('.accordion-item').querySelector('.accordion-content');
       const isOpen = content.style.maxHeight && content.style.maxHeight !== "0px";
-  
+
       if (isOpen) {
         content.style.maxHeight = null;
         toggle.textContent = '+';
@@ -34,51 +37,72 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  document.addEventListener("DOMContentLoaded", function () {
-    const toggleButtons = document.querySelectorAll('.toggle-btn');
-  
-    toggleButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        toggleButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-      });
+  // ========================================
+  // Handle Size Button (Select Shoe Size)
+  // ========================================
+  const sizeButtons = document.querySelectorAll('.size-button');
+  const selectedSizeText = document.getElementById('selected-size');
+
+  sizeButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      sizeButtons.forEach(btn => btn.classList.remove('bg-black', 'text-white'));
+      button.classList.add('bg-black', 'text-white');
+      selectedSizeText.textContent = `Selected Size: ${button.textContent}`;
     });
   });
-  
 
+  // ========================================
+  // Handle Quantity Button (+ and -)
+  // ========================================
+  const quantityDisplay = document.getElementById('quantity');
+  const increaseBtn = document.getElementById('increase');
+  const decreaseBtn = document.getElementById('decrease');
 
-  const zoomContainers = document.querySelectorAll('.zoom-follow');
+  let quantity = 1;
 
-  zoomContainers.forEach(container => {
-    const img = container.querySelector('img');
-    let zoomActive = false;
+  increaseBtn.addEventListener('click', () => {
+    quantity++;
+    quantityDisplay.textContent = quantity;
+  });
 
-    container.addEventListener('dblclick', () => {
-      zoomActive = !zoomActive;
+  decreaseBtn.addEventListener('click', () => {
+    if (quantity > 1) {
+      quantity--;
+      quantityDisplay.textContent = quantity;
+    }
+  });
 
-      // reset zoom kalau dinonaktifin
-      if (!zoomActive) {
-        img.style.transform = 'scale(1)';
-      }
-      if (zoomActive) {
-        swiper.autoplay.stop(); // stop auto roll pas zoom
-      } else {
-        swiper.autoplay.start(); // nyalain lagi kalau udah selesai zoom
-        img.style.transform = 'scale(1)';
-      }
-    });
-
-      // Toggle button state
+  // ========================================
+  // Handle Toggle Button (Switch between options)
+  // ========================================
   const toggleButtons = document.querySelectorAll('.toggle-btn');
-
   toggleButtons.forEach(button => {
     button.addEventListener('click', () => {
       toggleButtons.forEach(btn => btn.classList.remove('active'));
       button.classList.add('active');
     });
   });
-  
 
+  // ========================================
+  // Handle Image Zoom (Double Click + Mouse Move)
+  // ========================================
+  const zoomContainers = document.querySelectorAll('.zoom-follow');
+  zoomContainers.forEach(container => {
+    const img = container.querySelector('img');
+    let zoomActive = false;
+
+    container.addEventListener('dblclick', () => {
+      zoomActive = !zoomActive;
+      if (!zoomActive) {
+        img.style.transform = 'scale(1)';
+      }
+      if (zoomActive) {
+        swiper.autoplay.stop();
+      } else {
+        swiper.autoplay.start();
+        img.style.transform = 'scale(1)';
+      }
+    });
 
     container.addEventListener('mousemove', (e) => {
       if (!zoomActive) return;
@@ -96,10 +120,5 @@ document.addEventListener("DOMContentLoaded", function () {
         img.style.transform = 'scale(1)';
       }
     });
-
-    
+  });
 });
-
-});
-
-
