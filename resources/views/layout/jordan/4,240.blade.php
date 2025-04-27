@@ -187,9 +187,9 @@
 <div>
     <p class="text-sm text-gray-700 font-medium mb-2">Quantity</p>
     <div class="flex items-center gap-2">
-      <button id="decrease" class="w-8 h-8 flex items-center justify-center border rounded-md text-lg">-</button>
+      <button id="decrease" class="w-8 h-8 flex items-center justify-center border rounded-md text-black  hover:bg-black hover:text-white">-</button>
       <span id="quantity" class="w-8 text-center">1</span>
-      <button id="increase" class="w-8 h-8 flex items-center justify-center border rounded-md text-lg">+</button>
+      <button id="increase" class="w-8 h-8 flex items-center justify-center border rounded-md  text-black  hover:bg-black hover:text-white">+</button>
     </div>
   </div>
 
