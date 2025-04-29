@@ -29,5 +29,9 @@ Route::get('/register', function () {
 Route::get('/forgot', function () {
     return view('layout.forgot');
 });
+Route::get('/homePage', function () {
+    return view('layout.homePage');
+});
+
 
 
