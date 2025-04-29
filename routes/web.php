@@ -32,6 +32,8 @@ Route::get('/forgot', function () {
 Route::get('/homePage', function () {
     return view('layout.homePage');
 });
-
+Route::get('/22,000', function () {
+    return view('layout.jordan.22,000');
+});
 
 
