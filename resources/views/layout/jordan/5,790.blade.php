@@ -289,8 +289,8 @@
        <h3 class="text-sm text-center mb-6 font-semibold">Similar Products</h3>
        <div class="grid grid-cols-2 md:grid-cols-4 gap-x-20 gap-y-10">
  
-         <div class="text-left">
-           <a href="#" class="text-black no-underline">
+         <div class="text-left p-3 hover:shadow-md rounded-xl transition bg-white">
+           <a href="#" class="text-black no-underline block">
             <img src="/images/4JT/4,240,000.png" alt="..." class="rounded-xl w-40 md:w-52 lg:w-64 mx-auto" />
             <div class="mt-3">
               <div class="text-xs font-bold min-h-[40px]">Air Jordan 1 Retro Low OG SP Travis Scott Velvet Brown</div>
@@ -299,8 +299,8 @@
            </a>
          </div>
  
-         <div class="text-left">
-           <a href="#" class="text-black no-underline">
+         <div class="text-left p-3 hover:shadow-md rounded-xl transition bg-white">
+           <a href="#" class="text-black no-underline block">
             <img src="/images/20JT/22,000,000.png" alt="..." class="rounded-xl w-40 md:w-52 lg:w-64 mx-auto" />
              <div class="mt-3">
               <div class="text-xs font-bold min-h-[40px]">Air Jordan 1 Retro Low OG SP Travis Scott</div>
@@ -309,8 +309,8 @@
            </a>
          </div>
  
-         <div class="text-left">
-           <a href="#" class="text-black no-underline">
+         <div class="text-left p-3 hover:shadow-md rounded-xl transition bg-white">
+           <a href="#" class="text-black no-underline block">
             <img src="/images/7JT/7,950,000.png" alt="..." class="rounded-xl w-40 md:w-52 lg:w-64 mx-auto" />
              <div class="mt-3">
               <div class="text-xs font-bold min-h-[40px]">Air Jordan 1 Retro Low OG SP Travis Scott Medium Olive</div>
@@ -319,8 +319,8 @@
            </a>
          </div>
  
-         <div class="text-left">
-           <a href="#" class="text-black no-underline">
+         <div class="text-left p-3 hover:shadow-md rounded-xl transition bg-white">
+           <a href="#" class="text-black no-underline block">
             <img src="/images/15JT/15,700,000.png" alt="..." class="rounded-xl w-40 md:w-52 lg:w-64 mx-auto" />
              <div class="mt-3">
               <div class="text-xs font-bold min-h-[40px]">Air Jordan 1 Retro Low OG SP Travis Scott Reverse Mocha</div>
@@ -329,8 +329,8 @@
            </a>
          </div>
  
-         <div class="text-left">
-           <a href="#" class="text-black no-underline">
+         <div class="text-left p-3 hover:shadow-md rounded-xl transition bg-white">
+           <a href="#" class="text-black no-underline block">
             <img src="/images/100JT/130,000,000.png" alt="..." class="rounded-xl w-40 md:w-52 lg:w-64 mx-auto" />
              <div class="mt-3">
               <div class="text-xs font-bold min-h-[40px]">Air Jordan 1 Retro High Off-White White</div>
@@ -339,8 +339,8 @@
            </a>
          </div>
  
-         <div class="text-left">
-           <a href="#" class="text-black no-underline">
+         <div class="text-left p-3 hover:shadow-md rounded-xl transition bg-white">
+           <a href="#" class="text-black no-underline block">
             <img src="/images/20JT/20,000,000.png" alt="..." class="rounded-xl w-40 md:w-52 lg:w-64 mx-auto" />
              <div class="mt-3">
               <div class="text-xs font-bold min-h-[40px]">Air Jordan 1 Low Fragment x Travis Scott</div>
@@ -349,8 +349,8 @@
            </a>
          </div>
  
-         <div class="text-left">
-           <a href="#" class="text-black no-underline">
+         <div class="text-left p-3 hover:shadow-md rounded-xl transition bg-white">
+           <a href="#" class="text-black no-underline block">
             <img src="/images/100JT/187,500,000.png" alt="..." class="rounded-xl w-40 md:w-52 lg:w-64 mx-auto" />
              <div class="mt-3">
               <div class="text-xs font-bold min-h-[40px]">Air Jordan 1 Retro Low Dior</div>
@@ -359,8 +359,8 @@
            </a>
          </div>
  
-         <div class="text-left">
-           <a href="#" class="text-black no-underline">
+         <div class="text-left p-3 hover:shadow-md rounded-xl transition bg-white">
+           <a href="#" class="text-black no-underline block">
             <img src="/images/5JT/5,290,000.jpeg" alt="..." class="rounded-xl w-40 md:w-52 lg:w-64 mx-auto" />
              <div class="mt-3">
               <div class="text-xs font-bold min-h-[40px]">Air Jordan 4 Retro SB Pine Green</div>
