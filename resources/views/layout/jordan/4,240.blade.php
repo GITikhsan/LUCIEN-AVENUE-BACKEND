@@ -279,7 +279,7 @@
 
 
 
-<section class="bg-gradient-to-b from-white via-[#f9f9f9] to-white py-10">
+<section class="bg-gradient-to-b from-white via-[#f9f9f9] to-white py-10 w-full">
        <h3 class="text-sm text-center mb-6 font-semibold">Similar Products</h3>
        <div class="grid grid-cols-2 md:grid-cols-4 gap-x-20 gap-y-10">
  
@@ -362,9 +362,13 @@
              </div>
            </a>
          </div>
- 
    </div>
- </section>
+        <div class="flex justify-center mt-10">
+          <button class="px-7 py-2 bg-black text-white text-sm font-medium rounded-full shadow-lg hover:bg-[#1a1a1a] hover:scale-105 transition-transform duration-300">
+            View More
+          </button>
+        </div>
+ </section> 
 
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
