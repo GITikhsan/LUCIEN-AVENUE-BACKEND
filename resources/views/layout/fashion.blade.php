@@ -1,34 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-@include('partial.navbar')
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fashion Now</title>
     <link href="{{ asset('css/fashionStyle.css')}}" rel="stylesheet" type="text/css">
 </head>
+@include('partial.navbar')
 <body>
-
-
-<!------ Header ----->
-
-
     <div id="header">
-
             <div class="container">
-                 <!-------
-            <h1 class="logo">VELLARE</h1>
-            <nav>
-                <ul id="sidemenu">
-                    <li><a href="#header"">Home</a></li>
-                    <li><a href="/html/AboutUs.html"">About</a></li>
-                    <li><a href="/html/homePage.html"">Shop</a></li>
-                    <li><a href="#contact"">Contact us</a></li>
-                    <li><a href="/html/Login.html"">Login</a></li>
-                    <li><a href="/html/registerPage.html"">Register</a></li>
-                </ul>
-            </nav>
-            ------------>
             <div class="header-text">
                 <h2>Your Fashion, Your Future</h2>
                 <p class="tagline">Explore the world of stylish sneakers 🌍</p>
