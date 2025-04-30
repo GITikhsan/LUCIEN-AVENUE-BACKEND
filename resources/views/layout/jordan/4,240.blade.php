@@ -198,11 +198,79 @@
   </div>
 
 
-<!-- Tombol Action -->
+<!-- Tambahkan jQuery di layout utama -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Tombol Add to Cart & Buy Now -->
 <div class="flex flex-col md:flex-row gap-4">
-  <button class="w-full bg-black text-white py-3 rounded-full font-semibold text-sm hover:bg-gray-800 transition-all">Add to Cart</button>
-  <button class="w-full bg-yellow-400 text-black py-3 rounded-full font-semibold text-sm hover:bg-yellow-500 transition-all">Buy Now</button>
+  <button class="w-full bg-black text-white py-3 rounded-full font-semibold text-sm hover:bg-gray-800 transition-all">
+    Add to Cart
+  </button>
+
+  <button id="openModalBtn" class="w-full bg-yellow-400 text-black py-3 rounded-full font-semibold text-sm hover:bg-yellow-500 transition-all">
+    Buy Now
+  </button>
 </div>
+
+<!-- Modal -->
+<div id="agreementModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black bg-opacity-50">
+  <div class="bg-white rounded-lg shadow-xl max-w-lg w-full p-6 relative">
+    <!-- Tombol Close -->
+    <button class="absolute top-3 right-3 closeModalBtn
+               w-6 h-6 p-1 border border-gray-800 rounded-full flex items-center justify-center
+               text-gray-800 hover:text-white hover:bg-black transition">
+  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12" />
+  </svg>
+</button>
+
+
+    <h2 class="text-2xl font-bold mb-4">Buyer’s Agreement</h2>
+
+    <div class="space-y-4 text-sm text-gray-700">
+      <div>
+        <strong class="block font-semibold">You Are Buying AUTHENTIC Product</strong>
+        <p>I understand products are authenticated but may have minor wear or imperfections.</p>
+      </div>
+      <div>
+        <strong class="block font-semibold">You Have Reviewed Product Details</strong>
+        <p>I’ve reviewed images, name, SKU, size, and condition before purchase.</p>
+      </div>
+      <div>
+        <strong class="block font-semibold">You Are Aware of The RETURN Policy</strong>
+        <p>I accept returns are limited by Lucien Avenue’s policy.</p>
+      </div>
+      <div>
+        <strong class="block font-semibold">You Understand Shipping and Handling Processes</strong>
+        <p>I understand shipping delays by third–party couriers are beyond Lucien Avenue’s control.</p>
+      </div>
+      <div>
+        <strong class="block font-semibold">Lucien Avenue is Not Liable For Seller’s Compliance</strong>
+        <p>While Lucien Avenue ensures sellers follow Indonesian laws, it is not liable for non-compliance beyond these assurances.</p>
+      </div>
+
+      <p>By proceeding, I agree to all <a href="#" class="underline text-blue-600">terms and conditions</a> governing the sale and use of the Lucien Avenue platform.</p>
+    </div>
+
+    <button class="mt-6 w-full bg-green-600 text-white py-2 rounded-full text-lg font-medium hover:bg-green-700 closeModalBtn">
+      Proceed →
+    </button>
+  </div>
+</div>
+
+<!-- jQuery Script -->
+<script>
+  $(document).ready(function() {
+    $('#openModalBtn').click(function() {
+      $('#agreementModal').removeClass('hidden').addClass('flex');
+    });
+
+    $('.closeModalBtn').click(function() {
+      $('#agreementModal').removeClass('flex').addClass('hidden');
+    });
+  });
+</script>
+
 
 <!-- Accordion -->
 <div class="space-y-4 mt-6" id="accordion">
@@ -282,7 +350,7 @@
 <section class="bg-gradient-to-b from-white via-[#f9f9f9] to-white py-10 w-full">
        <h3 class="text-sm text-center mb-6 font-semibold">Similar Products</h3>
        <div class="grid grid-cols-2 md:grid-cols-4 gap-x-20 gap-y-10">
- 
+
          <div class="text-left p-3 hover:shadow-md rounded-xl transition bg-white">
            <a href="#" class="text-black no-underline block">
             <img src="/images/20JT/22,000,000.png" alt="..." class="rounded-xl w-40 md:w-52 lg:w-64 mx-auto" />
@@ -292,7 +360,7 @@
              </div>
            </a>
          </div>
- 
+
          <div class="text-left p-3 hover:shadow-md rounded-xl transition bg-white">
            <a href="#" class="text-black no-underline block">
             <img src="/images/7JT/7,950,000.png" alt="..." class="rounded-xl w-40 md:w-52 lg:w-64 mx-auto" />
@@ -302,7 +370,7 @@
              </div>
            </a>
          </div>
- 
+
          <div class="text-left p-3 hover:shadow-md rounded-xl transition bg-white">
            <a href="#" class="text-black no-underline block">
             <img src="/images/15JT/15,700,000.png" alt="..." class="rounded-xl w-40 md:w-52 lg:w-64 mx-auto" />
@@ -312,7 +380,7 @@
              </div>
            </a>
          </div>
- 
+
          <div class="text-left p-3 hover:shadow-md rounded-xl transition bg-white">
            <a href="#" class="text-black no-underline block">
             <img src="/images/5JT/5,790,000.png" alt="..." class="rounded-xl w-40 md:w-52 lg:w-64 mx-auto" />
@@ -322,7 +390,7 @@
              </div>
            </a>
          </div>
- 
+
          <div class="text-left p-3 hover:shadow-md rounded-xl transition bg-white">
            <a href="#" class="text-black no-underline block">
             <img src="/images/100JT/130,000,000.png" alt="..." class="rounded-xl w-40 md:w-52 lg:w-64 mx-auto" />
@@ -332,7 +400,7 @@
              </div>
            </a>
          </div>
- 
+
          <div class="text-left p-3 hover:shadow-md rounded-xl transition bg-white">
            <a href="#" class="text-black no-underline block">
             <img src="/images/20JT/20,000,000.png" alt="..." class="rounded-xl w-40 md:w-52 lg:w-64 mx-auto" />
@@ -342,7 +410,7 @@
              </div>
            </a>
          </div>
- 
+
          <div class="text-left p-3 hover:shadow-md rounded-xl transition bg-white">
            <a href="#" class="text-black no-underline block">
             <img src="/images/100JT/187,500,000.png" alt="..." class="rounded-xl w-40 md:w-52 lg:w-64 mx-auto" />
@@ -352,7 +420,7 @@
              </div>
            </a>
          </div>
- 
+
          <div class="text-left p-3 hover:shadow-md rounded-xl transition bg-white">
            <a href="#" class="text-black no-underline block">
             <img src="/images/5JT/5,290,000.jpeg" alt="..." class="rounded-xl w-40 md:w-52 lg:w-64 mx-auto" />
@@ -368,7 +436,7 @@
             View More
           </button>
         </div>
- </section> 
+ </section>
 
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
