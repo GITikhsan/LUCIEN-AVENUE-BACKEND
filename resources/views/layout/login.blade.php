@@ -28,7 +28,7 @@
         <h2 class="text-2xl font-semibold mb-2">Login</h2>
         <p class="text-gray-600 text-sm">
           Don't have an account?
-          <a href="register" class="text-green-700 font-bold hover:underline">Sign up here</a>
+          <a href="/register" class="text-green-700 font-bold hover:underline">Sign up here</a>
         </p>
       </div>
 
