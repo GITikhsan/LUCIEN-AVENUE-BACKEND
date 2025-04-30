@@ -28,7 +28,7 @@
         <h2 class="text-2xl font-semibold mb-2">Login</h2>
         <p class="text-gray-600 text-sm">
           Don't have an account?
-          <a href="/html/registerPage.html" class="text-green-700 font-bold hover:underline">Sign up here</a>
+          <a href="register" class="text-green-700 font-bold hover:underline">Sign up here</a>
         </p>
       </div>
 
@@ -38,14 +38,13 @@
             <input id="password" type="password" placeholder="Password"
                    class="w-full border rounded-md p-3 pr-10 text-base"/>
 
-            <!-- Eye icon button -->
             <button type="button" id="togglePassword"
                     class="absolute right-3 top-1/2 transform -translate-y-1/2 focus:outline-none">
               <img id="eyeIcon" src="/images/password_hide.png" alt="Toggle Eye" class="w-5 h-5">
             </button>
           </div>
         <button type="submit" class="cta-buttonY">
-          Login
+         Login
         </button>
       </form>
 

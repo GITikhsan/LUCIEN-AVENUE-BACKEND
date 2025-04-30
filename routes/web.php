@@ -44,3 +44,6 @@ Route::get('/15,700', function () {
 Route::get('/5,790', function () {
     return view('layout.jordan.5,790');
 });
+Route::get('/homePage', function () {
+    return view('layout.homePage');
+});
