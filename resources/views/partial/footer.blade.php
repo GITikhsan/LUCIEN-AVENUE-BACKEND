@@ -1,4 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+</head>
+<body>
 <footer class="bg-white">
     <div class="w-full max-w-screen-xl mx-auto  md:py-8">
         <div class="sm:flex sm:items-center sm:justify-between">
@@ -24,3 +31,5 @@
         <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2025 <a class="hover:underline">23IF03™</a>. All Rights Reserved.</span>
     </div>
 </footer>
+</body>
+</html>
