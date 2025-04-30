@@ -50,3 +50,6 @@ Route::get('/homePage', function () {
 Route::get('/payment', function () {
     return view('layout.payment');
 });
+Route::get('/otp', function () {
+    return view('layout.otp');
+});
