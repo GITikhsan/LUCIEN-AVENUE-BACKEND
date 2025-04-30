@@ -47,3 +47,6 @@ Route::get('/5,790', function () {
 Route::get('/homePage', function () {
     return view('layout.homePage');
 });
+Route::get('/payment', function () {
+    return view('layout.payment');
+});
