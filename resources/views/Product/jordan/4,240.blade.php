@@ -198,11 +198,189 @@
   </div>
 
 
-<!-- Tombol Action -->
+<!-- Tambahkan jQuery di layout utama -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Tombol Add to Cart & Buy Now -->
 <div class="flex flex-col md:flex-row gap-4">
-  <button class="w-full bg-black text-white py-3 rounded-full font-semibold text-sm hover:bg-gray-800 transition-all">Add to Cart</button>
-  <button class="w-full bg-yellow-400 text-black py-3 rounded-full font-semibold text-sm hover:bg-yellow-500 transition-all">Buy Now</button>
+  <button class="w-full bg-black text-white py-3 rounded-full font-semibold text-sm hover:bg-gray-800 transition-all">
+    Add to Cart
+  </button>
+
+  <button id="openModalBtn" class="w-full bg-yellow-400 text-black py-3 rounded-full font-semibold text-sm hover:bg-yellow-500 transition-all">
+    Buy Now
+  </button>
 </div>
+
+<!-- Modal -->
+<div id="agreementModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black bg-opacity-50">
+  <div class="bg-white rounded-lg shadow-xl max-w-lg w-full p-6 relative">
+    <!-- Tombol Close -->
+    <button class="absolute top-3 right-3 closeModalBtn
+               w-6 h-6 p-1 border border-gray-800 rounded-full flex items-center justify-center
+               text-gray-800 hover:text-white hover:bg-black transition">
+  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12" />
+  </svg>
+</button>
+
+
+    <h2 class="text-2xl font-bold mb-4">Buyer’s Agreement</h2>
+
+    <div class="space-y-4 text-sm text-gray-700">
+      <div>
+        <strong class="block font-semibold">You Are Buying AUTHENTIC Product</strong>
+        <p>I understand products are authenticated but may have minor wear or imperfections.</p>
+      </div>
+      <div>
+        <strong class="block font-semibold">You Have Reviewed Product Details</strong>
+        <p>I’ve reviewed images, name, SKU, size, and condition before purchase.</p>
+      </div>
+      <div>
+        <strong class="block font-semibold">You Are Aware of The RETURN Policy</strong>
+        <p>I accept returns are limited by Lucien Avenue’s policy.</p>
+      </div>
+      <div>
+        <strong class="block font-semibold">You Understand Shipping and Handling Processes</strong>
+        <p>I understand shipping delays by third–party couriers are beyond Lucien Avenue’s control.</p>
+      </div>
+      <div>
+        <strong class="block font-semibold">Lucien Avenue is Not Liable For Seller’s Compliance</strong>
+        <p>While Lucien Avenue ensures sellers follow Indonesian laws, it is not liable for non-compliance beyond these assurances.</p>
+      </div>
+
+      <p>By proceeding, I agree to all <a href="#" class="underline text-blue-600">terms and conditions</a> governing the sale and use of the Lucien Avenue platform.</p>
+    </div>
+
+    <button id="open-payment" class="w-full bg-green-600 text-white py-2 rounded-full text-lg font-medium hover:bg-green-700 transition-all">
+      Proceed →
+    </button>
+  </div>
+</div>
+
+<div id="payment-up" class="fixed inset-0 z-50 hidden items-center justify-center bg-black bg-opacity-50">
+    <div class="bg-white rounded-lg shadow-xl max-w-lg w-full p-6 relative">
+
+        <!-- Address Box -->
+        <div class="border border-red-200 rounded-xl p-4 bg-red-50" id="address-box">
+            <div class="flex items-start gap-3">
+                <div class="text-red-500 text-xl">📍</div>
+                <div>
+                    <p class="font-semibold text-gray-800">You haven't add any address yet.</p>
+                    <p class="text-sm text-gray-500">Add your shipping address to continue.</p>
+                </div>
+            </div>
+            <button id="add-address-btn" class="mt-4 bg-red-500 text-white px-4 py-1 rounded hover:bg-red-600 transition">Add Address</button>
+        </div>
+
+        <!-- Voucher Section -->
+        <div class="border border-green-200 rounded-xl p-4 bg-green-50">
+            <div class="flex items-center justify-between">
+                <div class="text-sm text-green-800 font-medium">You have vouchers available</div>
+                <button id="view-voucher" class="bg-green-600 text-white px-4 py-1.5 rounded-lg hover:bg-green-700 transition">View</button>
+            </div>
+        </div>
+
+        <!-- Payment Summary -->
+        <div class="rounded-xl p-4 bg-gray-100">
+            <p class="font-semibold text-gray-700 mb-3">Payment Summary</p>
+            <div class="flex justify-between text-sm text-gray-600 mb-1">
+                <span>Product Price</span>
+                <span>IDR 4,240,000</span>
+            </div>
+            <div class="flex justify-between text-sm text-gray-600 mb-1">
+                <span>Authentication Fee</span>
+                <span class="text-green-600 font-medium">FREE</span>
+            </div>
+            <div class="flex justify-between text-sm text-gray-600 mb-3">
+                <span>Processing Fee <span class="text-xs text-green-500 ml-1">🛈</span></span>
+                <span>IDR 36,000</span>
+            </div>
+            <div class="flex justify-between font-semibold text-gray-800 border-t pt-2">
+                <span>Total</span>
+                <span>IDR 4,276,000</span>
+            </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="flex gap-3">
+            <button class="flex-1 bg-gray-200 text-gray-700 py-2 rounded-lg hover:bg-gray-300 transition closePaymentBtn">Back</button>
+            <button id="choose-payment" class="flex-1 bg-gray-400 text-white py-2 rounded-lg cursor-not-allowed" disabled>Choose Payment</button>
+        </div>
+
+    </div>
+
+    <!-- Modal -->
+    <div id="address-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white p-6 rounded-xl shadow-lg w-96">
+            <h2 class="text-lg font-semibold text-gray-700 mb-4">Add Shipping Address</h2>
+            <input id="input-address" type="text" placeholder="Enter your address" class="w-full border px-3 py-2 rounded mb-4">
+            <div class="flex justify-end gap-3">
+                <button id="cancel-modal" class="bg-gray-300 text-gray-700 px-4 py-1.5 rounded hover:bg-gray-400 transition">Cancel</button>
+                <button id="save-address" class="bg-blue-600 text-white px-4 py-1.5 rounded hover:bg-blue-700 transition">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- jQuery Script -->
+<script>
+  $(document).ready(function() {
+    // Buka agreement modal
+    $('#openModalBtn').click(function() {
+      $('#agreementModal').removeClass('hidden').addClass('flex');
+    });
+
+    // Pindah dari agreement ke payment
+    $('#open-payment').click(function() {
+      $('#agreementModal').removeClass('flex').addClass('hidden'); // hide agreement
+      $('#payment-up').removeClass('hidden').addClass('flex');     // show payment
+    });
+
+    // Tutup agreement
+    $('.closeModalBtn').click(function() {
+      $('#agreementModal').removeClass('flex').addClass('hidden');
+    });
+
+    // Tutup payment
+    $('.closePaymentBtn').click(function() {
+      $('#payment-up').removeClass('flex').addClass('hidden');
+    });
+  });
+</script>
+
+
+<script>
+        $(document).ready(function() {
+            $('#view-voucher').on('click', function() {
+                alert('Your available vouchers:\n- 10% off\n- Free shipping');
+            });
+
+            $('#add-address-btn').on('click', function() {
+                $('#address-modal').fadeIn(200).css('display', 'flex');
+            });
+
+            $('#cancel-modal').on('click', function() {
+                $('#address-modal').fadeOut(200);
+            });
+
+            $('#save-address').on('click', function() {
+                let address = $('#input-address').val();
+                if (address.trim() !== '') {
+                    $('#address-box').hide();
+                    $('#address-modal').fadeOut(200);
+                    $('#choose-payment')
+                        .removeClass('bg-gray-400 cursor-not-allowed')
+                        .addClass('bg-blue-600 hover:bg-blue-700')
+                        .text('Proceed to Payment')
+                        .prop('disabled', false);
+                } else {
+                    alert('Please enter an address.');
+                }
+            });
+        });
+    </script>
+
 
 <!-- Accordion -->
 <div class="space-y-4 mt-6" id="accordion">
@@ -282,7 +460,7 @@
 <section class="bg-gradient-to-b from-white via-[#f9f9f9] to-white py-10 w-full">
        <h3 class="text-sm text-center mb-6 font-semibold">Similar Products</h3>
        <div class="grid grid-cols-2 md:grid-cols-4 gap-x-20 gap-y-10">
- 
+
          <div class="text-left p-3 hover:shadow-md rounded-xl transition bg-white">
            <a href="#" class="text-black no-underline block">
             <img src="/images/20JT/22,000,000.png" alt="..." class="rounded-xl w-40 md:w-52 lg:w-64 mx-auto" />
@@ -292,7 +470,7 @@
              </div>
            </a>
          </div>
- 
+
          <div class="text-left p-3 hover:shadow-md rounded-xl transition bg-white">
            <a href="#" class="text-black no-underline block">
             <img src="/images/7JT/7,950,000.png" alt="..." class="rounded-xl w-40 md:w-52 lg:w-64 mx-auto" />
@@ -302,7 +480,7 @@
              </div>
            </a>
          </div>
- 
+
          <div class="text-left p-3 hover:shadow-md rounded-xl transition bg-white">
            <a href="#" class="text-black no-underline block">
             <img src="/images/15JT/15,700,000.png" alt="..." class="rounded-xl w-40 md:w-52 lg:w-64 mx-auto" />
@@ -312,7 +490,7 @@
              </div>
            </a>
          </div>
- 
+
          <div class="text-left p-3 hover:shadow-md rounded-xl transition bg-white">
            <a href="#" class="text-black no-underline block">
             <img src="/images/5JT/5,790,000.png" alt="..." class="rounded-xl w-40 md:w-52 lg:w-64 mx-auto" />
@@ -322,7 +500,7 @@
              </div>
            </a>
          </div>
- 
+
          <div class="text-left p-3 hover:shadow-md rounded-xl transition bg-white">
            <a href="#" class="text-black no-underline block">
             <img src="/images/100JT/130,000,000.png" alt="..." class="rounded-xl w-40 md:w-52 lg:w-64 mx-auto" />
@@ -332,7 +510,7 @@
              </div>
            </a>
          </div>
- 
+
          <div class="text-left p-3 hover:shadow-md rounded-xl transition bg-white">
            <a href="#" class="text-black no-underline block">
             <img src="/images/20JT/20,000,000.png" alt="..." class="rounded-xl w-40 md:w-52 lg:w-64 mx-auto" />
@@ -342,7 +520,7 @@
              </div>
            </a>
          </div>
- 
+
          <div class="text-left p-3 hover:shadow-md rounded-xl transition bg-white">
            <a href="#" class="text-black no-underline block">
             <img src="/images/100JT/187,500,000.png" alt="..." class="rounded-xl w-40 md:w-52 lg:w-64 mx-auto" />
@@ -352,7 +530,7 @@
              </div>
            </a>
          </div>
- 
+
          <div class="text-left p-3 hover:shadow-md rounded-xl transition bg-white">
            <a href="#" class="text-black no-underline block">
             <img src="/images/5JT/5,290,000.jpeg" alt="..." class="rounded-xl w-40 md:w-52 lg:w-64 mx-auto" />
@@ -368,7 +546,7 @@
             View More
           </button>
         </div>
- </section> 
+ </section>
 
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
