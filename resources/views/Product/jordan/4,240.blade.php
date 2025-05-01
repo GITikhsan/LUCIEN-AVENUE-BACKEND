@@ -262,9 +262,9 @@
     <div class="bg-white rounded-lg shadow-xl max-w-lg w-full p-6 relative">
 
         <!-- Address Box -->
-        <div class="border border-red-200 rounded-xl p-4 bg-red-50" id="address-box">
+        <div class="border border-red-200 rounded-xl p-4 bg-red-50 mb-5" id="address-box">
             <div class="flex items-start gap-3">
-                <div class="text-red-500 text-xl">📍</div>
+                <div class="text-red-500 text-xl mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 24 24"><path fill="red" d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"/></svg></div>
                 <div>
                     <p class="font-semibold text-gray-800">You haven't add any address yet.</p>
                     <p class="text-sm text-gray-500">Add your shipping address to continue.</p>
@@ -274,7 +274,7 @@
         </div>
 
         <!-- Voucher Section -->
-        <div class="border border-green-200 rounded-xl p-4 bg-green-50">
+        <div class="border border-green-200 rounded-xl p-4 bg-green-50 mb-5">
             <div class="flex items-center justify-between">
                 <div class="text-sm text-green-800 font-medium">You have vouchers available</div>
                 <button id="view-voucher" class="bg-green-600 text-white px-4 py-1.5 rounded-lg hover:bg-green-700 transition">View</button>
@@ -282,7 +282,7 @@
         </div>
 
         <!-- Payment Summary -->
-        <div class="rounded-xl p-4 bg-gray-100">
+        <div class="rounded-xl p-4 bg-gray-100 mb-5">
             <p class="font-semibold text-gray-700 mb-3">Payment Summary</p>
             <div class="flex justify-between text-sm text-gray-600 mb-1">
                 <span>Product Price</span>
@@ -310,8 +310,80 @@
 
     </div>
 
-    <!-- Modal -->
     <div id="address-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+    <div class="bg-white w-full max-w-xl h-[90vh] rounded-xl shadow overflow-hidden">
+    <div class="overflow-y-auto h-full p-6">
+
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-4">
+            <button id="cancel-modal" class="text-xl">←</button>
+            <h2 class="text-xl font-bold">Tambah Alamat</h2>
+        </div>
+
+        <h3 class="font-semibold text-lg mb-4">Lengkapi detail alamat</h3>
+
+        <!-- Form -->
+        <form class="space-y-4">
+            <div>
+                <label class="text-sm">Nama Penerima</label>
+                <input name="nama" type="text" maxlength="50" class="mt-1 w-full border rounded px-3 py-2" required />
+            </div>
+
+            <div>
+                <label class="text-sm">Nomor HP</label>
+                <input name="hp" id="hp" type="text" maxlength="15" class="mt-1 w-full border rounded px-3 py-2" required />
+            </div>
+
+            <div>
+                <label class="text-sm">Label Alamat</label>
+                <input name="label" type="text" maxlength="30" class="mt-1 w-full border rounded px-3 py-2 input-address" />
+            </div>
+
+            <div>
+                <label class="text-sm">Kota & Kecamatan</label>
+                <input name="kota" type="text" class="mt-1 w-full border rounded px-3 py-2 input-address" />
+            </div>
+
+            <div>
+                <label class="text-sm">Alamat Lengkap</label>
+                <textarea name="alamat" maxlength="200" class="mt-1 w-full border rounded px-3 py-2 resize-none input-address"></textarea>
+            </div>
+
+            <div>
+                <label class="text-sm">Catatan untuk Kurir (Opsional)</label>
+                <textarea name="catatan" maxlength="45" class="mt-1 w-full border rounded px-3 py-2 resize-none"></textarea>
+            </div>
+
+            <div class="flex justify-between items-center border p-3 rounded">
+                <div class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="red" d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"/></svg>
+                    <span class="text-sm">Tambah Pinpoint (Opsional)</span>
+                </div>
+                <button type="button" class="text-green-600 font-semibold">Atur</button>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <input type="checkbox" name="utama" id="utama" />
+                <label for="utama" class="text-sm">Jadikan alamat utama</label>
+            </div>
+
+            <div class="flex items-start gap-2">
+                <input type="checkbox" name="setuju" id="setuju" required />
+                <label for="setuju" class="text-sm">Saya menyetujui <a href="#" class="text-green-600 font-semibold">Syarat & Ketentuan</a> serta <a href="#" class="text-green-600 font-semibold">Kebijakan Privasi</a></label>
+            </div>
+
+            <!-- Simpan -->
+            <button type="submit" id="save-address" class="w-full bg-green-600 text-white py-3 mt-4 rounded hover:green-800 transition">
+                Simpan
+            </button>
+        </form>
+    </div>
+   </div>
+ </div>
+</div>
+
+    <!-- Modal -->
+    <!-- <div id="address-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
         <div class="bg-white p-6 rounded-xl shadow-lg w-96">
             <h2 class="text-lg font-semibold text-gray-700 mb-4">Add Shipping Address</h2>
             <input id="input-address" type="text" placeholder="Enter your address" class="w-full border px-3 py-2 rounded mb-4">
@@ -321,66 +393,10 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 <!-- jQuery Script -->
-<script>
-  $(document).ready(function() {
-    // Buka agreement modal
-    $('#openModalBtn').click(function() {
-      $('#agreementModal').removeClass('hidden').addClass('flex');
-    });
-
-    // Pindah dari agreement ke payment
-    $('#open-payment').click(function() {
-      $('#agreementModal').removeClass('flex').addClass('hidden'); // hide agreement
-      $('#payment-up').removeClass('hidden').addClass('flex');     // show payment
-    });
-
-    // Tutup agreement
-    $('.closeModalBtn').click(function() {
-      $('#agreementModal').removeClass('flex').addClass('hidden');
-    });
-
-    // Tutup payment
-    $('.closePaymentBtn').click(function() {
-      $('#payment-up').removeClass('flex').addClass('hidden');
-    });
-  });
-</script>
-
-
-<script>
-        $(document).ready(function() {
-            $('#view-voucher').on('click', function() {
-                alert('Your available vouchers:\n- 10% off\n- Free shipping');
-            });
-
-            $('#add-address-btn').on('click', function() {
-                $('#address-modal').fadeIn(200).css('display', 'flex');
-            });
-
-            $('#cancel-modal').on('click', function() {
-                $('#address-modal').fadeOut(200);
-            });
-
-            $('#save-address').on('click', function() {
-                let address = $('#input-address').val();
-                if (address.trim() !== '') {
-                    $('#address-box').hide();
-                    $('#address-modal').fadeOut(200);
-                    $('#choose-payment')
-                        .removeClass('bg-gray-400 cursor-not-allowed')
-                        .addClass('bg-blue-600 hover:bg-blue-700')
-                        .text('Proceed to Payment')
-                        .prop('disabled', false);
-                } else {
-                    alert('Please enter an address.');
-                }
-            });
-        });
-    </script>
-
+@vite('resources/js/popup_requirement.js')
 
 <!-- Accordion -->
 <div class="space-y-4 mt-6" id="accordion">
