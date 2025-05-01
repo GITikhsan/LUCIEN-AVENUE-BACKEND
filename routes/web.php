@@ -55,11 +55,11 @@ Route::get('/15,700', function () {
 Route::get('/5,790', function () {
     return view('product.jordan.5,790');
 });
-<<<<<<< HEAD
+
 Route::get('/viewmore', function () {
-    return view('layout.viewmore');
+    return view('product.viewmore');
 });
-=======
+
 /* PRODUCT */
 
 
@@ -95,5 +95,5 @@ Route::get('/payment', function () {
 /*--------------*/
 
 
->>>>>>> 97cd6255066cf285bb29d132c50bd18ee266433d
+
 
