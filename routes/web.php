@@ -2,54 +2,92 @@
 
 use Illuminate\Support\Facades\Route;
 
+/*         USER       */
 Route::get('/aboutus', function () {
-    return view('layout.aboutus');
+    return view('user.aboutus');
 });
 Route::get('/fashion', function () {
-    return view('layout.fashion');
+    return view('user.fashion');
 });
-Route::get('/test', function () {
-    return view('layout.test');
-});
-Route::get('/4,240', function () {
-    return view('layout.jordan.4,240');
+Route::get('/homePage', function () {
+    return view('user.homePage');
 });
 Route::get('/profile', function () {
-    return view('layout.profile');
+    return view('user.profile');
 });
-Route::get('/license', function () {
-    return view('layout.license');
-});
+
+
+
+
+
+/* AUTH */
 Route::get('/login', function () {
-    return view('layout.login');
+    return view('user.auth.login');
 });
 Route::get('/register', function () {
-    return view('layout.register');
+    return view('user.auth.register');
 });
 Route::get('/forgot', function () {
-    return view('layout.forgot');
+    return view('user.auth.forgot');
 });
-Route::get('/homePage', function () {
-    return view('layout.homePage');
+Route::get('/otp', function () {
+    return view('user.auth.otp');
+});
+/* AUTH */
+
+
+
+
+
+/* PRODUCT */
+Route::get('/4,240', function () {
+    return view('product.jordan.4,240');
 });
 Route::get('/22,000', function () {
-    return view('layout.jordan.22,000');
+    return view('product.jordan.22,000');
 });
 Route::get('/7,950', function () {
-    return view('layout.jordan.7,950');
+    return view('product.jordan.7,950');
 });
 Route::get('/15,700', function () {
-    return view('layout.jordan.15,700');
+    return view('product.jordan.15,700');
 });
 Route::get('/5,790', function () {
-    return view('layout.jordan.5,790');
+    return view('product.jordan.5,790');
 });
-Route::get('/homePage', function () {
-    return view('layout.homePage');
+/* PRODUCT */
+
+
+
+
+
+
+/* TEST */
+Route::get('/test', function () {
+    return view('test.test');
 });
+/* TEST */
+
+
+
+
+
+/*   LINCENSE   */
+Route::get('/license', function () {
+    return view('license.license');
+});
+/*   LINCENSE   */
+
+
+
+
+
+
+/*--------------*/
 Route::get('/payment', function () {
     return view('layout.payment');
 });
-Route::get('/otp', function () {
-    return view('layout.otp');
-});
+/*--------------*/
+
+
+
