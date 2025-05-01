@@ -9,7 +9,7 @@
 <body class="bg-white">
 
 <!-- Navbar -->
-<header class="w-full px-4 py-6 sm:py-8 md:py-10 flex justify-between items-center border-b border-gray-200 bg-white relative">
+<header class="w-full px-4 py-6 sm:py-8 md:py-10 flex justify-between items-center border-b border-gray-300 bg-white relative">
   <!-- Kiri: Contact Us -->
   <div class="flex items-center gap-2 sm:gap-3">
     <span class="text-xl sm:text-2xl md:text-3xl font-bold text-black">+</span>
@@ -48,12 +48,7 @@
   </div>
 </header>
 
-<!-- Book An Appointment Bar -->
-<div class="w-full bg-gray-200 text-center py-4 sm:py-5 px-2">
-  <a href="#" class="text-sm sm:text-base font-medium underline hover:no-underline transition-all block md:inline">
-    Book an Appointment: Shop Spring Summer 2025 in Store
-  </a>
-</div>
+
 
 <script>
   // Ambil elemen tombol dan kotak pencarian
