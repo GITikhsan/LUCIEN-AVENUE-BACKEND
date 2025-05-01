@@ -315,10 +315,11 @@
     <div class="overflow-y-auto h-full p-6">
 
         <!-- Header -->
-        <div class="flex justify-between items-center mb-4">
+        <div class="flex items-center mb-4">
             <button id="cancel-modal" class="text-xl">←</button>
-            <h2 class="text-xl font-bold">Tambah Alamat</h2>
+            <h2 class="text-2xl font-bold flex-grow text-center">Tambah Alamat</h2>
         </div>
+        <div class="w-full h-px bg-gray-400 mb-4"></div>
 
         <h3 class="font-semibold text-lg mb-4">Lengkapi detail alamat</h3>
 
