@@ -24,7 +24,7 @@
     <li>23.11.5533_Wahyu</li>
     <li>23.11.5553_Ian</li>
     <li>23.11.5560_Bagus</li>
-    <li>WAHIDDD</li>
+    <li>23.11.5521_Wahid</li>
   </ul>
 </div>
 
