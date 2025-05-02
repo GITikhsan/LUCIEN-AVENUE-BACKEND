@@ -197,7 +197,7 @@
           const icon = document.getElementById("eyeIcon");
           const isVisible = pw.type === "text";
           pw.type = isVisible ? "password" : "text";
-          icon.src = isVisible ? "/images/password_hide.png" : "/images/password_show.png";
+          icon.src = isVisible ? "/public/images/open-eyes.png" : "/public/images/close-eyes.png";
           icon.alt = isVisible ? "Show password" : "Hide password";
         });
       }
