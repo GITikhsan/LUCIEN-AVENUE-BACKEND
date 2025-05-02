@@ -6,9 +6,7 @@
   <title>About Us</title>
 </head>
 <body>
-
-  @include('partial.navbar')
-
+@include('partial.navbar')
   <section class="bg-gray-100 py-16 text-center">
     <h1 class="text-4xl font-bold mb-4">Meet our team</h1>
     <p class="max-w-2xl mx-auto text-gray-600">
@@ -93,8 +91,6 @@
   </section>
 
   <script src="https://cdn.tailwindcss.com"></script>
-
   @include('partial.footer')
-  
 </body>
 </html>

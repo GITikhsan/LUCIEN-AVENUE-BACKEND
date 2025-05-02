@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/lucide@latest"></script>
-</head>
+
 <body class="bg-white">
 
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
 <!-- Navbar -->
 <header class="w-full px-4 py-6 sm:py-8 md:py-10 flex justify-between items-center border-b border-gray-300 bg-white relative">
   <!-- Kiri: Contact Us -->
@@ -102,6 +97,4 @@
   });
 </script>
 
-</body>
-</html>
 

@@ -1,6 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+/*         ADMIN       */
+Route::get('/admin', function () {
+    return view('admin.admin');
+});
+/*         ADMIN       */
+
+
+
+
 
 /*         USER       */
 Route::get('/aboutus', function () {
@@ -15,6 +24,7 @@ Route::get('/homePage', function () {
 Route::get('/profile', function () {
     return view('user.profile');
 });
+/*         USER       */
 
 
 
@@ -59,7 +69,6 @@ Route::get('/5,790', function () {
 Route::get('/viewmore', function () {
     return view('product.viewmore');
 });
-
 /* PRODUCT */
 
 
