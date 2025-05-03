@@ -19,6 +19,9 @@
     letter-spacing: 1px;
     position: relative;
     overflow: hidden;
+    position: absolute;
+    margin-top: -38%;
+    transform: translateX(-50%);
 }
 
 .cta-buttonY::after {
@@ -40,7 +43,6 @@
 .cta-buttonY:hover {
     color: white;
     background-color: #355E3B;
-    transform: scale(1.05);
 }
 
 

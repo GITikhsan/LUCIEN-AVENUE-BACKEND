@@ -15,12 +15,12 @@
 
   <div class="w-full max-w-xl px-4 text-center relative">
     <!-- Heading -->
-    <h2 class="font-bold text-xl absolute top-[7%] left-1/2 transform -translate-x-1/2 z-20">
+    <h2 class="font-bold text-xl absolute top-[5%] left-1/2 transform -translate-x-1/2 z-20">
       We sent the OTP code through your email
     </h2>
 
-    <!-- Background Illustration -->
-    <img src="/images/Loginicon.png" alt="Illustration" class="w-full opacity-50 z-0" />
+
+    <img src="/images/Loginicon.png" alt="Illustration" class="relative w-full opacity-45 left-1/2 -translate-x-1/2 z-0    " />
 
     <!-- OTP Inputs -->
     <div class="absolute top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex gap-4 z-20">
@@ -31,11 +31,11 @@
     </div>
 
     <!-- Confirm Button -->
-    <button type="submit" class="cta-buttonY top-[30%]">Confirm</button>
+    <button type="submit" class="cta-buttonY ">Confirm</button>
 
     <!-- Links -->
     <div class="mt-10 z-20 relative">
-      <a href="forgotPage.html" class="block text-green-700 font-bold mt-4 hover:underline">Resend Code?</a>
+      <a href="#" class="mt-4 block text-green-700 font-bold mt-4 hover:underline">Resend Code?</a>
     </div>
   </div>
   <script>
