@@ -373,3 +373,5 @@
   </script>
 </body>
 </html>
+
+@include('partial.footer')

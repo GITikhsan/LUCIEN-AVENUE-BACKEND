@@ -51,19 +51,19 @@ Route::get('/otp', function () {
 
 /* PRODUCT */
 Route::get('/4,240', function () {
-    return view('product.jordan.4,240');
+    return view('product.pria jordan.4,240');
 });
 Route::get('/22,000', function () {
-    return view('product.jordan.22,000');
+    return view('product.pria jordan.22,000');
 });
 Route::get('/7,950', function () {
-    return view('product.jordan.7,950');
+    return view('product.pria jordan.7,950');
 });
 Route::get('/15,700', function () {
-    return view('product.jordan.15,700');
+    return view('product.pria jordan.15,700');
 });
 Route::get('/5,790', function () {
-    return view('product.jordan.5,790');
+    return view('product.pria jordan.5,790');
 });
 
 Route::get('/viewmore', function () {
