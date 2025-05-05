@@ -53,8 +53,8 @@ Route::get('/otp', function () {
 Route::get('/4,240', function () {
     return view('product.pria jordan.4,240');
 });
-Route::get('/22,000', function () {
-    return view('product.pria jordan.22,000');
+Route::get('/1,540', function () {
+    return view('product.wanita jordan.1,540');
 });
 Route::get('/7,950', function () {
     return view('product.pria jordan.7,950');
