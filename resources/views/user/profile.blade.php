@@ -29,10 +29,13 @@
           <form method="POST" action="{{ route('logout') }}" class="w-full">
             @csrf
             <button type="submit" class="flex w-full justify-between items-center text-left hover:text-green-600 transition">
-              LOG OUT <span>→</span>
+              LOG OUT
             </button>
           </form>
         </li>
+
+
+
       </ul>
     </aside>
 
