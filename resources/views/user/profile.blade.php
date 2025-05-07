@@ -25,15 +25,14 @@
         <li><a href="#" data-panel="BANTUAN" class="flex justify-between items-center hover:text-green-600 transition">BANTUAN <span>→</span></a></li>
         <li><a href="#" data-panel="PEMBAYARAN" class="flex justify-between items-center hover:text-green-600 transition">PEMBAYARAN <span>→</span></a></li>
         <br><br>
-        <!-- <li>
+        <li>
           <form method="POST" action="{{ route('logout') }}" class="w-full">
             @csrf
             <button type="submit" class="flex w-full justify-between items-center text-left hover:text-green-600 transition">
-              LOG OUT
+              LOG OUT <span>→</span>
             </button>
           </form>
-        </li> -->
-
+        </li>
       </ul>
     </aside>
 
