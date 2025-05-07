@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-@include('partial.navbar')
+@include('partial.sticknavbar')
 
     <head>
     <meta charset="UTF-8" />
@@ -9,6 +9,18 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <link href="{{ asset('css/btnswiper.css')}}" rel="stylesheet" type="text/css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+    .fade-section {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 1.2s ease-out;
+    }
+
+    .animate-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
     <script>
     tailwind.config = {
       theme: {
@@ -22,7 +34,7 @@
     </script>
   </head>
 
-  <body class="font-sans text-black text-sm bg-white">
+  <body class="font-sans text-black text-sm bg-white snap-y snap-mandatory overflow-y-scroll">
     <div class="max-w-[1240px] mx-auto px-6 mt-10">
 
     <section class="relative border-2 border-gray-300 rounded-xl p-6 md:p-12 text-base md:text-lg min-h-[560px]">
@@ -76,31 +88,29 @@
     </div>
 
     <!-- DETAIL PRODUK -->
-    <div class="flex-1 min-w-[320px] space-y-5 md:pl-6">
-      <h2 class="text-2xl font-semibold leading-snug">
+    <div class=" flex-1 min-w-[320px] space-y-5 md:pl-6">
+      <h2 class=" text-2xl font-semibold leading-snug">
         Air Jordan 1 Retro Low OG SP Travis Scott Velvet Brown
       </h2>
 
      <!-- Harga -->
       <div class="mb-6">
-        <div class="flex items-center gap-2 mb-1">
-          <p class="text-sm text-gray-500 font-medium uppercase tracking-wide">Price</p>
-          <span class="bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded-sm leading-none">
-  27% OFF
-</span>
+        <div class=" flex items-center gap-2 mb-1">
+          <p class=" text-sm text-gray-500 font-medium uppercase tracking-wide">Price</p>
+          <span class="bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded-sm leading-none">27% OFF</span>
         </div>
 
-        <div class="flex items-baseline gap-2">
-          <p class="text-base text-gray-400 line-through">IDR 5,808,219</p>
-          <p class="text-2xl font-semibold text-gray-900">IDR 4,240,000</p>
+        <div class=" flex items-baseline gap-2">
+          <p class=" text-base text-gray-400 line-through">IDR 5,808,219</p>
+          <p class=" text-2xl font-semibold text-gray-900">IDR 4,240,000</p>
         </div>
       </div>
 
 
     <!-- Pilih Size -->
-    <div class="mb-6">
-      <p class="text-sm text-gray-700 font-medium mb-2">Select Size</p>
-      <div class="flex flex-wrap gap-2">
+    <div class=" mb-6">
+      <p class=" text-sm text-gray-700 font-medium mb-2">Select Size</p>
+      <div class=" flex flex-wrap gap-2">
         <button class="size-button px-3 py-2 border border-gray-300 rounded-md text-gray-700 text-sm hover:bg-black hover:text-white transition-all">38</button>
         <button class="size-button px-3 py-2 border border-gray-300 rounded-md text-gray-700 text-sm hover:bg-black hover:text-white transition-all">39</button>
         <button class="size-button px-3 py-2 border border-gray-300 rounded-md text-gray-700 text-sm hover:bg-black hover:text-white transition-all">40</button>
@@ -305,19 +315,6 @@
  </div>
 </div>
 
-    <!-- Modal -->
-    <!-- <div id="address-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
-        <div class="bg-white p-6 rounded-xl shadow-lg w-96">
-            <h2 class="text-lg font-semibold text-gray-700 mb-4">Add Shipping Address</h2>
-            <input id="input-address" type="text" placeholder="Enter your address" class="w-full border px-3 py-2 rounded mb-4">
-            <div class="flex justify-end gap-3">
-                <button id="cancel-modal" class="bg-gray-300 text-gray-700 px-4 py-1.5 rounded hover:bg-gray-400 transition">Cancel</button>
-                <button id="save-address" class="bg-blue-600 text-white px-4 py-1.5 rounded hover:bg-blue-700 transition">Save</button>
-            </div>
-        </div>
-    </div>
-</div> -->
-
 <!-- jQuery Script -->
 @vite('resources/js/popup_requirement.js')
 
@@ -349,9 +346,9 @@
 </div>
 
 <!-- Share -->
-<div class="mt-6">
-  <p class="mb-3">Share this product to your friends!</p>
-  <div class="flex gap-4 items-center">
+<div class=" mt-6">
+  <p class=" mb-3">Share this product to your friends!</p>
+  <div class=" flex gap-4 items-center">
     <img src="/images/instagram.png" alt="Instagram" class="w-7 md:w-8" />
     <img src="/images/facebook.png" alt="Facebook" class="w-7 md:w-8" />
     <img src="/images/whatsapp.png" alt="WhatsApp" class="w-7 md:w-8" />
@@ -362,16 +359,16 @@
 
 </section>
 
-<section class="py-10">
-  <div class="mt-10 border-t-2 border-gray-300 pt-6">
+<section class="snap-start py-10">
+  <div class="fade-section mt-10 border-t-2 border-gray-300 pt-6">
     <h3 class="text-2xl font-bold text-gray-800 mb-4">Description</h3>
     <p class="text-gray-600 leading-relaxed">
       Air Jordan 1 Retro Low OG SP Travis Scott Velvet Brown blends Travis Scott’s signature style with Jordan Brand’s iconic silhouette. Featuring a reversed Swoosh, premium suede in earthy tones, and Cactus Jack branding, this low-top delivers both standout looks and everyday comfort. A must-have for fans and collectors alike.
     </p>
 
     <!-- Detail Card -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 bg-gray-50 p-6 rounded-xl shadow-sm">
-      <div>
+    <div class=" grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 bg-gray-50 p-6 rounded-xl shadow-sm">
+      <div >
         <p class="text-gray-500 text-sm mb-1">SKU</p>
         <p class="font-bold text-lg">DM7866 202</p>
         <p class="text-gray-500 text-sm mt-4 mb-1">Material</p>
@@ -380,7 +377,7 @@
         <p class="text-gray-700">-</p>
       </div>
 
-      <div>
+      <div >
         <p class="text-gray-500 text-sm mb-1">Color</p>
         <p class="font-bold text-lg">Dark Mocha / Black / Velvet Brown</p>
         <p class="text-gray-500 text-sm mt-4 mb-1">Dimension</p>
@@ -393,17 +390,17 @@
   </div>
 </section>
 
-            <div class="relative px-4 md:px-10 py-6 md:py-10">
-              <h3 class="text-xl font-semibold text-center text-gray-800 uppercase tracking-wide">
+            <div class="snap-start relative px-4 md:px-10 py-6 md:py-10">
+              <h3 class="fade-section text-xl font-semibold text-center text-gray-800 uppercase tracking-wide">
                 Similar Products
               </h3>
             </div>
 
             <!-- Produk grid: 4 kolom, 2 baris -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10 px-4 md:px-10">
+            <div class="snap-start  grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10 px-4 md:px-10">
               <!-- Ulangi 8 produk -->
               <!-- Product Card -->
-              <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-gray-100">
+              <div class="fade-section bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-gray-100">
                 <a href="#" class="block p-4">
                   <div class="relative">
                     <img src="/images/100JT/100,000,000(1).png" alt=""
@@ -424,7 +421,7 @@
                 </a>
               </div>
 
-              <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-gray-100">
+              <div class="fade-section bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-gray-100">
                 <a href="#" class="block p-4">
                   <div class="relative">
                     <img src="/images/3JT/3,210,000(1).png" alt=""
@@ -441,7 +438,7 @@
                 </a>
               </div>
 
-              <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-gray-100">
+              <div class="fade-section bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-gray-100">
                 <a href="#" class="block p-4">
                   <div class="relative">
                     <img src="/images/2JT/2,050,000(1).png" alt=""
@@ -458,7 +455,7 @@
                 </a>
               </div>
 
-              <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-gray-100">
+              <div class="fade-section bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-gray-100">
                 <a href="#" class="block p-4">
                   <div class="relative">
                     <img src="/images/1JT/1,240,000(1).png" alt=""
@@ -475,7 +472,7 @@
                 </a>
               </div>
 
-              <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-gray-100">
+              <div class="fade-section bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-gray-100">
                 <a href="#" class="block p-4">
                   <div class="relative">
                     <img src="/images/2JT/2,030,000(1).png" alt=""
@@ -492,7 +489,7 @@
                 </a>
               </div>
 
-              <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-gray-100">
+              <div class="fade-section bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-gray-100">
                 <a href="#" class="block p-4">
                   <div class="relative">
                     <img src="/images/1JT/1,650,000(1).png" alt=""
@@ -509,7 +506,7 @@
                 </a>
               </div>
 
-              <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-gray-100">
+              <div class="fade-section bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-gray-100">
                 <a href="#" class="block p-4">
                   <div class="relative">
                     <img src="/images/1JT/1,350,000(1).png" alt=""
@@ -536,7 +533,7 @@
                 </a>
               </div>
 
-              <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-gray-100">
+              <div class="fade-section bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-gray-100">
                 <a href="#" class="block p-4">
                   <div class="relative">
                     <img src="/images/1JT/1,900,000(1).png" alt=""
@@ -565,9 +562,9 @@
             </div>
         </div>
 
-        <div class="px-4 md:px-10 pt-1 pb-18 flex justify-center items-start my-20">
+        <div class="snap-start px-4 md:px-10 pt-1 pb-18 flex justify-center items-start my-20">
             <a href="/products"
-                class="inline-flex items-center gap-1
+                class="fade-section inline-flex items-center gap-1
                     px-6 py-2 text-sm
                     md:px-8 md:text-base
                     font-medium text-white
@@ -588,12 +585,16 @@
 </section>
 
 
+
+
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     @vite('resources/js/swiper1page.js')
+    @vite('resources/js/scrollanimated.js')
 
   </body>
-
+<div class="fade-section">
   @include('partial.footer')
+</div>
 
 </html>
