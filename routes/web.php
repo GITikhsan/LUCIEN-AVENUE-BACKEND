@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 /*         ADMIN       */
 Route::get('/admin', function () {
@@ -103,6 +104,9 @@ Route::get('/payment', function () {
 });
 /*--------------*/
 
-
+Route::post('/logout', function () {
+    Auth::logout();
+    return redirect('/login');
+})->name('logout');
 
 
