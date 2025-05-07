@@ -653,4 +653,5 @@
     @vite('resources/js/swiper1page.js')
 
   </body>
+
 </html>

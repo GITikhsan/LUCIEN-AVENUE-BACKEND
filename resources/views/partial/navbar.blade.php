@@ -7,10 +7,6 @@
         class="w-full px-4 py-6 sm:py-8 md:py-10 flex justify-between items-center border-b border-gray-300 bg-white relative">
         <!-- Kiri: Contact Us -->
         <div class="flex items-center gap-2 sm:gap-3">
-            <span class="text-xl sm:text-2xl md:text-3xl font-bold text-black">+</span>
-            <a href="#" class="text-sm sm:text-base md:text-lg font-semibold text-black hover:underline transition-all">
-                Contact Us
-            </a>
         </div>
 
         <!-- Tengah: Brand -->
@@ -22,8 +18,8 @@
             </h1>
         </div>
 
-        <!-- Kanan: Icons + Menu -->
-        <div class="flex items-center gap-3 sm:gap-4 text-black relative">
+            <!-- Kanan: Icons + Menu -->
+            <div class="flex items-center gap-5 sm:gap-6 text-black relative mr-2">
             <button aria-label="Cart" id="cartButton" class="relative">
                 <i data-lucide="shopping-bag" class="w-6 h-6"></i>
             </button>
@@ -33,24 +29,38 @@
             <button aria-label="Search" id="searchButton" class="relative">
                 <i data-lucide="search" class="w-6 h-6"></i>
             </button>
-            <button aria-label="Menu" class="flex items-center gap-1">
-                <i data-lucide="menu" class="w-6 h-6"></i>
-                <span class="text-sm font-semibold tracking-wide hidden sm:inline">MENU</span>
+            <!-- Button -->
+            <div class="relative inline-block">
+            <!-- Menu Button -->
+            <button id="menuToggle" aria-label="Menu" class="p-2 text-neutral-800 hover:text-black transition-colors duration-200">
+                <i data-lucide="menu" class="w-6 h-6 stroke-[1.5] transition-transform duration-200 hover:scale-105"></i>
             </button>
+
+            <!-- Dropdown -->
+            <div id="menuDropdown" class="absolute right-0 mt-2 w-40 bg-white shadow-lg border border-gray-200 rounded-md py-2 text-sm text-neutral-800 hidden z-50 transition-all duration-200">
+                <a href="#contact" class="block px-4 py-2 hover:bg-gray-100 transition">Contact Us</a>
+                <a href="#contact" class="block px-4 py-2 hover:bg-gray-100 transition">About Us</a>
+                <a href="#settings" class="block px-4 py-2 hover:bg-gray-100 transition">Settings</a>
+            </div>
+            </div>
+
+
+            </div>
+
+
             <!-- Search Overlay -->
-            <div id="searchOverlay" class="fixed inset-0 bg-black/30 backdrop-blur-sm z-50 hidden">
-                <div class="absolute top-8 left-1/2 transform -translate-x-1/2 w-full max-w-2xl px-4">
-                    <div class="bg-white rounded-full shadow-lg flex items-center px-4 py-2">
-                        <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" stroke-width="2"
-                            viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="11" cy="11" r="8" />
-                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                        </svg>
-                        <input id="searchInput" type="text" placeholder="Search products..."
-                            class="flex-1 px-3 py-2 bg-transparent focus:outline-none text-gray-800" />
-                        <button id="closeSearch" class="text-gray-500 hover:text-black text-xl">&times;</button>
-                    </div>
+            <div id="searchOverlay" class="fixed inset-0 z-50 bg-white/50 backdrop-blur-md flex justify-center pointer-events-none opacity-0 transition-opacity duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]">
+            <div id="searchContainer" class="mt-10 w-full max-w-2xl px-4 transform scale-95 opacity-0 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]">
+                <div class="relative">
+                <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4"></i>
+                <input
+                    id="searchInput"
+                    type="text"
+                    placeholder="Search..."
+                    class="w-full pl-10 pr-4 py-2 text-sm text-gray-900 placeholder-gray-500 bg-white bg-opacity-80 rounded-full shadow-md outline-none focus:ring-2 focus:ring-black/40 focus:shadow-lg"
+                />
                 </div>
+            </div>
             </div>
 
             <!-- Shopping Bag Dropdown -->
@@ -318,5 +328,54 @@
     });
     </script>
 
+    <!-- Menu -->
+    <script>
+    const menuBtn = document.getElementById('menuToggle');
+    const dropdown = document.getElementById('menuDropdown');
+
+    menuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        dropdown.classList.toggle('hidden');
+    });
+
+    document.addEventListener('click', () => {
+        dropdown.classList.add('hidden');
+    });
+    </script>
+
+    <!-- Search -->
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    lucide.createIcons();
+
+    const searchButton = document.getElementById('searchButton');
+    const overlay = document.getElementById('searchOverlay');
+    const container = document.getElementById('searchContainer');
+    const input = document.getElementById('searchInput');
+
+    function showSearch() {
+      overlay.classList.remove('opacity-0', 'pointer-events-none');
+      container.classList.remove('opacity-0', 'scale-95');
+      setTimeout(() => input.focus(), 200);
+    }
+
+    function hideSearch() {
+      overlay.classList.add('opacity-0', 'pointer-events-none');
+      container.classList.add('opacity-0', 'scale-95');
+      input.value = '';
+    }
+
+    searchButton.addEventListener('click', showSearch);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') hideSearch();
+    });
+
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) hideSearch();
+    });
+  });
+</script>
 
 </body>
