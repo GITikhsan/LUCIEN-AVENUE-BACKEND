@@ -42,3 +42,9 @@
     background-color: #355E3B;
     transform: scale(1.05);
 }
+.cta-buttonY:disabled {
+    background-color: #e5e5e5;
+    color: #888;
+    cursor: not-allowed;
+    transform: none;
+  }
