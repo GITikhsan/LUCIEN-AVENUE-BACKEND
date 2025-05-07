@@ -6,10 +6,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Beli Air Jordan 1 Retro Low OG SP Travis Scott Velvet Brown</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link href="{{ asset('css/btnswiper.css')}}" rel="stylesheet" type="text/css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
     tailwind.config = {
@@ -22,88 +20,6 @@
       }
     }
     </script>
-    <style>
-      .swiper-slide img {
-        max-width: 350px;
-        width: 100%;
-        height: auto;
-        object-fit: contain;
-        margin-left: auto;
-        margin-right: auto;
-        cursor: grab;
-      }
-
-      .swiper-slide img:active{
-        cursor: grabbing;
-      }
-
-
-      .custom-nav {
-        width: 36px;
-        height: 36px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 0.75rem;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 10;
-        cursor: pointer;
-        background-color: white;
-        color: black;
-        transition: background-color 0.2s ease, color 0.2s ease;
-      }
-
-      .custom-nav:hover,
-      .custom-nav:active{
-        background-color: black;
-        color: white;
-      }
-
-      .swiper-button-prev {
-        left: 12px;
-      }
-
-      .swiper-button-next {
-        right: 12px;
-      }
-
-      /* Hide default Swiper arrows */
-      .swiper-button-next::after,
-      .swiper-button-prev::after {
-        display: none !important;
-      }
-
-      .swiper-pagination {
-        margin-top: 4.5rem; /* tambahin jarak pagination ke bawah */
-        text-align: center;
-        position: relative;
-      }
-
-      .swiper-pagination-bullet {
-        width: 12px;
-        height: 12px;
-        background-color: #aaa;
-        opacity: 0.6;
-        margin: 0 6px;
-        border-radius: 9999px;
-        transition: all 0.3s ease;
-      }
-
-      .swiper-pagination-bullet-active {
-        background-color: #000;
-        opacity: 1;
-      }
-
-      /* tampilan button hitam brand new dkk */
-      .toggle-btn.active {
-        background-color: black;
-        color: white;
-      }
-
-    </style>
   </head>
 
   <body class="font-sans text-black text-sm bg-white">
