@@ -19,11 +19,11 @@
 
       <!-- MENU -->
       <ul class="w-full text-sm font-semibold space-y-4">
-        <li><a href="#" data-panel="DATA SAYA" class="flex justify-between items-center hover:text-green-600 transition">DATA SAYA <span>→</span></a></li>
-        <li><a href="#" data-panel="PEMBELIAN SAYA" class="flex justify-between items-center hover:text-green-600 transition">PEMBELIAN SAYA <span>→</span></a></li>
-        <li><a href="#" data-panel="PENGEMBALIAN" class="flex justify-between items-center hover:text-green-600 transition">PENGEMBALIAN <span>→</span></a></li>
-        <li><a href="#" data-panel="BANTUAN" class="flex justify-between items-center hover:text-green-600 transition">BANTUAN <span>→</span></a></li>
-        <li><a href="#" data-panel="PEMBAYARAN" class="flex justify-between items-center hover:text-green-600 transition">PEMBAYARAN <span>→</span></a></li>
+        <li><a href="#" data-panel="DATA SAYA" class="flex justify-between items-center hover:text-green-600 transition">DATA SAYA </a></li>
+        <li><a href="#" data-panel="PEMBELIAN SAYA" class="flex justify-between items-center hover:text-green-600 transition">PEMBELIAN SAYA </a></li>
+        <li><a href="#" data-panel="PENGEMBALIAN" class="flex justify-between items-center hover:text-green-600 transition">PENGEMBALIAN </a></li>
+        <li><a href="#" data-panel="BANTUAN" class="flex justify-between items-center hover:text-green-600 transition">BANTUAN </a></li>
+        <li><a href="#" data-panel="PEMBAYARAN" class="flex justify-between items-center hover:text-green-600 transition">PEMBAYARAN </a></li>
         <br><br>
         <li>
           <form method="POST" action="{{ route('logout') }}" class="w-full">
