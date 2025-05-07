@@ -44,6 +44,9 @@ Route::get('/forgot', function () {
 Route::get('/otp', function () {
     return view('user.auth.otp');
 });
+Route::get('/logout', function () {
+    return view('user.auth.login');
+});
 /* AUTH */
 
 
@@ -104,11 +107,6 @@ Route::get('/payment', function () {
 });
 /*--------------*/
 
-Route::post('/logout', function () {
-    Auth::logout();
-    request()->session()->invalidate();
-    request()->session()->regenerateToken();
-    return redirect('/login');
-})->name('logout');
+
 
 
