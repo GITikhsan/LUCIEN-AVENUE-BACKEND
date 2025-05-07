@@ -60,11 +60,7 @@
           <label class="font-bold mt-5 block">Last Name :</label>
           <input type="text" placeholder="Last Name" class="w-full p-2 mt-1 border border-black rounded"/>
           <label class="font-bold mt-5 block">Date of birth :</label>
-          <div class="flex gap-3 mt-1">
-            <input type="text" placeholder="Date" class="w-24 p-2 border border-black rounded"/>
-            <input type="text" placeholder="Month" class="w-24 p-2 border border-black rounded"/>
-            <input type="text" placeholder="Year" class="w-24 p-2 border border-black rounded"/>
-          </div>
+            <input type="date" class="w-full p-2 mt-1 border border-black rounded"/>
           <label class="font-bold mt-5 block">Alamat :</label>
           <textarea placeholder="Alamat lengkap" class="w-full p-2 mt-1 border border-black rounded"></textarea>
           <label class="font-bold mt-5 block">Your email</label>
