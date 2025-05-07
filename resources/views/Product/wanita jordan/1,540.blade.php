@@ -5,7 +5,7 @@
     <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Beli Air Jordan 1 Retro Low OG SP Travis Scott Velvet Brown</title>
+    <title>Beli Air Jordan 1 Low SE White Glacier Blue (Women's)</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
@@ -122,22 +122,22 @@
         <div class="swiper-wrapper">
           <div class="swiper-slide">
             <div class="swiper-zoom-container zoom-follow">
-              <img src="/images/4JT/4,240,000.png" alt="Air Jordan 1 Retro Low OG SP Travis Scott Velvet Brown" class="w-full h-auto object-contain" />
+              <img src="/images/wanita jordan/1,540,000(1).webp" alt="" class="w-full h-auto object-contain" />
             </div>
           </div>
           <div class="swiper-slide">
             <div class="swiper-zoom-container zoom-follow">
-              <img src="/images/4JT/4,240,000(2).png" alt="" class="w-full h-auto object-contain" />
+              <img src="/images/wanita jordan/1,540,000(2).webp" alt="" class="w-full h-auto object-contain" />
             </div>
           </div>
           <div class="swiper-slide">
             <div class="swiper-zoom-container zoom-follow">
-              <img src="/images/4JT/4,240,000(3).png" alt="" class="w-full h-auto object-contain" />
+              <img src="/images/wanita jordan/1,540,000(3).webp" alt="" class="w-full h-auto object-contain" />
             </div>
           </div>
           <div class="swiper-slide">
             <div class="swiper-zoom-container zoom-follow">
-              <img src="/images/4JT/4,240,000(4).png" alt="" class="w-full h-auto object-contain" />
+              <img src="/images/wanita jordan/1,540,000(4).webp" alt="" class="w-full h-auto object-contain" />
             </div>
           </div>
         </div>
@@ -162,7 +162,7 @@
     <!-- DETAIL PRODUK -->
     <div class="flex-1 min-w-[320px] space-y-5 md:pl-6">
       <h2 class="text-2xl font-semibold leading-snug">
-        Air Jordan 1 Retro Low OG SP Travis Scott Velvet Brown
+      Air Jordan 1 Low SE White Glacier Blue (Women's)
       </h2>
 
      <!-- Harga -->
@@ -170,13 +170,13 @@
         <div class="flex items-center gap-2 mb-1">
           <p class="text-sm text-gray-500 font-medium uppercase tracking-wide">Price</p>
           <span class="bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded-sm leading-none">
-  27% OFF
+  50% OFF
 </span>
         </div>
 
         <div class="flex items-baseline gap-2">
-          <p class="text-base text-gray-400 line-through">IDR 5,808,219</p>
-          <p class="text-2xl font-semibold text-gray-900">IDR 4,240,000</p>
+          <p class="text-base text-gray-400 line-through">IDR 3,080,000</p>
+          <p class="text-2xl font-semibold text-gray-900">IDR 1,540,000</p>
         </div>
       </div>
 
@@ -185,9 +185,11 @@
     <div class="mb-6">
       <p class="text-sm text-gray-700 font-medium mb-2">Select Size</p>
       <div class="flex flex-wrap gap-2">
-        <button class="size-button px-3 py-2 border border-gray-300 rounded-md text-gray-700 text-sm hover:bg-black hover:text-white transition-all">40</button>
-        <button class="size-button px-3 py-2 border border-gray-300 rounded-md text-gray-700 text-sm hover:bg-black hover:text-white transition-all">41</button>
-        <button class="size-button px-3 py-2 border border-gray-300 rounded-md text-gray-700 text-sm hover:bg-black hover:text-white transition-all">42</button>
+        <button class="size-button px-3 py-2 border border-gray-300 rounded-md text-gray-700 text-sm hover:bg-black hover:text-white transition-all">35</button>
+        <button class="size-button px-3 py-2 border border-gray-300 rounded-md text-gray-700 text-sm hover:bg-black hover:text-white transition-all">36</button>
+        <button class="size-button px-3 py-2 border border-gray-300 rounded-md text-gray-700 text-sm hover:bg-black hover:text-white transition-all">37</button>
+        <button class="size-button px-3 py-2 border border-gray-300 rounded-md text-gray-700 text-sm hover:bg-black hover:text-white transition-all">38</button>
+        <button class="size-button px-3 py-2 border border-gray-300 rounded-md text-gray-700 text-sm hover:bg-black hover:text-white transition-all">39</button>
       </div>
       <p id="selected-size" class="text-xs text-gray-500 mt-2"></p>
     </div>
@@ -290,7 +292,7 @@
             <p class="font-semibold text-gray-700 mb-3">Payment Summary</p>
             <div class="flex justify-between text-sm text-gray-600 mb-1">
                 <span>Product Price</span>
-                <span>IDR 4,240,000</span>
+                <span>IDR 1,540,000</span>
             </div>
             <div class="flex justify-between text-sm text-gray-600 mb-1">
                 <span>Authentication Fee</span>
@@ -302,7 +304,7 @@
             </div>
             <div class="flex justify-between font-semibold text-gray-800 border-t pt-2">
                 <span>Total</span>
-                <span>IDR 4,276,000</span>
+                <span>IDR 1,576,000</span>
             </div>
         </div>
 
@@ -448,14 +450,14 @@
   <div class="mt-10 border-t-2 border-gray-300 pt-6">
     <h3 class="text-2xl font-bold text-gray-800 mb-4">Description</h3>
     <p class="text-gray-600 leading-relaxed">
-      Air Jordan 1 Retro Low OG SP Travis Scott Velvet Brown blends Travis Scott’s signature style with Jordan Brand’s iconic silhouette. Featuring a reversed Swoosh, premium suede in earthy tones, and Cactus Jack branding, this low-top delivers both standout looks and everyday comfort. A must-have for fans and collectors alike.
+    Show love to your furry friends in this special edition AJ1. Keeping the clean and classic look inspired by the '85 original, it features textured laces and paw prints on the outsole for a fresh take on all-time favorite.
     </p>
 
     <!-- Detail Card -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 bg-gray-50 p-6 rounded-xl shadow-sm">
       <div>
         <p class="text-gray-500 text-sm mb-1">SKU</p>
-        <p class="font-bold text-lg">DM7866 202</p>
+        <p class="font-bold text-lg">HM3706 141</p>
         <p class="text-gray-500 text-sm mt-4 mb-1">Material</p>
         <p class="text-gray-700">-</p>
         <p class="text-gray-500 text-sm mt-4 mb-1">Release Date</p>
@@ -464,7 +466,7 @@
 
       <div>
         <p class="text-gray-500 text-sm mb-1">Color</p>
-        <p class="font-bold text-lg">Dark Mocha / Black / Velvet Brown</p>
+        <p class="font-bold text-lg">WHITE/GLACIER BLUE-WHITE-PINK FOAM</p>
         <p class="text-gray-500 text-sm mt-4 mb-1">Dimension</p>
         <p class="text-gray-700">-</p>
         <p class="text-gray-500 text-sm mt-4 mb-1">Retail (approx.)</p>
@@ -474,9 +476,6 @@
 
   </div>
 </section>
-
-
-
 
             <!-- Heading dan View More -->
             <div class="relative px-4 md:px-10 py-6 md:py-10">
@@ -494,6 +493,7 @@
             </div>
 
 
+
             <!-- Produk grid: 4 kolom, 2 baris -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10 px-4 md:px-10">
               <!-- Ulangi 8 produk -->
@@ -501,19 +501,15 @@
               <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-gray-100">
                 <a href="#" class="block p-4">
                   <div class="relative">
-                    <img src="/images/100JT/100,000,000(1).png" alt=""
+                    <img src="/images/wanita jordan/1,590,000(1).webp" alt=""
                       class="w-full h-auto rounded-xl object-cover transition-transform duration-300 hover:scale-105" />
-                      <span class="absolute top-2 left-2 bg-gradient-to-r from-[#f9e6a3] to-[#e0b647] text-yellow-900 text-[10px] font-semibold px-3 py-[3px] rounded-lg shadow-sm tracking-wider uppercase flex items-center gap-1">
-                        <span class="text-yellow-700 text-xs">★</span>
-                        Luxury
-                      </span>
                   </div>
                   <div class="mt-4">
                     <h2 class="text-base font-semibold text-gray-900 min-h-[44px] leading-tight">
-                    Air Jordan 1 Retro Low Dior
+                    Air Jordan 1 Low Jade Smoke (Women's)
                     </h2>
                     <div class="text-green-600 font-bold text-sm mt-2">
-                      IDR 100,000,000
+                      IDR 1,590,000
                     </div>
                   </div>
                 </a>
@@ -522,15 +518,15 @@
               <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-gray-100">
                 <a href="#" class="block p-4">
                   <div class="relative">
-                    <img src="/images/3JT/3,210,000(1).png" alt=""
+                    <img src="/images/wanita jordan/3,240,000(1).webp" alt=""
                       class="w-full h-auto rounded-xl object-cover transition-transform duration-300 hover:scale-105" />
                   </div>
                   <div class="mt-4">
                     <h2 class="text-base font-semibold text-gray-900 min-h-[44px] leading-tight">
-                    Air Jordan 1 Low SE Craft Light Olive
+                    Air Jordan 1 Low Snakeskin Vivid Green (Women's)
                     </h2>
                     <div class="text-green-600 font-bold text-sm mt-2">
-                      IDR 3,210,000
+                      IDR 3,240,000
                     </div>
                   </div>
                 </a>
@@ -539,15 +535,15 @@
               <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-gray-100">
                 <a href="#" class="block p-4">
                   <div class="relative">
-                    <img src="/images/2JT/2,050,000(1).png" alt=""
+                    <img src="/images/wanita jordan/1,680,000(1).webp" alt=""
                       class="w-full h-auto rounded-xl object-cover transition-transform duration-300 hover:scale-105" />
                   </div>
                   <div class="mt-4">
                     <h2 class="text-base font-semibold text-gray-900 min-h-[44px] leading-tight">
-                    Air Jordan 1 Low SE WRMK Sashiko Denim
+                    Air Jordan 1 Low Valentine’s Day (Women's)
                     </h2>
                     <div class="text-green-600 font-bold text-sm mt-2">
-                      IDR 2,050,000
+                      IDR 1,680,000
                     </div>
                   </div>
                 </a>
@@ -556,15 +552,15 @@
               <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-gray-100">
                 <a href="#" class="block p-4">
                   <div class="relative">
-                    <img src="/images/1JT/1,240,000(1).png" alt=""
+                    <img src="/images/wanita jordan/1,810,000(1).webp" alt=""
                       class="w-full h-auto rounded-xl object-cover transition-transform duration-300 hover:scale-105" />
                   </div>
                   <div class="mt-4">
                     <h2 class="text-base font-semibold text-gray-900 min-h-[44px] leading-tight">
-                    Air Jordan 1 Low Chloropyll
+                    Air Jordan 1 High Zoom Air CMFT 2 Pine Green Orange Blaze (Women's)
                     </h2>
                     <div class="text-green-600 font-bold text-sm mt-2">
-                      IDR 1,240,000
+                      IDR 1,810,000
                     </div>
                   </div>
                 </a>
@@ -573,15 +569,15 @@
               <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-gray-100">
                 <a href="#" class="block p-4">
                   <div class="relative">
-                    <img src="/images/2JT/2,030,000(1).png" alt=""
+                    <img src="/images/wanita jordan/1,910,000(1).webp" alt=""
                       class="w-full h-auto rounded-xl object-cover transition-transform duration-300 hover:scale-105" />
                   </div>
                   <div class="mt-4">
                     <h2 class="text-base font-semibold text-gray-900 min-h-[44px] leading-tight">
-                    Air Jordan 1 Retro Low OG Year of the Dragon (2024)
+                    Air Jordan 1 Low Multicolor Sashiko (Women's)
                     </h2>
                     <div class="text-green-600 font-bold text-sm mt-2">
-                      IDR 2,030,000
+                      IDR 1,910,000
                     </div>
                   </div>
                 </a>
@@ -590,15 +586,15 @@
               <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-gray-100">
                 <a href="#" class="block p-4">
                   <div class="relative">
-                    <img src="/images/1JT/1,650,000(1).png" alt=""
+                    <img src="/images/wanita jordan/1,480,000(1).webp" alt=""
                       class="w-full h-auto rounded-xl object-cover transition-transform duration-300 hover:scale-105" />
                   </div>
                   <div class="mt-4">
                     <h2 class="text-base font-semibold text-gray-900 min-h-[44px] leading-tight">
-                    Air Jordan 1 Low SB Midnight Navy
+                    Air Jordan 1 Low Bordeaux (Women's)
                     </h2>
                     <div class="text-green-600 font-bold text-sm mt-2">
-                      IDR 1,650,000
+                      IDR 1,480,000
                     </div>
                   </div>
                 </a>
@@ -607,7 +603,7 @@
               <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-gray-100">
                 <a href="#" class="block p-4">
                   <div class="relative">
-                    <img src="/images/1JT/1,350,000(1).png" alt=""
+                    <img src="/images/wanita jordan/1,860,000(1).webp" alt=""
                       class="w-full h-auto rounded-xl object-cover transition-transform duration-300 hover:scale-105" />
 
                     <!-- Discount Badge -->
@@ -619,13 +615,13 @@
                   <!-- Penempatan detail produk HARUS di luar div.relative -->
                   <div class="mt-4">
                     <h2 class="text-base font-semibold text-gray-900 min-h-[44px] leading-tight">
-                      Air Jordan 1 Low SE Armory Navy
+                    Air Jordan 1 Mid Neapolitan (Women's)
                     </h2>
                     <div class="text-gray-400 line-through text-sm">
-                      IDR 2,700,000
+                      IDR 3,720,000
                     </div>
                     <div class="text-green-600 font-bold text-sm mt-1">
-                      IDR 1,350,000
+                      IDR 1,860,000
                     </div>
                   </div>
                 </a>
@@ -634,32 +630,23 @@
               <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-gray-100">
                 <a href="#" class="block p-4">
                   <div class="relative">
-                    <img src="/images/1JT/1,900,000(1).png" alt=""
+                    <img src="/images/wanita jordan/1,530,000(1).webp" alt=""
                       class="w-full h-auto rounded-xl object-cover transition-transform duration-300 hover:scale-105" />
-
-                    <!-- Discount Badge -->
-                    <span class="absolute top-2 left-3 bg-gradient-to-r from-red-400 to-red-600 text-white text-[10px] font-semibold px-3 py-[3px] rounded-lg shadow-sm tracking-wider uppercase">
-                      40% Off
-                    </span>
                   </div>
-
-                  <!-- Penempatan detail produk HARUS di luar div.relative -->
                   <div class="mt-4">
                     <h2 class="text-base font-semibold text-gray-900 min-h-[44px] leading-tight">
-                    Air Jordan 1 Low SE Sky J Orange
+                    Air Jordan 1 Mid SE Red Stardust (Women's)
                     </h2>
-                    <div class="text-gray-400 line-through text-sm">
-                      IDR 3,166,667
-                    </div>
-                    <div class="text-green-600 font-bold text-sm mt-1">
-                      IDR 1,900,000
+                    <div class="text-green-600 font-bold text-sm mt-2">
+                      IDR 1,530,000
                     </div>
                   </div>
                 </a>
               </div>
 
-          </section>
 
+      
+          </section>
 
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>

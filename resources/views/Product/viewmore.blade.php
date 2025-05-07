@@ -63,7 +63,7 @@
 
     <label class="block cursor-pointer border border-gray-300 rounded-lg text-center py-3 text-sm font-medium text-gray-600 hover:bg-black hover:text-white transition">
       <input type="radio" name="gender" value="toddler" class="sr-only peer">
-      <span class="block peer-checked:text-white peer-checked:bg-black rounded-lg">Toddler</span>
+      <span class="block peer-checked:text-white peer-checked:bg-black rounded-lg">Youth</span>
     </label>
   </div>
 </div>
