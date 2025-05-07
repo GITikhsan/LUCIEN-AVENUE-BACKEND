@@ -185,6 +185,8 @@
     <div class="mb-6">
       <p class="text-sm text-gray-700 font-medium mb-2">Select Size</p>
       <div class="flex flex-wrap gap-2">
+        <button class="size-button px-3 py-2 border border-gray-300 rounded-md text-gray-700 text-sm hover:bg-black hover:text-white transition-all">38</button>
+        <button class="size-button px-3 py-2 border border-gray-300 rounded-md text-gray-700 text-sm hover:bg-black hover:text-white transition-all">39</button>
         <button class="size-button px-3 py-2 border border-gray-300 rounded-md text-gray-700 text-sm hover:bg-black hover:text-white transition-all">40</button>
         <button class="size-button px-3 py-2 border border-gray-300 rounded-md text-gray-700 text-sm hover:bg-black hover:text-white transition-all">41</button>
         <button class="size-button px-3 py-2 border border-gray-300 rounded-md text-gray-700 text-sm hover:bg-black hover:text-white transition-all">42</button>
@@ -475,24 +477,11 @@
   </div>
 </section>
 
-
-
-
-            <!-- Heading dan View More -->
             <div class="relative px-4 md:px-10 py-6 md:py-10">
-              <h3 class="text-sm font-semibold text-center text-gray-800 uppercase tracking-wide">
+              <h3 class="text-xl font-semibold text-center text-gray-800 uppercase tracking-wide">
                 Similar Products
               </h3>
-              <a href="/products"
-                class="absolute right-4 md:right-10 top-1/2 -translate-y-1/2 inline-flex items-center gap-2 px-6 py-2 text-xs font-medium text-white bg-gradient-to-r from-black via-gray-900 to-black rounded-full hover:scale-105 hover:shadow-lg transition-all duration-300 ease-in-out group">
-                <span>View More</span>
-                <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300"
-                    fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-                </svg>
-              </a>
             </div>
-
 
             <!-- Produk grid: 4 kolom, 2 baris -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10 px-4 md:px-10">
@@ -657,8 +646,30 @@
                   </div>
                 </a>
               </div>
+            </div>
+        </div>
 
-          </section>
+        <div class="px-4 md:px-10 pt-1 pb-18 flex justify-center items-start my-20">
+            <a href="/products"
+                class="inline-flex items-center gap-1
+                    px-6 py-2 text-sm
+                    md:px-8 md:text-base
+                    font-medium text-white
+                    border border-white
+                    bg-gradient-to-r from-black via-gray-900 to-black
+                    rounded-full
+                    hover:scale-105 hover:shadow-lg
+                    transition-all duration-300 ease-in-out group">
+                <span>View More</span>
+                <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300"
+                fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+
+
+</section>
 
 
     <!-- Swiper JS -->
@@ -666,4 +677,7 @@
     @vite('resources/js/swiper1page.js')
 
   </body>
+
+  @include('partial.footer')
+
 </html>
