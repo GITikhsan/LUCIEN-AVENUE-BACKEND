@@ -4,18 +4,24 @@
 
     <!-- Navbar -->
     <header id="navbar"
-        class="h-20 w-full px-4 py-1 flex justify-between items-center border-b border-gray-300 bg-white sticky top-0 z-50 transition-all duration-300">
+    class="h-20 w-full px-4 py-1 flex justify-between items-center border-b border-gray-300 bg-white sticky top-0 z-50 transition-all duration-300">
         <!-- Kiri: Contact Us -->
         <div class="flex items-center gap-2 sm:gap-3">
         </div>
 
         <!-- Tengah: Brand -->
         <div
-            class="absolute left-1/2 top-4 sm:top-6 md:top-1/2 transform -translate-x-1/2 md:-translate-y-1/2 transition-all duration-300">
-            <h1 id="brandTitle"
-                class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif font-semibold tracking-widest text-black whitespace-nowrap transition-all duration-300">
-                LUCIEN AVENUE
-            </h1>
+            class="absolute transition-all duration-300
+                    left-4 top-4
+                    sm:left-1/2 sm:top-6
+                    md:top-1/2 md:-translate-y-1/2
+                    sm:transform sm:-translate-x-1/2">
+                    <h1 id="brandTitle"
+                        class="text-base font-serif font-semibold tracking-widest text-black whitespace-nowrap
+                                sm:text-2xl md:text-3xl lg:text-4xl
+                                transition-all duration-300">
+                        LUCIEN AVENUE
+                    </h1>
         </div>
 
             <!-- Kanan: Icons + Menu -->

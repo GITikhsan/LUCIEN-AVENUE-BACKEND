@@ -79,9 +79,11 @@ $(document).ready(function () {
             }
         });
 
-        $container.find('.remove-item').on('click', function () {
-            $container.remove();
-            updateCartTotal();
+        $('.remove-item').on('click', function () {
+            const $item = $(this).closest('.cart-item'); // cari .cart-item terdekat dari tombol
+            $item.remove(); // hapus hanya elemen itu
+            updateCartTotal(); // hitung ulang total
+
             if ($('.cart-item').length === 0) {
                 $('#bagItems').html('<p class="text-center text-gray-500">Your bag is empty.</p>');
             }
@@ -138,19 +140,40 @@ $(document).ready(function () {
 
 
     $(document).ready(function () {
-        $(window).on('scroll', function () {
-            if ($(this).scrollTop() > 10) {
+        const isDesktop = window.matchMedia('(min-width: 768px)');
+
+        // Fungsi untuk handle scroll
+        function handleScroll() {
+            if (isDesktop.matches) {
+                // Jika di desktop dan scroll lebih dari 10px
+                if ($(window).scrollTop() > 10) {
+                    $('#navbar').removeClass('h-20').addClass('h-14');
+                    $('#brandTitle')
+                        .removeClass('text-xl sm:text-2xl md:text-3xl lg:text-4xl')
+                        .addClass('text-sm sm:text-base md:text-xl lg:text-2xl');
+                } else {
+                    $('#navbar').removeClass('h-14').addClass('h-20');
+                    $('#brandTitle')
+                        .removeClass('text-sm sm:text-base md:text-xl lg:text-2xl')
+                        .addClass('text-xl sm:text-2xl md:text-3xl lg:text-4xl');
+                }
+            } else {
+                // Di HP navbar langsung kecil (tanpa scroll)
                 $('#navbar').removeClass('h-20').addClass('h-14');
                 $('#brandTitle')
-                    .removeClass('text-base sm:text-2xl md:text-3xl lg:text-4xl')
-                    .addClass('text-sm sm:text-base md:text-1xl lg:text-2xl');
-            } else {
-                $('#navbar').removeClass('h-14').addClass('h-20');
-                $('#brandTitle')
-                    .removeClass('text-sm sm:text-base md:text-1xl lg:text-2xl')
-                    .addClass('text-xl sm:text-2xl md:text-3xl lg:text-4xl');
+                    .removeClass('text-xl sm:text-2xl md:text-3xl lg:text-4xl')
+                    .addClass('text-sm sm:text-base md:text-xl lg:text-2xl');
             }
-        });
+        }
+
+        // Jalankan saat scroll
+        $(window).on('scroll', handleScroll);
+
+        // Jalankan ulang jika resize layar
+        isDesktop.addEventListener('change', handleScroll);
     });
+
+
+
 
 });

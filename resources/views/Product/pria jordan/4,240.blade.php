@@ -20,6 +20,14 @@
       opacity: 1;
       transform: translateY(0);
     }
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
   </style>
     <script>
     tailwind.config = {
@@ -124,7 +132,12 @@
     <p class="text-sm text-gray-700 font-medium mb-2">Quantity</p>
     <div class="flex items-center gap-2">
       <button id="decrease" class="w-8 h-8 flex items-center justify-center border rounded-md text-black  hover:bg-black hover:text-white">-</button>
-      <span id="quantity" class="w-8 text-center">1</span>
+      <input
+        id="quantity"
+        type="number"
+        value="1"
+        min="1"
+        class="w-10 h-8 text-center border rounded-md focus:outline-none focus:ring-2 focus:ring-black appearance-none"/>
       <button id="increase" class="w-8 h-8 flex items-center justify-center border rounded-md  text-black  hover:bg-black hover:text-white">+</button>
     </div>
   </div>

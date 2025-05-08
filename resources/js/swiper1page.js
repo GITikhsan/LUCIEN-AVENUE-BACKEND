@@ -54,23 +54,27 @@ document.addEventListener("DOMContentLoaded", function () {
   // ========================================
   // Handle Quantity Button (+ and -)
   // ========================================
-  const quantityDisplay = document.getElementById('quantity');
-  const increaseBtn = document.getElementById('increase');
-  const decreaseBtn = document.getElementById('decrease');
+    const quantityInput = document.getElementById('quantity');
+    const increaseBtn = document.getElementById('increase');
+    const decreaseBtn = document.getElementById('decrease');
 
-  let quantity = 1;
+    increaseBtn.addEventListener('click', () => {
+    quantityInput.value = parseInt(quantityInput.value) + 1;
+    });
 
-  increaseBtn.addEventListener('click', () => {
-    quantity++;
-    quantityDisplay.textContent = quantity;
-  });
-
-  decreaseBtn.addEventListener('click', () => {
-    if (quantity > 1) {
-      quantity--;
-      quantityDisplay.textContent = quantity;
+    decreaseBtn.addEventListener('click', () => {
+    const current = parseInt(quantityInput.value);
+    if (current > 1) {
+        quantityInput.value = current - 1;
     }
-  });
+    });
+
+quantityInput.addEventListener('input', () => {
+  if (quantityInput.value === '' || parseInt(quantityInput.value) < 1) {
+    quantityInput.value = 1;
+  }
+});
+
 
   // ========================================
   // Handle Toggle Button (Switch between options)
