@@ -9,7 +9,7 @@
 
    
 </head>
-<body class="text-center bg-white font-sans">
+<body class="bg-white font-sans">
     @include('partial.sticknavbar')
 
     <!-- Header Section -->
