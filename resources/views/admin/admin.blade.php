@@ -14,14 +14,14 @@
     <!-- Sidebar -->
     <aside class="bg-white w-64 shadow-md p-4">
       <div class="mb-8">
-        <h1 class="text-lg font-semibold text-black">Dashboard</h1>
-        <p class="text-xs text-gray-500">Regular Shop</p>
+        <h1 class="text-lg font-semibold text-black">Lucien Avenue</h1>
+        <p class="text-xs text-gray-500">Dashboard</p>
       </div>
       <nav class="space-y-4" id="sidebarMenu">
-        <a href="#" data-panel="Home" class="block text-gray-700 hover:text-green-600">Home</a>
-        <a href="#" data-panel="Diskusi" class="block text-gray-700 hover:text-green-600">Diskusi</a>
-        <a href="#" data-panel="Produk" class="block text-gray-700 hover:text-green-600">Produk</a>
-        <a href="#" data-panel="Pesanan" class="block text-gray-700 hover:text-green-600">Pesanan</a>
+        <a href="#" data-panel="Home" class="block text-base text-gray-700 hover:text-green-600">Home</a>
+        <a href="#" data-panel="Diskusi" class="block text-base text-gray-700 hover:text-green-600">Diskusi</a>
+        <a href="#" data-panel="Produk" class="block text-base text-gray-700 hover:text-green-600">Input Produk</a>
+        <a href="#" data-panel="Pesanan" class="block text-base text-gray-700 hover:text-green-600">Pesanan</a>
       </nav>
     </aside>
 
@@ -88,7 +88,76 @@
             </div>
           </div>
         </div>
-      `
+      `,
+      "Produk" : `
+      <!DOCTYPE html>
+
+<body class="bg-gray-100 p-6 font-sans text-sm">
+
+  <div class="max-w-xl mx-auto bg-white p-6 rounded-xl shadow">
+    <h2 class="text-xl font-semibold text-gray-800 mb-4">Input Data Sepatu</h2>
+
+    <form class="space-y-4">
+      <!-- Nama Sepatu -->
+      <div>
+        <label for="nama" class="block mb-1 text-gray-700">Nama Sepatu</label>
+        <input type="text" id="nama" name="nama" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Contoh: Adidas Ultraboost">
+      </div>
+
+      <!-- Merek -->
+      <div>
+        <label for="merek" class="block mb-1 text-gray-700">Merek</label>
+        <input type="text" id="merek" name="merek" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Contoh: Adidas">
+      </div>
+
+      <!-- Harga -->
+      <div>
+        <label for="harga" class="block mb-1 text-gray-700">Harga (Rp)</label>
+        <input type="number" id="harga" name="harga" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Harga">
+      </div>
+
+      <!-- Ukuran -->
+      <div>
+        <label for="ukuran" class="block mb-1 text-gray-700">Ukuran</label>
+        <select id="ukuran" name="ukuran" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500 placeholder="pilih ukuran">
+          <option value="35">35</option>
+          <option value="36">36</option>
+          <option value="37">38</option>
+          <option value="38">38</option>
+          <option value="39">39</option>
+          <option value="40">40</option>
+          <option value="41">41</option>
+          <option value="42">42</option>
+          <option value="43">43</option>
+          <option value="44">44</option>
+          <option value="45">45</option>
+        </select>
+      </div>
+
+      <!-- Deskripsi -->
+      <div>
+        <label for="deskripsi" class="block mb-1 text-gray-700">Deskripsi</label>
+        <textarea id="deskripsi" name="deskripsi" rows="4" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500 resize-none" placeholder="Tambahkan deskripsi sepatu..."></textarea>
+      </div>
+
+      <!-- Input Gambar -->
+<input type="file" id="gambarInput" class="block w-full text-sm text-gray-500" accept="image/*">
+
+<!-- Preview Gambar -->
+<div id="preview" class="mt-4 hidden">
+  <img id="gambarPreview" src="#" alt="Preview Gambar" class="max-w-xs rounded shadow">
+</div>
+
+      <!-- Tombol Submit -->
+      <div class="pt-2">
+        <button type="submit" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Simpan Data</button>
+      </div>
+    </form>
+  </div>
+
+</body>
+</html>
+`
     };
 
     const defaultContent = document.getElementById("defaultContent");
@@ -121,8 +190,26 @@
       });
     });
 
+    
+
     // Load default (Home)
     loadPanel("Home");
+    
+    $(document).ready(function() {
+    $('#gambarInput').on('change', function(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          $('#gambarPreview').attr('src', e.target.result);
+          $('#preview').removeClass('hidden');
+        }
+        reader.readAsDataURL(file);
+      }
+    });
+  });
+
   </script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 </html>
