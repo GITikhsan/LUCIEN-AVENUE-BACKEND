@@ -140,12 +140,14 @@ $(document).ready(function () {
 
 
     $(document).ready(function () {
-        const isDesktop = window.matchMedia('(min-width: 768px)');
+        const mediaQuery = window.matchMedia('(min-width: 768px)');
 
-        // Fungsi untuk handle scroll
+        function isDesktop() {
+            return mediaQuery.matches;
+        }
+
         function handleScroll() {
-            if (isDesktop.matches) {
-                // Jika di desktop dan scroll lebih dari 10px
+            if (isDesktop()) {
                 if ($(window).scrollTop() > 10) {
                     $('#navbar').removeClass('h-20').addClass('h-14');
                     $('#brandTitle')
@@ -158,7 +160,7 @@ $(document).ready(function () {
                         .addClass('text-xl sm:text-2xl md:text-3xl lg:text-4xl');
                 }
             } else {
-                // Di HP navbar langsung kecil (tanpa scroll)
+                // Mobile mode: langsung kecil dan TETAP tanpa animasi scroll
                 $('#navbar').removeClass('h-20').addClass('h-14');
                 $('#brandTitle')
                     .removeClass('text-xl sm:text-2xl md:text-3xl lg:text-4xl')
@@ -166,14 +168,20 @@ $(document).ready(function () {
             }
         }
 
-        // Jalankan saat scroll
-        $(window).on('scroll', handleScroll);
+        // 1. Jalankan saat halaman siap
+        handleScroll();
 
-        // Jalankan ulang jika resize layar
-        isDesktop.addEventListener('change', handleScroll);
+        // 2. Jalankan ulang saat ukuran berubah (termasuk aktifin mode hp di DevTools)
+        mediaQuery.addEventListener('change', handleScroll);
+        $(window).on('resize', handleScroll);
+
+        // 3. Jalankan saat scroll — tapi HANYA untuk desktop
+        $(window).on('scroll', function () {
+            if (isDesktop()) {
+                handleScroll();
+            }
+        });
     });
-
-
 
 
 });

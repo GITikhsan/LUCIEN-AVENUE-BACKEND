@@ -1,130 +1,111 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // ========================================
-  // Handle Swiper (Product Image Slider)
-  // ========================================
-  const swiper = new Swiper('.product-image-slider', {
-    loop: true,
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: true,
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-  });
+$(document).ready(function() {
+    // ——————————————
+    // Paksa scroll ke atas
+    // ——————————————
+    $(window).scrollTop(0);
 
-  // ========================================
-  // Handle Accordion Toggle
-  // ========================================
-  const accordionToggles = document.querySelectorAll('.accordion-toggle');
-  accordionToggles.forEach(toggle => {
-    toggle.addEventListener('click', () => {
-      const content = toggle.closest('.accordion-item').querySelector('.accordion-content');
-      const isOpen = content.style.maxHeight && content.style.maxHeight !== "0px";
+    // ========================================
+    // Handle Swiper (Product Image Slider)
+    // ========================================
+    const swiper = new Swiper('.product-image-slider', {
+      loop: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+
+    // ========================================
+    // Handle Accordion Toggle
+    // ========================================
+    $('.accordion-toggle').on('click', function() {
+      const $content = $(this).closest('.accordion-item').find('.accordion-content');
+      const isOpen = $content.css('max-height') !== '0px';
 
       if (isOpen) {
-        content.style.maxHeight = null;
-        toggle.textContent = '+';
+        $content.css('max-height', '0');
+        $(this).text('+');
       } else {
-        content.style.maxHeight = content.scrollHeight + "px";
-        toggle.textContent = '−';
-      }
-    });
-  });
-
-  // ========================================
-  // Handle Size Button (Select Shoe Size)
-  // ========================================
-  const sizeButtons = document.querySelectorAll('.size-button');
-  const selectedSizeText = document.getElementById('selected-size');
-
-  sizeButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      sizeButtons.forEach(btn => btn.classList.remove('bg-black', 'text-white'));
-      button.classList.add('bg-black', 'text-white');
-      selectedSizeText.textContent = `Selected Size: ${button.textContent}`;
-    });
-  });
-
-  // ========================================
-  // Handle Quantity Button (+ and -)
-  // ========================================
-    const quantityInput = document.getElementById('quantity');
-    const increaseBtn = document.getElementById('increase');
-    const decreaseBtn = document.getElementById('decrease');
-
-    increaseBtn.addEventListener('click', () => {
-    quantityInput.value = parseInt(quantityInput.value) + 1;
-    });
-
-    decreaseBtn.addEventListener('click', () => {
-    const current = parseInt(quantityInput.value);
-    if (current > 1) {
-        quantityInput.value = current - 1;
-    }
-    });
-
-quantityInput.addEventListener('input', () => {
-  if (quantityInput.value === '' || parseInt(quantityInput.value) < 1) {
-    quantityInput.value = 1;
-  }
-});
-
-
-  // ========================================
-  // Handle Toggle Button (Switch between options)
-  // ========================================
-  const toggleButtons = document.querySelectorAll('.toggle-btn');
-  toggleButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      toggleButtons.forEach(btn => btn.classList.remove('active'));
-      button.classList.add('active');
-    });
-  });
-
-  // ========================================
-  // Handle Image Zoom (Double Click + Mouse Move)
-  // ========================================
-  const zoomContainers = document.querySelectorAll('.zoom-follow');
-  zoomContainers.forEach(container => {
-    const img = container.querySelector('img');
-    let zoomActive = false;
-
-    img.style.transition = 'transform 0.5s ease';
-
-    container.addEventListener('dblclick', () => {
-      zoomActive = !zoomActive;
-      if (!zoomActive) {
-        img.style.transform = 'scale(1)';
-      }
-      if (zoomActive) {
-        swiper.autoplay.stop();
-      } else {
-        swiper.autoplay.start();
-        img.style.transform = 'scale(1)';
+        $content.css('max-height', $content.prop('scrollHeight') + 'px');
+        $(this).text('−');
       }
     });
 
-    container.addEventListener('mousemove', (e) => {
-      if (!zoomActive) return;
-
-      const bounds = container.getBoundingClientRect();
-      const x = (e.clientX - bounds.left) / bounds.width * 100;
-      const y = (e.clientY - bounds.top) / bounds.height * 100;
-
-      img.style.transform = `scale(2) translate(-${x - 50}%, -${y - 50}%)`;
-      img.style.transformOrigin = `${x}% ${y}%`;
+    // ========================================
+    // Handle Size Button (Select Shoe Size)
+    // ========================================
+    $('.size-button').on('click', function() {
+      $('.size-button').removeClass('bg-black text-white');
+      $(this).addClass('bg-black text-white');
+      $('#selected-size').text(`Selected Size: ${$(this).text()}`);
     });
 
-    container.addEventListener('mouseleave', () => {
-      if (!zoomActive) {
-        img.style.transform = 'scale(1)';
+    // ========================================
+    // Handle Quantity Button (+ and -)
+    // ========================================
+    const $qty = $('#quantity');
+    $('#increase').on('click', () => $qty.val(parseInt($qty.val()) + 1));
+    $('#decrease').on('click', () => {
+      const v = parseInt($qty.val());
+      if (v > 1) $qty.val(v - 1);
+    });
+    $qty.on('input', () => {
+      if ($qty.val() === '' || parseInt($qty.val()) < 1) {
+        $qty.val(1);
       }
     });
+
+    // ========================================
+    // Handle Toggle Button (Switch between options)
+    // ========================================
+    $('.toggle-btn').on('click', function() {
+      $('.toggle-btn').removeClass('active');
+      $(this).addClass('active');
+    });
+
+    // ========================================
+    // Handle Image Zoom (Double Click + Mouse Move)
+    // ========================================
+    $('.zoom-follow').each(function() {
+      const $container = $(this);
+      const $img = $container.find('img');
+      let zoomActive = false;
+
+      $img.css('transition', 'transform 0.5s ease');
+
+      $container.on('dblclick', () => {
+        zoomActive = !zoomActive;
+        if (!zoomActive) {
+          $img.css('transform', 'scale(1)');
+          swiper.autoplay.start();
+        } else {
+          swiper.autoplay.stop();
+        }
+      });
+
+      $container.on('mousemove', e => {
+        if (!zoomActive) return;
+        const bounds = this.getBoundingClientRect();
+        const x = (e.clientX - bounds.left) / bounds.width * 100;
+        const y = (e.clientY - bounds.top) / bounds.height * 100;
+        $img.css({
+          transform: `scale(2) translate(-${x - 50}%, -${y - 50}%)`,
+          transformOrigin: `${x}% ${y}%`
+        });
+      });
+
+      $container.on('mouseleave', () => {
+        if (!zoomActive) {
+          $img.css('transform', 'scale(1)');
+        }
+      });
+    });
   });
-});

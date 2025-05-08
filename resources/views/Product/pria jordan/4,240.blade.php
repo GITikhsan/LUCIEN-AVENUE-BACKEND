@@ -128,19 +128,19 @@
       <p id="selected-size" class="text-xs text-gray-500 mt-2"></p>
     </div>
 
-<div>
-    <p class="text-sm text-gray-700 font-medium mb-2">Quantity</p>
-    <div class="flex items-center gap-2">
-      <button id="decrease" class="w-8 h-8 flex items-center justify-center border rounded-md text-black  hover:bg-black hover:text-white">-</button>
-      <input
-        id="quantity"
-        type="number"
-        value="1"
-        min="1"
-        class="w-10 h-8 text-center border rounded-md focus:outline-none focus:ring-2 focus:ring-black appearance-none"/>
-      <button id="increase" class="w-8 h-8 flex items-center justify-center border rounded-md  text-black  hover:bg-black hover:text-white">+</button>
+    <div>
+        <p class="text-sm text-gray-700 font-medium mb-2">Quantity</p>
+        <div class="flex items-center gap-2">
+        <button id="decrease" class="w-8 h-8 flex items-center justify-center border rounded-md text-black  hover:bg-black hover:text-white">-</button>
+        <input
+            id="quantity"
+            type="number"
+            value="1"
+            min="1"
+            class="w-10 h-8 text-center border rounded-md focus:outline-none focus:ring-2 focus:ring-black appearance-none"/>
+        <button id="increase" class="w-8 h-8 flex items-center justify-center border rounded-md  text-black  hover:bg-black hover:text-white">+</button>
+        </div>
     </div>
-  </div>
 
 
 <!-- Tambahkan jQuery di layout utama -->
