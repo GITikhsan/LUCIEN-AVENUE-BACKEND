@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Admin</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body class="bg-gray-100 font-sans text-sm">
 
@@ -21,7 +22,6 @@
         <a href="#" data-panel="Home" class="block text-base text-gray-700 hover:text-green-600">Home</a>
         <a href="#" data-panel="Diskusi" class="block text-base text-gray-700 hover:text-green-600">Diskusi</a>
         <a href="#" data-panel="Produk" class="block text-base text-gray-700 hover:text-green-600">Input Produk</a>
-        <a href="#" data-panel="Pesanan" class="block text-base text-gray-700 hover:text-green-600">Pesanan</a>
       </nav>
     </aside>
 
@@ -90,7 +90,15 @@
         </div>
       `,
       "Produk" : `
-      <!DOCTYPE html>
+      <div id="confirmModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden z-50">
+  <div class="bg-white rounded-xl shadow-lg p-6 w-80 text-center">
+    <h3 class="text-lg font-semibold mb-4">Are you sure?</h3>
+    <div class="flex justify-center gap-4">
+      <button id="confirmYes" class="bg-gray-300 hover:bg-green-400 text-black px-4 py-2 rounded">Yes</button>
+      <button id="confirmNo" class="bg-gray-300 hover:bg-green-400 text-black px-4 py-2 rounded">No</button>
+    </div>
+  </div>
+</div>
 
 <body class="bg-gray-100 p-6 font-sans text-sm">
 
@@ -101,25 +109,25 @@
       <!-- Nama Sepatu -->
       <div>
         <label for="nama" class="block mb-1 text-gray-700">Nama Sepatu</label>
-        <input type="text" id="nama" name="nama" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Contoh: Adidas Ultraboost">
+        <input type="text" id="nama" name="nama" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Shoes name">
       </div>
 
       <!-- Merek -->
       <div>
         <label for="merek" class="block mb-1 text-gray-700">Merek</label>
-        <input type="text" id="merek" name="merek" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Contoh: Adidas">
+        <input type="text" id="merek" name="merek" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Brand">
       </div>
 
       <!-- Harga -->
       <div>
         <label for="harga" class="block mb-1 text-gray-700">Harga (Rp)</label>
-        <input type="number" id="harga" name="harga" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Harga">
+        <input type="number" id="harga" name="harga" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Price">
       </div>
 
       <!-- Ukuran -->
       <div>
         <label for="ukuran" class="block mb-1 text-gray-700">Ukuran</label>
-        <select id="ukuran" name="ukuran" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500 placeholder="pilih ukuran">
+        <select id="ukuran" name="ukuran" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500 placeholder="Size">
           <option value="35">35</option>
           <option value="36">36</option>
           <option value="37">38</option>
@@ -137,20 +145,20 @@
       <!-- Deskripsi -->
       <div>
         <label for="deskripsi" class="block mb-1 text-gray-700">Deskripsi</label>
-        <textarea id="deskripsi" name="deskripsi" rows="4" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500 resize-none" placeholder="Tambahkan deskripsi sepatu..."></textarea>
+        <textarea id="deskripsi" name="deskripsi" rows="4" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500 resize-none" placeholder="Add description"></textarea>
       </div>
 
       <!-- Input Gambar -->
-<input type="file" id="gambarInput" class="block w-full text-sm text-gray-500" accept="image/*">
+    <input type="file" id="gambarInput" class="block w-full text-sm text-gray-500" accept="image/*">
 
-<!-- Preview Gambar -->
-<div id="preview" class="mt-4 hidden">
-  <img id="gambarPreview" src="#" alt="Preview Gambar" class="max-w-xs rounded shadow">
-</div>
+    <!-- Preview Gambar -->
+    <div id="preview" class="mt-4 hidden">
+     <img id="gambarPreview" src="#" alt="Preview Gambar" class="max-w-xs rounded shadow">
+    </div>
 
       <!-- Tombol Submit -->
       <div class="pt-2">
-        <button type="submit" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Simpan Data</button>
+        <button type="submit" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Save</button>
       </div>
     </form>
   </div>
@@ -190,11 +198,11 @@
       });
     });
 
-    
+
 
     // Load default (Home)
     loadPanel("Home");
-    
+    //tampil gambar
     $(document).ready(function() {
     $('#gambarInput').on('change', function(e) {
       const file = e.target.files[0];
@@ -209,7 +217,23 @@
     });
   });
 
+  //kode yes or no
+  $(document).on("click", "form button[type=submit]", function(e) {
+    e.preventDefault(); // cegah submit langsung
+    $("#confirmModal").removeClass("hidden");
+  });
+
+  $(document).on("click", "#confirmYes", function() {
+    $("#confirmModal").addClass("hidden");
+    alert("Data berhasil disimpan!"); // ganti ini dengan logic penyimpanan sesungguhnya
+    // Misal kamu pakai AJAX atau form.submit(), bisa dipanggil di sini
+  });
+
+  $(document).on("click", "#confirmNo", function() {
+    $("#confirmModal").addClass("hidden");
+  });
+
   </script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </body>
 </html>
