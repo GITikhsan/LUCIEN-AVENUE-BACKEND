@@ -100,12 +100,13 @@
       <div class="mb-6">
         <div class=" flex items-center gap-2 mb-1">
           <p class=" text-sm text-gray-500 font-medium uppercase tracking-wide">Price</p>
-          <span class="bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded-sm leading-none">32% OFF</span>
         </div>
-
-        <div class=" flex items-baseline gap-2">
-          <p class=" text-base text-gray-400 line-through">IDR 1.764.705</p>
-          <p class=" text-2xl font-semibold text-gray-900">IDR 1,200,000</p>
+        <div class="space-y-1">
+          <div class="flex items-start gap-2 items-center">
+            <p class="text-2xl font-semibold text-gray-900">IDR 1,200,000</p>
+            <span class="bg-red-500 text-white text-[11px] font-medium px-2 py-[2px] rounded-full">-32%</span>
+          </div>
+          <p class="text-sm text-gray-400 line-through">IDR 1.764.705</p>
         </div>
       </div>
 
@@ -466,8 +467,8 @@
                       class="w-full h-auto rounded-xl object-cover transition-transform duration-300 hover:scale-105" />
 
                     <!-- Discount Badge -->
-                    <span class="absolute top-2 left-3 bg-gradient-to-r from-red-400 to-red-600 text-white text-[10px] font-semibold px-3 py-[3px] rounded-lg shadow-sm tracking-wider uppercase">
-                      30% Off
+                    <span class="absolute top-2 left-3 bg-gradient-to-r from-red-500 to-red-700 text-white text-[10px] font-semibold px-3 py-[3px] rounded-md shadow-md tracking-wider uppercase ring-1 ring-red-800/30">
+                      30%
                     </span>
                   </div>
 
