@@ -382,8 +382,8 @@
     </p>
 
     <!-- Detail Card -->
-    <div class=" grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 bg-gray-50 p-6 rounded-xl shadow-sm">
-      <div >
+    <div class="fade-section grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 bg-gray-50 p-6 rounded-xl shadow-sm">
+      <div class="fade-section" >
         <p class="text-gray-500 text-sm mb-1">SKU</p>
         <p class="font-bold text-lg">DM7866 202</p>
         <p class="text-gray-500 text-sm mt-4 mb-1">Material</p>
@@ -392,7 +392,7 @@
         <p class="text-gray-700">-</p>
       </div>
 
-      <div >
+      <div class="fade-section" >
         <p class="text-gray-500 text-sm mb-1">Color</p>
         <p class="font-bold text-lg">Dark Mocha / Black / Velvet Brown</p>
         <p class="text-gray-500 text-sm mt-4 mb-1">Dimension</p>

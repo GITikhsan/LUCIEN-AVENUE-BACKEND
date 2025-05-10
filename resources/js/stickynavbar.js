@@ -79,7 +79,8 @@ $(document).ready(function () {
             }
         });
 
-        $('.remove-item').on('click', function () {
+        $('.remove-item').on('click', function (e) {
+            e.stopPropagation(); // Mencegah bubbling event yang menutup popup
             const $item = $(this).closest('.cart-item');
             $item.remove();
             updateCartTotal();
@@ -89,6 +90,7 @@ $(document).ready(function () {
             }
         });
     }
+
 
     $('.cart-item').each(function () {
         attachEventHandlers($(this));
