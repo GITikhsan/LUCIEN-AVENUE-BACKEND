@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-@include('partial.navbar')
+@include('partial.sticknavbar')
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -46,24 +46,36 @@
       <aside class="w-full lg:w-80 bg-white rounded-2xl shadow-md p-6 space-y-10 text-base self-start" data-aos="fade-right" data-aos-duration="800">
 
 
-      <!-- select gender -->
-      <div class="space-y-4" data-aos="fade-down" data-aos-delay="150">
+      <!-- Select Gender -->
+<div class="space-y-4" data-aos="fade-down" data-aos-delay="150">
   <h2 class="text-xl font-semibold text-gray-800">Select Gender</h2>
 
-  <div class="grid grid-cols-3 gap-2">
-    <label class="block cursor-pointer border border-gray-300 rounded-lg text-center py-3 text-sm font-medium text-gray-600 hover:bg-black hover:text-white transition">
-      <input type="radio" name="gender" value="men" class="sr-only peer">
-      <span class="block peer-checked:text-white peer-checked:bg-black rounded-lg">Men</span>
+  <div class="flex gap-2">
+    <label class="flex-1">
+      <input type="radio" name="gender" value="men" class="peer hidden" />
+      <div class="w-full text-center border border-gray-300 rounded-lg py-3 text-sm font-medium text-gray-600
+                  peer-checked:bg-gray-900 peer-checked:text-white 
+                  hover:bg-gray-100 transition duration-200 cursor-pointer">
+        Men
+      </div>
     </label>
 
-    <label class="block cursor-pointer border border-gray-300 rounded-lg text-center py-3 text-sm font-medium text-gray-600 hover:bg-black hover:text-white transition">
-      <input type="radio" name="gender" value="women" class="sr-only peer">
-      <span class="block peer-checked:text-white peer-checked:bg-black rounded-lg">Women</span>
+    <label class="flex-1">
+      <input type="radio" name="gender" value="women" class="peer hidden" />
+      <div class="w-full text-center border border-gray-300 rounded-lg py-3 text-sm font-medium text-gray-600
+                  peer-checked:bg-gray-900 peer-checked:text-white 
+                  hover:bg-gray-100 transition duration-200 cursor-pointer">
+        Women
+      </div>
     </label>
 
-    <label class="block cursor-pointer border border-gray-300 rounded-lg text-center py-3 text-sm font-medium text-gray-600 hover:bg-black hover:text-white transition">
-      <input type="radio" name="gender" value="toddler" class="sr-only peer">
-      <span class="block peer-checked:text-white peer-checked:bg-black rounded-lg">Youth</span>
+    <label class="flex-1">
+      <input type="radio" name="gender" value="youth" class="peer hidden" />
+      <div class="w-full text-center border border-gray-300 rounded-lg py-3 text-sm font-medium text-gray-600
+                  peer-checked:bg-gray-900 peer-checked:text-white 
+                  hover:bg-gray-100 transition duration-200 cursor-pointer">
+        Youth
+      </div>
     </label>
   </div>
 </div>
@@ -72,100 +84,135 @@
 
         <!-- Size -->
         <div class="space-y-4" data-aos="fade-up" data-aos-delay="200">
-          <h2 class="text-xl font-semibold">Size</h2>
-          <div class="grid grid-cols-4 gap-3 pt-2">
-            <button class="border rounded-md py-3 text-base hover:bg-black hover:text-white">20</button>
-            <button class="border rounded-md py-3 text-base hover:bg-black hover:text-white">21</button>
-            <button class="border rounded-md py-3 text-base hover:bg-black hover:text-white">22</button>
-            <button class="border rounded-md py-3 text-base hover:bg-black hover:text-white">23</button>
-            <button class="border rounded-md py-3 text-base hover:bg-black hover:text-white">24</button>
-            <button class="border rounded-md py-3 text-base hover:bg-black hover:text-white">25</button>
-            <button class="border rounded-md py-3 text-base hover:bg-black hover:text-white">26</button>
-            <button class="border rounded-md py-3 text-base hover:bg-black hover:text-white">27</button>
-            <button class="border rounded-md py-3 text-base hover:bg-black hover:text-white">28</button>
-            <button class="border rounded-md py-3 text-base hover:bg-black hover:text-white">29</button>
-            <button class="border rounded-md py-3 text-base hover:bg-black hover:text-white">30</button>
-            <button class="border rounded-md py-3 text-base hover:bg-black hover:text-white">31</button>
-            <button class="border rounded-md py-3 text-base hover:bg-black hover:text-white">32</button>
-            <button class="border rounded-md py-3 text-base hover:bg-black hover:text-white">33</button>
-            <button class="border rounded-md py-3 text-base hover:bg-black hover:text-white">34</button>
-            <button class="border rounded-md py-3 text-base hover:bg-black hover:text-white">35</button>
-            <button class="border rounded-md py-3 text-base hover:bg-black hover:text-white">36</button>
-            <button class="border rounded-md py-3 text-base hover:bg-black hover:text-white">37</button>
-            <button class="border rounded-md py-3 text-base hover:bg-black hover:text-white">38</button>
-            <button class="border rounded-md py-3 text-base hover:bg-black hover:text-white">39</button>
-            <button class="border rounded-md py-3 text-base hover:bg-black hover:text-white">40</button>
-            <button class="border rounded-md py-3 text-base hover:bg-black hover:text-white">41</button>
-            <button class="border rounded-md py-3 text-base hover:bg-black hover:text-white">42</button>
-            <button class="border rounded-md py-3 text-base hover:bg-black hover:text-white">43</button>
-            <button class="border rounded-md py-3 text-base hover:bg-black hover:text-white">44</button>
-            <button class="border rounded-md py-3 text-base hover:bg-black hover:text-white">45</button>
+            <h2 class="text-xl font-semibold">Size</h2>
+            <div class="grid grid-cols-4 gap-3 pt-2">
+              <!-- Ukuran 20 -->
+              <label>
+                <input type="radio" name="size" value="20" class="peer hidden" />
+                <div class="border rounded-md py-3 text-base text-center cursor-pointer text-gray-700 border-gray-300 peer-checked:bg-black peer-checked:text-white transition">
+                  20
+                </div>
+              </label>
+
+              <!-- Ukuran 21 -->
+              <label>
+                <input type="radio" name="size" value="21" class="peer hidden" />
+                <div class="border rounded-md py-3 text-base text-center cursor-pointer text-gray-700 border-gray-300 peer-checked:bg-black peer-checked:text-white transition">
+                  21
+                </div>
+              </label>
+
+              <label>
+                <input type="radio" name="size" value="21" class="peer hidden" />
+                <div class="border rounded-md py-3 text-base text-center cursor-pointer text-gray-700 border-gray-300 peer-checked:bg-black peer-checked:text-white transition">
+                  22
+                </div>
+              </label>
+
+              <label>
+                <input type="radio" name="size" value="21" class="peer hidden" />
+                <div class="border rounded-md py-3 text-base text-center cursor-pointer text-gray-700 border-gray-300 peer-checked:bg-black peer-checked:text-white transition">
+                  23
+                </div>
+              </label>
+
+              <label>
+                <input type="radio" name="size" value="21" class="peer hidden" />
+                <div class="border rounded-md py-3 text-base text-center cursor-pointer text-gray-700 border-gray-300 peer-checked:bg-black peer-checked:text-white transition">
+                  24
+                </div>
+              </label>
+
+              <label>
+                <input type="radio" name="size" value="21" class="peer hidden" />
+                <div class="border rounded-md py-3 text-base text-center cursor-pointer text-gray-700 border-gray-300 peer-checked:bg-black peer-checked:text-white transition">
+                  25
+                </div>
+              </label>
+
+              <label>
+                <input type="radio" name="size" value="21" class="peer hidden" />
+                <div class="border rounded-md py-3 text-base text-center cursor-pointer text-gray-700 border-gray-300 peer-checked:bg-black peer-checked:text-white transition">
+                  26
+                </div>
+              </label>
+
+              <label>
+                <input type="radio" name="size" value="21" class="peer hidden" />
+                <div class="border rounded-md py-3 text-base text-center cursor-pointer text-gray-700 border-gray-300 peer-checked:bg-black peer-checked:text-white transition">
+                  27
+                </div>
+              </label>
+            </div>
+          </div>
+
+
+        <!-- Discount Filter -->
+        <div class="space-y-4" data-aos="fade-up" data-aos-delay="200">
+        <h2 class="text-xl font-semibold text-gray-800">Discount</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+
+            <!-- Any -->
+            <label>
+              <input type="radio" name="discount" value="any" class="sr-only peer" checked>
+              <div class="w-full py-3 text-sm font-medium text-center rounded-xl border border-gray-300 bg-gray-100 text-gray-700 peer-checked:bg-gray-800 peer-checked:text-white transition-all cursor-pointer">
+                Any
+              </div>
+            </label>
+
+            <!-- 10%+ -->
+            <label>
+              <input type="radio" name="discount" value="10" class="sr-only peer">
+              <div class="w-full py-3 text-sm font-medium text-center rounded-xl border border-green-300 bg-green-50 text-green-700 peer-checked:bg-green-600 peer-checked:text-white transition-all cursor-pointer">
+                10%+
+              </div>
+            </label>
+
+            <!-- 25%+ -->
+            <label>
+              <input type="radio" name="discount" value="25" class="sr-only peer">
+              <div class="w-full py-3 text-sm font-medium text-center rounded-xl border border-blue-300 bg-blue-50 text-blue-700 peer-checked:bg-blue-600 peer-checked:text-white transition-all cursor-pointer">
+                25%+
+              </div>
+            </label>
+
+            <!-- 50%+ -->
+            <label>
+              <input type="radio" name="discount" value="50" class="sr-only peer">
+              <div class="w-full py-3 text-sm font-medium text-center rounded-xl border border-red-300 bg-red-50 text-red-700 peer-checked:bg-red-600 peer-checked:text-white transition-all cursor-pointer">
+                50%+
+              </div>
+            </label>
+
           </div>
         </div>
 
-        <!-- Discount -->
-        <div class="space-y-4" data-aos="fade-up" data-aos-delay="200">
-        <h2 class="text-xl font-semibold text-gray-800">Discount</h2>
-        <div class="flex gap-2 bg-white/30 backdrop-blur-md p-2 rounded-xl border border-gray-200 shadow-sm">
-          <button class="flex-1 px-3 py-2 text-sm rounded-lg text-gray-700 hover:bg-black hover:text-white transition focus:outline-none focus:ring-2 focus:ring-black">Any</button>
-          <button class="flex-1 px-3 py-2 text-sm rounded-lg text-green-700 hover:bg-green-600 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-green-600">10%+</button>
-          <button class="flex-1 px-3 py-2 text-sm rounded-lg text-blue-700 hover:bg-blue-600 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-blue-600">25%+</button>
-          <button class="flex-1 px-3 py-2 text-sm rounded-lg text-red-700 hover:bg-red-600 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-red-600">50%+</button>
-        </div>
-      </div>
+
 
 
         <!-- Price Filter -->
-        <div data-aos="fade-up" data-aos-delay="300">
-  <h2 class="text-xl font-semibold text-gray-800 mb-4">Price Range</h2>
+        <div class="space-y-4" data-aos="fade-up" data-aos-delay="300">
+          <h2 class="text-xl font-semibold text-gray-800">Price Range</h2>
 
-  <!-- Display values -->
-  <div class="flex justify-between mb-4 text-sm text-gray-600 font-medium">
-    <span>Min: <span id="minPriceDisplay">IDR 0</span></span>
-    <span>Max: <span id="maxPriceDisplay">IDR 100.000.000</span></span>
-  </div>
+          <div class="relative">
+            <select class="w-full appearance-none px-4 py-3 pr-10 rounded-xl border border-gray-300 bg-white text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-black shadow-sm">
+              <option value="">Select a range</option>
+              <option value="0-1000000">💸 Below IDR 1.000.000</option>
+              <option value="1000000-3000000">💰 IDR 1.000.000 – 3.000.000</option>
+              <option value="3000000-5000000">💼 IDR 3.000.000 – 5.000.000</option>
+              <option value="5000000-10000000">💎 IDR 5.000.000 – 10.000.000</option>
+              <option value="10000000+">🛍️ Above IDR 10.000.000</option>
+            </select>
+            <div class="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-500">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          </div>
+        </div>
 
-  <!-- Sliders -->
-  <div class="space-y-6 max-w-md">
-    <input id="minPrice" type="range" min="0" max="100000000" value="0" step="500000"
-      class="w-full accent-black cursor-pointer">
-    <input id="maxPrice" type="range" min="0" max="100000000" value="100000000" step="500000"
-      class="w-full accent-black cursor-pointer">
-  </div>
-</div>
-
-<script>
-  const minSlider = document.getElementById('minPrice');
-  const maxSlider = document.getElementById('maxPrice');
-  const minDisplay = document.getElementById('minPriceDisplay');
-  const maxDisplay = document.getElementById('maxPriceDisplay');
-
-  function formatIDR(value) {
-    return 'IDR ' + parseInt(value).toLocaleString('id-ID');
-  }
-
-  function updateDisplay() {
-    const min = parseInt(minSlider.value);
-    const max = parseInt(maxSlider.value);
-
-    const snappedMin = Math.round(min / 500000) * 500000;
-    const snappedMax = Math.round(max / 500000) * 500000;
-
-    minSlider.value = snappedMin;
-    maxSlider.value = snappedMax;
-
-    if (snappedMin > snappedMax) maxSlider.value = snappedMin;
-    if (snappedMax < snappedMin) minSlider.value = snappedMax;
-
-    minDisplay.textContent = formatIDR(minSlider.value);
-    maxDisplay.textContent = formatIDR(maxSlider.value);
-  }
-
-  minSlider.addEventListener('input', updateDisplay);
-  maxSlider.addEventListener('input', updateDisplay);
-
-  updateDisplay(); // initial sync
-</script>
 
 
 
@@ -262,117 +309,25 @@
 </div>
 
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
-
-          <!-- Product Card 1 -->
-          <div class="border border-neutral-200 rounded-xl p-3 w-full max-w-xs hover:shadow-md transition duration-300" data-aos="fade-up" data-aos-delay="100">
-
-          <!-- Diskon -->
-          <div class="mb-2">
-            <span class="inline-block bg-red-500 text-white text-xs font-semibold px-2 py-0.5 rounded">
-              10% OFF
-            </span>
-          </div>
-
-          <!-- Gambar -->
-          <div class="w-full h-40 flex items-center justify-center overflow-hidden mb-3">
-            <img src="/images/20JT/22,000,000.png" alt="Product" class="h-full object-contain" />
-          </div>
-
-          <!-- Nama Produk -->
-          <h3 class="text-[15px] font-medium text-gray-900 leading-tight break-words">
-            New Balance 530 Arid Stone Travis Scott Oye Banget
-          </h3>
-
-          <!-- Harga -->
-          <p class="text-[16px] font-semibold text-green-600 mt-1">
-            IDR 1,000,000
-          </p>
-
-        </div>
-
-          <!-- Product Card 2 -->
-          <div class="border border-neutral-200 rounded-xl p-3 w-full max-w-xs hover:shadow-md transition duration-300" data-aos="fade-up" data-aos-delay="200">
-
-          <!-- Diskon -->
-          <div class="mb-2">
-            <span class="inline-block bg-red-500 text-white text-xs font-semibold px-2 py-0.5 rounded">
-              10% OFF
-            </span>
-          </div>
-
-          <!-- Gambar -->
-          <div class="w-full h-40 flex items-center justify-center overflow-hidden mb-3">
-            <img src="/images/20JT/22,000,000.png" alt="Product" class="h-full object-contain" />
-          </div>
-
-          <!-- Nama Produk -->
-          <h3 class="text-[15px] font-medium text-gray-900 leading-tight break-words">
-            New Balance 530 Arid Stone Travis Scott Oye Banget
-          </h3>
-
-          <!-- Harga -->
-          <p class="text-[16px] font-semibold text-green-600 mt-1">
-            IDR 1,000,000
-          </p>
-
-          </div>
-        
-          <!-- Product Card 3 -->
-          <div class="border border-neutral-200 rounded-xl p-3 w-full max-w-xs hover:shadow-md transition duration-300" data-aos="fade-up" data-aos-delay="300">
-
-          <!-- Diskon -->
-          <div class="mb-2">
-            <span class="inline-block bg-red-500 text-white text-xs font-semibold px-2 py-0.5 rounded">
-              10% OFF
-            </span>
-          </div>
-
-          <!-- Gambar -->
-          <div class="w-full h-40 flex items-center justify-center overflow-hidden mb-3">
-            <img src="/images/20JT/22,000,000.png" alt="Product" class="h-full object-contain" />
-          </div>
-
-          <!-- Nama Produk -->
-          <h3 class="text-[15px] font-medium text-gray-900 leading-tight break-words">
-            New Balance 530 Arid Stone Travis Scott Oye Banget
-          </h3>
-
-          <!-- Harga -->
-          <p class="text-[16px] font-semibold text-green-600 mt-1">
-            IDR 1,000,000
-          </p>
-
-        </div>
-
-        <!-- Product Card 4 -->
-        <div class="border border-neutral-200 rounded-xl p-3 w-full max-w-xs hover:shadow-md transition duration-300" data-aos="fade-up" data-aos-delay="400">
-
-        <!-- Diskon -->
-        <div class="mb-2">
-          <span class="inline-block bg-red-500 text-white text-xs font-semibold px-2 py-0.5 rounded">
-            10% OFF
-          </span>
-        </div>
-
-        <!-- Gambar -->
-        <div class="w-full h-40 flex items-center justify-center overflow-hidden mb-3">
-          <img src="/images/20JT/22,000,000.png" alt="Product" class="h-full object-contain" />
-        </div>
-
-        <!-- Nama Produk -->
-        <h3 class="text-[15px] font-medium text-gray-900 leading-tight break-words">
-          New Balance 530 Arid Stone Travis Scott Oye Banget
-        </h3>
-
-        <!-- Harga -->
-        <p class="text-[16px] font-semibold text-green-600 mt-1">
-          IDR 1,000,000
-        </p>
-
-        </div>
-
-        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+  <!-- Kartu Produk 1 -->
+  <div class="rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition bg-white">
+    <div class="mb-2">
+      <span class="inline-block bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded">
+        10%
+      </span>
+    </div>
+    <div class="w-full h-28 flex items-center justify-center overflow-hidden mb-3">
+      <img src="/images/youth adidas/2,920,000(1).webp" alt="Product" class="object-contain h-full" />
+    </div>
+    <h3 class="text-sm font-semibold text-gray-800 leading-snug">
+      Yeezy Boost 350 V2 Dazling Blue (Toddler)
+    </h3>
+    <p class="text-green-600 text-sm font-bold mt-1">
+      IDR 2,920,000
+    </p>
+  </div>
+       
       </section>
     </div>
   </div>
