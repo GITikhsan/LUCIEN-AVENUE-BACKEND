@@ -23,8 +23,7 @@
         <li><a href="#" data-panel="PEMBELIAN SAYA" class="flex justify-between items-center hover:text-green-600 transition">PEMBELIAN SAYA </a></li>
         <li><a href="#" data-panel="PENGEMBALIAN" class="flex justify-between items-center hover:text-green-600 transition">PENGEMBALIAN </a></li>
         <li><a href="#" data-panel="BANTUAN" class="flex justify-between items-center hover:text-green-600 transition">BANTUAN </a></li>
-        <li><a href="#" data-panel="PEMBAYARAN" class="flex justify-between items-center hover:text-green-600 transition">PEMBAYARAN </a></li>
-        <br><br>
+        <br>
         <li>
           <form method="POST" action="{{ route('logout') }}" class="w-full">
             @csrf
@@ -76,41 +75,81 @@
       `,
       "PEMBELIAN SAYA": `
         <div class="w-full max-w-4xl space-y-6">
-          <!-- Contoh item pembelian, bisa diulang -->
-          <div class="bg-white border rounded-lg shadow-md p-4">
-            <!-- Header toko -->
-            <div class="flex justify-between items-center border-b pb-3 mb-3">
-              <div class="font-semibold text-gray-700">Digital.id.Store</div>
-              <button class="px-2 py-1 bg-orange-500 text-white text-sm rounded hover:bg-orange-600">Chat</button>
-            </div>
-
-            <!-- Produk -->
-            <div class="flex flex-col md:flex-row items-start md:items-center gap-4">
-              <img src="/images/pembelian_saya_example.png" alt="Produk" class="w-24 h-24 object-cover border rounded">
-              <div class="flex-1">
-                <p class="font-semibold text-gray-800">"S.P.T.F.Y" PREM1UM Lifetime</p>
-                <p class="text-sm text-gray-600">x1</p>
-                <div class="flex items-center gap-2">
-                  <p class="text-sm text-gray-400 line-through">Rp100.000</p>
-                  <p class="text-red-600 font-bold">Rp9.999</p>
-                </div>
+        <!-- Satu item pembelian -->
+        <div class="bg-white border rounded-lg shadow-md p-4">
+          <!-- Produk -->
+          <div class="flex flex-col md:flex-row items-start md:items-center gap-4">
+            <img src="/images/pembelian_saya_example.png" alt="Produk" class="w-24 h-24 object-cover border rounded">
+            <div class="flex-1">
+              <p class="font-semibold text-gray-800">"S.P.T.F.Y" PREM1UM Lifetime</p>
+              <p class="text-sm text-gray-600">x1</p>
+              <div class="flex items-center gap-2">
+                <p class="text-sm text-gray-400 line-through">Rp100.000</p>
+                <p class="text-red-600 font-bold">Rp9.999</p>
               </div>
             </div>
-
-            <!-- Footer aksi -->
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mt-4 border-t pt-4">
-              <div class="flex gap-2 mt-2 md:mt-0">
-                <button onclick="alert('Fitur nilai belum aktif')" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-1 rounded">Nilai</button>
-                <button onclick="alert('Fitur chat penjual belum aktif')" class="border border-gray-300 px-4 py-1 rounded hover:bg-gray-50">Hubungi Penjual</button>
-                <button onclick="alert('Fitur beli ulang belum aktif')" class="border border-gray-300 px-4 py-1 rounded hover:bg-gray-50">Beli Lagi</button>
-              </div>
-            </div>
-
-            <div class="text-right mt-4 text-gray-700">
-              <span class="text-sm">Total:</span> <span class="text-xl font-bold text-red-600">Rp11.999</span>
+          </div>
+          <!-- Footer aksi dan total -->
+          <div class="flex justify-end items-center gap-4 mt-4 border-t pt-4">
+            <button onclick="alert('Fitur nilai belum aktif')" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+              Nilai
+            </button>
+            <div class="text-gray-700">
+              <span class="text-sm">Total:</span> 
+              <span class="text-xl font-bold text-red-600">Rp11.999</span>
             </div>
           </div>
         </div>
+        <div class="bg-white border rounded-lg shadow-md p-4">
+          <!-- Produk -->
+          <div class="flex flex-col md:flex-row items-start md:items-center gap-4">
+            <img src="/images/pembelian_saya_example.png" alt="Produk" class="w-24 h-24 object-cover border rounded">
+            <div class="flex-1">
+              <p class="font-semibold text-gray-800">"S.P.T.F.Y" PREM1UM Lifetime</p>
+              <p class="text-sm text-gray-600">x1</p>
+              <div class="flex items-center gap-2">
+                <p class="text-sm text-gray-400 line-through">Rp100.000</p>
+                <p class="text-red-600 font-bold">Rp9.999</p>
+              </div>
+            </div>
+          </div>
+          <!-- Footer aksi dan total -->
+          <div class="flex justify-end items-center gap-4 mt-4 border-t pt-4">
+            <button onclick="alert('Fitur nilai belum aktif')" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+              Nilai
+            </button>
+            <div class="text-gray-700">
+              <span class="text-sm">Total:</span> 
+              <span class="text-xl font-bold text-red-600">Rp11.999</span>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white border rounded-lg shadow-md p-4">
+          <!-- Produk -->
+          <div class="flex flex-col md:flex-row items-start md:items-center gap-4">
+            <img src="/images/pembelian_saya_example.png" alt="Produk" class="w-24 h-24 object-cover border rounded">
+            <div class="flex-1">
+              <p class="font-semibold text-gray-800">"S.P.T.F.Y" PREM1UM Lifetime</p>
+              <p class="text-sm text-gray-600">x1</p>
+              <div class="flex items-center gap-2">
+                <p class="text-sm text-gray-400 line-through">Rp100.000</p>
+                <p class="text-red-600 font-bold">Rp9.999</p>
+              </div>
+            </div>
+          </div>
+          <!-- Footer aksi dan total -->
+          <div class="flex justify-end items-center gap-4 mt-4 border-t pt-4">
+            <button onclick="alert('Fitur nilai belum aktif')" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+              Nilai
+            </button>
+            <div class="text-gray-700">
+              <span class="text-sm">Total:</span> 
+              <span class="text-xl font-bold text-red-600">Rp11.999</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       `,
       "PENGEMBALIAN": `
         <div class="w-full max-w-2xl bg-white p-6 rounded shadow">
@@ -129,7 +168,7 @@
               <label class="block font-semibold">Upload Bukti (opsional)</label>
               <input type="file" />
             </div>
-            <button class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Ajukan Pengembalian</button>
+            <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Ajukan Pengembalian</button>
           </form>
         </div>
       `,
@@ -146,35 +185,6 @@
             <h3 class="font-semibold">Masih butuh bantuan?</h3>
             <p>Kirim pertanyaanmu lewat <a href="#" class="text-blue-500 underline">form kontak</a> atau hubungi kami via WhatsApp.</p>
           </div>
-        </div>
-      `,
-
-      "PEMBAYARAN": `
-        <div class="w-full max-w-xl bg-white p-6 rounded shadow">
-          <h2 class="text-2xl font-bold mb-4">Metode Pembayaran</h2>
-          <ul class="space-y-4">
-            <li class="flex items-center justify-between border-b pb-3">
-              <div>
-                <p class="font-semibold">Transfer Bank</p>
-                <p class="text-sm text-gray-500">BNI, BRI, Mandiri, BCA</p>
-              </div>
-              <button class="bg-green-500 text-white px-4 py-1 rounded hover:bg-green-600">Pilih</button>
-            </li>
-            <li class="flex items-center justify-between border-b pb-3">
-              <div>
-                <p class="font-semibold">E-Wallet</p>
-                <p class="text-sm text-gray-500">OVO, DANA, GoPay, ShopeePay</p>
-              </div>
-              <button class="bg-green-500 text-white px-4 py-1 rounded hover:bg-green-600">Pilih</button>
-            </li>
-            <li class="flex items-center justify-between border-b pb-3">
-              <div>
-                <p class="font-semibold">Kartu Kredit/Debit</p>
-                <p class="text-sm text-gray-500">Visa, Mastercard</p>
-              </div>
-              <button class="bg-green-500 text-white px-4 py-1 rounded hover:bg-green-600">Pilih</button>
-            </li>
-          </ul>
         </div>
       `,
     };
