@@ -139,6 +139,17 @@
             </select>
           </div>
 
+          <div>
+            <label for="Color" class="block mb-1 text-gray-700">Color</label>
+            <input type="text" id="Color" name="Color" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Color">
+          </div>
+
+          <div>
+            <label for="Material" class="block mb-1 text-gray-700">Material</label>
+            <input type="text" id="Material" name="Material" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Material">
+          </div>
+
+
 
           <div>
             <label for="Gender" class="block mb-1 text-gray-700">Gender</label>
@@ -152,7 +163,6 @@
             <label for="Description" class="block mb-1 text-gray-700">Description</label>
             <textarea id="Description" name="Description" rows="4" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500 resize-none" placeholder="Add description"></textarea>
           </div>
-
 
 
           <div class="pt-2">
