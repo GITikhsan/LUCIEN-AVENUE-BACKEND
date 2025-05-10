@@ -4,17 +4,10 @@
     <!-- LOGO & BRAND INFO -->
     <div class="space-y-4">
       <h2 class="text-2xl font-bold tracking-wider">LUCIEN AVENUE</h2>
-      <p class="text-sm text-gray-400">200% Money Back Guarantee</p>
+      <p class="text-sm text-gray-400">100% Money Back Guarantee</p>
       <p class="text-sm text-gray-400">Authentic. Trusted. Guaranteed.</p>
     </div>
 
-    <!-- Links -->
-    <div class="text-sm space-y-2">
-      <p class="font-semibold text-white">FAQ</p>
-      <p class="font-semibold text-white">Terms and Conditions</p>
-      <p class="font-semibold text-white">Buying & Selling Guide</p>
-      <p class="font-semibold text-white">Lucienews</p>
-    </div>
 
     <div class="flex flex-col items-start space-y-2">
   <p class="text-sm font-semibold">Created by Our Team</p>
@@ -29,15 +22,14 @@
 </div>
 
     <!-- CONNECT -->
-    <div class="flex flex-col items-center space-y-2">
-  <p class="text-sm font-semibold">Keep in touch with us!</p>
-  <div class="flex gap-4">
-    <img src="/images/ig2.png" alt="Instagram" class="h-6 w-6">
-    <img src="/images/twitter2.png" alt="Twitter" class="h-6 w-6">
-    <img src="/images/fb2.png" alt="Facebook" class="h-6 w-6">
-    <img src="/images/youtube.png" alt="Youtube" class="h-6 w-6">
-  </div>
+    <div class="flex flex-col items-center text-white space-y-2">
+  <p class="text-base font-semibold">Keep in touch with us!</p>
+  <a href="https://www.instagram.com/lucienavenue" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-gray-300 hover:text-white transition duration-200">
+    <img src="/images/ig2.png" alt="Instagram" class="h-6 w-6 hover:scale-110 transition-transform duration-200">
+    <span>@lucienavenue</span>
+  </a>
 </div>
+
 
 
     <!-- DOWNLOAD APP -->
