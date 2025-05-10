@@ -80,9 +80,9 @@ $(document).ready(function () {
         });
 
         $('.remove-item').on('click', function () {
-            const $item = $(this).closest('.cart-item'); // cari .cart-item terdekat dari tombol
-            $item.remove(); // hapus hanya elemen itu
-            updateCartTotal(); // hitung ulang total
+            const $item = $(this).closest('.cart-item');
+            $item.remove();
+            updateCartTotal();
 
             if ($('.cart-item').length === 0) {
                 $('#bagItems').html('<p class="text-center text-gray-500">Your bag is empty.</p>');
@@ -117,7 +117,6 @@ $(document).ready(function () {
     }
 
     $searchButton.on('click', showSearch);
-
     $('#closeSearch').on('click', hideSearch);
 
     $(document).on('keydown', function (e) {
@@ -138,50 +137,46 @@ $(document).ready(function () {
         $('#menuDropdown').addClass('hidden');
     });
 
+    // Navbar scroll shrink effect (dengan fix jedag-jedug)
+    const mediaQuery = window.matchMedia('(min-width: 768px)');
 
-    $(document).ready(function () {
-        const mediaQuery = window.matchMedia('(min-width: 768px)');
+    function isDesktop() {
+        return mediaQuery.matches;
+    }
 
-        function isDesktop() {
-            return mediaQuery.matches;
-        }
+    let isShrunk = false;
+    const scrollThreshold = 0;
 
-        function handleScroll() {
-            if (isDesktop()) {
-                if ($(window).scrollTop() > 10) {
-                    $('#navbar').removeClass('h-20').addClass('h-14');
-                    $('#brandTitle')
-                        .removeClass('text-xl sm:text-2xl md:text-3xl lg:text-4xl')
-                        .addClass('text-sm sm:text-base md:text-xl lg:text-2xl');
-                } else {
-                    $('#navbar').removeClass('h-14').addClass('h-20');
-                    $('#brandTitle')
-                        .removeClass('text-sm sm:text-base md:text-xl lg:text-2xl')
-                        .addClass('text-xl sm:text-2xl md:text-3xl lg:text-4xl');
-                }
-            } else {
-                // Mobile mode: langsung kecil dan TETAP tanpa animasi scroll
+    function handleScroll() {
+        const scrollTop = $(window).scrollTop();
+
+        if (isDesktop()) {
+            if (scrollTop > scrollThreshold && !isShrunk) {
                 $('#navbar').removeClass('h-20').addClass('h-14');
                 $('#brandTitle')
                     .removeClass('text-xl sm:text-2xl md:text-3xl lg:text-4xl')
                     .addClass('text-sm sm:text-base md:text-xl lg:text-2xl');
+                isShrunk = true;
+            } else if (scrollTop <= scrollThreshold && isShrunk) {
+                $('#navbar').removeClass('h-14').addClass('h-20');
+                $('#brandTitle')
+                    .removeClass('text-sm sm:text-base md:text-xl lg:text-2xl')
+                    .addClass('text-xl sm:text-2xl md:text-3xl lg:text-4xl');
+                isShrunk = false;
             }
+        } else {
+            // Mobile: tetap kecil
+            $('#navbar').removeClass('h-20').addClass('h-14');
+            $('#brandTitle')
+                .removeClass('text-xl sm:text-2xl md:text-3xl lg:text-4xl')
+                .addClass('text-sm sm:text-base md:text-xl lg:text-2xl');
         }
+    }
 
-        // 1. Jalankan saat halaman siap
-        handleScroll();
-
-        // 2. Jalankan ulang saat ukuran berubah (termasuk aktifin mode hp di DevTools)
-        mediaQuery.addEventListener('change', handleScroll);
-        $(window).on('resize', handleScroll);
-
-        // 3. Jalankan saat scroll — tapi HANYA untuk desktop
-        $(window).on('scroll', function () {
-            if (isDesktop()) {
-                handleScroll();
-            }
-        });
+    handleScroll(); // saat halaman siap
+    mediaQuery.addEventListener('change', handleScroll);
+    $(window).on('resize', handleScroll);
+    $(window).on('scroll', function () {
+        if (isDesktop()) handleScroll();
     });
-
-
 });
