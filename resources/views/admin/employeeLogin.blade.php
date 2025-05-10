@@ -22,7 +22,7 @@
     <!-- Right Login Section -->
     <div class="flex-1 w-full md:w-1/2">
       <div class="mb-6">
-        <h2 class="text-2xl font-semibold mb-2 text-center">Karyawan Wajib Login!!!</h2>
+        <h2 class="text-2xl font-semibold mb-2 text-center">Employee must Login</h2>
       </div>
 
       <form class="flex flex-col gap-4 mb-6">
