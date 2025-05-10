@@ -28,6 +28,9 @@ Route::get('/homePage', function () {
 Route::get('/profile', function () {
     return view('user.profile');
 });
+Route::get('/settings', function () {
+    return view('user.settings');
+});
 /*         USER       */
 
 
