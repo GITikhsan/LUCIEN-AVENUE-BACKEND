@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Profile</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    input.no-arrow::-webkit-outer-spin-button,
+    input.no-arrow::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    input.no-arrow {
+      -moz-appearance: textfield;
+    }
+  </style>
 </head>
 <body class="m-0 font-sans bg-white">
 
@@ -22,7 +32,6 @@
         <li><a href="#" data-panel="DATA SAYA" class="flex justify-between items-center hover:text-green-600 transition">DATA SAYA </a></li>
         <li><a href="#" data-panel="PEMBELIAN SAYA" class="flex justify-between items-center hover:text-green-600 transition">PEMBELIAN SAYA </a></li>
         <li><a href="#" data-panel="PENGEMBALIAN" class="flex justify-between items-center hover:text-green-600 transition">PENGEMBALIAN </a></li>
-        <li><a href="#" data-panel="BANTUAN" class="flex justify-between items-center hover:text-green-600 transition">BANTUAN </a></li>
         <br>
         <li>
           <form method="POST" action="{{ route('logout') }}" class="w-full">
@@ -75,81 +84,84 @@
       `,
       "PEMBELIAN SAYA": `
         <div class="w-full max-w-4xl space-y-6">
-        <!-- Satu item pembelian -->
-        <div class="bg-white border rounded-lg shadow-md p-4">
-          <!-- Produk -->
-          <div class="flex flex-col md:flex-row items-start md:items-center gap-4">
-            <img src="/images/pembelian_saya_example.png" alt="Produk" class="w-24 h-24 object-cover border rounded">
-            <div class="flex-1">
-              <p class="font-semibold text-gray-800">"S.P.T.F.Y" PREM1UM Lifetime</p>
-              <p class="text-sm text-gray-600">x1</p>
-              <div class="flex items-center gap-2">
-                <p class="text-sm text-gray-400 line-through">Rp100.000</p>
-                <p class="text-red-600 font-bold">Rp9.999</p>
+          <!-- Contoh item pembelian, bisa diulang -->
+          <div class="bg-white border rounded-lg shadow-md p-4">
+            <!-- Produk -->
+            <div class="flex flex-col md:flex-row items-start md:items-center gap-4">
+              <img src="/images/100JT/100,000,000(1).png" alt="Produk" class="w-24 h-24 object-cover border rounded">
+              <div class="flex-1">
+                <p class="font-semibold text-gray-800">Air Jordan 1 Retro Low Dior</p>
+                <p class="text-sm text-gray-600">x1</p>
+                <div class="flex items-center gap-2">
+                  <p class="text-red-600 font-bold">IDR 100,000,000</p>
+                </div>
+              </div>
+            </div>
+            <!-- Footer aksi -->
+            <div class="flex flex-col md:flex-row justify-between items-center mt-4 border-t pt-4">
+              <!-- Tombol Nilai -->
+              <button onclick="alert('Fitur nilai belum aktif')" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                Nilai
+              </button>
+              <!-- Total Harga -->
+              <div class="text-right mt-4 md:mt-0 text-gray-700">
+                <span class="text-sm">Total:</span> 
+                <span class="text-xl font-bold text-red-600">IDR 100,000,000</span>
               </div>
             </div>
           </div>
-          <!-- Footer aksi dan total -->
-          <div class="flex justify-end items-center gap-4 mt-4 border-t pt-4">
-            <button onclick="alert('Fitur nilai belum aktif')" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
-              Nilai
-            </button>
-            <div class="text-gray-700">
-              <span class="text-sm">Total:</span> 
-              <span class="text-xl font-bold text-red-600">Rp11.999</span>
+          <div class="bg-white border rounded-lg shadow-md p-4">
+            <!-- Produk -->
+            <div class="flex flex-col md:flex-row items-start md:items-center gap-4">
+              <img src="/images/4JT/4,240,000.png" alt="Produk" class="w-24 h-24 object-cover border rounded">
+              <div class="flex-1">
+                <p class="font-semibold text-gray-800">Air Jordan 1 Retro Low OG SP Travis Scott Velvet Brown</p>
+                <p class="text-sm text-gray-600">x1</p>
+                <div class="flex items-center gap-2">
+                  <p class=" text-base text-gray-400 line-through">IDR 5,808,219</p>
+                  <p class="text-red-600 font-bold">IDR 4,240,000</p>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="bg-white border rounded-lg shadow-md p-4">
-          <!-- Produk -->
-          <div class="flex flex-col md:flex-row items-start md:items-center gap-4">
-            <img src="/images/pembelian_saya_example.png" alt="Produk" class="w-24 h-24 object-cover border rounded">
-            <div class="flex-1">
-              <p class="font-semibold text-gray-800">"S.P.T.F.Y" PREM1UM Lifetime</p>
-              <p class="text-sm text-gray-600">x1</p>
-              <div class="flex items-center gap-2">
-                <p class="text-sm text-gray-400 line-through">Rp100.000</p>
-                <p class="text-red-600 font-bold">Rp9.999</p>
+            <!-- Footer aksi -->
+            <div class="flex flex-col md:flex-row justify-between items-center mt-4 border-t pt-4">
+              <!-- Tombol Nilai -->
+              <button onclick="alert('Fitur nilai belum aktif')" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                Nilai
+              </button>
+              <!-- Total Harga -->
+              <div class="text-right mt-4 md:mt-0 text-gray-700">
+                <span class="text-sm">Total:</span> 
+                <span class="text-xl font-bold text-red-600">IDR 4,240,000</span>
               </div>
             </div>
           </div>
-          <!-- Footer aksi dan total -->
-          <div class="flex justify-end items-center gap-4 mt-4 border-t pt-4">
-            <button onclick="alert('Fitur nilai belum aktif')" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
-              Nilai
-            </button>
-            <div class="text-gray-700">
-              <span class="text-sm">Total:</span> 
-              <span class="text-xl font-bold text-red-600">Rp11.999</span>
+          <div class="bg-white border rounded-lg shadow-md p-4">
+            <!-- Produk -->
+            <div class="flex flex-col md:flex-row items-start md:items-center gap-4">
+              <img src="/images/3JT/3,210,000(1).png" alt="Produk" class="w-24 h-24 object-cover border rounded">
+              <div class="flex-1">
+                <p class="font-semibold text-gray-800">Air Jordan 1 Low SE Craft Light Olive</p>
+                <p class="text-sm text-gray-600">x1</p>
+                <div class="flex items-center gap-2">
+                  <p class="text-red-600 font-bold">IDR 3,210,000</p>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="bg-white border rounded-lg shadow-md p-4">
-          <!-- Produk -->
-          <div class="flex flex-col md:flex-row items-start md:items-center gap-4">
-            <img src="/images/pembelian_saya_example.png" alt="Produk" class="w-24 h-24 object-cover border rounded">
-            <div class="flex-1">
-              <p class="font-semibold text-gray-800">"S.P.T.F.Y" PREM1UM Lifetime</p>
-              <p class="text-sm text-gray-600">x1</p>
-              <div class="flex items-center gap-2">
-                <p class="text-sm text-gray-400 line-through">Rp100.000</p>
-                <p class="text-red-600 font-bold">Rp9.999</p>
+            <!-- Footer aksi -->
+            <div class="flex flex-col md:flex-row justify-between items-center mt-4 border-t pt-4">
+              <!-- Tombol Nilai -->
+              <button onclick="alert('Fitur nilai belum aktif')" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                Nilai
+              </button>
+              <!-- Total Harga -->
+              <div class="text-right mt-4 md:mt-0 text-gray-700">
+                <span class="text-sm">Total:</span> 
+                <span class="text-xl font-bold text-red-600">IDR 3,210,000</span>
               </div>
             </div>
           </div>
-          <!-- Footer aksi dan total -->
-          <div class="flex justify-end items-center gap-4 mt-4 border-t pt-4">
-            <button onclick="alert('Fitur nilai belum aktif')" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
-              Nilai
-            </button>
-            <div class="text-gray-700">
-              <span class="text-sm">Total:</span> 
-              <span class="text-xl font-bold text-red-600">Rp11.999</span>
-            </div>
-          </div>
         </div>
-      </div>
-
       `,
       "PENGEMBALIAN": `
         <div class="w-full max-w-2xl bg-white p-6 rounded shadow">
@@ -168,23 +180,12 @@
               <label class="block font-semibold">Upload Bukti (opsional)</label>
               <input type="file" />
             </div>
+            <div>
+              <label class="block font-semibold">Nomor WhatsApp</label>
+              <input type="number" oninput="if(this.value.length > 14) this.value = this.value.slice(0, 14)" class="w-full border p-2 rounded no-arrow" />
+            </div>
             <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Ajukan Pengembalian</button>
           </form>
-        </div>
-      `,
-
-      "BANTUAN": `
-        <div class="w-full max-w-2xl bg-white p-6 rounded shadow">
-          <h2 class="text-2xl font-bold mb-4">Pusat Bantuan</h2>
-          <ul class="list-disc pl-5 space-y-2 text-gray-700">
-            <li><strong>Cara Melacak Pesanan:</strong> Klik menu "Pembelian Saya", lalu lihat status pengiriman.</li>
-            <li><strong>Cara Membatalkan Pesanan:</strong> Ajukan sebelum pesanan dikirim oleh penjual.</li>
-            <li><strong>Masalah Pembayaran:</strong> Hubungi CS kami lewat <a href="#" class="text-blue-500 underline">form ini</a>.</li>
-          </ul>
-          <div class="mt-6">
-            <h3 class="font-semibold">Masih butuh bantuan?</h3>
-            <p>Kirim pertanyaanmu lewat <a href="#" class="text-blue-500 underline">form kontak</a> atau hubungi kami via WhatsApp.</p>
-          </div>
         </div>
       `,
     };
