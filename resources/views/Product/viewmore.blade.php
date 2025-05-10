@@ -74,6 +74,21 @@
         <div class="space-y-4" data-aos="fade-up" data-aos-delay="200">
           <h2 class="text-xl font-semibold">Size</h2>
           <div class="grid grid-cols-4 gap-3 pt-2">
+            <button class="border rounded-md py-3 text-base hover:bg-black hover:text-white">20</button>
+            <button class="border rounded-md py-3 text-base hover:bg-black hover:text-white">21</button>
+            <button class="border rounded-md py-3 text-base hover:bg-black hover:text-white">22</button>
+            <button class="border rounded-md py-3 text-base hover:bg-black hover:text-white">23</button>
+            <button class="border rounded-md py-3 text-base hover:bg-black hover:text-white">24</button>
+            <button class="border rounded-md py-3 text-base hover:bg-black hover:text-white">25</button>
+            <button class="border rounded-md py-3 text-base hover:bg-black hover:text-white">26</button>
+            <button class="border rounded-md py-3 text-base hover:bg-black hover:text-white">27</button>
+            <button class="border rounded-md py-3 text-base hover:bg-black hover:text-white">28</button>
+            <button class="border rounded-md py-3 text-base hover:bg-black hover:text-white">29</button>
+            <button class="border rounded-md py-3 text-base hover:bg-black hover:text-white">30</button>
+            <button class="border rounded-md py-3 text-base hover:bg-black hover:text-white">31</button>
+            <button class="border rounded-md py-3 text-base hover:bg-black hover:text-white">32</button>
+            <button class="border rounded-md py-3 text-base hover:bg-black hover:text-white">33</button>
+            <button class="border rounded-md py-3 text-base hover:bg-black hover:text-white">34</button>
             <button class="border rounded-md py-3 text-base hover:bg-black hover:text-white">35</button>
             <button class="border rounded-md py-3 text-base hover:bg-black hover:text-white">36</button>
             <button class="border rounded-md py-3 text-base hover:bg-black hover:text-white">37</button>

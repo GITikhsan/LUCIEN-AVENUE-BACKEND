@@ -68,8 +68,8 @@ Route::get('/4,240', function () {
 Route::get('/1,540', function () {
     return view('product.wanita jordan.1,540');
 });
-Route::get('/7,950', function () {
-    return view('product.pria jordan.7,950');
+Route::get('/1,200', function () {
+    return view('product.youth adidas.1,200');
 });
 Route::get('/15,700', function () {
     return view('product.pria jordan.15,700');

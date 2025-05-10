@@ -35,19 +35,26 @@
             <button aria-label="Search" id="searchButton" class="relative">
                 <i data-lucide="search" class="w-6 h-6"></i>
             </button>
-            <!-- Button -->
-            <div class="relative inline-block">
-            <!-- Menu Button -->
-            <button id="menuToggle" aria-label="Menu" class="p-2 text-neutral-800 hover:text-black transition-colors duration-200">
-                <i data-lucide="menu" class="w-6 h-6 stroke-[1.5] transition-transform duration-200 hover:scale-105"></i>
-            </button>
 
-            <!-- Dropdown -->
-            <div id="menuDropdown" class="absolute right-0 mt-2 w-40 bg-white shadow-lg border border-gray-200 rounded-md py-2 text-sm text-neutral-800 hidden z-50 transition-all duration-200">
-                <a href="#contact" class="block px-4 py-2 hover:bg-gray-100 transition">Contact Us</a>
-                <a href="#contact" class="block px-4 py-2 hover:bg-gray-100 transition">About Us</a>
-                <a href="#settings" class="block px-4 py-2 hover:bg-gray-100 transition">Settings</a>
-            </div>
+            <!-- Button + Dropdown -->
+            <div class="relative inline-block text-left">
+                <!-- Menu Button -->
+                <button id="menuToggle" aria-label="Menu" class="p-2 text-neutral-700 hover:text-black transition-colors duration-200 rounded-full hover:bg-gray-100">
+                    <i data-lucide="menu" class="w-6 h-6 stroke-[1.5] transition-transform duration-200 hover:scale-110"></i>
+                </button>
+
+                <!-- Dropdown Menu -->
+                <div id="menuDropdown" class="absolute right-0 mt-3 w-48 bg-white border border-gray-200 shadow-xl rounded-xl py-2 text-sm text-neutral-800 hidden z-50 transition-all duration-300 ease-out backdrop-blur-md">
+                    <a href="#contact" class="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 transition rounded-md">
+                        <i data-lucide="mail" class="w-4 h-4 stroke-[1.5]"></i> Contact Us
+                    </a>
+                    <a href="#about" class="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 transition rounded-md">
+                        <i data-lucide="info" class="w-4 h-4 stroke-[1.5]"></i> About Us
+                    </a>
+                    <a href="#settings" class="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 transition rounded-md">
+                        <i data-lucide="settings" class="w-4 h-4 stroke-[1.5]"></i> Settings
+                    </a>
+                </div>
             </div>
 
 
@@ -71,128 +78,81 @@
 
             <!-- Shopping Bag Dropdown -->
             <div id="shoppingBagBox"
-                class="absolute mt-4 w-[26rem] max-h-[34rem] bg-white rounded-2xl shadow-2xl right-0 top-full z-50 flex flex-col hidden">
+                class="absolute top-14 right-4 w-[28rem] max-h-[36rem] bg-white rounded-3xl shadow-2xl z-50 flex flex-col hidden transition-all duration-300 ease-in-out ring-1 ring-gray-100">
+
                 <!-- Header -->
-                <div class="p-6 border-b flex items-center justify-between">
-                    <h2 class="text-xl font-bold">Your Bag</h2>
-                    <button id="closeBag" class="text-gray-500 hover:text-black text-2xl font-bold">&times;</button>
-                </div>
+            <div class="px-6 py-5 border-b border-gray-200 bg-white flex items-center justify-between rounded-t-3xl shadow-sm">
+                <h2 class="text-2xl font-semibold text-gray-900 tracking-tight">👜 Your Bag</h2>
+                <button id="closeBag" class="text-gray-400 hover:text-gray-900 text-3xl font-bold transition-all duration-200">&times;</button>
+            </div>
 
-                <!-- Scrollable Items -->
-                <div id="bagItems" class="flex-1 overflow-y-auto p-6 space-y-4">
-                    <!-- Example Item -->
-                    <template id="cartItemTemplate">
-                        <div class="flex items-start gap-4 border-b pb-4 cart-item" data-price="0" data-qty="1">
-                            <img src="/images/wanita jordan/1,590,000(1).webp" alt="Product"
-                                class="w-20 h-20 rounded-lg object-contain object-center p-1 bg">
-                            <div class="flex-1">
-                                <p class="font-semibold text-sm text-gray-800 item-name"></p>
-                                <p class="text-sm text-gray-500">Size: <span
-                                        class="font-medium text-gray-700 item-size"></span></p>
-                                <p class="text-sm text-gray-500 mb-1 item-price"></p>
-                                <div class="flex items-center mt-2 gap-2">
-                                    <button
-                                        class="qty-decrease px-3 py-1 text-sm font-semibold rounded-full bg-gray-200 hover:bg-gray-300">−</button>
-                                    <span
-                                        class="item-qty-display px-3 py-1 text-sm font-semibold bg-gray-100 rounded-full border border-gray-300">1</span>
-                                    <button
-                                        class="qty-increase px-3 py-1 text-sm font-semibold rounded-full bg-gray-200 hover:bg-gray-300">+</button>
-                                    <button
-                                        class="remove-item ml-auto text-sm text-red-500 hover:underline">Remove</button>
-                                </div>
-                            </div>
-                        </div>
-                    </template>
+            <!-- Items Scroll Area -->
+            <div id="bagItems" class="flex-1 overflow-y-auto px-6 py-5 space-y-6 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 hover:scrollbar-thumb-gray-400 bg-gradient-to-b from-white via-gray-50 to-white rounded-b-2xl">
 
-                    <!-- Item 1 -->
-                    <div class="flex items-start gap-4 border-b pb-4 cart-item" data-price="1540000" data-qty="2">
-                        <img src="/images/wanita jordan/1,590,000(1).webp" alt="Product"
-                            class="w-20 h-20 rounded-lg object-contain object-center p-1 bg">
-                        <div class="flex-1">
-                            <p class="font-semibold text-sm text-gray-800">Nike Air Max</p>
-                            <p class="text-sm text-gray-500">Size: <span class="font-medium text-gray-700">42</span></p>
-                            <p class="text-sm text-gray-500 mb-1">Rp1.540.000</p>
-                            <div class="flex items-center mt-2 gap-2">
-                                <button
-                                    class="qty-decrease px-3 py-1 text-sm font-semibold rounded-full bg-gray-200 hover:bg-gray-300">−</button>
-                                <span
-                                    class="item-qty-display px-3 py-1 text-sm font-semibold bg-gray-100 rounded-full border border-gray-300">1</span>
-                                <button
-                                    class="qty-increase px-3 py-1 text-sm font-semibold rounded-full bg-gray-200 hover:bg-gray-300">+</button>
-                                <button class="remove-item ml-auto text-sm text-red-500 hover:underline">Remove</button>
+                <!-- Template Item -->
+                <template id="cartItemTemplate">
+                    <div class="flex gap-4 items-start p-5 bg-white rounded-2xl shadow-md transition hover:shadow-lg cart-item" data-price="0" data-qty="1">
+                        <img src="" alt="Product"
+                            class="w-20 h-20 object-contain rounded-xl bg-gray-100 p-2 border border-gray-200 item-img">
+                        <div class="flex-1 space-y-1.5">
+                            <p class="text-base font-semibold text-gray-900 item-name"></p>
+                            <p class="text-sm text-gray-500">Size: <span class="item-size text-gray-700 font-semibold"></span></p>
+                            <p class="text-sm font-bold text-gray-800 item-price"></p>
+                            <div class="flex items-center mt-3 gap-2">
+                                <button class="qty-decrease w-8 h-8 bg-gray-100 hover:bg-gray-200 text-base rounded-full transition">−</button>
+                                <span class="item-qty-display w-8 h-8 bg-white border border-gray-300 text-sm rounded-full flex items-center justify-center">1</span>
+                                <button class="qty-increase w-8 h-8 bg-gray-100 hover:bg-gray-200 text-base rounded-full transition">+</button>
+                                <button class="remove-item ml-auto text-sm text-red-500 hover:text-red-700 hover:underline transition">Remove</button>
                             </div>
                         </div>
                     </div>
+                </template>
 
-                    <!-- Item 2 -->
-                    <div class="flex items-start gap-4 border-b pb-4 cart-item" data-price="1540000" data-qty="2">
-                        <img src="/images/wanita jordan/1,590,000(1).webp" alt="Product"
-                            class="w-20 h-20 rounded-lg object-contain object-center p-1 bg">
-                        <div class="flex-1">
-                            <p class="font-semibold text-sm text-gray-800">Nike Air Max</p>
-                            <p class="text-sm text-gray-500">Size: <span class="font-medium text-gray-700">42</span></p>
-                            <p class="text-sm text-gray-500 mb-1">Rp1.540.000</p>
-                            <div class="flex items-center mt-2 gap-2">
-                                <button
-                                    class="qty-decrease px-3 py-1 text-sm font-semibold rounded-full bg-gray-200 hover:bg-gray-300">−</button>
-                                <span
-                                    class="item-qty-display px-3 py-1 text-sm font-semibold bg-gray-100 rounded-full border border-gray-300">1</span>
-                                <button
-                                    class="qty-increase px-3 py-1 text-sm font-semibold rounded-full bg-gray-200 hover:bg-gray-300">+</button>
-                                <button class="remove-item ml-auto text-sm text-red-500 hover:underline">Remove</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Item 3 -->
-                    <div class="flex items-start gap-4 border-b pb-4 cart-item" data-price="1540000" data-qty="2">
-                        <img src="/images/sepatu1.webp" alt="Product"
-                            class="w-20 h-20 rounded-lg object-contain object-center p-1 bg">
-                        <div class="flex-1">
-                            <p class="font-semibold text-sm text-gray-800">Nike Air Max</p>
-                            <p class="text-sm text-gray-500">Size: <span class="font-medium text-gray-700">42</span></p>
-                            <p class="text-sm text-gray-500 mb-1">Rp1.540.000</p>
-                            <div class="flex items-center mt-2 gap-2">
-                                <button
-                                    class="qty-decrease px-3 py-1 text-sm font-semibold rounded-full bg-gray-200 hover:bg-gray-300">−</button>
-                                <span
-                                    class="item-qty-display px-3 py-1 text-sm font-semibold bg-gray-100 rounded-full border border-gray-300">1</span>
-                                <button
-                                    class="qty-increase px-3 py-1 text-sm font-semibold rounded-full bg-gray-200 hover:bg-gray-300">+</button>
-                                <button class="remove-item ml-auto text-sm text-red-500 hover:underline">Remove</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Item 4 -->
-                    <div class="flex items-start gap-4 border-b pb-4 cart-item" data-price="1540000" data-qty="2">
-                        <img src="/images/sepatu1.webp" alt="Product"
-                            class="w-20 h-20 rounded-lg object-contain object-center p-1 bg">
-                        <div class="flex-1">
-                            <p class="font-semibold text-sm text-gray-800">Nike Air Max</p>
-                            <p class="text-sm text-gray-500">Size: <span class="font-medium text-gray-700">42</span></p>
-                            <p class="text-sm text-gray-500 mb-1">Rp1.540.000</p>
-                            <div class="flex items-center mt-2 gap-2">
-                                <button
-                                    class="qty-decrease px-3 py-1 text-sm font-semibold rounded-full bg-gray-200 hover:bg-gray-300">−</button>
-                                <span
-                                    class="item-qty-display px-3 py-1 text-sm font-semibold bg-gray-100 rounded-full border border-gray-300">1</span>
-                                <button
-                                    class="qty-increase px-3 py-1 text-sm font-semibold rounded-full bg-gray-200 hover:bg-gray-300">+</button>
-                                <button class="remove-item ml-auto text-sm text-red-500 hover:underline">Remove</button>
-                            </div>
+                <!-- Example Static Item -->
+                <div class="flex gap-4 items-start p-5 bg-white rounded-2xl shadow-md transition hover:shadow-lg cart-item" data-price="1540000" data-qty="2">
+                    <img src="/images/wanita jordan/1,590,000(1).webp" alt="Product"
+                        class="w-20 h-20 object-contain rounded-xl bg-gray-100 p-2 border border-gray-200">
+                    <div class="flex-1 space-y-1.5">
+                        <p class="text-base font-semibold text-gray-900">Nike Air Max</p>
+                        <p class="text-sm text-gray-500">Size: <span class="font-semibold text-gray-700">42</span></p>
+                        <p class="text-sm font-bold text-gray-800">Rp1.540.000</p>
+                        <div class="flex items-center mt-3 gap-2">
+                            <button class="qty-decrease w-8 h-8 bg-gray-100 hover:bg-gray-200 text-base rounded-full transition">−</button>
+                            <span class="item-qty-display w-8 h-8 bg-white border border-gray-300 text-sm rounded-full flex items-center justify-center">1</span>
+                            <button class="qty-increase w-8 h-8 bg-gray-100 hover:bg-gray-200 text-base rounded-full transition">+</button>
+                            <button class="remove-item ml-auto text-sm text-red-500 hover:text-red-700 hover:underline transition">Remove</button>
                         </div>
                     </div>
                 </div>
-                <!-- Total dan Checkout -->
-                <div class="p-6 border-t">
-                    <div class="flex justify-between text-lg font-semibold text-gray-800 mb-4">
-                        <span>Total:</span>
-                        <span id="cartTotal">Rp0</span>
+
+                <!-- Example Static Item -->
+                <div class="flex gap-4 items-start p-5 bg-white rounded-2xl shadow-md transition hover:shadow-lg cart-item" data-price="1540000" data-qty="2">
+                    <img src="/images/wanita jordan/1,590,000(1).webp" alt="Product"
+                        class="w-20 h-20 object-contain rounded-xl bg-gray-100 p-2 border border-gray-200">
+                    <div class="flex-1 space-y-1.5">
+                        <p class="text-base font-semibold text-gray-900">Nike Air Max</p>
+                        <p class="text-sm text-gray-500">Size: <span class="font-semibold text-gray-700">42</span></p>
+                        <p class="text-sm font-bold text-gray-800">Rp1.540.000</p>
+                        <div class="flex items-center mt-3 gap-2">
+                            <button class="qty-decrease w-8 h-8 bg-gray-100 hover:bg-gray-200 text-base rounded-full transition">−</button>
+                            <span class="item-qty-display w-8 h-8 bg-white border border-gray-300 text-sm rounded-full flex items-center justify-center">1</span>
+                            <button class="qty-increase w-8 h-8 bg-gray-100 hover:bg-gray-200 text-base rounded-full transition">+</button>
+                            <button class="remove-item ml-auto text-sm text-red-500 hover:text-red-700 hover:underline transition">Remove</button>
+                        </div>
                     </div>
-                    <button
-                        class="w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition">Checkout</button>
                 </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="px-6 py-5 border-t border-gray-200 bg-white rounded-b-3xl shadow-inner">
+                <div class="flex justify-between items-center text-lg font-semibold text-gray-900 mb-4">
+                    <span>Total:</span>
+                    <span id="cartTotal" class="text-amber-600">Rp0</span>
+                </div>
+                <button
+                    class="w-full bg-gradient-to-r from-black via-gray-900 to-black text-white py-3 rounded-xl shadow-lg hover:shadow-xl hover:bg-gray-800 transition-all duration-300 ease-in-out text-base font-semibold tracking-wide">
+                    Proceed to Checkout
+                </button>
             </div>
             <!-- Empty Cart Message -->
             <p id="emptyCartMsg" class="text-center text-gray-500 text-sm mt-4 hidden">Your cart is empty.</p>

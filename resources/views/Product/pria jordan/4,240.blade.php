@@ -424,7 +424,7 @@
                       </span>
                   </div>
                   <div class="mt-4">
-                    <h2 class="text-base font-semibold text-gray-900 min-h-[44px] leading-tight">
+                    <h2 class="text-base font-semibold text-gray-900 min-h-[60px] leading-tight">
                     Air Jordan 1 Retro Low Dior
                     </h2>
                     <div class="text-green-600 font-bold text-sm mt-2">
@@ -441,7 +441,7 @@
                       class="w-full h-auto rounded-xl object-cover transition-transform duration-300 hover:scale-105" />
                   </div>
                   <div class="mt-4">
-                    <h2 class="text-base font-semibold text-gray-900 min-h-[44px] leading-tight">
+                    <h2 class="text-base font-semibold text-gray-900 min-h-[60px] leading-tight">
                     Air Jordan 1 Low SE Craft Light Olive
                     </h2>
                     <div class="text-green-600 font-bold text-sm mt-2">
@@ -458,7 +458,7 @@
                       class="w-full h-auto rounded-xl object-cover transition-transform duration-300 hover:scale-105" />
                   </div>
                   <div class="mt-4">
-                    <h2 class="text-base font-semibold text-gray-900 min-h-[44px] leading-tight">
+                    <h2 class="text-base font-semibold text-gray-900 min-h-[60px] leading-tight">
                     Air Jordan 1 Low SE WRMK Sashiko Denim
                     </h2>
                     <div class="text-green-600 font-bold text-sm mt-2">
@@ -475,7 +475,7 @@
                       class="w-full h-auto rounded-xl object-cover transition-transform duration-300 hover:scale-105" />
                   </div>
                   <div class="mt-4">
-                    <h2 class="text-base font-semibold text-gray-900 min-h-[44px] leading-tight">
+                    <h2 class="text-base font-semibold text-gray-900 min-h-[60px] leading-tight">
                     Air Jordan 1 Low Chloropyll
                     </h2>
                     <div class="text-green-600 font-bold text-sm mt-2">
@@ -492,7 +492,7 @@
                       class="w-full h-auto rounded-xl object-cover transition-transform duration-300 hover:scale-105" />
                   </div>
                   <div class="mt-4">
-                    <h2 class="text-base font-semibold text-gray-900 min-h-[44px] leading-tight">
+                    <h2 class="text-base font-semibold text-gray-900 min-h-[60px] leading-tight">
                     Air Jordan 1 Retro Low OG Year of the Dragon (2024)
                     </h2>
                     <div class="text-green-600 font-bold text-sm mt-2">
@@ -509,7 +509,7 @@
                       class="w-full h-auto rounded-xl object-cover transition-transform duration-300 hover:scale-105" />
                   </div>
                   <div class="mt-4">
-                    <h2 class="text-base font-semibold text-gray-900 min-h-[44px] leading-tight">
+                    <h2 class="text-base font-semibold text-gray-900 min-h-[60px] leading-tight">
                     Air Jordan 1 Low SB Midnight Navy
                     </h2>
                     <div class="text-green-600 font-bold text-sm mt-2">
@@ -533,7 +533,7 @@
 
                   <!-- Penempatan detail produk HARUS di luar div.relative -->
                   <div class="mt-4">
-                    <h2 class="text-base font-semibold text-gray-900 min-h-[44px] leading-tight">
+                    <h2 class="text-base font-semibold text-gray-900 min-h-[60px] leading-tight">
                       Air Jordan 1 Low SE Armory Navy
                     </h2>
                     <div class="text-gray-400 line-through text-sm">
@@ -560,7 +560,7 @@
 
                   <!-- Penempatan detail produk HARUS di luar div.relative -->
                   <div class="mt-4">
-                    <h2 class="text-base font-semibold text-gray-900 min-h-[44px] leading-tight">
+                    <h2 class="text-base font-semibold text-gray-900 min-h-[60px] leading-tight">
                     Air Jordan 1 Low SE Sky J Orange
                     </h2>
                     <div class="text-gray-400 line-through text-sm">

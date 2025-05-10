@@ -5,7 +5,7 @@
     <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Beli Air Jordan 1 Low SE White Glacier Blue (Women's)</title>
+    <title>Beli Adidas Gazelle J Night Indigo Cloud White (Grade School)</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <link href="{{ asset('css/btnswiper.css')}}" rel="stylesheet" type="text/css">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -58,22 +58,17 @@
         <div class="swiper-wrapper">
           <div class="swiper-slide">
             <div class="swiper-zoom-container zoom-follow">
-              <img src="/images/wanita jordan/1,540,000(1).webp" alt="" class="w-full h-auto object-contain" />
+              <img src="/images/youth adidas/1,200,000(1).webp" alt="" class="w-full h-auto object-contain" />
             </div>
           </div>
           <div class="swiper-slide">
             <div class="swiper-zoom-container zoom-follow">
-              <img src="/images/wanita jordan/1,540,000(2).webp" alt="" class="w-full h-auto object-contain" />
+              <img src="/images/youth adidas/1,200,000(2).webp" alt="" class="w-full h-auto object-contain" />
             </div>
           </div>
           <div class="swiper-slide">
             <div class="swiper-zoom-container zoom-follow">
-              <img src="/images/wanita jordan/1,540,000(3).webp" alt="" class="w-full h-auto object-contain" />
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="swiper-zoom-container zoom-follow">
-              <img src="/images/wanita jordan/1,540,000(4).webp" alt="" class="w-full h-auto object-contain" />
+              <img src="/images/youth adidas/1,200,000(3).webp" alt="" class="w-full h-auto object-contain" />
             </div>
           </div>
         </div>
@@ -95,22 +90,22 @@
       </div>
     </div>
 
-    <!-- DETAIL PRODUK -->
+   <!-- DETAIL PRODUK -->
     <div class=" flex-1 min-w-[320px] space-y-5 md:pl-6">
       <h2 class=" text-2xl font-semibold leading-snug">
-        Air Jordan 1 Low SE White Glacier Blue (Women's)
+        Adidas Gazelle J Night Indigo Cloud White (Grade School)
       </h2>
 
      <!-- Harga -->
       <div class="mb-6">
         <div class=" flex items-center gap-2 mb-1">
           <p class=" text-sm text-gray-500 font-medium uppercase tracking-wide">Price</p>
-          <span class="bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded-sm leading-none">50% OFF</span>
+          <span class="bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded-sm leading-none">32% OFF</span>
         </div>
 
         <div class=" flex items-baseline gap-2">
-          <p class=" text-base text-gray-400 line-through">IDR 3,080,000</p>
-          <p class=" text-2xl font-semibold text-gray-900">IDR 1,540,000</p>
+          <p class=" text-base text-gray-400 line-through">IDR 1.764.705</p>
+          <p class=" text-2xl font-semibold text-gray-900">IDR 1,200,000</p>
         </div>
       </div>
 
@@ -119,11 +114,11 @@
     <div class=" mb-6">
       <p class=" text-sm text-gray-700 font-medium mb-2">Select Size</p>
       <div class=" flex flex-wrap gap-2">
-        <button class="size-button px-3 py-2 border border-gray-300 rounded-md text-gray-700 text-sm hover:bg-black hover:text-white transition-all">35</button>
-        <button class="size-button px-3 py-2 border border-gray-300 rounded-md text-gray-700 text-sm hover:bg-black hover:text-white transition-all">36</button>
-        <button class="size-button px-3 py-2 border border-gray-300 rounded-md text-gray-700 text-sm hover:bg-black hover:text-white transition-all">37</button>
-        <button class="size-button px-3 py-2 border border-gray-300 rounded-md text-gray-700 text-sm hover:bg-black hover:text-white transition-all">38</button>
-        <button class="size-button px-3 py-2 border border-gray-300 rounded-md text-gray-700 text-sm hover:bg-black hover:text-white transition-all">39</button>
+        <button class="size-button px-3 py-2 border border-gray-300 rounded-md text-gray-700 text-sm hover:bg-black hover:text-white transition-all">20</button>
+        <button class="size-button px-3 py-2 border border-gray-300 rounded-md text-gray-700 text-sm hover:bg-black hover:text-white transition-all">21</button>
+        <button class="size-button px-3 py-2 border border-gray-300 rounded-md text-gray-700 text-sm hover:bg-black hover:text-white transition-all">22</button>
+        <button class="size-button px-3 py-2 border border-gray-300 rounded-md text-gray-700 text-sm hover:bg-black hover:text-white transition-all">23</button>
+        <button class="size-button px-3 py-2 border border-gray-300 rounded-md text-gray-700 text-sm hover:bg-black hover:text-white transition-all">24</button>
       </div>
       <p id="selected-size" class="text-xs text-gray-500 mt-2"></p>
     </div>
@@ -376,14 +371,14 @@
   <div class="fade-section mt-10 border-t-2 border-gray-300 pt-6">
     <h3 class="text-2xl font-bold text-gray-800 mb-4">Description</h3>
     <p class="text-gray-600 leading-relaxed">
-      Show love to your furry friends in this special edition AJ1. Keeping the clean and classic look inspired by the '85 original, it features textured laces and paw prints on the outsole for a fresh take on all-time favorite.
+      Step back in time while staying on trend with these adidas Gazelle shoes for juniors. Originally released in 1991 and reimagined for today's streets, this iconic silhouette delivers the retro style that defined a generation. A suede upper and classic detailing bring authentic '90s vibes, while a rubber cupsole built for all-day wear means even young sneakerheads can appreciate these throwbacks. Whether for school or kicking it with friends, this pair connects the past and present with every step.
     </p>
 
     <!-- Detail Card -->
     <div class=" grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 bg-gray-50 p-6 rounded-xl shadow-sm">
       <div >
         <p class="text-gray-500 text-sm mb-1">SKU</p>
-        <p class="font-bold text-lg">HM3706 141</p>
+        <p class="font-bold text-lg">IG1695</p>
         <p class="text-gray-500 text-sm mt-4 mb-1">Material</p>
         <p class="text-gray-700">-</p>
         <p class="text-gray-500 text-sm mt-4 mb-1">Release Date</p>
@@ -392,7 +387,7 @@
 
       <div >
         <p class="text-gray-500 text-sm mb-1">Color</p>
-        <p class="font-bold text-lg">WHITE/GLACIER BLUE-WHITE-PINK FOAM</p>
+        <p class="font-bold text-lg">NIGHT INDIGO / CLOUD WHITE / CORE WHITE</p>
         <p class="text-gray-500 text-sm mt-4 mb-1">Dimension</p>
         <p class="text-gray-700">-</p>
         <p class="text-gray-500 text-sm mt-4 mb-1">Retail (approx.)</p>
@@ -416,15 +411,15 @@
               <div class="fade-section bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-gray-100">
                 <a href="#" class="block p-4">
                   <div class="relative">
-                    <img src="/images/wanita jordan/1,590,000(1).webp" alt=""
+                    <img src="/images/youth adidas/1,500,000(1).webp" alt=""
                       class="w-full h-auto rounded-xl object-cover transition-transform duration-300 hover:scale-105" />
                   </div>
                   <div class="mt-4">
                     <h2 class="text-base font-semibold text-gray-900 min-h-[60px] leading-tight">
-                    Air Jordan 1 Low Jade Smoke (Women's)
+                    Adidas Handball Spezial Grey (Grade School)
                     </h2>
                     <div class="text-green-600 font-bold text-sm mt-2">
-                      IDR 1,590,000
+                      IDR 1,500,000
                     </div>
                   </div>
                 </a>
@@ -433,15 +428,15 @@
               <div class="fade-section bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-gray-100">
                 <a href="#" class="block p-4">
                   <div class="relative">
-                    <img src="/images/wanita jordan/3,240,000(1).webp" alt=""
+                    <img src="/images/youth adidas/2,500,000(1).webp" alt=""
                       class="w-full h-auto rounded-xl object-cover transition-transform duration-300 hover:scale-105" />
                   </div>
                   <div class="mt-4">
                     <h2 class="text-base font-semibold text-gray-900 min-h-[60px] leading-tight">
-                    Air Jordan 1 Low Snakeskin Vivid Green (Women's)
+                    Adidas Samba Dia De Los Muertos Off White (Grade School)
                     </h2>
                     <div class="text-green-600 font-bold text-sm mt-2">
-                     IDR 3,240,000
+                     IDR 2,500,000
                     </div>
                   </div>
                 </a>
@@ -450,15 +445,15 @@
               <div class="fade-section bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-gray-100">
                 <a href="#" class="block p-4">
                   <div class="relative">
-                    <img src="/images/wanita jordan/1,680,000(1).webp" alt=""
+                    <img src="/images/youth adidas/2,920,000(1).webp" alt=""
                       class="w-full h-auto rounded-xl object-cover transition-transform duration-300 hover:scale-105" />
                   </div>
                   <div class="mt-4">
                     <h2 class="text-base font-semibold text-gray-900 min-h-[60px] leading-tight">
-                    Air Jordan 1 Low Valentine’s Day (Women's)
+                    Yeezy Boost 350 V2 Dazling Blue (Toddler)
                     </h2>
                     <div class="text-green-600 font-bold text-sm mt-2">
-                       IDR 1,680,000
+                       IDR 2,920,000
                     </div>
                   </div>
                 </a>
@@ -467,76 +462,25 @@
               <div class="fade-section bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-gray-100">
                 <a href="#" class="block p-4">
                   <div class="relative">
-                    <img src="/images/wanita jordan/1,810,000(1).webp" alt=""
-                      class="w-full h-auto rounded-xl object-cover transition-transform duration-300 hover:scale-105" />
-                  </div>
-                  <div class="mt-4">
-                    <h2 class="text-base font-semibold text-gray-900 min-h-[60px] leading-tight">
-                    Air Jordan 1 High Zoom Air CMFT 2 Pine Green Orange Blaze (Women's)
-                    </h2>
-                    <div class="text-green-600 font-bold text-sm mt-2">
-                      IDR 1,810,000
-                    </div>
-                  </div>
-                </a>
-              </div>
-
-              <div class="fade-section bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-gray-100">
-                <a href="#" class="block p-4">
-                  <div class="relative">
-                    <img src="/images/wanita jordan/1,910,000(1).webp" alt=""
-                      class="w-full h-auto rounded-xl object-cover transition-transform duration-300 hover:scale-105" />
-                  </div>
-                  <div class="mt-4">
-                    <h2 class="text-base font-semibold text-gray-900 min-h-[60px] leading-tight">
-                    Air Jordan 1 Low Multicolor Sashiko (Women's)
-                    </h2>
-                    <div class="text-green-600 font-bold text-sm mt-2">
-                      IDR 1,910,000
-                    </div>
-                  </div>
-                </a>
-              </div>
-
-              <div class="fade-section bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-gray-100">
-                <a href="#" class="block p-4">
-                  <div class="relative">
-                    <img src="/images/wanita jordan/1,480,000(1).webp" alt=""
-                      class="w-full h-auto rounded-xl object-cover transition-transform duration-300 hover:scale-105" />
-                  </div>
-                  <div class="mt-4">
-                    <h2 class="text-base font-semibold text-gray-900 min-h-[60px] leading-tight">
-                    Air Jordan 1 Low Bordeaux (Women's)
-                    </h2>
-                    <div class="text-green-600 font-bold text-sm mt-2">
-                      IDR 1,480,000
-                    </div>
-                  </div>
-                </a>
-              </div>
-
-              <div class="fade-section bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-gray-100">
-                <a href="#" class="block p-4">
-                  <div class="relative">
-                    <img src="/images/wanita jordan/1,860,000(1).webp" alt=""
+                    <img src="/images/youth adidas/2,360,000(1).webp" alt=""
                       class="w-full h-auto rounded-xl object-cover transition-transform duration-300 hover:scale-105" />
 
                     <!-- Discount Badge -->
                     <span class="absolute top-2 left-3 bg-gradient-to-r from-red-400 to-red-600 text-white text-[10px] font-semibold px-3 py-[3px] rounded-lg shadow-sm tracking-wider uppercase">
-                      50% Off
+                      30% Off
                     </span>
                   </div>
 
                   <!-- Penempatan detail produk HARUS di luar div.relative -->
                   <div class="mt-4">
                     <h2 class="text-base font-semibold text-gray-900 min-h-[60px] leading-tight">
-                      Air Jordan 1 Mid Neapolitan (Women's)
+                      Adidas Gazelle Toy Story Jessie (Grade School)
                     </h2>
                     <div class="text-gray-400 line-through text-sm">
-                      IDR 3,720,000
+                      IDR 3.371.429
                     </div>
                     <div class="text-green-600 font-bold text-sm mt-1">
-                       IDR 1,860,000
+                       IDR 2,360,000
                     </div>
                   </div>
                 </a>
@@ -545,15 +489,67 @@
               <div class="fade-section bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-gray-100">
                 <a href="#" class="block p-4">
                   <div class="relative">
-                    <img src="/images/wanita jordan/1,530,000(1).webp" alt=""
+                    <img src="/images/youth adidas/1,860,000(1).webp" alt=""
                       class="w-full h-auto rounded-xl object-cover transition-transform duration-300 hover:scale-105" />
                   </div>
                   <div class="mt-4">
                     <h2 class="text-base font-semibold text-gray-900 min-h-[60px] leading-tight">
-                    Air Jordan 1 Mid SE Red Stardust (Women's)
+                    Adidas Superstar Hello Kitty White (Grade School)
                     </h2>
                     <div class="text-green-600 font-bold text-sm mt-2">
-                      IDR 1,530,000
+                      IDR 1,860,000
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="fade-section bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-gray-100">
+                <a href="#" class="block p-4">
+                  <div class="relative">
+                    <img src="/images/youth adidas/2,010,000(1).webp" alt=""
+                      class="w-full h-auto rounded-xl object-cover transition-transform duration-300 hover:scale-105" />
+                  </div>
+                  <div class="mt-4">
+                    <h2 class="text-base font-semibold text-gray-900 min-h-[60px] leading-tight">
+                    Adidas Superstar J Rainbow Decal (Grade School)
+                    </h2>
+                    <div class="text-green-600 font-bold text-sm mt-2">
+                      IDR 2,010,000
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="fade-section bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-gray-100">
+                <a href="#" class="block p-4">
+                  <div class="relative">
+                    <img src="/images/youth adidas/2,350,000(1).webp" alt=""
+                      class="w-full h-auto rounded-xl object-cover transition-transform duration-300 hover:scale-105" />
+                  </div>
+                  <div class="mt-4">
+                    <h2 class="text-base font-semibold text-gray-900 min-h-[60px] leading-tight">
+                    Adidas Gazelle Semi Pink Spark (Grade School)
+                    </h2>
+                    <div class="text-green-600 font-bold text-sm mt-2">
+                      IDR 2,350,000
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+
+              <div class="fade-section bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-gray-100">
+                <a href="#" class="block p-4">
+                  <div class="relative">
+                    <img src="/images/youth adidas/1,340,000(1).webp" alt=""
+                      class="w-full h-auto rounded-xl object-cover transition-transform duration-300 hover:scale-105" />
+                  </div>
+                  <div class="mt-4">
+                    <h2 class="text-base font-semibold text-gray-900 min-h-[60px] leading-tight">
+                    Adidas Ultraboost Light Cloud White (Grade School)
+                    </h2>
+                    <div class="text-green-600 font-bold text-sm mt-2">
+                      IDR 1,340,000
                     </div>
                   </div>
                 </a>
