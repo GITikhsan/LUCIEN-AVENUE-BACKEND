@@ -30,7 +30,9 @@
                 <i data-lucide="shopping-bag" class="w-6 h-6"></i>
             </button>
             <button aria-label="User">
+                <a href="/profile">
                 <i data-lucide="user" class="w-6 h-6"></i>
+                </a>
             </button>
             <button aria-label="Search" id="searchButton" class="relative">
                 <i data-lucide="search" class="w-6 h-6"></i>
@@ -48,7 +50,7 @@
                     <a href="#contact" class="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 transition rounded-md">
                         <i data-lucide="mail" class="w-4 h-4 stroke-[1.5]"></i> Contact Us
                     </a>
-                    <a href="#about" class="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 transition rounded-md">
+                    <a href="/aboutus" class="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 transition rounded-md">
                         <i data-lucide="info" class="w-4 h-4 stroke-[1.5]"></i> About Us
                     </a>
                     <a href="#settings" class="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 transition rounded-md">
@@ -160,7 +162,7 @@
       </div>
     </header>
 
-    <!-- Mobile Menu -->
+    <!-- Mobile Menu
     <div class="md:hidden fixed top-0 left-0 w-full h-full bg-white shadow-lg z-50 hidden" id="mobile-menu">
         <div class="flex flex-col items-center p-4">
             <a href="#" class="text-lg py-2">Contact Us</a>
@@ -169,7 +171,7 @@
                 Close
             </button>
         </div>
-    </div>
+    </div> -->
 
     <!-- Scripts -->
 <!-- jQuery CDN (jika belum ada) -->
