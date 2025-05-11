@@ -6,9 +6,11 @@
   <title>Admin</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 <body class="bg-gray-100 font-sans text-sm">
-
+    @include('partial.navbar')
   <!-- Layout wrapper -->
   <div class="flex min-h-screen">
 
@@ -16,11 +18,11 @@
     <aside class="bg-white w-64 shadow-md p-4">
       <div class="mb-8">
         <h1 class="text-lg font-semibold text-black">Lucien Avenue</h1>
-        <p class="text-xs text-gray-500">Dashboard</p>
+        <p class="text-xs text-gray-500">Settings</p>
       </div>
       <nav class="space-y-4" id="sidebarMenu">
         <a href="#" data-panel="EditProfile" class="block text-base text-gray-700 hover:text-green-600">Edit your profile</a>
-        <a href="#" data-panel="Discussion" class="block text-base text-gray-700 hover:text-green-600">Chat</a>
+        <a href="#" data-panel="ShippingAddress" class="block text-base text-gray-700 hover:text-green-600">Your addres</a>
         <a href="#" data-panel="Product" class="block text-base text-gray-700 hover:text-green-600">Product Input</a>
         <a href="#" data-panel="ImageInput" class="block text-base text-gray-700 hover:text-green-600">Image Input</a>
       </nav>
@@ -37,35 +39,52 @@
   <!-- JavaScript -->
   <script>
     const panels = {
-      "EditProfile": `
-        <div class="max-w-xl mx-auto p-6 bg-white shadow-md rounded-xl mt-10">
-  <h2 class="text-xl font-bold text-gray-800 mb-4">Ubah Data Pribadi</h2>
+     "EditProfile": `
+  <div class="max-w-xl mx-auto bg-white p-6 rounded-xl shadow">
+    <h2 class="text-xl font-semibold text-gray-800 mb-6">Edit Profile</h2>
 
-  <form class="space-y-4">
-    <div>
-      <label for="nama" class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label>
-      <input id="nama" type="text" class="input w-full"  />
-    </div>
+    <form class="space-y-4">
 
-    <div>
-      <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-      <input id="email" type="email" class="input w-full" value="andi@email.com" />
-    </div>
+      <!-- NAMA -->
+      <div>
+        <label for="fullName" class="block mb-1 text-gray-700">Full Name</label>
+        <input type="text" id="fullName" name="fullName" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Enter full name" value="" />
+      </div>
 
-    <div>
-      <label for="telepon" class="block text-sm font-medium text-gray-700 mb-1">No. HP</label>
-      <input id="telepon" type="tel" class="input w-full" value="081234567890" />
-    </div>
+      <!-- EMAIL -->
+      <div>
+        <label for="email" class="block mb-1 text-gray-700">Email</label>
+        <input type="email" id="email" name="email" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="you@example.com" value="" />
+      </div>
 
-    <div class="pt-4">
-      <button type="submit" class="px-6 py-2 bg-black text-white rounded-xl hover:bg-gray-800">
-        Simpan Perubahan
-      </button>
-    </div>
-  </form>
+      <!-- TELEPON -->
+      <div>
+        <label for="phone" class="block mb-1 text-gray-700">Phone Number</label>
+        <input type="tel" id="phone" name="phone" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="+62xxxxxxxxxx" value="" />
+      </div>
+
+      <!-- BUTTON -->
+      <div class="pt-4">
+        <button type="submit" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Save Profile</button>
+      </div>
+
+    </form>
+  </div>
+`,
+
+
+  "ShippingAddress": `
+  <div class="mb-4">
+  <h3 class="text-lg font-semibold text-gray-800 mb-2">Pilih Lokasi di Peta</h3>
+  <div id="map" class="w-full h-64 rounded shadow-sm mb-4"></div>
+  <div>
+    <label class="block text-sm font-medium text-gray-700">Alamat Otomatis</label>
+    <input type="text" id="autoAddress" class="w-full p-2 border rounded mb-2" readonly />
+    <input type="hidden" id="lat">
+    <input type="hidden" id="lng">
+  </div>
 </div>
-
-      `
+`
 
     };
     //panel sidebar
@@ -99,7 +118,48 @@
     loadPanel("EditProfile");
 
 
-  </script>
 
+    function initMap() {
+    const map = L.map('map').setView([-6.200000, 106.816666], 13); // Jakarta default
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    let marker;
+
+    map.on('click', function(e) {
+      const { lat, lng } = e.latlng;
+      document.getElementById('lat').value = lat;
+      document.getElementById('lng').value = lng;
+
+      if (marker) {
+        marker.setLatLng(e.latlng);
+      } else {
+        marker = L.marker(e.latlng).addTo(map);
+      }
+
+      // Ambil alamat dengan reverse geocoding OpenStreetMap (Nominatim)
+      fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`)
+        .then(res => res.json())
+        .then(data => {
+          const display = data.display_name || "Alamat tidak ditemukan";
+          document.getElementById('autoAddress').value = display;
+        });
+    });
+  }
+
+  // Jalankan saat panel dimuat
+  if (window.location.hash === "#ShippingAddress") {
+    setTimeout(initMap, 100); // sedikit delay agar elemen muncul
+  }
+
+  // Kalau pakai button navigasi panel:
+  document.querySelectorAll('[data-panel="ShippingAddress"]').forEach(btn => {
+    btn.addEventListener('click', () => setTimeout(initMap, 100));
+  });
+
+  </script>
+ @include("partial.footer")
 </body>
 </html>
