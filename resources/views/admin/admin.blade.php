@@ -8,11 +8,7 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body class="bg-gray-100 font-sans text-sm">
-
-  <!-- Layout wrapper -->
   <div class="flex min-h-screen">
-
-    <!-- Sidebar -->
     <aside class="bg-white w-64 shadow-md p-4">
       <div class="mb-8">
         <h1 class="text-lg font-semibold text-black">Lucien Avenue</h1>
@@ -25,19 +21,13 @@
         <a href="#" data-panel="ImageInput" class="block text-base text-gray-700 hover:text-green-600">Image Input</a>
       </nav>
     </aside>
-
-    <!-- Main Content -->
     <main class="flex-1 p-6 overflow-y-auto" id="mainContent">
-      <div id="defaultContent">
-        <!-- Default content (Home) will be loaded here -->
-      </div>
+      <div id="defaultContent"></div>
     </main>
   </div>
 
-  <!-- JavaScript -->
   <script>
-    const panels = {
-      "Home": `
+    const panels = { "Home": `
         <div class="flex justify-between items-center mb-6">
           <h2 class="text-xl font-semibold text-gray-800">Activity</h2>
         </div>
@@ -187,145 +177,111 @@
     </form>
   </div>
 
-
-      `
-    };
-    //panel sidebar
-    const defaultContent = document.getElementById("defaultContent");
-    const links = document.querySelectorAll("#sidebarMenu a");
+ `
+};
 
     function loadPanel(name) {
-      links.forEach(link => {
-        link.classList.remove("text-green-600", "font-semibold");
-        link.classList.add("text-gray-700");
-      });
-
-      const activeLink = Array.from(links).find(link => link.dataset.panel === name);
-      if (activeLink) {
-        activeLink.classList.remove("text-gray-700");
-        activeLink.classList.add("text-green-600", "font-semibold");
-      }
-
-      defaultContent.innerHTML = panels[name] || `<p class="text-gray-500">Content for "${name}" is not available.</p>`;
+      $("#sidebarMenu a").removeClass("text-green-600 font-semibold").addClass("text-gray-700");
+      const $activeLink = $(`#sidebarMenu a[data-panel='${name}']`);
+      $activeLink.removeClass("text-gray-700").addClass("text-green-600 font-semibold");
+      $("#defaultContent").html(panels[name] || `<p class='text-gray-500'>Content for "${name}" is not available.</p>`);
     }
 
-    links.forEach(link => {
-      link.addEventListener("click", e => {
+    $(document).ready(function () {
+      $("#sidebarMenu a").on("click", function (e) {
         e.preventDefault();
-        const panelName = link.dataset.panel;
+        const panelName = $(this).data("panel");
         loadPanel(panelName);
       });
-    });
 
-    //untuk load panel utama
-    loadPanel("Home");
+      loadPanel("Home");
 
+      let uploadedImages = [];
 
-
-    let uploadedImages = [];
-
-function updatePreview() {
-  const previewContainer = $('#imagePreview');
-  previewContainer.html('');
-  uploadedImages.forEach((file, index) => {
-    const reader = new FileReader();
-    reader.onload = function (e) {
-      const img = $('<img>').attr('src', e.target.result).addClass('w-full h-32 object-cover rounded shadow');
-      const wrapper = $('<div>').addClass('relative');
-      const removeBtn = $('<button>')
-        .addClass('absolute top-1 right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center')
-        .html('&times;')
-        .on('click', () => {
-          uploadedImages.splice(index, 1);
-          updatePreview();
+      function updatePreview() {
+        const previewContainer = $('#imagePreview');
+        previewContainer.html('');
+        uploadedImages.forEach((file, index) => {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            const img = $('<img>').attr('src', e.target.result).addClass('w-full h-32 object-cover rounded shadow');
+            const wrapper = $('<div>').addClass('relative');
+            const removeBtn = $('<button>')
+              .addClass('absolute top-1 right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center')
+              .html('&times;')
+              .on('click', () => {
+                uploadedImages.splice(index, 1);
+                updatePreview();
+              });
+            wrapper.append(img).append(removeBtn);
+            previewContainer.append(wrapper);
+          };
+          reader.readAsDataURL(file);
         });
-      wrapper.append(img).append(removeBtn);
-      previewContainer.append(wrapper);
-    };
-    reader.readAsDataURL(file);
-  });
-}
+      }
 
-// Open file picker on click
-$(document).on('click', '#dropZone', function () {
-  $('#imageInput').click();
-});
+      $(document).on('click', '#dropZone', function () {
+        $('#imageInput').click();
+      });
 
-// When images selected
-$(document).on('change', '#imageInput', function () {
-  const newFiles = Array.from(this.files);
-  if (uploadedImages.length + newFiles.length > 9) {
-    alert('You can only upload up to 9 images.');
-    return;
-  }
-  uploadedImages = uploadedImages.concat(newFiles);
-  updatePreview();
-});
+      $(document).on('change', '#imageInput', function () {
+        const newFiles = Array.from(this.files);
+        if (uploadedImages.length + newFiles.length > 9) {
+          alert('You can only upload up to 9 images.');
+          return;
+        }
+        uploadedImages = uploadedImages.concat(newFiles);
+        updatePreview();
+      });
 
-// Drag over
-$(document).on('dragover', '#dropZone', function (e) {
-  e.preventDefault();
-  $(this).addClass('bg-green-100');
-});
+      $(document).on('dragover', '#dropZone', function (e) {
+        e.preventDefault();
+        $(this).addClass('bg-green-100');
+      });
 
-// Drag leave
-$(document).on('dragleave', '#dropZone', function () {
-  $(this).removeClass('bg-green-100');
-});
+      $(document).on('dragleave', '#dropZone', function () {
+        $(this).removeClass('bg-green-100');
+      });
 
-// Drop
-$(document).on('drop', '#dropZone', function (e) {
-  e.preventDefault();
-  $(this).removeClass('bg-green-100');
-  const droppedFiles = Array.from(e.originalEvent.dataTransfer.files);
-  if (uploadedImages.length + droppedFiles.length > 9) {
-    alert('You can only upload up to 9 images.');
-    return;
-  }
-  uploadedImages = uploadedImages.concat(droppedFiles);
-  updatePreview();
-});
+      $(document).on('drop', '#dropZone', function (e) {
+        e.preventDefault();
+        $(this).removeClass('bg-green-100');
+        const droppedFiles = Array.from(e.originalEvent.dataTransfer.files);
+        if (uploadedImages.length + droppedFiles.length > 9) {
+          alert('You can only upload up to 9 images.');
+          return;
+        }
+        uploadedImages = uploadedImages.concat(droppedFiles);
+        updatePreview();
+      });
 
-// Submit images (simulate)
-$(document).on('submit', '#imageUploadForm', function (e) {
-  e.preventDefault();
-  if (uploadedImages.length === 0) {
-    alert('Please upload at least one image.');
-    return;
-  }
+      $(document).on('submit', '#imageUploadForm', function (e) {
+        e.preventDefault();
+        if (uploadedImages.length === 0) {
+          alert('Please upload at least one image.');
+          return;
+        }
+        alert(uploadedImages.length + ' image(s) submitted!');
+        uploadedImages = [];
+        updatePreview();
+        $('#imageInput').val('');
+      });
 
-  // Simulasi kirim
-  alert(uploadedImages.length + ' image(s) submitted!');
-  uploadedImages = [];
-  updatePreview();
-  $('#imageInput').val('');
-});
+      $(document).on("click", "form button[type=submit]", function(e) {
+        e.preventDefault();
+        $("#confirmModal").removeClass("hidden");
+      });
 
+      $(document).on("click", "#confirmYes", function() {
+        $("#confirmModal").addClass("hidden");
+        alert("Data has been saved!");
+        $("form")[0].reset();
+      });
 
-
-
-
-
-
-    //yes or no popup
-    $(document).on("click", "form button[type=submit]", function(e) {
-      e.preventDefault();
-      $("#confirmModal").removeClass("hidden");
+      $(document).on("click", "#confirmNo", function() {
+        $("#confirmModal").addClass("hidden");
+      });
     });
-
-   $(document).on("click", "#confirmYes", function() {
-  $("#confirmModal").addClass("hidden");
-  alert("Data has been saved!");
-  $("form")[0].reset();
-});
-
-    $(document).on("click", "#confirmNo", function() {
-      $("#confirmModal").addClass("hidden");
-    });
-
-
-
   </script>
-
 </body>
 </html>
