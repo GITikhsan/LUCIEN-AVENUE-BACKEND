@@ -23,8 +23,8 @@
       <nav class="space-y-4" id="sidebarMenu">
         <a href="#" data-panel="EditProfile" class="block text-base text-gray-700 hover:text-green-600">Edit your profile</a>
         <a href="#" data-panel="ShippingAddress" class="block text-base text-gray-700 hover:text-green-600">Your addres</a>
-        <a href="#" data-panel="Product" class="block text-base text-gray-700 hover:text-green-600">Product Input</a>
-        <a href="#" data-panel="ImageInput" class="block text-base text-gray-700 hover:text-green-600">Image Input</a>
+        <a href="#" data-panel="ChangePassword" class="block text-base text-gray-700 hover:text-green-600">Change your password</a>
+        <a href="#" data-panel="Deleteacc" class="block text-base text-gray-700 hover:text-green-600">Delete account</a>
       </nav>
     </aside>
 
@@ -84,7 +84,65 @@
     <input type="hidden" id="lng">
   </div>
 </div>
-`
+
+         <div>
+            <label for="address" class="block mb-1 text-gray-700">Add address</label>
+            <textarea id="address" name="address" rows="4" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500 resize-none" placeholder="Add your address"></textarea>
+          </div>
+
+           <div class="pt-4">
+        <button type="submit" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Save address</button>
+      </div>
+    `,
+
+    "ChangePassword": `
+  <div class="max-w-md mx-auto bg-white p-6 rounded-xl shadow">
+    <h2 class="text-xl font-semibold text-gray-800 mb-4">Change Password</h2>
+
+    <form id="changePasswordForm" class="space-y-4">
+      <div>
+        <label for="currentPassword" class="block mb-1 text-gray-700">Current Password</label>
+        <input type="password" id="currentPassword" name="currentPassword" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" required>
+      </div>
+
+      <div>
+        <label for="newPassword" class="block mb-1 text-gray-700">New Password</label>
+        <input type="password" id="newPassword" name="newPassword" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" required>
+      </div>
+
+      <div>
+        <label for="confirmPassword" class="block mb-1 text-gray-700">Confirm New Password</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" required>
+      </div>
+
+      <div>
+        <button type="submit" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Confirm</button>
+      </div>
+    </form>
+  </div>
+`,
+  "Deleteacc" : `
+  <div class="flex flex-col md:flex-row items-start md:items-center justify-between mt-8 gap-4">
+
+
+  <!-- Tombol Hapus Akun -->
+  <div>
+    <p class="text-sm text-gray-500 mb-1">Do you wanna delete your account?</p>
+    <button
+      class="text-red-600 text-sm hover:underline transition duration-150"
+    >
+      Delete account
+    </button>
+  </div>
+
+</div>
+
+
+
+
+
+
+  `
 
     };
     //panel sidebar
@@ -158,6 +216,8 @@
   document.querySelectorAll('[data-panel="ShippingAddress"]').forEach(btn => {
     btn.addEventListener('click', () => setTimeout(initMap, 100));
   });
+
+
 
   </script>
  @include("partial.footer")
