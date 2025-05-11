@@ -7,14 +7,11 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 <body class="bg-gray-100 font-sans text-sm">
-    @include('partial.navbar')
-  <!-- Layout wrapper -->
+  @include('partial.navbar')
   <div class="flex min-h-screen">
-
-    <!-- Sidebar -->
     <aside class="bg-white w-64 shadow-md p-4">
       <div class="mb-8">
         <h1 class="text-lg font-semibold text-black">Lucien Avenue</h1>
@@ -28,18 +25,14 @@
       </nav>
     </aside>
 
-    <!-- Main Content -->
     <main class="flex-1 p-6 overflow-y-auto" id="mainContent">
-      <div id="defaultContent">
-        <!-- Default content (Home) will be loaded here -->
-      </div>
+      <div id="defaultContent"></div>
     </main>
   </div>
 
-  <!-- JavaScript -->
   <script>
     const panels = {
-     "EditProfile": `
+        "EditProfile": `
   <div class="max-w-xl mx-auto bg-white p-6 rounded-xl shadow">
     <h2 class="text-xl font-semibold text-gray-800 mb-6">Edit Profile</h2>
 
@@ -145,81 +138,54 @@
   `
 
     };
-    //panel sidebar
-    const defaultContent = document.getElementById("defaultContent");
-    const links = document.querySelectorAll("#sidebarMenu a");
 
     function loadPanel(name) {
-      links.forEach(link => {
-        link.classList.remove("text-green-600", "font-semibold");
-        link.classList.add("text-gray-700");
-      });
-
-      const activeLink = Array.from(links).find(link => link.dataset.panel === name);
-      if (activeLink) {
-        activeLink.classList.remove("text-gray-700");
-        activeLink.classList.add("text-green-600", "font-semibold");
-      }
-
-      defaultContent.innerHTML = panels[name] || `<p class="text-gray-500">Content for "${name}" is not available.</p>`;
+      $('#sidebarMenu a').removeClass('text-green-600 font-semibold').addClass('text-gray-700');
+      $('#sidebarMenu a[data-panel="' + name + '"]').removeClass('text-gray-700').addClass('text-green-600 font-semibold');
+      $('#defaultContent').html(panels[name] || '<p class="text-gray-500">Content for "' + name + '" is not available.</p>');
     }
 
-    links.forEach(link => {
-      link.addEventListener("click", e => {
+    $(document).ready(function() {
+      $('#sidebarMenu a').on('click', function(e) {
         e.preventDefault();
-        const panelName = link.dataset.panel;
+        const panelName = $(this).data('panel');
         loadPanel(panelName);
+        if (panelName === 'ShippingAddress') {
+          setTimeout(initMap, 100);
+        }
       });
+
+      loadPanel('EditProfile');
     });
-
-    //untuk load panel utama
-    loadPanel("EditProfile");
-
-
 
     function initMap() {
-    const map = L.map('map').setView([-6.200000, 106.816666], 13); // Jakarta default
+      const map = L.map('map').setView([-6.200000, 106.816666], 13);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap'
+      }).addTo(map);
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© OpenStreetMap'
-    }).addTo(map);
+      let marker;
+      map.on('click', function(e) {
+        const lat = e.latlng.lat;
+        const lng = e.latlng.lng;
+        $('#lat').val(lat);
+        $('#lng').val(lng);
 
-    let marker;
+        if (marker) {
+          marker.setLatLng(e.latlng);
+        } else {
+          marker = L.marker(e.latlng).addTo(map);
+        }
 
-    map.on('click', function(e) {
-      const { lat, lng } = e.latlng;
-      document.getElementById('lat').value = lat;
-      document.getElementById('lng').value = lng;
-
-      if (marker) {
-        marker.setLatLng(e.latlng);
-      } else {
-        marker = L.marker(e.latlng).addTo(map);
-      }
-
-      // Ambil alamat dengan reverse geocoding OpenStreetMap (Nominatim)
-      fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`)
-        .then(res => res.json())
-        .then(data => {
-          const display = data.display_name || "Alamat tidak ditemukan";
-          document.getElementById('autoAddress').value = display;
-        });
-    });
-  }
-
-  // Jalankan saat panel dimuat
-  if (window.location.hash === "#ShippingAddress") {
-    setTimeout(initMap, 100); // sedikit delay agar elemen muncul
-  }
-
-  // Kalau pakai button navigasi panel:
-  document.querySelectorAll('[data-panel="ShippingAddress"]').forEach(btn => {
-    btn.addEventListener('click', () => setTimeout(initMap, 100));
-  });
-
-
-
+        fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`)
+          .then(res => res.json())
+          .then(data => {
+            const display = data.display_name || "Alamat tidak ditemukan";
+            $('#autoAddress').val(display);
+          });
+      });
+    }
   </script>
- @include("partial.footer")
+  @include("partial.footer")
 </body>
 </html>
