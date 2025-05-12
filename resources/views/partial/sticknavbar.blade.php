@@ -53,6 +53,9 @@
                     <a href="/aboutus" class="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 transition rounded-md">
                         <i data-lucide="info" class="w-4 h-4 stroke-[1.5]"></i> About Us
                     </a>
+                    <a href="/settings" class="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 transition rounded-md">
+                        <i data-lucide="Settings" class="w-4 h-4 stroke-[1.5]"></i> Settings
+                    </a>
                 </div>
             </div>
 
@@ -169,10 +172,6 @@
             </button>
         </div>
     </div> -->
-
-    <!-- Scripts -->
-<!-- jQuery CDN (jika belum ada) -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <!-- Lucide icons -->
 <script src="https://unpkg.com/lucide@latest"></script>

@@ -199,7 +199,7 @@
       <p>By proceeding, I agree to all <a href="#" class="underline text-blue-600">terms and conditions</a> governing the sale and use of the Lucien Avenue platform.</p>
     </div>
 
-    <button id="open-payment" class="w-full bg-green-600 text-white py-2 rounded-full text-lg font-medium hover:bg-green-700 transition-all">
+    <button id="open-payment" class="w-full bg-green-600 text-white mt-2 py-2 rounded-full text-lg font-medium hover:bg-green-700 transition-all">
       Proceed →
     </button>
   </div>
@@ -257,75 +257,96 @@
 
     </div>
 
-    <div id="address-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
-    <div class="bg-white w-full max-w-xl h-[90vh] rounded-xl shadow overflow-hidden">
-    <div class="overflow-y-auto h-full p-6">
 
-        <!-- Header -->
-        <div class="flex items-center mb-4">
-            <button id="cancel-modal" class="text-xl">←</button>
-            <h2 class="text-2xl font-bold flex-grow text-center">Tambah Alamat</h2>
-        </div>
-        <div class="w-full h-px bg-gray-400 mb-4"></div>
 
-        <h3 class="font-semibold text-lg mb-4">Lengkapi detail alamat</h3>
+    <div id="choose-address-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
+        <div class="bg-white w-full max-w-md rounded-xl p-6">
+            <h2 class="text-lg font-bold mb-4">Select Address</h2>
 
-        <!-- Form -->
-        <form class="space-y-4">
-            <div>
-                <label class="text-sm">Nama Penerima</label>
-                <input name="nama" type="text" maxlength="50" class="mt-1 w-full border rounded px-3 py-2" required />
+            <!-- Daftar Alamat Disimpan -->
+            <div id="saved-addresses" class="space-y-2 mb-4">
+                <p class="text-gray-400 text-sm">No addresses saved yet.</p>
             </div>
 
-            <div>
-                <label class="text-sm">Nomor HP</label>
-                <input name="hp" id="hp" type="text" maxlength="15" class="mt-1 w-full border rounded px-3 py-2" required />
-            </div>
-
-            <div>
-                <label class="text-sm">Label Alamat</label>
-                <input name="label" type="text" maxlength="30" class="mt-1 w-full border rounded px-3 py-2 input-address" />
-            </div>
-
-            <div>
-                <label class="text-sm">Kota & Kecamatan</label>
-                <input name="kota" type="text" class="mt-1 w-full border rounded px-3 py-2 input-address" />
-            </div>
-
-            <div>
-                <label class="text-sm">Alamat Lengkap</label>
-                <textarea name="alamat" maxlength="200" class="mt-1 w-full border rounded px-3 py-2 resize-none input-address"></textarea>
-            </div>
-
-            <div>
-                <label class="text-sm">Catatan untuk Kurir (Opsional)</label>
-                <textarea name="catatan" maxlength="45" class="mt-1 w-full border rounded px-3 py-2 resize-none"></textarea>
-            </div>
-
-            <div class="flex justify-between items-center border p-3 rounded">
-                <div class="flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="red" d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"/></svg>
-                    <span class="text-sm">Tambah Pinpoint (Opsional)</span>
-                </div>
-                <button type="button" class="text-green-600 font-semibold">Atur</button>
-            </div>
-
-            <div class="flex items-center gap-2">
-                <input type="checkbox" name="utama" id="utama" />
-                <label for="utama" class="text-sm">Jadikan alamat utama</label>
-            </div>
-
-            <div class="flex items-start gap-2">
-                <input type="checkbox" name="setuju" id="setuju" required />
-                <label for="setuju" class="text-sm">Saya menyetujui <a href="#" class="text-green-600 font-semibold">Syarat & Ketentuan</a> serta <a href="#" class="text-green-600 font-semibold">Kebijakan Privasi</a></label>
-            </div>
-
-            <!-- Simpan -->
-            <button type="submit" id="save-address" class="w-full bg-green-600 text-white py-3 mt-4 rounded hover:green-800 transition">
-                Simpan
-            </button>
-        </form>
+    <div class="flex justify-between mt-4">
+        <button id="cancel-choose" class="text-gray-500">Cancel</button>
+        <button id="open-add-address" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+            New Address
+        </button>
     </div>
+</div>
+    </div>
+
+
+    <div id="address-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
+        <div class="bg-white w-full max-w-xl h-[90vh] rounded-xl shadow overflow-hidden">
+        <div class="overflow-y-auto h-full p-6">
+
+            <!-- Header -->
+            <div class="flex items-center mb-4">
+                <button id="cancel-add-address" class="text-xl">←</button>
+                <h2 class="text-2xl font-bold flex-grow text-center">Add Address</h2>
+            </div>
+            <div class="w-full h-px bg-gray-400 mb-4"></div>
+
+            <h3 class="font-semibold text-lg mb-4">Complete the address details</h3>
+
+            <!-- Form -->
+            <form class="space-y-4">
+                <div>
+                    <label class="text-sm">Recipient's name</label>
+                    <input name="name" type="text" maxlength="50" class="mt-1 w-full border rounded px-3 py-2" required />
+                </div>
+
+                <div>
+                    <label class="text-sm">phone number</label>
+                    <input name="phone" id="hp" type="text" maxlength="15" class="mt-1 w-full border rounded px-3 py-2" required />
+                </div>
+
+                <div>
+                    <label class="text-sm">Address Labels</label>
+                    <input name="label" type="text" maxlength="30" class="mt-1 w-full border rounded px-3 py-2 input-address" />
+                </div>
+
+                <div>
+                    <label class="text-sm">City & District</label>
+                    <input name="city" type="text" class="mt-1 w-full border rounded px-3 py-2 input-address" />
+                </div>
+
+                <div>
+                    <label class="text-sm">Complete address</label>
+                    <textarea name="address" maxlength="200" class="mt-1 w-full border rounded px-3 py-2 resize-none input-address"></textarea>
+                </div>
+
+                <div>
+                    <label class="text-sm">Note to Courier (Optional)</label>
+                    <textarea name="note" maxlength="45" class="mt-1 w-full border rounded px-3 py-2 resize-none"></textarea>
+                </div>
+
+                <div class="flex justify-between items-center border p-3 rounded">
+                    <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="red" d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"/></svg>
+                        <span class="text-sm">Add Pinpoint (Optional)</span>
+                    </div>
+                    <button type="button" class="text-green-600 font-semibold">Atur</button>
+                </div>
+
+                <div class="flex items-center gap-2">
+                    <input type="checkbox" name="main" id="main" />
+                    <label for="main" class="text-sm">Make it the main address</label>
+                </div>
+
+                <div class="flex items-start gap-2">
+                    <input type="checkbox" name="agree" id="agree" required />
+                    <label for="agree" class="text-sm">I agree <a href="#" class="text-green-600 font-semibold">Terms & Conditions</a> as well as <a href="#" class="text-green-600 font-semibold">Privacy Policy</a></label>
+                </div>
+
+                <!-- Simpan -->
+                <button type="submit" id="save-address" class="w-full bg-green-600 text-white py-3 mt-4 rounded hover:bg-green-800 transition">
+                    Save
+                </button>
+            </form>
+        </div>
    </div>
  </div>
 </div>
