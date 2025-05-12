@@ -62,25 +62,42 @@
 
     const panels = {
       "DATA SAYA": `
-        <form class="w-4/5 max-w-xl p-8 bg-white">
-          <label class="font-bold mt-5 block">First Name :</label>
-          <input type="text" placeholder="Username" class="w-full p-2 mt-1 border border-black rounded"/>
-          <label class="font-bold mt-5 block">Last Name :</label>
-          <input type="text" placeholder="Last Name" class="w-full p-2 mt-1 border border-black rounded"/>
-          <label class="font-bold mt-5 block">Date of birth :</label>
-            <input type="date" class="w-full p-2 mt-1 border border-black rounded"/>
-          <label class="font-bold mt-5 block">Alamat :</label>
-          <textarea placeholder="Alamat lengkap" class="w-full p-2 mt-1 border border-black rounded"></textarea>
-          <label class="font-bold mt-5 block">Your email</label>
-          <input type="email" placeholder="Email" class="w-full p-2 mt-1 border border-black rounded"/>
-          <label class="font-bold mt-5 block">Your password</label>
-          <div class="relative mb-4">
-            <input id="password" type="password" placeholder="Password" class="w-full p-2 mt-1 border border-black rounded"/>
-            <button type="button" id="togglePassword" class="absolute right-3 top-1/2 transform -translate-y-1/2 focus:outline-none">
-              <img id="eyeIcon" src="/images/password_hide.png" alt="Toggle Eye" class="w-5 h-5">
-            </button>
-          </div>
-        </form>
+        <form class="w-4/5 max-w-4xl p-8 bg-white text-black flex items-start space-x-8">
+  <!-- Foto Profil -->
+  <div class="flex-shrink-0">
+    <img src="/images/PNGpic2.png" alt="Foto Profil" class="w-40 h-40 rounded-full object-cover border border-gray-300">
+  </div>
+
+  <!-- Data Pengguna -->
+  <div class="flex-1">
+    <div class="grid grid-cols-[150px_10px_auto] gap-y-4 items-start">
+      <label class="font-bold">First Name</label>
+      <span class="text-center">:</span>
+      <p>John</p>
+
+      <label class="font-bold">Last Name</label>
+      <span class="text-center">:</span>
+      <p>Doe</p>
+
+      <label class="font-bold">Date of Birth</label>
+      <span class="text-center">:</span>
+      <p>1990-01-01</p>
+
+      <label class="font-bold">Alamat</label>
+      <span class="text-center">:</span>
+      <p>Jl. Merdeka No. 123, Jakarta</p>
+
+      <label class="font-bold">Your Email</label>
+      <span class="text-center">:</span>
+      <p>john.doe@example.com</p>
+
+      <label class="font-bold">Your Password</label>
+      <span class="text-center">:</span>
+      <p>********</p>
+    </div>
+  </div>
+</form>
+
       `,
       "PEMBELIAN SAYA": `
         <div class="w-full max-w-4xl space-y-6">
