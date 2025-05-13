@@ -441,10 +441,6 @@
                   <div class="relative">
                     <img src="/images/100JT/100,000,000(1).png" alt=""
                       class="w-full h-auto rounded-xl object-cover transition-transform duration-300 hover:scale-105" />
-                      <span class="absolute top-2 left-2 bg-gradient-to-r from-[#f9e6a3] to-[#e0b647] text-yellow-900 text-[10px] font-semibold px-3 py-[3px] rounded-lg shadow-sm tracking-wider uppercase flex items-center gap-1">
-                        <span class="text-yellow-700 text-xs">★</span>
-                        Luxury
-                      </span>
                   </div>
                   <div class="mt-4">
                     <h2 class="text-base font-semibold text-gray-900 min-h-[60px] leading-tight">
