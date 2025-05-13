@@ -52,7 +52,7 @@
   class="fixed top-0 left-0 h-screen w-80 bg-white shadow-lg transform translate-x-full transition-transform duration-300 z-40
          overflow-y-auto lg:overflow-visible
          p-4
-         lg:static lg:translate-x-0 lg:w-80 lg:rounded-2xl lg:shadow-md lg:p-6 lg:space-y-10 lg:self-start hidden lg:block">
+         lg:static lg:translate-x-0 lg:w-80 lg:h-auto lg:rounded-2xl lg:shadow-md lg:p-6 lg:space-y-10 lg:self-start hidden lg:block">
 
             <!-- Select Gender -->
         <div class="space-y-4" data-aos="fade-down" data-aos-delay="150">
