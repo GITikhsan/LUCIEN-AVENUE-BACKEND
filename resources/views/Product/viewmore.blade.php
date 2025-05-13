@@ -43,10 +43,6 @@
   <div class="max-w-screen-xl mx-auto px-4 py-8">
     <div class="flex flex-col lg:flex-row items-start gap-12">
 
-            <!-- Tombol buka filter (hanya muncul di mobile) -->
-          <button id="openFilterBtn" class="lg:hidden px-4 py-2 bg-black text-white rounded-md mb-4">Open Filter</button>
-
-
       <!-- Sidebar Filter with slide-in -->
       <aside id="mobileFilter"
   class="fixed top-0 left-0 h-screen w-80 bg-white shadow-lg transform translate-x-full transition-transform duration-300 z-40
@@ -294,7 +290,7 @@
 
         <!-- Tombol OK (hanya muncul di mobile) -->
             <div class="p-4 lg:hidden">
-            <button id="closeFilterBtn" class="w-full bg-gray-900 text-white py-2 rounded-lg hover:bg-gray-800 transition">
+            <button id="closeFilterBtn" class="w-full bg-gray-900 mt-3 text-white py-2 rounded-lg hover:bg-gray-800 transition">
                 OK
             </button>
             </div>
@@ -308,310 +304,321 @@
       <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6 gap-4" data-aos="fade-down" data-aos-delay="100">
   <h2 class="text-xl font-semibold text-gray-800">Available Sneakers</h2>
 
-  <div class="relative">
-    <select class="appearance-none bg-gray-100 border border-gray-300 text-sm text-gray-700 rounded-xl px-4 py-2 pl-3 pr-10 shadow-sm focus:outline-none focus:ring-2 focus:ring-black focus:border-black transition">
-      <option>Sort: Featured Items</option>
-      <option>Price: Low to High</option>
-      <option>Price: High to Low</option>
-      <option>Newest</option>
-        <option class="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-500">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-            </svg>
-        </option>
-    </select>
-  </div>
+        <div class="flex items-center gap-3">
+            <!-- Select dropdown -->
+            <div class="relative">
+                <select class="appearance-none bg-gray-100 border border-gray-300 text-sm text-gray-700 rounded-xl px-4 py-2 pl-3 pr-10 shadow-sm focus:outline-none focus:ring-2 focus:ring-black focus:border-black transition">
+                <option>Sort: Featured Items</option>
+                <option>Price: Low to High</option>
+                <option>Price: High to Low</option>
+                <option>Newest</option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-500 z-10">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+                </div>
+            </div>
+
+            <!-- Open Filter button -->
+            <button id="openFilterBtn" class="lg:hidden bg-black text-white text-sm px-4 py-2 rounded-xl shadow-sm">
+                Open Filter
+            </button>
+        </div>
+
+
+
 </div>
 
 
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-  <!-- Kartu Produk 1 -->
-  <div class="rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition bg-white">
-    <div class="mb-2">
-      <span class="inline-block bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded">
-        10%
-      </span>
-    </div>
-    <div class="w-full h-28 flex items-center justify-center overflow-hidden mb-3">
-      <img src="/images/youth adidas/2,920,000(1).webp" alt="Product" class="object-contain h-full" />
-    </div>
-    <h3 class="text-sm font-semibold text-gray-800 leading-snug">
-      Yeezy Boost 350 V2 Dazling Blue (Toddler)
-    </h3>
-    <p class="text-green-600 text-sm font-bold mt-1">
-      IDR 2,920,000
-    </p>
-  </div>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 items-start">
+            <!-- Kartu Produk 1 -->
+            <div class="rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition bg-white" data-aos="fade-up">
+                <div class="mb-2">
+                <span class="inline-block bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded">
+                    10%
+                </span>
+                </div>
+                <div class="w-full h-28 flex items-center justify-center overflow-hidden mb-3">
+                <img src="/images/youth adidas/2,920,000(1).webp" alt="Product" class="object-contain h-full" />
+                </div>
+                <h3 class="text-sm font-semibold text-gray-800 leading-snug">
+                Yeezy Boost 350 V2 Dazling Blue (Toddler)
+                </h3>
+                <p class="text-green-600 text-sm font-bold mt-1">
+                IDR 2,920,000
+                </p>
+            </div>
 
-  <!-- Kartu Produk 1 -->
-  <div class="rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition bg-white">
-    <div class="mb-2">
-      <span class="inline-block bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded">
-        10%
-      </span>
-    </div>
-    <div class="w-full h-28 flex items-center justify-center overflow-hidden mb-3">
-      <img src="/images/youth adidas/2,920,000(1).webp" alt="Product" class="object-contain h-full" />
-    </div>
-    <h3 class="text-sm font-semibold text-gray-800 leading-snug">
-      Yeezy Boost 350 V2 Dazling Blue (Toddler)
-    </h3>
-    <p class="text-green-600 text-sm font-bold mt-1">
-      IDR 2,920,000
-    </p>
-  </div>
+            <!-- Kartu Produk 1 -->
+            <div class="rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition bg-white" data-aos="fade-up">
+                <div class="mb-2">
+                <span class="inline-block bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded">
+                    10%
+                </span>
+                </div>
+                <div class="w-full h-28 flex items-center justify-center overflow-hidden mb-3">
+                <img src="/images/youth adidas/2,920,000(1).webp" alt="Product" class="object-contain h-full" />
+                </div>
+                <h3 class="text-sm font-semibold text-gray-800 leading-snug">
+                Yeezy Boost 350 V2 Dazling Blue (Toddler)
+                </h3>
+                <p class="text-green-600 text-sm font-bold mt-1">
+                IDR 2,920,000
+                </p>
+            </div>
 
-  <!-- Kartu Produk 1 -->
-  <div class="rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition bg-white">
-    <div class="mb-2">
-      <span class="inline-block bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded">
-        10%
-      </span>
-    </div>
-    <div class="w-full h-28 flex items-center justify-center overflow-hidden mb-3">
-      <img src="/images/youth adidas/2,920,000(1).webp" alt="Product" class="object-contain h-full" />
-    </div>
-    <h3 class="text-sm font-semibold text-gray-800 leading-snug">
-      Yeezy Boost 350 V2 Dazling Blue (Toddler)
-    </h3>
-    <p class="text-green-600 text-sm font-bold mt-1">
-      IDR 2,920,000
-    </p>
-  </div>
+            <!-- Kartu Produk 1 -->
+            <div class="rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition bg-white" data-aos="fade-up">
+                <div class="mb-2">
+                <span class="inline-block bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded">
+                    10%
+                </span>
+                </div>
+                <div class="w-full h-28 flex items-center justify-center overflow-hidden mb-3">
+                <img src="/images/youth adidas/2,920,000(1).webp" alt="Product" class="object-contain h-full" />
+                </div>
+                <h3 class="text-sm font-semibold text-gray-800 leading-snug">
+                Yeezy Boost 350 V2 Dazling Blue (Toddler)
+                </h3>
+                <p class="text-green-600 text-sm font-bold mt-1">
+                IDR 2,920,000
+                </p>
+            </div>
 
-  <!-- Kartu Produk 1 -->
-  <div class="rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition bg-white">
-    <div class="mb-2">
-      <span class="inline-block bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded">
-        10%
-      </span>
-    </div>
-    <div class="w-full h-28 flex items-center justify-center overflow-hidden mb-3">
-      <img src="/images/youth adidas/2,920,000(1).webp" alt="Product" class="object-contain h-full" />
-    </div>
-    <h3 class="text-sm font-semibold text-gray-800 leading-snug">
-      Yeezy Boost 350 V2 Dazling Blue (Toddler)
-    </h3>
-    <p class="text-green-600 text-sm font-bold mt-1">
-      IDR 2,920,000
-    </p>
-  </div>
+            <!-- Kartu Produk 1 -->
+            <div class="rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition bg-white" data-aos="fade-up">
+                <div class="mb-2">
+                <span class="inline-block bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded">
+                    10%
+                </span>
+                </div>
+                <div class="w-full h-28 flex items-center justify-center overflow-hidden mb-3">
+                <img src="/images/youth adidas/2,920,000(1).webp" alt="Product" class="object-contain h-full" />
+                </div>
+                <h3 class="text-sm font-semibold text-gray-800 leading-snug">
+                Yeezy Boost 350 V2 Dazling Blue (Toddler)
+                </h3>
+                <p class="text-green-600 text-sm font-bold mt-1">
+                IDR 2,920,000
+                </p>
+            </div>
 
-  <!-- Kartu Produk 1 -->
-  <div class="rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition bg-white">
-    <div class="mb-2">
-      <span class="inline-block bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded">
-        10%
-      </span>
-    </div>
-    <div class="w-full h-28 flex items-center justify-center overflow-hidden mb-3">
-      <img src="/images/youth adidas/2,920,000(1).webp" alt="Product" class="object-contain h-full" />
-    </div>
-    <h3 class="text-sm font-semibold text-gray-800 leading-snug">
-      Yeezy Boost 350 V2 Dazling Blue (Toddler)
-    </h3>
-    <p class="text-green-600 text-sm font-bold mt-1">
-      IDR 2,920,000
-    </p>
-  </div>
+            <!-- Kartu Produk 1 -->
+            <div class="rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition bg-white" data-aos="fade-up">
+                <div class="mb-2">
+                <span class="inline-block bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded">
+                    10%
+                </span>
+                </div>
+                <div class="w-full h-28 flex items-center justify-center overflow-hidden mb-3">
+                <img src="/images/youth adidas/2,920,000(1).webp" alt="Product" class="object-contain h-full" />
+                </div>
+                <h3 class="text-sm font-semibold text-gray-800 leading-snug">
+                Yeezy Boost 350 V2 Dazling Blue (Toddler)
+                </h3>
+                <p class="text-green-600 text-sm font-bold mt-1">
+                IDR 2,920,000
+                </p>
+            </div>
 
-  <!-- Kartu Produk 1 -->
-  <div class="rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition bg-white">
-    <div class="mb-2">
-      <span class="inline-block bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded">
-        10%
-      </span>
-    </div>
-    <div class="w-full h-28 flex items-center justify-center overflow-hidden mb-3">
-      <img src="/images/youth adidas/2,920,000(1).webp" alt="Product" class="object-contain h-full" />
-    </div>
-    <h3 class="text-sm font-semibold text-gray-800 leading-snug">
-      Yeezy Boost 350 V2 Dazling Blue (Toddler)
-    </h3>
-    <p class="text-green-600 text-sm font-bold mt-1">
-      IDR 2,920,000
-    </p>
-  </div>
+            <!-- Kartu Produk 1 -->
+            <div class="rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition bg-white" data-aos="fade-up">
+                <div class="mb-2">
+                <span class="inline-block bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded">
+                    10%
+                </span>
+                </div>
+                <div class="w-full h-28 flex items-center justify-center overflow-hidden mb-3">
+                <img src="/images/youth adidas/2,920,000(1).webp" alt="Product" class="object-contain h-full" />
+                </div>
+                <h3 class="text-sm font-semibold text-gray-800 leading-snug">
+                Yeezy Boost 350 V2 Dazling Blue (Toddler)
+                </h3>
+                <p class="text-green-600 text-sm font-bold mt-1">
+                IDR 2,920,000
+                </p>
+            </div>
 
-  <!-- Kartu Produk 1 -->
-  <div class="rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition bg-white">
-    <div class="mb-2">
-      <span class="inline-block bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded">
-        10%
-      </span>
-    </div>
-    <div class="w-full h-28 flex items-center justify-center overflow-hidden mb-3">
-      <img src="/images/youth adidas/2,920,000(1).webp" alt="Product" class="object-contain h-full" />
-    </div>
-    <h3 class="text-sm font-semibold text-gray-800 leading-snug">
-      Yeezy Boost 350 V2 Dazling Blue (Toddler)
-    </h3>
-    <p class="text-green-600 text-sm font-bold mt-1">
-      IDR 2,920,000
-    </p>
-  </div>
+            <!-- Kartu Produk 1 -->
+            <div class="rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition bg-white" data-aos="fade-up">
+                <div class="mb-2">
+                <span class="inline-block bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded">
+                    10%
+                </span>
+                </div>
+                <div class="w-full h-28 flex items-center justify-center overflow-hidden mb-3">
+                <img src="/images/youth adidas/2,920,000(1).webp" alt="Product" class="object-contain h-full" />
+                </div>
+                <h3 class="text-sm font-semibold text-gray-800 leading-snug">
+                Yeezy Boost 350 V2 Dazling Blue (Toddler)
+                </h3>
+                <p class="text-green-600 text-sm font-bold mt-1">
+                IDR 2,920,000
+                </p>
+            </div>
 
-  <!-- Kartu Produk 1 -->
-  <div class="rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition bg-white">
-    <div class="mb-2">
-      <span class="inline-block bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded">
-        10%
-      </span>
-    </div>
-    <div class="w-full h-28 flex items-center justify-center overflow-hidden mb-3">
-      <img src="/images/youth adidas/2,920,000(1).webp" alt="Product" class="object-contain h-full" />
-    </div>
-    <h3 class="text-sm font-semibold text-gray-800 leading-snug">
-      Yeezy Boost 350 V2 Dazling Blue (Toddler)
-    </h3>
-    <p class="text-green-600 text-sm font-bold mt-1">
-      IDR 2,920,000
-    </p>
-  </div>
+            <!-- Kartu Produk 1 -->
+            <div class="rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition bg-white" data-aos="fade-up">
+                <div class="mb-2">
+                <span class="inline-block bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded">
+                    10%
+                </span>
+                </div>
+                <div class="w-full h-28 flex items-center justify-center overflow-hidden mb-3">
+                <img src="/images/youth adidas/2,920,000(1).webp" alt="Product" class="object-contain h-full" />
+                </div>
+                <h3 class="text-sm font-semibold text-gray-800 leading-snug">
+                Yeezy Boost 350 V2 Dazling Blue (Toddler)
+                </h3>
+                <p class="text-green-600 text-sm font-bold mt-1">
+                IDR 2,920,000
+                </p>
+            </div>
 
-  <!-- Kartu Produk 1 -->
-  <div class="rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition bg-white">
-    <div class="mb-2">
-      <span class="inline-block bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded">
-        10%
-      </span>
-    </div>
-    <div class="w-full h-28 flex items-center justify-center overflow-hidden mb-3">
-      <img src="/images/youth adidas/2,920,000(1).webp" alt="Product" class="object-contain h-full" />
-    </div>
-    <h3 class="text-sm font-semibold text-gray-800 leading-snug">
-      Yeezy Boost 350 V2 Dazling Blue (Toddler)
-    </h3>
-    <p class="text-green-600 text-sm font-bold mt-1">
-      IDR 2,920,000
-    </p>
-  </div>
+            <!-- Kartu Produk 1 -->
+            <div class="rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition bg-white" data-aos="fade-up">
+                <div class="mb-2">
+                <span class="inline-block bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded">
+                    10%
+                </span>
+                </div>
+                <div class="w-full h-28 flex items-center justify-center overflow-hidden mb-3">
+                <img src="/images/youth adidas/2,920,000(1).webp" alt="Product" class="object-contain h-full" />
+                </div>
+                <h3 class="text-sm font-semibold text-gray-800 leading-snug">
+                Yeezy Boost 350 V2 Dazling Blue (Toddler)
+                </h3>
+                <p class="text-green-600 text-sm font-bold mt-1">
+                IDR 2,920,000
+                </p>
+            </div>
 
-  <!-- Kartu Produk 1 -->
-  <div class="rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition bg-white">
-    <div class="mb-2">
-      <span class="inline-block bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded">
-        10%
-      </span>
-    </div>
-    <div class="w-full h-28 flex items-center justify-center overflow-hidden mb-3">
-      <img src="/images/youth adidas/2,920,000(1).webp" alt="Product" class="object-contain h-full" />
-    </div>
-    <h3 class="text-sm font-semibold text-gray-800 leading-snug">
-      Yeezy Boost 350 V2 Dazling Blue (Toddler)
-    </h3>
-    <p class="text-green-600 text-sm font-bold mt-1">
-      IDR 2,920,000
-    </p>
-  </div>
+            <!-- Kartu Produk 1 -->
+            <div class="rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition bg-white" data-aos="fade-up">
+                <div class="mb-2">
+                <span class="inline-block bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded">
+                    10%
+                </span>
+                </div>
+                <div class="w-full h-28 flex items-center justify-center overflow-hidden mb-3">
+                <img src="/images/youth adidas/2,920,000(1).webp" alt="Product" class="object-contain h-full" />
+                </div>
+                <h3 class="text-sm font-semibold text-gray-800 leading-snug">
+                Yeezy Boost 350 V2 Dazling Blue (Toddler)
+                </h3>
+                <p class="text-green-600 text-sm font-bold mt-1">
+                IDR 2,920,000
+                </p>
+            </div>
 
-  <!-- Kartu Produk 1 -->
-  <div class="rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition bg-white">
-    <div class="mb-2">
-      <span class="inline-block bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded">
-        10%
-      </span>
-    </div>
-    <div class="w-full h-28 flex items-center justify-center overflow-hidden mb-3">
-      <img src="/images/youth adidas/2,920,000(1).webp" alt="Product" class="object-contain h-full" />
-    </div>
-    <h3 class="text-sm font-semibold text-gray-800 leading-snug">
-      Yeezy Boost 350 V2 Dazling Blue (Toddler)
-    </h3>
-    <p class="text-green-600 text-sm font-bold mt-1">
-      IDR 2,920,000
-    </p>
-  </div>
+            <!-- Kartu Produk 1 -->
+            <div class="rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition bg-white" data-aos="fade-up">
+                <div class="mb-2">
+                <span class="inline-block bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded">
+                    10%
+                </span>
+                </div>
+                <div class="w-full h-28 flex items-center justify-center overflow-hidden mb-3">
+                <img src="/images/youth adidas/2,920,000(1).webp" alt="Product" class="object-contain h-full" />
+                </div>
+                <h3 class="text-sm font-semibold text-gray-800 leading-snug">
+                Yeezy Boost 350 V2 Dazling Blue (Toddler)
+                </h3>
+                <p class="text-green-600 text-sm font-bold mt-1">
+                IDR 2,920,000
+                </p>
+            </div>
 
-  <!-- Kartu Produk 1 -->
-  <div class="rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition bg-white">
-    <div class="mb-2">
-      <span class="inline-block bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded">
-        10%
-      </span>
-    </div>
-    <div class="w-full h-28 flex items-center justify-center overflow-hidden mb-3">
-      <img src="/images/youth adidas/2,920,000(1).webp" alt="Product" class="object-contain h-full" />
-    </div>
-    <h3 class="text-sm font-semibold text-gray-800 leading-snug">
-      Yeezy Boost 350 V2 Dazling Blue (Toddler)
-    </h3>
-    <p class="text-green-600 text-sm font-bold mt-1">
-      IDR 2,920,000
-    </p>
-  </div>
+            <!-- Kartu Produk 1 -->
+            <div class="rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition bg-white" data-aos="fade-up">
+                <div class="mb-2">
+                <span class="inline-block bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded">
+                    10%
+                </span>
+                </div>
+                <div class="w-full h-28 flex items-center justify-center overflow-hidden mb-3">
+                <img src="/images/youth adidas/2,920,000(1).webp" alt="Product" class="object-contain h-full" />
+                </div>
+                <h3 class="text-sm font-semibold text-gray-800 leading-snug">
+                Yeezy Boost 350 V2 Dazling Blue (Toddler)
+                </h3>
+                <p class="text-green-600 text-sm font-bold mt-1">
+                IDR 2,920,000
+                </p>
+            </div>
 
-  <!-- Kartu Produk 1 -->
-  <div class="rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition bg-white">
-    <div class="mb-2">
-      <span class="inline-block bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded">
-        10%
-      </span>
-    </div>
-    <div class="w-full h-28 flex items-center justify-center overflow-hidden mb-3">
-      <img src="/images/youth adidas/2,920,000(1).webp" alt="Product" class="object-contain h-full" />
-    </div>
-    <h3 class="text-sm font-semibold text-gray-800 leading-snug">
-      Yeezy Boost 350 V2 Dazling Blue (Toddler)
-    </h3>
-    <p class="text-green-600 text-sm font-bold mt-1">
-      IDR 2,920,000
-    </p>
-  </div>
+            <!-- Kartu Produk 1 -->
+            <div class="rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition bg-white" data-aos="fade-up">
+                <div class="mb-2">
+                <span class="inline-block bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded">
+                    10%
+                </span>
+                </div>
+                <div class="w-full h-28 flex items-center justify-center overflow-hidden mb-3">
+                <img src="/images/youth adidas/2,920,000(1).webp" alt="Product" class="object-contain h-full" />
+                </div>
+                <h3 class="text-sm font-semibold text-gray-800 leading-snug">
+                Yeezy Boost 350 V2 Dazling Blue (Toddler)
+                </h3>
+                <p class="text-green-600 text-sm font-bold mt-1">
+                IDR 2,920,000
+                </p>
+            </div>
 
-  <!-- Kartu Produk 1 -->
-  <div class="rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition bg-white">
-    <div class="mb-2">
-      <span class="inline-block bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded">
-        10%
-      </span>
-    </div>
-    <div class="w-full h-28 flex items-center justify-center overflow-hidden mb-3">
-      <img src="/images/youth adidas/2,920,000(1).webp" alt="Product" class="object-contain h-full" />
-    </div>
-    <h3 class="text-sm font-semibold text-gray-800 leading-snug">
-      Yeezy Boost 350 V2 Dazling Blue (Toddler)
-    </h3>
-    <p class="text-green-600 text-sm font-bold mt-1">
-      IDR 2,920,000
-    </p>
-  </div>
+            <!-- Kartu Produk 1 -->
+            <div class="rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition bg-white" data-aos="fade-up">
+                <div class="mb-2">
+                <span class="inline-block bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded">
+                    10%
+                </span>
+                </div>
+                <div class="w-full h-28 flex items-center justify-center overflow-hidden mb-3">
+                <img src="/images/youth adidas/2,920,000(1).webp" alt="Product" class="object-contain h-full" />
+                </div>
+                <h3 class="text-sm font-semibold text-gray-800 leading-snug">
+                Yeezy Boost 350 V2 Dazling Blue (Toddler)
+                </h3>
+                <p class="text-green-600 text-sm font-bold mt-1">
+                IDR 2,920,000
+                </p>
+            </div>
 
-  <!-- Kartu Produk 1 -->
-  <div class="rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition bg-white">
-    <div class="mb-2">
-      <span class="inline-block bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded">
-        10%
-      </span>
-    </div>
-    <div class="w-full h-28 flex items-center justify-center overflow-hidden mb-3">
-      <img src="/images/youth adidas/2,920,000(1).webp" alt="Product" class="object-contain h-full" />
-    </div>
-    <h3 class="text-sm font-semibold text-gray-800 leading-snug">
-      Yeezy Boost 350 V2 Dazling Blue (Toddler)
-    </h3>
-    <p class="text-green-600 text-sm font-bold mt-1">
-      IDR 2,920,000
-    </p>
-  </div>
+            <!-- Kartu Produk 1 -->
+            <div class="rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition bg-white" data-aos="fade-up">
+                <div class="mb-2">
+                <span class="inline-block bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded">
+                    10%
+                </span>
+                </div>
+                <div class="w-full h-28 flex items-center justify-center overflow-hidden mb-3">
+                <img src="/images/youth adidas/2,920,000(1).webp" alt="Product" class="object-contain h-full" />
+                </div>
+                <h3 class="text-sm font-semibold text-gray-800 leading-snug">
+                Yeezy Boost 350 V2 Dazling Blue (Toddler)
+                </h3>
+                <p class="text-green-600 text-sm font-bold mt-1">
+                IDR 2,920,000
+                </p>
+            </div>
 
-  <!-- Kartu Produk 1 -->
-  <div class="rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition bg-white">
-    <div class="mb-2">
-      <span class="inline-block bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded">
-        10%
-      </span>
-    </div>
-    <div class="w-full h-28 flex items-center justify-center overflow-hidden mb-3">
-      <img src="/images/youth adidas/2,920,000(1).webp" alt="Product" class="object-contain h-full" />
-    </div>
-    <h3 class="text-sm font-semibold text-gray-800 leading-snug">
-      Yeezy Boost 350 V2 Dazling Blue (Toddler)
-    </h3>
-    <p class="text-green-600 text-sm font-bold mt-1">
-      IDR 2,920,000
-    </p>
-  </div>
+            <!-- Kartu Produk 1 -->
+            <div class="rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition bg-white" data-aos="fade-up">
+                <div class="mb-2">
+                <span class="inline-block bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded">
+                    10%
+                </span>
+                </div>
+                <div class="w-full h-28 flex items-center justify-center overflow-hidden mb-3">
+                <img src="/images/youth adidas/2,920,000(1).webp" alt="Product" class="object-contain h-full" />
+                </div>
+                <h3 class="text-sm font-semibold text-gray-800 leading-snug">
+                Yeezy Boost 350 V2 Dazling Blue (Toddler)
+                </h3>
+                <p class="text-green-600 text-sm font-bold mt-1">
+                IDR 2,920,000
+                </p>
+            </div>
 
       </section>
     </div>
@@ -621,57 +628,19 @@
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init({
-      duration: 800,
+      duration: 600,
       once: true,
       easing: 'ease-in-out'
     });
   </script>
 
-<script>
-  $(document).ready(function () {
-    // Buka filter
-    $('#openFilterBtn').on('click', function () {
-      $('#mobileFilter')
-        .removeClass('hidden translate-x-full')
-        .addClass('block translate-x-0');
-      $('#filterOverlay').removeClass('hidden');
-    });
-
-    // Tutup filter saat klik overlay
-    $('#filterOverlay').on('click', function () {
-      $('#mobileFilter')
-        .removeClass('translate-x-0')
-        .addClass('translate-x-full hidden');
-      $('#filterOverlay').addClass('hidden');
-    });
-
-    $('#closeFilterBtn').on('click', function() {
-      $('#mobileFilter')
-        .removeClass('translate-x-0')
-        .addClass('translate-x-full hidden');
-      $('#filterOverlay').addClass('hidden');
-    });
-
-        // Saat buka filter
-    $('#openFilterBtn').on('click', function () {
-        $('#mobileFilter').removeClass('translate-x-full');
-        $('body').addClass('overflow-hidden'); // Matikan scroll body
-    });
-
-    // Saat tutup filter
-    $('#closeFilterBtn').on('click', function () {
-        $('#mobileFilter').addClass('translate-x-full');
-        $('body').removeClass('overflow-hidden'); // Balikin scroll
-    });
-
-
-  });
-</script>
+@vite('resources/js/viewmore.js')
 
 </body>
 </html>
-
+<div data-aos="fade-up">
 @include('partial.footer')
+</div>
 
 <div id="filterOverlay" class="fixed inset-0 bg-black bg-opacity-40 z-20 hidden lg:hidden"></div>
 
