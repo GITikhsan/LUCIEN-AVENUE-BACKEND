@@ -19,7 +19,7 @@
             <div class="text-gray-200 text-center">
                 <h2 class="text-4xl md:text-6xl font-bold mb-4 animate-pulse uppercase tracking-widest">Your Fashion, Your Future</h2>
                 <p class="text-lg text-gray-300 mb-6">Explore the world of stylish sneakers 🌍</p>
-                <a href="/html/homePage.html" class="bg-gray-400 text-black hover:bg-green-800 hover:text-white font-bold py-3 px-6 rounded-full transition-transform duration-300 transform hover:scale-105 inline-block">Explore Now</a>
+                <a href="viewmore" class="bg-gray-400 text-black hover:bg-green-800 hover:text-white font-bold py-3 px-6 rounded-full transition-transform duration-300 transform hover:scale-105 inline-block">Explore Now</a>
             </div>
         </div>
     </div>'
@@ -114,7 +114,7 @@
         <div class="flex-1 text-left">
             <h1 class="text-3xl md:text-4xl font-bold text-black mb-4">🔥 New Arrival: Streetwear Sneakers</h1>
             <p class="text-gray-700 mb-6">Comfort and style come together in one step</p>
-            <a href="/html/homePage.html" class="bg-gray-400 text-black hover:bg-green-800 hover:text-white font-bold py-3 px-6 rounded-full transition-transform duration-300 transform hover:scale-105 inline-block">Explore Now</a>
+            <a href="viewmore" class="bg-gray-400 text-black hover:bg-green-800 hover:text-white font-bold py-3 px-6 rounded-full transition-transform duration-300 transform hover:scale-105 inline-block">Explore Now</a>
         </div>
         <div class="flex-1 text-center">
             <img src="/images/3JT/3,210,000(1).png" alt="Sneaker Promo" class="max-w-xs w-full rounded-xl mx-auto">
@@ -127,32 +127,58 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
             <div class="bg-white rounded-xl shadow-md p-4 hover:-translate-y-1 transition">
                 <img src="/images/3JT/3,210,000(1).png" alt="Product 1" class="w-full rounded-md mb-3">
-                <h3 class="font-semibold text-lg mb-2">Air Jordan 1 Retro Low OG SP Travis Scott Velvet Browny Pink Foam</h3>
-                <p class="mb-3">Rp 2.200.000</p>
-                <a href="#" class="inline-block bg-gray-300 hover:bg-green-800 hover:text-white py-2 px-4 rounded-full">Detail</a>
+                <h3 class="font-semibold text-lg mb-2">Air Jordan 1 Retro Low OG SP Travis Scott Velvet Brown</h3>
+                <p class="mb-3">Rp 4.240.000</p>
+                <a href="4,240" class="px-8 inline-block object-bottom bg-gray-300 hover:bg-green-800 hover:text-white py-2 px-4 rounded-full">Detail</a>
             </div>
             <div class="bg-white rounded-xl shadow-md p-4 hover:-translate-y-1 transition">
-                <img src="/images/3JT/3,210,000(1).png" alt="Product 2" class="w-full rounded-md mb-3">
-                <h3 class="font-semibold text-lg mb-2">Air Jordan 1 Retro Low OG SP Travis Scott Medium Olive (Toddler)</h3>
-                <p class="mb-3">Rp 2.350.000</p>
-                <a href="#" class="inline-block bg-gray-300 hover:bg-green-800 hover:text-white py-2 px-4 rounded-full">Detail</a>
+                <img src="/images/3JT/3,210,000(1).png" alt="Product 1" class="w-full rounded-md mb-3">
+                <h3 class="font-semibold text-lg mb-2">Air Jordan 1 Retro Low OG SP Travis Scott Velvet Brown</h3>
+                <p class="mb-3">Rp 4.240.000</p>
+                <a href="4,240" class="px-8 inline-block object-bottom bg-gray-300 hover:bg-green-800 hover:text-white py-2 px-4 rounded-full">Detail</a>
             </div>
             <div class="bg-white rounded-xl shadow-md p-4 hover:-translate-y-1 transition">
-                <img src="/images/3JT/3,210,000(1).png" alt="Product 2" class="w-full rounded-md mb-3">
-                <h3 class="font-semibold text-lg mb-2">Air Jordan 1 Retro Low OG SP Travis Scott Medium Olive (Toddler)</h3>
-                <p class="mb-3">Rp 2.350.000</p>
-                <a href="#" class="inline-block bg-gray-300 hover:bg-green-800 hover:text-white py-2 px-4 rounded-full">Detail</a>
+                <img src="/images/3JT/3,210,000(1).png" alt="Product 1" class="w-full rounded-md mb-3">
+                <h3 class="font-semibold text-lg mb-2">Air Jordan 1 Retro Low OG SP Travis Scott Velvet Brown</h3>
+                <p class="mb-3">Rp 4.240.000</p>
+                <a href="4,240" class="px-8 inline-block object-bottom bg-gray-300 hover:bg-green-800 hover:text-white py-2 px-4 rounded-full">Detail</a>
             </div>
             <div class="bg-white rounded-xl shadow-md p-4 hover:-translate-y-1 transition">
-                <img src="/images/3JT/3,210,000(1).png" alt="Product 2" class="w-full rounded-md mb-3">
-                <h3 class="font-semibold text-lg mb-2">Air Jordan 1 Retro Low OG SP Travis Scott Medium Olive (Toddler)</h3>
-                <p class="mb-3">Rp 2.350.000</p>
-                <a href="#" class="inline-block bg-gray-300 hover:bg-green-800 hover:text-white py-2 px-4 rounded-full">Detail</a>
+                <img src="/images/3JT/3,210,000(1).png" alt="Product 1" class="w-full rounded-md mb-3">
+                <h3 class="font-semibold text-lg mb-2">Air Jordan 1 Retro Low OG SP Travis Scott Velvet Brown</h3>
+                <p class="mb-3">Rp 4.240.000</p>
+                <a href="4,240" class="px-8 inline-block object-bottom bg-gray-300 hover:bg-green-800 hover:text-white py-2 px-4 rounded-full">Detail</a>
             </div>
+            <div class="bg-white rounded-xl shadow-md p-4 hover:-translate-y-1 transition">
+                <img src="/images/3JT/3,210,000(1).png" alt="Product 1" class="w-full rounded-md mb-3">
+                <h3 class="font-semibold text-lg mb-2">Air Jordan 1 Retro Low OG SP Travis Scott Velvet Brown</h3>
+                <p class="mb-3">Rp 4.240.000</p>
+                <a href="4,240" class="px-8 inline-block object-bottom bg-gray-300 hover:bg-green-800 hover:text-white py-2 px-4 rounded-full">Detail</a>
+            </div>
+            <div class="bg-white rounded-xl shadow-md p-4 hover:-translate-y-1 transition">
+                <img src="/images/3JT/3,210,000(1).png" alt="Product 1" class="w-full rounded-md mb-3">
+                <h3 class="font-semibold text-lg mb-2">Air Jordan 1 Retro Low OG SP Travis Scott Velvet Brown</h3>
+                <p class="mb-3">Rp 4.240.000</p>
+                <a href="4,240" class="px-8 inline-block object-bottom bg-gray-300 hover:bg-green-800 hover:text-white py-2 px-4 rounded-full">Detail</a>
+            </div>
+            <div class="bg-white rounded-xl shadow-md p-4 hover:-translate-y-1 transition">
+                <img src="/images/3JT/3,210,000(1).png" alt="Product 1" class="w-full rounded-md mb-3">
+                <h3 class="font-semibold text-lg mb-2">Air Jordan 1 Retro Low OG SP Travis Scott Velvet Brown</h3>
+                <p class="mb-3">Rp 4.240.000</p>
+                <a href="4,240" class="px-8 inline-block object-bottom bg-gray-300 hover:bg-green-800 hover:text-white py-2 px-4 rounded-full">Detail</a>
+            </div>
+            <div class="bg-white rounded-xl shadow-md p-4 hover:-translate-y-1 transition">
+                <img src="/images/3JT/3,210,000(1).png" alt="Product 1" class="w-full rounded-md mb-3">
+                <h3 class="font-semibold text-lg mb-2">Air Jordan 1 Retro Low OG SP Travis Scott Velvet Brown</h3>
+                <p class="mb-3">Rp 4.240.000</p>
+                <a href="4,240" class="px-8 inline-block object-bottom bg-gray-300 hover:bg-green-800 hover:text-white py-2 px-4 rounded-full">Detail</a>
+            </div>
+            
+            
             
         </div>
         <div class="mt-10">
-            <a href="/html/homePage.html" class="bg-gray-400 text-black hover:bg-green-800 hover:text-white font-bold py-3 px-6 rounded-full transition-transform duration-300 transform hover:scale-105 inline-block">Explore Now</a>
+            <a href="viewmore" class="bg-gray-400 text-black hover:bg-green-800 hover:text-white font-bold py-3 px-6 rounded-full transition-transform duration-300 transform hover:scale-105 inline-block">Explore Now</a>
         </div>
     </section>
 
