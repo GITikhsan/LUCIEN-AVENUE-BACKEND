@@ -599,7 +599,7 @@
         </div>
 
         <div class="snap-start px-4 md:px-10 pt-1 pb-18 flex justify-center items-start my-20">
-            <a href="/products"
+            <a href="/viewmore"
                 class="fade-section inline-flex items-center gap-1
                     px-6 py-2 text-sm
                     md:px-8 md:text-base
