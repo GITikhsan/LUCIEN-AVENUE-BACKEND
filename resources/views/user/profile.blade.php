@@ -109,7 +109,7 @@
           <div class="bg-white border rounded-lg shadow-md p-4">
             <!-- Produk -->
             <div class="flex flex-col md:flex-row items-start md:items-center gap-4">
-              <img src="/images/100JT/100,000,000(1).png" alt="Produk" class="w-24 h-24 object-cover border rounded">
+              <img src="/images/100JT/100,000,000(1).png" alt="Produk" class="w-24 h-24 object-contain border rounded">
               <div class="flex-1">
                 <p class="font-semibold text-gray-800">Air Jordan 1 Retro Low Dior</p>
                 <p class="text-sm text-gray-600">x1</p>
@@ -134,7 +134,7 @@
           <div class="bg-white border rounded-lg shadow-md p-4">
             <!-- Produk -->
             <div class="flex flex-col md:flex-row items-start md:items-center gap-4">
-              <img src="/images/4JT/4,240,000.png" alt="Produk" class="w-24 h-24 object-cover border rounded">
+              <img src="/images/4JT/4,240,000.png" alt="Produk" class="w-24 h-24 object-contain border rounded">
               <div class="flex-1">
                 <p class="font-semibold text-gray-800">Air Jordan 1 Retro Low OG SP Travis Scott Velvet Brown</p>
                 <p class="text-sm text-gray-600">x1</p>
@@ -160,7 +160,7 @@
           <div class="bg-white border rounded-lg shadow-md p-4">
             <!-- Produk -->
             <div class="flex flex-col md:flex-row items-start md:items-center gap-4">
-              <img src="/images/3JT/3,210,000(1).png" alt="Produk" class="w-24 h-24 object-cover border rounded">
+              <img src="/images/3JT/3,210,000(1).png" alt="Produk" class="w-24 h-24 object-contain border rounded">
               <div class="flex-1">
                 <p class="font-semibold text-gray-800">Air Jordan 1 Low SE Craft Light Olive</p>
                 <p class="text-sm text-gray-600">x1</p>
