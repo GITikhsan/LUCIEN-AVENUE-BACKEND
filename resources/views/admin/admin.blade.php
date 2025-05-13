@@ -146,6 +146,7 @@
             <select id="Gender" name="Gender" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500">
               <option value="Male">Male</option>
               <option value="Female">Female</option>
+              <option value="Unisex">Unisex</option>
             </select>
           </div>
 
