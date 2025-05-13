@@ -63,41 +63,45 @@
     const panels = {
       "DATA SAYA": `
         <form class="w-4/5 max-w-4xl p-8 bg-white text-black flex items-start space-x-8">
-  <!-- Foto Profil -->
-  <div class="flex-shrink-0">
-    <img src="/images/PNGpic2.png" alt="Foto Profil" class="w-40 h-40 rounded-full object-cover border border-gray-300">
-  </div>
+        <!-- Foto Profil -->
+        <div class="flex-shrink-0">
+          <img src="/images/PNGpic2.png" alt="Foto Profil" class="w-40 h-40 rounded-full object-cover border border-gray-300">
+        </div>
 
-  <!-- Data Pengguna -->
-  <div class="flex-1">
-    <div class="grid grid-cols-[150px_10px_auto] gap-y-4 items-start">
-      <label class="font-bold">First Name</label>
-      <span class="text-center">:</span>
-      <p>John</p>
+        <!-- Data Pengguna -->
+        <div class="flex-1">
+          <div class="grid grid-cols-[150px_10px_auto] gap-y-4 items-start">
+            <label class="font-bold">First Name</label>
+            <span class="text-center">:</span>
+            <p>John</p>
 
-      <label class="font-bold">Last Name</label>
-      <span class="text-center">:</span>
-      <p>Doe</p>
+            <label class="font-bold">Last Name</label>
+            <span class="text-center">:</span>
+            <p>Doe</p>
 
-      <label class="font-bold">Date of Birth</label>
-      <span class="text-center">:</span>
-      <p>1990-01-01</p>
+            <label class="font-bold">Date of Birth</label>
+            <span class="text-center">:</span>
+            <p>1990-01-01</p>
 
-      <label class="font-bold">Alamat</label>
-      <span class="text-center">:</span>
-      <p>Jl. Merdeka No. 123, Jakarta</p>
+            <label class="font-bold">Alamat</label>
+            <span class="text-center">:</span>
+            <p>Jl. Merdeka No. 123, Jakarta</p>
 
-      <label class="font-bold">Your Email</label>
-      <span class="text-center">:</span>
-      <p>john.doe@example.com</p>
+            <label class="font-bold">Your Email</label>
+            <span class="text-center">:</span>
+            <p>john.doe@example.com</p>
 
-      <label class="font-bold">Your Password</label>
-      <span class="text-center">:</span>
-      <p>********</p>
-    </div>
-  </div>
-</form>
-
+            <label class="font-bold">Your Password</label>
+            <span class="text-center">:</span>
+            <p>********</p><br><br>
+            <div class="flex justify-end mt-4">
+            <a href="/settings" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+              ✏️Ubah
+            </a>
+          </div>
+          </div>
+        </div>
+      </form>
       `,
       "PEMBELIAN SAYA": `
         <div class="w-full max-w-4xl space-y-6">
