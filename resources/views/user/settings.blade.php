@@ -73,7 +73,7 @@
           <div><label class="block mb-1 text-gray-700">Email</label><input type="email" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" /></div>
           <div><label class="block mb-1 text-gray-700">Phone Number</label><input type="tel" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" /></div>
           <div><label class="block mb-1 text-gray-700">Date of Birth</label><input type="date" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" /></div>
-          <div class="pt-4"><button type="submit" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Save Profile</button></div>
+          <div class="pt-4"><button type="submit" class="bg-green-800 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Save Profile</button></div>
         </form>
       </div>`,
 
@@ -83,7 +83,7 @@
         <div id="map" class="w-full h-64 rounded shadow-sm mb-4 z-0"></div>
         <div><label class="block text-sm font-medium text-gray-700">Alamat Otomatis</label><input type="text" id="autoAddress" class="w-full p-2 border rounded mb-2" readonly /><input type="hidden" id="lat"><input type="hidden" id="lng"></div>
         <div><label class="block mb-1 text-gray-700">Add address</label><textarea class="w-full p-2 border rounded resize-none focus:outline-none focus:ring-2 focus:ring-green-500" rows="4"></textarea></div>
-        <div class="pt-4"><button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Save address</button></div>
+        <div class="pt-4"><button class="bg-green-800 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Save address</button></div>
       </div>`,
 
       "ChangePassword": `
@@ -93,7 +93,7 @@
           <div><label class="block mb-1 text-gray-700">Current Password</label><input type="password" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" /></div>
           <div><label class="block mb-1 text-gray-700">New Password</label><input type="password" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" /></div>
           <div><label class="block mb-1 text-gray-700">Confirm New Password</label><input type="password" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" /></div>
-          <div><button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Confirm</button></div>
+          <div><button class="bg-green-800 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Confirm</button></div>
         </form>
       </div>`,
 
