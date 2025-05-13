@@ -20,8 +20,12 @@
 
   <!-- Mobile Header -->
   <div class="md:hidden bg-white shadow p-4 flex justify-between items-center">
-    <h1 class="text-lg font-semibold text-black">Lucien Avenue</h1>
-    <button id="toggleSidebar" class="text-gray-700 text-2xl focus:outline-none">☰</button>
+    <h1 class="text-lg font-semibold text-black">More Settings</h1>
+    <button id="toggleSidebar" class="text-gray-700 text-2xl focus:outline-none"  ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-down">
+  <line x1="12" y1="5" x2="12" y2="19"/>
+  <polyline points="19 12 12 19 5 12"/>
+</svg>
+</button>
   </div>
 
   <!-- Main Layout -->
