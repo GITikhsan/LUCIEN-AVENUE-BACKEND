@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 <body class="bg-gray-100 font-sans text-sm">
-  @include('partial.navbar')
+  @include('partial.sticknavbar')
   <div class="flex min-h-screen">
     <aside class="bg-white w-64 shadow-md p-4">
       <div class="mb-8">
@@ -19,7 +19,7 @@
       </div>
       <nav class="space-y-4" id="sidebarMenu">
         <a href="#" data-panel="EditProfile" class="block text-base text-gray-700 hover:text-green-600">Edit your profile</a>
-        <a href="#" data-panel="ShippingAddress" class="block text-base text-gray-700 hover:text-green-600">Your addres</a>
+        <a href="#" data-panel="ShippingAddress" class="block text-base text-gray-700 hover:text-green-600">Your address</a>
         <a href="#" data-panel="ChangePassword" class="block text-base text-gray-700 hover:text-green-600">Change your password</a>
         <a href="#" data-panel="Deleteacc" class="block text-base text-gray-700 hover:text-green-600">Delete account</a>
       </nav>
@@ -69,6 +69,12 @@
         <label for="phone" class="block mb-1 text-gray-700">Phone Number</label>
         <input type="tel" id="phone" name="phone" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="+62xxxxxxxxxx" />
       </div>
+
+      <!-- TANGGAL LAHIR -->
+    <div>
+    <label for="dob" class="block mb-1 text-gray-700">Date of Birth</label>
+    <input type="date" id="dob" name="dob" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" />
+    </div>
 
       <!-- BUTTON -->
       <div class="pt-4">
@@ -207,19 +213,22 @@ $(document).on('change', '#profilePic', function(e) {
   }
 });
 
-    $(document).on('submit', '#editProfileForm', function(e) {
+   $(document).on('submit', '#editProfileForm', function(e) {
   e.preventDefault();
 
   const formData = new FormData(this);
+  const dob = $('#dob').val(); // ambil tanggal lahir
+
+  formData.append('dob', dob); // tambahkan ke FormData (meskipun sebenarnya udah ikut karena ada name="dob")
 
   $.ajax({
-    url: '/api/update-profile', // sesuaikan route-mu
+    url: '/api/update-profile',
     type: 'POST',
     data: formData,
     contentType: false,
     processData: false,
     headers: {
-      'X-CSRF-TOKEN': '{{ csrf_token() }}' // untuk Laravel
+      'X-CSRF-TOKEN': '{{ csrf_token() }}'
     },
     success: function(response) {
       alert('Profile updated successfully!');
@@ -229,6 +238,7 @@ $(document).on('change', '#profilePic', function(e) {
     }
   });
 });
+
 
 
 

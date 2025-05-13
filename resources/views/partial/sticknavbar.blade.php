@@ -47,9 +47,6 @@
 
                 <!-- Dropdown Menu -->
                 <div id="menuDropdown" class="absolute right-0 mt-3 w-48 bg-white border border-gray-200 shadow-xl rounded-xl py-2 text-sm text-neutral-800 hidden z-50 transition-all duration-300 ease-out backdrop-blur-md">
-                    <a href="#contact" class="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 transition rounded-md">
-                        <i data-lucide="mail" class="w-4 h-4 stroke-[1.5]"></i> Contact Us
-                    </a>
                     <a href="/aboutus" class="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 transition rounded-md">
                         <i data-lucide="info" class="w-4 h-4 stroke-[1.5]"></i> About Us
                     </a>
