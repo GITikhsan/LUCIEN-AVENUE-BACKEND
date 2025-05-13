@@ -32,28 +32,42 @@
 
   <script>
     const panels = {
-        "EditProfile": `
+"EditProfile": `
   <div class="max-w-xl mx-auto bg-white p-6 rounded-xl shadow">
     <h2 class="text-xl font-semibold text-gray-800 mb-6">Edit Profile</h2>
 
-    <form class="space-y-4">
+    <form id="editProfileForm" class="space-y-4" enctype="multipart/form-data">
+
+      <!-- FOTO PROFIL -->
+      <div class="flex items-center space-x-4">
+        <img id="profilePreview" src="/images/User.png" alt="Profile Picture" class="w-16 h-16 rounded-full object-cover border" />
+        <div>
+          <label class="block mb-1 text-gray-700" for="profilePic">Profile Picture</label>
+          <input type="file" id="profilePic" name="profilePic" accept="image/*" class="block w-full text-sm text-gray-500 file:mr-4 file:py-1 file:px-2 file:border file:rounded file:border-gray-300 file:text-sm file:bg-white file:text-gray-700 hover:file:bg-gray-100"/>
+        </div>
+      </div>
 
       <!-- NAMA -->
       <div>
-        <label for="fullName" class="block mb-1 text-gray-700">Full Name</label>
-        <input type="text" id="fullName" name="fullName" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Enter full name" value="" />
+        <label for="firstName" class="block mb-1 text-gray-700">First Name</label>
+        <input type="text" id="firstName" name="firstName" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Enter first name" />
+      </div>
+
+      <div>
+        <label for="lastName" class="block mb-1 text-gray-700">Last Name</label>
+        <input type="text" id="lastName" name="lastName" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Enter last name" />
       </div>
 
       <!-- EMAIL -->
       <div>
         <label for="email" class="block mb-1 text-gray-700">Email</label>
-        <input type="email" id="email" name="email" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="you@example.com" value="" />
+        <input type="email" id="email" name="email" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="you@example.com" />
       </div>
 
       <!-- TELEPON -->
       <div>
         <label for="phone" class="block mb-1 text-gray-700">Phone Number</label>
-        <input type="tel" id="phone" name="phone" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="+62xxxxxxxxxx" value="" />
+        <input type="tel" id="phone" name="phone" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="+62xxxxxxxxxx" />
       </div>
 
       <!-- BUTTON -->
@@ -180,6 +194,44 @@
           });
       });
     }
+
+    // Preview foto profil sebelum upload
+$(document).on('change', '#profilePic', function(e) {
+  const file = e.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      $('#profilePreview').attr('src', e.target.result);
+    };
+    reader.readAsDataURL(file);
+  }
+});
+
+    $(document).on('submit', '#editProfileForm', function(e) {
+  e.preventDefault();
+
+  const formData = new FormData(this);
+
+  $.ajax({
+    url: '/api/update-profile', // sesuaikan route-mu
+    type: 'POST',
+    data: formData,
+    contentType: false,
+    processData: false,
+    headers: {
+      'X-CSRF-TOKEN': '{{ csrf_token() }}' // untuk Laravel
+    },
+    success: function(response) {
+      alert('Profile updated successfully!');
+    },
+    error: function(xhr) {
+      alert('Failed to update profile.');
+    }
+  });
+});
+
+
+
   </script>
   @include("partial.footer")
 </body>
