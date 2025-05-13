@@ -18,7 +18,7 @@
 </head>
 <body class="m-0 font-sans bg-white">
 
-  @include('partial.navbar')
+  @include('partial.sticknavbar')
 
   <div class="grid md:grid-cols-[250px_1fr] grid-cols-1 grid-rows-[auto_1fr] h-screen">
     <!-- SIDEBAR -->
