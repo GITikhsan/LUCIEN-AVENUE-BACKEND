@@ -150,6 +150,11 @@
           </div>
 
           <div>
+            <label for="SKU" class="block mb-1 text-gray-700">SKU</label>
+            <input type="text" id="SKU" name="SKU" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Type the products code">
+          </div>
+
+          <div>
             <label for="Color" class="block mb-1 text-gray-700">Color</label>
             <input type="text" id="Color" name="Color" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Color">
           </div>
@@ -159,9 +164,17 @@
             <input type="text" id="Material" name="Material" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Material">
           </div>
 
+          <div>
+            <label for="dimension" class="block mb-1 text-gray-700">Dimension</label>
+            <input type="text" id="dimension" name="dimension" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Dimension">
+          </div>
 
+          <div><label class="block mb-1 text-gray-700">Release Date</label><input type="date" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" /></div>
 
-
+          <div>
+            <label for="retail" class="block mb-1 text-gray-700">Retail</label>
+            <input type="text" id="retail" name="retail" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Retail">
+          </div>
 
           <div>
             <label for="Description" class="block mb-1 text-gray-700">Description</label>
@@ -174,8 +187,6 @@
           </div>
         </form>
       </div>
-
-
 
       `
 };

@@ -120,7 +120,7 @@
     function initMap() {
       const map = L.map('map').setView([-6.2, 106.8167], 13);
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap' }).addTo(map);
-
+        
       let marker;
       map.on('click', function (e) {
         const lat = e.latlng.lat, lng = e.latlng.lng;
