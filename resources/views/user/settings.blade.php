@@ -51,7 +51,7 @@
     <div id="sidebarOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden md:hidden"></div>
 
     <!-- Content -->
-    <main class="flex-1 p-4 md:p-6 overflow-y-auto md:ml-64" id="mainContent">
+    <main class="flex-1 p-4 md:p-6 overflow-y-auto" id="mainContent">
       <div id="defaultContent"></div>
     </main>
   </div>
@@ -60,7 +60,7 @@
   <script>
     const panels = {
       "EditProfile": `
-      <div class="w-full max-w-xl mx-auto bg-white p-4 md:p-6 rounded-xl shadow">
+      <div class="w-full max-w-full mx-auto bg-white p-4 md:p-6 rounded-xl shadow">
         <h2 class="text-xl font-semibold text-gray-800 mb-6">Edit Profile</h2>
         <form id="editProfileForm" class="space-y-4" enctype="multipart/form-data">
           <div class="flex flex-col sm:flex-row items-center sm:items-start space-y-2 sm:space-y-0 sm:space-x-4">
@@ -80,16 +80,16 @@
       </div>`,
 
       "ShippingAddress": `
-      <div class="w-full max-w-xl mx-auto bg-white p-4 md:p-6 rounded-xl shadow">
+      <div class="w-full max-w-full mx-auto bg-white p-4 md:p-6 rounded-xl shadow">
         <h3 class="text-lg font-semibold text-gray-800 mb-4">Pilih Lokasi di Peta</h3>
         <div id="map" class="w-full h-64 rounded shadow-sm mb-4 z-0"></div>
-        <div><label class="block text-sm font-medium text-gray-700">Alamat Otomatis</label><input type="text" id="autoAddress" class="w-full p-2 border rounded mb-2" readonly /><input type="hidden" id="lat"><input type="hidden" id="lng"></div>
+
         <div><label class="block mb-1 text-gray-700">Add address</label><textarea class="w-full p-2 border rounded resize-none focus:outline-none focus:ring-2 focus:ring-green-500" rows="4"></textarea></div>
         <div class="pt-4"><button class="bg-gray-400 text-black hover:bg-green-800 hover:text-white font-bold py-3 px-6 rounded-full transition-transform duration-300 transform hover:scale-105 inline-block">Save address</button></div>
       </div>`,
 
       "ChangePassword": `
-      <div class="w-full max-w-md mx-auto bg-white p-4 md:p-6 rounded-xl shadow">
+      <div class="w-full max-w-full mx-auto bg-white p-4 md:p-6 rounded-xl shadow">
         <h2 class="text-xl font-semibold text-gray-800 mb-4">Change Password</h2>
         <form class="space-y-4">
           <div><label class="block mb-1 text-gray-700">Current Password</label><input type="password" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" /></div>
@@ -100,10 +100,13 @@
       </div>`,
 
       "Deleteacc": `
-      <div class="w-full max-w-xl mx-auto mt-8 bg-white p-4 md:p-6 rounded-xl shadow">
+      <div class="w-full max-w-full mx-auto bg-white p-4 md:p-6 rounded-xl shadow">
         <p class="text-sm text-gray-500 mb-3">Do you wanna delete your account?</p>
         <button class="text-red-600 text-sm hover:underline transition duration-150">Delete account</button>
       </div>`,
+
+
+
 
     };
 
@@ -152,6 +155,42 @@
         $(this).addClass('hidden');
       });
     });
+
+    $(document).on('change', '#profilePic', function(e) {
+  const file = e.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      $('#profilePreview').attr('src', e.target.result);
+    };
+    reader.readAsDataURL(file);
+  }
+});
+
+    $(document).on('submit', '#editProfileForm', function(e) {
+  e.preventDefault();
+
+  const formData = new FormData(this);
+
+  $.ajax({
+    url: '/api/update-profile', // sesuaikan route-mu
+    type: 'POST',
+    data: formData,
+    contentType: false,
+    processData: false,
+    headers: {
+      'X-CSRF-TOKEN': '{{ csrf_token() }}' // untuk Laravel
+    },
+    success: function(response) {
+      alert('Profile updated successfully!');
+    },
+    error: function(xhr) {
+      alert('Failed to update profile.');
+    }
+  });
+});
+
+
   </script>
 
   <!-- Footer -->
