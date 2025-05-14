@@ -76,7 +76,7 @@
             </div>
             <div class="mt-6">
               <textarea placeholder="Write a reply..." class="w-full p-2 border rounded mb-2"></textarea>
-              <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Reply</button>
+              <button class="bg-green-800 text-white px-4 py-2 rounded hover:bg-green-600">Reply</button>
             </div>
           </div>
         </div>
@@ -157,7 +157,7 @@
 
 
           <div class="pt-2">
-            <button type="submit" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Save</button>
+            <button type="submit" class="bg-green-800 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Save</button>
           </div>
         </form>
       </div>
@@ -174,7 +174,7 @@
       </label>
       <p class="text-sm text-gray-500">You can upload up to 9 images.</p>
       <div id="imagePreview" class="grid grid-cols-3 gap-4 mt-4"></div>
-      <button type="submit" id="submitImages" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Save Images</button>
+      <button type="submit" id="submitImages" class="bg-green-800 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Save Images</button>
     </form>
   </div>
 
