@@ -8,6 +8,7 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <link href="{{ asset('css/login.css')}}" rel="stylesheet" type="text/css">
   <style>
     #sidebar {
       width: 16rem; /* w-64 */
@@ -42,6 +43,7 @@
         <a href="#" data-panel="ShippingAddress" class="block text-base text-gray-700 hover:text-green-600">Your address</a>
         <a href="#" data-panel="ChangePassword" class="block text-base text-gray-700 hover:text-green-600">Change your password</a>
         <a href="#" data-panel="Deleteacc" class="block text-base text-gray-700 hover:text-green-600">Delete account</a>
+
       </nav>
     </aside>
 
@@ -73,7 +75,7 @@
           <div><label class="block mb-1 text-gray-700">Email</label><input type="email" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" /></div>
           <div><label class="block mb-1 text-gray-700">Phone Number</label><input type="tel" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" /></div>
           <div><label class="block mb-1 text-gray-700">Date of Birth</label><input type="date" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" /></div>
-          <div class="pt-4"><button type="submit" class="bg-green-800 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Save Profile</button></div>
+          <div class="pt-4"><button type="submit" class="bg-gray-400 text-black hover:bg-green-800 hover:text-white font-bold py-3 px-6 rounded-full transition-transform duration-300 transform hover:scale-105 inline-block">Save Profile</button></div>
         </form>
       </div>`,
 
@@ -83,7 +85,7 @@
         <div id="map" class="w-full h-64 rounded shadow-sm mb-4 z-0"></div>
         <div><label class="block text-sm font-medium text-gray-700">Alamat Otomatis</label><input type="text" id="autoAddress" class="w-full p-2 border rounded mb-2" readonly /><input type="hidden" id="lat"><input type="hidden" id="lng"></div>
         <div><label class="block mb-1 text-gray-700">Add address</label><textarea class="w-full p-2 border rounded resize-none focus:outline-none focus:ring-2 focus:ring-green-500" rows="4"></textarea></div>
-        <div class="pt-4"><button class="bg-green-800 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Save address</button></div>
+        <div class="pt-4"><button class="bg-gray-400 text-black hover:bg-green-800 hover:text-white font-bold py-3 px-6 rounded-full transition-transform duration-300 transform hover:scale-105 inline-block">Save address</button></div>
       </div>`,
 
       "ChangePassword": `
@@ -93,7 +95,7 @@
           <div><label class="block mb-1 text-gray-700">Current Password</label><input type="password" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" /></div>
           <div><label class="block mb-1 text-gray-700">New Password</label><input type="password" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" /></div>
           <div><label class="block mb-1 text-gray-700">Confirm New Password</label><input type="password" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" /></div>
-          <div><button class="bg-green-800 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Confirm</button></div>
+          <div><button class="bg-gray-400 text-black hover:bg-green-800 hover:text-white font-bold py-3 px-6 rounded-full transition-transform duration-300 transform hover:scale-105 inline-block">Confirm</button></div>
         </form>
       </div>`,
 
@@ -101,7 +103,8 @@
       <div class="w-full max-w-xl mx-auto mt-8 bg-white p-4 md:p-6 rounded-xl shadow">
         <p class="text-sm text-gray-500 mb-3">Do you wanna delete your account?</p>
         <button class="text-red-600 text-sm hover:underline transition duration-150">Delete account</button>
-      </div>`
+      </div>`,
+
     };
 
     // JS behavior
