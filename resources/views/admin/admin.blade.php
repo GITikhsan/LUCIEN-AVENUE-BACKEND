@@ -18,6 +18,7 @@
         <a href="#" data-panel="Home" class="block text-base text-gray-700 hover:text-green-600">Home</a>
         <a href="#" data-panel="Discussion" class="block text-base text-gray-700 hover:text-green-600">Chat</a>
         <a href="#" data-panel="Product" class="block text-base text-gray-700 hover:text-green-600">Product Input</a>
+        <a href="#" data-panel="Orders" class="block text-base text-gray-700 hover:text-green-600">Orders</a>
       </nav>
     </aside>
     <main class="flex-1 p-6 overflow-y-auto" id="mainContent">
@@ -188,7 +189,22 @@
         </form>
       </div>
 
-      `
+      `,
+
+      "Orders": `
+  <div class="bg-white p-6 rounded-xl shadow">
+    <h2 class="text-xl font-semibold mb-4">My Orders</h2>
+    <div class="flex gap-2 mb-6 overflow-x-auto">
+      <button class="tab-btn bg-green-100 text-green-800 px-4 py-2 rounded-full font-semibold" data-tab="all">All</button>
+      <button class="tab-btn bg-gray-100 text-gray-600 px-4 py-2 rounded-full" data-tab="unpaid">Unpaid</button>
+      <button class="tab-btn bg-gray-100 text-gray-600 px-4 py-2 rounded-full" data-tab="processing">Processing</button>
+      <button class="tab-btn bg-gray-100 text-gray-600 px-4 py-2 rounded-full" data-tab="shipped">Shipped</button>
+      <button class="tab-btn bg-gray-100 text-gray-600 px-4 py-2 rounded-full" data-tab="completed">Completed</button>
+      <button class="tab-btn bg-gray-100 text-gray-600 px-4 py-2 rounded-full" data-tab="cancelled">Cancelled</button>
+    </div>
+    <div id="orderContent" class="text-center py-10 text-gray-500"></div>
+  </div>
+`
 };
 
     function loadPanel(name) {
@@ -293,6 +309,40 @@
         $("#confirmModal").addClass("hidden");
       });
     });
+
+    $(document).on("click", ".tab-btn", function () {
+  $(".tab-btn").removeClass("bg-green-100 text-green-800 font-semibold").addClass("bg-gray-100 text-gray-600");
+  $(this).addClass("bg-green-100 text-green-800 font-semibold");
+
+  const selectedTab = $(this).data("tab");
+  const contentBox = $("#orderContent");
+
+  // Contoh konten per tab, nanti bisa disesuaikan
+  let emptyMessage = "You don't have any order";
+
+switch (selectedTab) {
+  case "all":
+    contentBox.html(`<p>${emptyMessage}</p>`);
+    break;
+  case "unpaid":
+    contentBox.html(`<p>${emptyMessage} in Unpaid</p>`);
+    break;
+  case "processing":
+    contentBox.html(`<p>${emptyMessage} in Processing</p>`);
+    break;
+  case "shipped":
+    contentBox.html(`<p>${emptyMessage} in Shipped</p>`);
+    break;
+  case "completed":
+    contentBox.html(`<p>${emptyMessage} in Completed</p>`);
+    break;
+  case "cancelled":
+    contentBox.html(`<p>${emptyMessage} in Cancelled</p>`);
+    break;
+  default:
+    contentBox.html(`<p>${emptyMessage}</p>`);
+}
+});
   </script>
 </body>
 </html>
