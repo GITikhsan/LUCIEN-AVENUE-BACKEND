@@ -15,19 +15,61 @@
       -moz-appearance: textfield;
     }
   </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const toggleButton = document.getElementById('toggleSidebar');
+      const sidebar = document.getElementById('sidebar');
+      const arrowIcon = document.getElementById('arrowIcon');
+
+      // Fungsi untuk toggle sidebar
+      function toggleSidebar() {
+        sidebar.classList.toggle('-translate-x-full');
+        const isHidden = sidebar.classList.contains('-translate-x-full');
+        arrowIcon.classList.toggle('rotate-180', !isHidden);
+        arrowIcon.classList.toggle('rotate-0', isHidden);
+      }
+
+      toggleButton.addEventListener('click', (e) => {
+        e.stopPropagation(); // Biar klik tombol gak ikut deteksi "luar"
+        toggleSidebar();
+      });
+
+      // Tutup sidebar jika klik di luar (khusus mobile)
+      document.addEventListener('click', function (e) {
+        const isMobile = window.innerWidth < 768;
+        const isClickOutsideSidebar = !sidebar.contains(e.target) && !toggleButton.contains(e.target);
+
+        if (isMobile && isClickOutsideSidebar && !sidebar.classList.contains('-translate-x-full')) {
+          sidebar.classList.add('-translate-x-full');
+          arrowIcon.classList.remove('rotate-180');
+          arrowIcon.classList.add('rotate-0');
+        }
+      });
+    });
+  </script>
+
 </head>
 <body class="m-0 font-sans bg-white">
 
   @include('partial.sticknavbar')
-
   <div class="grid md:grid-cols-[250px_1fr] grid-cols-1 grid-rows-[auto_1fr] h-screen">
+    <!-- Tombol toggle sidebar di mobile -->
+    <div class="md:hidden p-2">
+      <button id="toggleSidebar" class="flex items-center text-gray-800">
+        <!-- Panah -->
+        <svg id="arrowIcon" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 transform rotate-180 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        <span class="ml-1 text-sm">Menu</span>
+      </button>
+    </div>
+
     <!-- SIDEBAR -->
-    <aside class="flex flex-col items-center justify-start border-r border-gray-200 p-5">
+    <aside id="sidebar" class="fixed top-0 left-0 h-full w-64 bg-white z-40 transform -translate-x-full transition-transform duration-300 md:static md:translate-x-0 md:flex flex-col items-center justify-start border-r border-gray-200 p-5 pt-20">
       <div class="w-full text-center mb-6">
         <h2 class="mt-2 text-lg font-semibold">USERNAME</h2>
       </div>
 
-      <!-- MENU -->
       <ul class="w-full text-sm font-semibold space-y-4">
         <li><a href="#" data-panel="DATA SAYA" class="flex justify-between items-center hover:text-green-600 transition">DATA SAYA </a></li>
         <li><a href="#" data-panel="PEMBELIAN SAYA" class="flex justify-between items-center hover:text-green-600 transition">PEMBELIAN SAYA </a></li>
@@ -41,11 +83,9 @@
             </button>
           </form>
         </li>
-
-
-
       </ul>
     </aside>
+
 
     <!-- MAIN PANEL -->
     <main id="contentPanel" class="flex justify-center items-start p-10 overflow-auto">
@@ -62,15 +102,15 @@
 
     const panels = {
       "DATA SAYA": `
-        <form class="w-4/5 max-w-4xl p-8 bg-white text-black flex items-start space-x-8">
+        <form class="w-full max-w-4xl p-4 sm:p-8 bg-white text-black flex flex-col sm:flex-row items-start sm:space-x-8 space-y-6 sm:space-y-0">
         <!-- Foto Profil -->
-        <div class="flex-shrink-0">
-          <img src="/images/PNGpic2.png" alt="Foto Profil" class="w-40 h-40 rounded-full object-cover border border-gray-300">
+        <div class="flex-shrink-0 self-center sm:self-start">
+          <img src="/images/PNGpic2.png" alt="Foto Profil" class="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover border border-gray-300">
         </div>
 
         <!-- Data Pengguna -->
-        <div class="flex-1">
-          <div class="grid grid-cols-[150px_10px_auto] gap-y-4 items-start">
+        <div class="flex-1 w-full">
+          <div class="grid grid-cols-[120px_10px_1fr] gap-y-4 items-start text-sm sm:text-base">
             <label class="font-bold">First Name</label>
             <span class="text-center">:</span>
             <p>John</p>
@@ -93,13 +133,15 @@
 
             <label class="font-bold">Your Password</label>
             <span class="text-center">:</span>
-            <p>********</p><br><br>
-            <div class="flex justify-end mt-4">
+            <p>********</p>
+          </div>
+
+          <div class="flex justify-center mt-6">
             <a href="/settings" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
-              ✏️Ubah
+              ✏️ Ubah
             </a>
           </div>
-          </div>
+
         </div>
       </form>
       `,
@@ -218,6 +260,11 @@
           <p>Konten belum tersedia.</p>
         </div>`;
       contentPanel.innerHTML = html;
+      if (window.innerWidth < 768) {
+        sidebar.classList.add('-translate-x-full');
+        arrowIcon.classList.remove('rotate-180');
+        arrowIcon.classList.add('rotate-0');
+      }
 
       // Bind ulang event untuk password toggle
       const toggle = document.getElementById("togglePassword");
@@ -245,9 +292,6 @@
       });
     });
   </script>
-
-  <script src="/javascript/countryCode.js"></script>
-
   @include("partial.footer")
 </body>
 </html>
