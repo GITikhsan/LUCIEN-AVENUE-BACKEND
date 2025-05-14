@@ -305,6 +305,12 @@
   <h2 class="text-xl font-semibold text-gray-800">Available Sneakers</h2>
 
         <div class="flex items-center gap-3">
+
+                        <!-- Open Filter button -->
+            <button id="openFilterBtn" class="lg:hidden bg-black text-white text-sm px-4 py-2 rounded-xl shadow-sm">
+                Open Filter
+            </button>
+
             <!-- Select dropdown -->
             <div class="relative">
                 <select class="appearance-none bg-gray-100 border border-gray-300 text-sm text-gray-700 rounded-xl px-4 py-2 pl-3 pr-10 shadow-sm focus:outline-none focus:ring-2 focus:ring-black focus:border-black transition">
@@ -319,11 +325,6 @@
                 </svg>
                 </div>
             </div>
-
-            <!-- Open Filter button -->
-            <button id="openFilterBtn" class="lg:hidden bg-black text-white text-sm px-4 py-2 rounded-xl shadow-sm">
-                Open Filter
-            </button>
         </div>
 
 

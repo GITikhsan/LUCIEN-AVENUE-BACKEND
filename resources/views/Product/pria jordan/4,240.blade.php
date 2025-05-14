@@ -43,9 +43,9 @@
   </head>
 
   <body class="font-sans text-black text-sm bg-white snap-y snap-mandatory overflow-y-scroll">
-    <div class="max-w-[1240px] mx-auto px-6 mt-10">
+    <div class="snap-start max-w-[1240px] mx-auto px-6 mt-10">
 
-    <section class="relative border-2 border-gray-300 rounded-xl p-6 md:p-12 text-base md:text-lg min-h-[560px]">
+    <section class="fade-section relative border-2 border-gray-300 rounded-xl p-6 md:p-12 text-base md:text-lg min-h-[560px]">
   <!-- Garis Tengah -->
   <div class="hidden md:block absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-px bg-gray-300 z-10"></div>
 
@@ -268,13 +268,13 @@
                 <p class="text-gray-400 text-sm">No addresses saved yet.</p>
             </div>
 
-    <div class="flex justify-between mt-4">
-        <button id="cancel-choose" class="text-gray-500">Cancel</button>
-        <button id="open-add-address" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-            New Address
-        </button>
-    </div>
-</div>
+            <div class="flex justify-between mt-4">
+                <button id="cancel-choose" class="text-gray-500">Cancel</button>
+                <button id="open-add-address" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                    New Address
+                </button>
+            </div>
+        </div>
     </div>
 
 
