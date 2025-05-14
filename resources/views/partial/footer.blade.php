@@ -22,34 +22,34 @@
     </div>
 
     <!-- CONNECT -->
-    <div class="space-y-3 text-center md:text-left">
-      <p class="font-semibold text-white">Keep in touch with us!</p>
+      <div class="space-y-3 text-center md:text-left">
+          <p class="font-semibold text-white">Keep in touch with us!</p>
 
-      <!-- Instagram -->
-      <a href="https://www.instagram.com/lucienavenue" target="_blank" rel="noopener noreferrer" aria-label="Instagram Lucien Avenue"
-        class="flex items-center gap-2 justify-center md:justify-start text-gray-400 hover:text-white transition-all duration-300 ease-in-out">
-        <img src="/images/ig2.png" alt="Instagram" class="h-6 w-6 hover:scale-110 transition-transform duration-200">
-        <span>@lucienavenue</span>
-      </a>
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/lucienavenue" target="_blank" rel="noopener noreferrer" aria-label="Instagram Lucien Avenue"
+            class="flex items-center gap-2 justify-center md:justify-start text-gray-400 hover:text-white transition-all duration-300 ease-in-out">
+            <img src="/images/ig2.png" alt="Instagram" class="h-6 w-6 hover:scale-110 transition-transform duration-200">
+            <span>@lucienavenue</span>
+          </a>
 
-      <!-- WhatsApp -->
-      <a href="https://wa.me/6282281899371" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Lucien Avenue"
-        class="flex items-center gap-2 justify-center md:justify-start text-gray-400 hover:text-white transition-all duration-300 ease-in-out">
-        <img src="/images/wafooter.png" alt="WhatsApp" class="h-6 w-6 hover:scale-110 transition-transform duration-200">
-        <span>+62 822-8189-9371</span>
-      </a>
-    </div>
+          <!-- WhatsApp -->
+          <a href="https://wa.me/6282281899371" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Lucien Avenue"
+            class="flex items-center gap-2 justify-center md:justify-start text-gray-400 hover:text-white transition-all duration-300 ease-in-out">
+            <img src="/images/wafooter.png" alt="WhatsApp" class="h-6 w-6 hover:scale-110 transition-transform duration-200">
+            <span>+62 822-8189-9371</span>
+          </a>
+        </div>
 
-    <!-- DOWNLOAD APP -->
-    <div class="space-y-3 text-center md:text-left">
-      <p class="font-semibold text-white">Download Our App</p>
-      <div class="flex justify-center md:justify-start gap-3">
-        <img src="/images/appstore.png" alt="App Store" class="h-8 w-auto hover:opacity-80 transition duration-200">
-        <img src="/images/googleplay.png" alt="Play Store" class="h-8 w-auto hover:opacity-80 transition duration-200">
+        <!-- DOWNLOAD APP -->
+        <div class="space-y-3 text-center md:text-left">
+          <p class="font-semibold text-white">Download Our App</p>
+          <div class="flex justify-center md:justify-start gap-3">
+            <img src="/images/appstore.png" alt="App Store" class="h-8 w-auto hover:opacity-80 transition duration-200">
+            <img src="/images/googleplay.png" alt="Play Store" class="h-8 w-auto hover:opacity-80 transition duration-200">
+          </div>
+        </div>
+
       </div>
-    </div>
-
-  </div>
 
   <!-- SEPARATOR -->
   <div class="border-t border-gray-700 mt-12 pt-6 text-center text-xs text-gray-500 tracking-wide">
