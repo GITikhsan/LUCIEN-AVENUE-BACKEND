@@ -18,7 +18,6 @@
         <a href="#" data-panel="Home" class="block text-base text-gray-700 hover:text-green-600">Home</a>
         <a href="#" data-panel="Discussion" class="block text-base text-gray-700 hover:text-green-600">Chat</a>
         <a href="#" data-panel="Product" class="block text-base text-gray-700 hover:text-green-600">Product Input</a>
-        <a href="#" data-panel="ImageInput" class="block text-base text-gray-700 hover:text-green-600">Image Input</a>
       </nav>
     </aside>
     <main class="flex-1 p-6 overflow-y-auto" id="mainContent">
@@ -97,6 +96,16 @@
         <h2 class="text-xl font-semibold text-gray-800 mb-4">Shoe Data Input</h2>
 
         <form class="space-y-4">
+
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Upload Images (Max 9)</h2>
+    <form id="imageUploadForm" class="space-y-4" enctype="multipart/form-data">
+      <label id="dropZone" class="flex items-center justify-center w-full p-6 border-2 border-dashed border-gray-300 rounded cursor-pointer bg-gray-50 text-gray-500 hover:bg-gray-100 transition">
+        <p>Drag & drop images here or click to select</p>
+        <input type="file" id="imageInput" accept="image/*" multiple class="hidden" />
+      </label>
+      <p class="text-sm text-gray-500">You can upload up to 9 images.</p>
+      <div id="imagePreview" class="grid grid-cols-3 gap-4 mt-4"></div>
+
           <div>
             <label for="nama" class="block mb-1 text-gray-700">Shoe Name</label>
             <input type="text" id="nama" name="nama" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Shoe name">
@@ -111,6 +120,8 @@
             <label for="harga" class="block mb-1 text-gray-700">Price (Rp)</label>
             <input type="number" id="harga" name="harga" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Price">
           </div>
+
+
 
           <div>
             <label for="ukuran" class="block mb-1 text-gray-700">Size</label>
@@ -129,6 +140,15 @@
             </select>
           </div>
 
+           <div>
+            <label for="Gender" class="block mb-1 text-gray-700">Gender</label>
+            <select id="Gender" name="Gender" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500">
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Unisex">Unisex</option>
+            </select>
+          </div>
+
           <div>
             <label for="Color" class="block mb-1 text-gray-700">Color</label>
             <input type="text" id="Color" name="Color" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Color">
@@ -141,14 +161,7 @@
 
 
 
-          <div>
-            <label for="Gender" class="block mb-1 text-gray-700">Gender</label>
-            <select id="Gender" name="Gender" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500">
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
-              <option value="Unisex">Unisex</option>
-            </select>
-          </div>
+
 
           <div>
             <label for="Description" class="block mb-1 text-gray-700">Description</label>
@@ -161,24 +174,10 @@
           </div>
         </form>
       </div>
-      `,
 
-      "ImageInput" : `
 
-      <<div class="max-w-3xl mx-auto bg-white p-6 rounded-xl shadow">
-    <h2 class="text-xl font-semibold text-gray-800 mb-4">Upload Images (Max 9)</h2>
-    <form id="imageUploadForm" class="space-y-4" enctype="multipart/form-data">
-      <label id="dropZone" class="flex items-center justify-center w-full p-6 border-2 border-dashed border-gray-300 rounded cursor-pointer bg-gray-50 text-gray-500 hover:bg-gray-100 transition">
-        <p>Drag & drop images here or click to select</p>
-        <input type="file" id="imageInput" accept="image/*" multiple class="hidden" />
-      </label>
-      <p class="text-sm text-gray-500">You can upload up to 9 images.</p>
-      <div id="imagePreview" class="grid grid-cols-3 gap-4 mt-4"></div>
-      <button type="submit" id="submitImages" class="bg-green-800 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Save Images</button>
-    </form>
-  </div>
 
- `
+      `
 };
 
     function loadPanel(name) {
