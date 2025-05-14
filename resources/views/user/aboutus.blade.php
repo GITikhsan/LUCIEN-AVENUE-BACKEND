@@ -43,47 +43,48 @@
   <section class="py-16 bg-white">
     <div class="max-w-6xl mx-auto px-6 text-center">
       <h1 class="text-3xl font-bold">Our Team</h1>
+
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-12">
         <div class="relative group">
-          <img src="../images/PNGpic2.png" class="w-full rounded-lg transform group-hover:scale-105 transition duration-300" />
+          <img src="../images/aboutus/iC.png" class="w-full rounded-lg transform group-hover:scale-105 transition duration-300" />
           <div class="absolute inset-0 bg-black bg-opacity-60 text-white opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center p-4 rounded-lg">
-            <h3 class="text-xl font-semibold">Nama Anggota</h3>
-            <p class="text-sm">Lorem Ipsum is simply dummy text...</p>
+            <h3 class="text-xl font-semibold">Ikhsanuddin Ahmad Fauzi</h3>
+            <p class="text-sm">Peran frontEnd</p>
           </div>
         </div>
         <div class="relative group">
-          <img src="../images/PNGpic2.png" class="w-full rounded-lg transform group-hover:scale-105 transition duration-300" />
+          <img src="../images/aboutus/zC.jpg" class="w-full rounded-lg transform group-hover:scale-105 transition duration-300" />
           <div class="absolute inset-0 bg-black bg-opacity-60 text-white opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center p-4 rounded-lg">
-            <h3 class="text-xl font-semibold">Nama Anggota</h3>
-            <p class="text-sm">Lorem Ipsum is simply dummy text...</p>
+            <h3 class="text-xl font-semibold">Muhammad Zaidan Elha Rasyad</h3>
+            <p class="text-sm">Peran frontEnd</p>
           </div>
         </div>
         <div class="relative group">
-          <img src="../images/PNGpic2.png" class="w-full rounded-lg transform group-hover:scale-105 transition duration-300" />
+          <img src="../images/aboutus/wC.jpg" class="w-full rounded-lg transform group-hover:scale-105 transition duration-300" />
           <div class="absolute inset-0 bg-black bg-opacity-60 text-white opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center p-4 rounded-lg">
-            <h3 class="text-xl font-semibold">Nama Anggota</h3>
-            <p class="text-sm">Lorem Ipsum is simply dummy text...</p>
+            <h3 class="text-xl font-semibold">Wahid Nurrohim</h3>
+            <p class="text-sm">Peran frontEnd</p>
           </div>
         </div>
         <div class="relative group">
-          <img src="../images/PNGpic2.png" class="w-full rounded-lg transform group-hover:scale-105 transition duration-300" />
+          <img src="../images/aboutus/bC.jpg" class="w-full rounded-lg transform group-hover:scale-105 transition duration-300" />
           <div class="absolute inset-0 bg-black bg-opacity-60 text-white opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center p-4 rounded-lg">
-            <h3 class="text-xl font-semibold">Nama Anggota</h3>
-            <p class="text-sm">Lorem Ipsum is simply dummy text...</p>
+            <h3 class="text-xl font-semibold">Bagus Putra Wiratama</h3>
+            <p class="text-sm">Peran frontEnd</p>
           </div>
         </div>
         <div class="relative group">
-          <img src="../images/PNGpic2.png" class="w-full rounded-lg transform group-hover:scale-105 transition duration-300" />
+          <img src="../images/aboutus/wy.png" class="w-full rounded-lg transform group-hover:scale-105 transition duration-300" />
           <div class="absolute inset-0 bg-black bg-opacity-60 text-white opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center p-4 rounded-lg">
-            <h3 class="text-xl font-semibold">Nama Anggota</h3>
-            <p class="text-sm">Lorem Ipsum is simply dummy text...</p>
+            <h3 class="text-xl font-semibold">Wahyu Adi Nugroho</h3>
+            <p class="text-sm">Peran frontEnd</p>
           </div>
         </div>
         <div class="relative group">
-          <img src="../images/PNGpic2.png" class="w-full rounded-lg transform group-hover:scale-105 transition duration-300" />
+          <img src="../images/aboutus/in.png" class="w-full rounded-lg transform group-hover:scale-105 transition duration-300" />
           <div class="absolute inset-0 bg-black bg-opacity-60 text-white opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center p-4 rounded-lg">
-            <h3 class="text-xl font-semibold">Nama Anggota</h3>
-            <p class="text-sm">Lorem Ipsum is simply dummy text...</p>
+            <h3 class="text-xl font-semibold">Puantorian Antasena Handoko</h3>
+            <p class="text-sm">Peran frontEnd</p>
           </div>
         </div>
       </div>

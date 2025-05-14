@@ -18,7 +18,7 @@
         <a href="#" data-panel="Home" class="block text-base text-gray-700 hover:text-green-600">Home</a>
         <a href="#" data-panel="Discussion" class="block text-base text-gray-700 hover:text-green-600">Chat</a>
         <a href="#" data-panel="Product" class="block text-base text-gray-700 hover:text-green-600">Product Input</a>
-        <a href="#" data-panel="ImageInput" class="block text-base text-gray-700 hover:text-green-600">Image Input</a>
+        <a href="#" data-panel="Orders" class="block text-base text-gray-700 hover:text-green-600">Orders</a>
       </nav>
     </aside>
     <main class="flex-1 p-6 overflow-y-auto" id="mainContent">
@@ -76,7 +76,7 @@
             </div>
             <div class="mt-6">
               <textarea placeholder="Write a reply..." class="w-full p-2 border rounded mb-2"></textarea>
-              <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Reply</button>
+              <button class="bg-green-800 text-white px-4 py-2 rounded hover:bg-green-600">Reply</button>
             </div>
           </div>
         </div>
@@ -97,6 +97,16 @@
         <h2 class="text-xl font-semibold text-gray-800 mb-4">Shoe Data Input</h2>
 
         <form class="space-y-4">
+
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Upload Images (Max 9)</h2>
+    <form id="imageUploadForm" class="space-y-4" enctype="multipart/form-data">
+      <label id="dropZone" class="flex items-center justify-center w-full p-6 border-2 border-dashed border-gray-300 rounded cursor-pointer bg-gray-50 text-gray-500 hover:bg-gray-100 transition">
+        <p>Drag & drop images here or click to select</p>
+        <input type="file" id="imageInput" accept="image/*" multiple class="hidden" />
+      </label>
+      <p class="text-sm text-gray-500">You can upload up to 9 images.</p>
+      <div id="imagePreview" class="grid grid-cols-3 gap-4 mt-4"></div>
+
           <div>
             <label for="nama" class="block mb-1 text-gray-700">Shoe Name</label>
             <input type="text" id="nama" name="nama" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Shoe name">
@@ -111,6 +121,8 @@
             <label for="harga" class="block mb-1 text-gray-700">Price (Rp)</label>
             <input type="number" id="harga" name="harga" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Price">
           </div>
+
+
 
           <div>
             <label for="ukuran" class="block mb-1 text-gray-700">Size</label>
@@ -129,6 +141,20 @@
             </select>
           </div>
 
+           <div>
+            <label for="Gender" class="block mb-1 text-gray-700">Gender</label>
+            <select id="Gender" name="Gender" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500">
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Unisex">Unisex</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="SKU" class="block mb-1 text-gray-700">SKU</label>
+            <input type="text" id="SKU" name="SKU" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Type the products code">
+          </div>
+
           <div>
             <label for="Color" class="block mb-1 text-gray-700">Color</label>
             <input type="text" id="Color" name="Color" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Color">
@@ -139,15 +165,16 @@
             <input type="text" id="Material" name="Material" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Material">
           </div>
 
+          <div>
+            <label for="dimension" class="block mb-1 text-gray-700">Dimension</label>
+            <input type="text" id="dimension" name="dimension" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Dimension">
+          </div>
 
+          <div><label class="block mb-1 text-gray-700">Release Date</label><input type="date" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" /></div>
 
           <div>
-            <label for="Gender" class="block mb-1 text-gray-700">Gender</label>
-            <select id="Gender" name="Gender" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500">
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
-              <option value="Unisex">Unisex</option>
-            </select>
+            <label for="retail" class="block mb-1 text-gray-700">Retail</label>
+            <input type="text" id="retail" name="retail" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Retail">
           </div>
 
           <div>
@@ -157,28 +184,27 @@
 
 
           <div class="pt-2">
-            <button type="submit" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Save</button>
+            <button type="submit" class="bg-green-800 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Save</button>
           </div>
         </form>
       </div>
+
       `,
 
-      "ImageInput" : `
-
-      <<div class="max-w-3xl mx-auto bg-white p-6 rounded-xl shadow">
-    <h2 class="text-xl font-semibold text-gray-800 mb-4">Upload Images (Max 9)</h2>
-    <form id="imageUploadForm" class="space-y-4" enctype="multipart/form-data">
-      <label id="dropZone" class="flex items-center justify-center w-full p-6 border-2 border-dashed border-gray-300 rounded cursor-pointer bg-gray-50 text-gray-500 hover:bg-gray-100 transition">
-        <p>Drag & drop images here or click to select</p>
-        <input type="file" id="imageInput" accept="image/*" multiple class="hidden" />
-      </label>
-      <p class="text-sm text-gray-500">You can upload up to 9 images.</p>
-      <div id="imagePreview" class="grid grid-cols-3 gap-4 mt-4"></div>
-      <button type="submit" id="submitImages" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Save Images</button>
-    </form>
+      "Orders": `
+  <div class="bg-white p-6 rounded-xl shadow">
+    <h2 class="text-xl font-semibold mb-4">My Orders</h2>
+    <div class="flex gap-2 mb-6 overflow-x-auto">
+      <button class="tab-btn bg-green-100 text-green-800 px-4 py-2 rounded-full font-semibold" data-tab="all">All</button>
+      <button class="tab-btn bg-gray-100 text-gray-600 px-4 py-2 rounded-full" data-tab="unpaid">Unpaid</button>
+      <button class="tab-btn bg-gray-100 text-gray-600 px-4 py-2 rounded-full" data-tab="processing">Processing</button>
+      <button class="tab-btn bg-gray-100 text-gray-600 px-4 py-2 rounded-full" data-tab="shipped">Shipped</button>
+      <button class="tab-btn bg-gray-100 text-gray-600 px-4 py-2 rounded-full" data-tab="completed">Completed</button>
+      <button class="tab-btn bg-gray-100 text-gray-600 px-4 py-2 rounded-full" data-tab="cancelled">Cancelled</button>
+    </div>
+    <div id="orderContent" class="text-center py-10 text-gray-500"></div>
   </div>
-
- `
+`
 };
 
     function loadPanel(name) {
@@ -283,6 +309,40 @@
         $("#confirmModal").addClass("hidden");
       });
     });
+
+    $(document).on("click", ".tab-btn", function () {
+  $(".tab-btn").removeClass("bg-green-100 text-green-800 font-semibold").addClass("bg-gray-100 text-gray-600");
+  $(this).addClass("bg-green-100 text-green-800 font-semibold");
+
+  const selectedTab = $(this).data("tab");
+  const contentBox = $("#orderContent");
+
+  // Contoh konten per tab, nanti bisa disesuaikan
+  let emptyMessage = "You don't have any order";
+
+switch (selectedTab) {
+  case "all":
+    contentBox.html(`<p>${emptyMessage}</p>`);
+    break;
+  case "unpaid":
+    contentBox.html(`<p>${emptyMessage} in Unpaid</p>`);
+    break;
+  case "processing":
+    contentBox.html(`<p>${emptyMessage} in Processing</p>`);
+    break;
+  case "shipped":
+    contentBox.html(`<p>${emptyMessage} in Shipped</p>`);
+    break;
+  case "completed":
+    contentBox.html(`<p>${emptyMessage} in Completed</p>`);
+    break;
+  case "cancelled":
+    contentBox.html(`<p>${emptyMessage} in Cancelled</p>`);
+    break;
+  default:
+    contentBox.html(`<p>${emptyMessage}</p>`);
+}
+});
   </script>
 </body>
 </html>

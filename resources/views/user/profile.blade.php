@@ -133,12 +133,10 @@
 
             <label class="font-bold">Your Password</label>
             <span class="text-center">:</span>
-            <p>********</p>
-          </div>
-
-          <div class="flex justify-center mt-6">
+            <p>********</p><br><br>
+            <div class="flex justify-end mt-4">
             <a href="/settings" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
-              ✏️ Ubah
+              ✏️Ubah
             </a>
           </div>
 
@@ -163,7 +161,7 @@
             <!-- Footer aksi -->
             <div class="flex flex-col md:flex-row justify-between items-center mt-4 border-t pt-4">
               <!-- Tombol Nilai -->
-              <button onclick="alert('Fitur nilai belum aktif')" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+              <button onclick="alert('Fitur nilai belum aktif')" class="bg-green-800 hover:bg-green-600 text-white px-4 py-2 rounded">
                 Nilai
               </button>
               <!-- Total Harga -->
@@ -189,7 +187,7 @@
             <!-- Footer aksi -->
             <div class="flex flex-col md:flex-row justify-between items-center mt-4 border-t pt-4">
               <!-- Tombol Nilai -->
-              <button onclick="alert('Fitur nilai belum aktif')" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+              <button onclick="alert('Fitur nilai belum aktif')" class="bg-green-800 hover:bg-green-600 text-white px-4 py-2 rounded">
                 Nilai
               </button>
               <!-- Total Harga -->
@@ -214,7 +212,7 @@
             <!-- Footer aksi -->
             <div class="flex flex-col md:flex-row justify-between items-center mt-4 border-t pt-4">
               <!-- Tombol Nilai -->
-              <button onclick="alert('Fitur nilai belum aktif')" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+              <button onclick="alert('Fitur nilai belum aktif')" class="bg-green-800 hover:bg-green-600 text-white px-4 py-2 rounded">
                 Nilai
               </button>
               <!-- Total Harga -->
@@ -247,7 +245,7 @@
               <label class="block font-semibold">Nomor WhatsApp</label>
               <input type="number" oninput="if(this.value.length > 14) this.value = this.value.slice(0, 14)" class="w-full border p-2 rounded no-arrow" />
             </div>
-            <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Ajukan Pengembalian</button>
+            <button class="bg-green-800 text-white px-4 py-2 rounded hover:bg-green-600">Ajukan Pengembalian</button>
           </form>
         </div>
       `,

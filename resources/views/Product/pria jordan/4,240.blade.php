@@ -6,9 +6,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Beli Air Jordan 1 Retro Low OG SP Travis Scott Velvet Brown</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <link href="{{ asset('css/btnswiper.css')}}" rel="stylesheet" type="text/css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
     .fade-section {
       opacity: 0;
@@ -144,10 +146,6 @@
         </div>
     </div>
 
-
-<!-- Tambahkan jQuery di layout utama -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
 <!-- Tombol Add to Cart & Buy Now -->
 <div class="flex flex-col md:flex-row gap-4">
   <button class="w-full bg-black text-white py-3 rounded-full font-semibold text-sm hover:bg-gray-800 transition-all">
@@ -255,6 +253,42 @@
             <button id="choose-payment" class="flex-1 bg-gray-400 text-white py-2 rounded-lg cursor-not-allowed" disabled>Choose Payment</button>
         </div>
 
+        <div id="modal-choose-payment" class="fixed inset-0 z-50 hidden items-center justify-center bg-black bg-opacity-50">
+            <div class="bg-white rounded-lg shadow-xl max-w-lg w-full p-6 relative space-y-6">
+
+                <!-- Judul -->
+                <h2 class="text-xl font-bold text-center">Pembayaran via QRIS</h2>
+
+                <!-- QR Code -->
+                <div class="flex justify-center">
+                    <img src="{{ asset('images/qris-example.png') }}" alt="QRIS QR Code" class="w-64 h-64 object-contain rounded-lg border">
+                </div>
+
+                <!-- Panduan Pembayaran -->
+                <div class="text-gray-700 text-sm space-y-2">
+                    <h3 class="font-medium">Panduan Pembayaran:</h3>
+                    <ol class="list-decimal list-inside space-y-1">
+                        <li>Buka aplikasi e-wallet (OVO, DANA, GoPay, dll).</li>
+                        <li>Pilih menu "Scan QR Code".</li>
+                        <li>Arahkan kamera ke QRIS di atas.</li>
+                        <li>Masukkan nominal jika belum otomatis.</li>
+                        <li>Konfirmasi dan selesaikan pembayaran.</li>
+                    </ol>
+                </div>
+
+                <!-- Tombol Oke -->
+                <div class="text-center">
+                    <button id="oke-btn"
+                        class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-lg transition duration-200 closePaymentBtn">
+                        Oke
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+
+
     </div>
 
 
@@ -268,13 +302,13 @@
                 <p class="text-gray-400 text-sm">No addresses saved yet.</p>
             </div>
 
-    <div class="flex justify-between mt-4">
-        <button id="cancel-choose" class="text-gray-500">Cancel</button>
-        <button id="open-add-address" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-            New Address
-        </button>
-    </div>
-</div>
+            <div class="flex justify-between mt-4">
+                <button id="cancel-choose" class="text-gray-500">Cancel</button>
+                <button id="open-add-address" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                    New Address
+                </button>
+            </div>
+        </div>
     </div>
 
 
