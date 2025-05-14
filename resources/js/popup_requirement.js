@@ -57,6 +57,7 @@ $(document).ready(function () {
         $('#payment-up').removeClass('hidden').addClass('flex');
     });
     $('.closeModalBtn').click(() => $('#agreementModal').removeClass('flex').addClass('hidden'));
+    $('#choose-payment').click(() => {$('#modal-choose-payment').removeClass('hidden').addClass('flex');});
     $('.closePaymentBtn').click(() => $('#payment-up').removeClass('flex').addClass('hidden'));
     $('#cancel-choose').click(() => $('#choose-address-modal').addClass('hidden'));
     $('#cancel-add-address').click(() => {
@@ -253,5 +254,23 @@ $(document).on('click', '.delete-address', function () {
         }
     });
 
-
+    $(function(){
+      $('#oke-btn').click(() => {
+        $('#modal-choose-payment').removeClass('hidden').addClass('flex');
+      });
+      $('.closePaymentBtn').click(() => {
+        console.log('✔️ closePaymentBtn clicked');
+        Swal.fire({
+          icon: 'success',
+          title: 'Completed',
+          text: 'Thank you, payment is being processed.',
+          confirmButtonText: 'Close',
+          customClass: {
+            grow: 'row'
+            }
+        }).then(() => {
+          $('#modal-choose-payment').removeClass('flex').addClass('hidden');
+        });
+      });
+    });
 });
