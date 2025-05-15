@@ -21,7 +21,7 @@
                 <a href="viewmore" class="bg-gray-400 text-black hover:bg-green-800 hover:text-white font-bold py-3 px-6 rounded-full transition-transform duration-300 transform hover:scale-105 inline-block">Explore Now</a>
             </div>
         </div>
-    </div>'
+    </div>
     
 
     <!-- Gallery Section -->
