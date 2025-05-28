@@ -61,19 +61,38 @@
 
 
             <!-- Search Overlay -->
-            <div id="searchOverlay" class="fixed inset-0 z-50 bg-white/50 backdrop-blur-md flex justify-center pointer-events-none opacity-0 transition-opacity duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]">
-            <div id="searchContainer" class="mt-10 w-full max-w-2xl px-4 transform scale-95 opacity-0 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]">
-                <div class="relative">
+            <div id="searchOverlay"
+        class="fixed inset-0 z-50 bg-white/50 backdrop-blur-md flex flex-col items-center pt-20 pointer-events-none opacity-0 transition-opacity duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]">
+        <div id="searchContainer"
+            class="w-full max-w-xl px-4 transform scale-95 opacity-0 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]">
+            <div class="relative">
                 <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4"></i>
-                <input
-                    id="searchInput"
-                    type="text"
-                    placeholder="Search..."
-                    class="w-full pl-10 pr-4 py-2 text-sm text-gray-900 placeholder-gray-500 bg-white bg-opacity-80 rounded-full shadow-md outline-none focus:ring-2 focus:ring-black/40 focus:shadow-lg"
-                />
-                </div>
+                <input id="searchInput" type="text" placeholder="Search products, categories, collections..."
+                    class="w-full pl-10 pr-4 py-3 text-base text-gray-900 placeholder-gray-500 bg-white bg-opacity-90 rounded-full shadow-lg outline-none border border-gray-200 focus:ring-2 focus:ring-black/20 focus:shadow-xl" />
+                <button id="clearSearchButton"
+                    class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 hidden">
+                    <i data-lucide="x" class="w-4 h-4"></i>
+                </button>
+        </div>
+
+        <div id="searchResults"
+            class="mt-4 bg-white rounded-xl shadow-lg p-4 max-h-80 overflow-y-auto hidden border border-gray-100">
+            <div class="text-sm text-gray-700">
+                <p class="font-semibold text-gray-900 mb-2">Popular Searches</p>
+                <ul class="space-y-1">
+                    <li><a href="#" class="block py-1 px-2 rounded-md hover:bg-gray-100">Nike Air Force 1</a></li>
+                    <li><a href="#" class="block py-1 px-2 rounded-md hover:bg-gray-100">Jordan Retro</a></li>
+                    <li><a href="#" class="block py-1 px-2 rounded-md hover:bg-gray-100">Adidas Ultraboost</a></li>
+                </ul>
+                <p class="font-semibold text-gray-900 mt-4 mb-2">Recent Searches</p>
+                <ul class="space-y-1 text-gray-500">
+                    <li><a href="#" class="block py-1 px-2 rounded-md hover:bg-gray-100">Summer Collection</a></li>
+                </ul>
+                <p id="noResults" class="text-center text-gray-500 text-sm py-4 hidden">No results found.</p>
             </div>
-            </div>
+        </div>
+    </div>
+</div>
 
             <!-- Shopping Bag Dropdown -->
             <div id="shoppingBagBox"
