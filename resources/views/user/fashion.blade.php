@@ -9,7 +9,7 @@
    
 </head>
 <body class="bg-white font-sans">
- 
+    @include('partial.sticknavbar')
 
     <!-- Header Section -->
     <div class="relative w-full h-screen bg-cover bg-center" style="background-image: url('/images/M_BC_SHOES_LVTrainerDenim_Mars_01_DI3.webp');">
@@ -180,7 +180,7 @@
             <a href="viewmore" class="bg-gray-400 text-black hover:bg-green-800 hover:text-white font-bold py-3 px-6 rounded-full transition-transform duration-300 transform hover:scale-105 inline-block">Explore Now</a>
         </div>
     </section>
-
+ @include("partial.footer")
 
 </body>
 </html>
