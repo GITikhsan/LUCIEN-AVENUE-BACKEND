@@ -25,6 +25,8 @@ Route::get('/fashion', function () {
 Route::get('/homePage', function () {
     return view('user.homePage');
 });
+// use App\Livewire\Profile; 
+// Route::get('/profile', Profile::class);
 Route::get('/profile', function () {
     return view('user.profile');
 });
