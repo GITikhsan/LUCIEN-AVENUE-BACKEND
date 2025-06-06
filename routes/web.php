@@ -118,8 +118,13 @@ Route::get('/payment', function () {
 });
 /*--------------*/
 
-use App\Livewire\Counter;
- 
+use App\Livewire\Counter; 
 Route::get('/counter', Counter::class);
+
+use App\Livewire\AboutUs; 
+Route::get('/about-us', AboutUs::class);
+
+
+
 
 
