@@ -71,6 +71,10 @@ use App\Livewire\Product4240;
 
 Route::get('/produk/4240', Product4240::class);
 
+use App\Livewire\Viewmore;
+
+Route::get('/viewmore', Viewmore::class);
+
 
 Route::get('/1,540', function () {
     return view('product.wanita-jordan.1,540');
