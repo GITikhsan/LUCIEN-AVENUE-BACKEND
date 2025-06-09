@@ -19,8 +19,5 @@ Route::post('/greet', function (Request $request) {
 });
 
 Route::get('/hello', function () {
-    return response()->json([
-        'message' => 'Halo dari /api/hello!',
-        'status' => 'success'
-    ]);
+    return response()->json(['message' => 'Hello from Laravel!']);
 });
