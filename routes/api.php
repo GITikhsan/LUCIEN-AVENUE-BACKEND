@@ -17,3 +17,10 @@ Route::post('/greet', function (Request $request) {
         'status' => 'success'
     ]);
 });
+
+Route::get('/hello', function () {
+    return response()->json([
+        'message' => 'Halo dari /api/hello!',
+        'status' => 'success'
+    ]);
+});
