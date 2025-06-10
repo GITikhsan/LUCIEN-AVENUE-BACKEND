@@ -2,31 +2,49 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
     /**
-     * The attributes that are mass assignable.
+     * Nama tabel yang terhubung dengan model.
      *
-     * @var list<string>
+     * @var string
+     */
+    protected $table = 'users';
+
+    /**
+     * Primary key untuk model.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'user_id';
+
+    /**
+     * Atribut yang dapat diisi secara massal.
+     *
+     * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
+        'tanggal_lahir',
+        'alamat',
         'email',
         'password',
+        'pembelian',
+        'pengembalian',
+        'no_telepon',
     ];
 
     /**
-     * The attributes that should be hidden for serialization.
+     * Atribut yang harus disembunyikan.
      *
-     * @var list<string>
+     * @var array<int, string>
      */
     protected $hidden = [
         'password',
@@ -34,15 +52,34 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
+     * Relasi: Satu User bisa memiliki banyak Order.
      */
-    protected function casts(): array
+    public function orders()
     {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
+        return $this->hasMany(Order::class, 'user_id', 'user_id');
+    }
+
+    /**
+     * Relasi: Satu User bisa memiliki banyak Management record.
+     */
+    public function managements()
+    {
+        return $this->hasMany(Management::class, 'user_id', 'user_id');
+    }
+
+    /**
+     * Relasi: Satu User bisa memiliki banyak Pengembalian (returns) melalui Order.
+     * Ini adalah relasi hasManyThrough.
+     */
+    public function returns()
+    {
+        return $this->hasManyThrough(
+            OrderReturn::class, // Model tujuan akhir yang ingin diakses
+            Order::class,       // Model perantara
+            'user_id',          // Foreign key di tabel perantara (orders)
+            'pesanan_id',       // Foreign key di tabel tujuan (returns)
+            'user_id',          // Local key di tabel ini (users)
+            'pesanan_id'        // Local key di tabel perantara (orders)
+        );
     }
 }

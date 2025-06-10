@@ -26,6 +26,9 @@ return new class extends Migration
             $table->foreignId('diskon_id')->nullable()->constrained('discounts', 'diskon_id'); // FK
             $table->foreignId('gambar_produk_id')->nullable()->constrained('product_images', 'gambar_produk_id'); // FK
             $table->foreignId('promo_id')->nullable()->constrained('promotions', 'promo_id'); // FK
+
+            // TAMBAHKAN BARIS INI
+            $table->timestamps(); // Ini akan membuat kolom created_at dan updated_at
         });
     }
 

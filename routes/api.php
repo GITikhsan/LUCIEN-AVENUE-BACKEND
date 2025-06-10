@@ -2,6 +2,36 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\{
+    AdminController,
+    CartController,
+    DiscountController,
+    ManagementController,
+    OrderController,
+    OrderItemController,
+    OrderReturnController,
+    PaymentController,
+    ProductController,
+    ProductImageController,
+    PromotionController,
+    ShipmentController,
+    UserController
+};
+
+Route::apiResource('admins', AdminController::class);
+Route::apiResource('carts', CartController::class);
+Route::apiResource('discounts', DiscountController::class);
+Route::apiResource('managements', ManagementController::class);
+Route::apiResource('orders', OrderController::class);
+Route::apiResource('order-items', OrderItemController::class);
+Route::apiResource('order-returns', OrderReturnController::class);
+Route::apiResource('payments', PaymentController::class);
+Route::apiResource('products', ProductController::class);
+Route::apiResource('product-images', ProductImageController::class);
+Route::apiResource('promotions', PromotionController::class);
+Route::apiResource('shipments', ShipmentController::class);
+Route::apiResource('users', UserController::class);
+
 
 Route::get('/ping', function () {
     return response()->json([
