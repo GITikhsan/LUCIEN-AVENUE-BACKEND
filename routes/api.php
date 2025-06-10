@@ -51,3 +51,18 @@ Route::post('/greet', function (Request $request) {
 Route::get('/hello', function () {
     return response()->json(['message' => 'Hello from Laravel!']);
 });
+
+// Authentication User
+// Public routes for authentication
+Route::post('/login', [UserController::class, 'login']);
+Route::post('/users', [UserController::class, 'store']); // For registration
+
+// Protected routes (require authentication)
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/logout', [UserController::class, 'logout']);
+    Route::get('/user', function (Request $request) {
+        return $request->user();
+    });
+    // You can add other user-related routes here
+    Route::apiResource('users', UserController::class)->except(['store']);
+});

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('password');
             $table->text('pembelian')->nullable();
             $table->text('pengembalian')->nullable();
-            $table->string('no_telepon');
+            $table->string('no_telepon')->nullable();
             $table->timestamps(); // Termasuk tanggal_dibuat
         });
     }
