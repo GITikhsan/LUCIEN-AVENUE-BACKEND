@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+// 1. Tambahkan import untuk HasApiTokens
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -37,6 +38,7 @@ class User extends Authenticatable
         'alamat',
         'email',
         'password',
+        'role',
         'pembelian',
         'pengembalian',
         'no_telepon',
@@ -76,12 +78,12 @@ class User extends Authenticatable
     public function returns()
     {
         return $this->hasManyThrough(
-            OrderReturn::class, // Model tujuan akhir yang ingin diakses
-            Order::class,       // Model perantara
-            'user_id',          // Foreign key di tabel perantara (orders)
-            'pesanan_id',       // Foreign key di tabel tujuan (returns)
-            'user_id',          // Local key di tabel ini (users)
-            'pesanan_id'        // Local key di tabel perantara (orders)
+            OrderReturn::class,
+            Order::class,
+            'user_id',
+            'pesanan_id',
+            'user_id',
+            'pesanan_id'
         );
     }
 }

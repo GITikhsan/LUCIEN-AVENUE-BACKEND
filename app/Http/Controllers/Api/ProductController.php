@@ -3,33 +3,27 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreProductRequest;
 use App\Models\Product;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests; // <-- 1. Tambahkan import ini
 
 class ProductController extends Controller
 {
+    use AuthorizesRequests; // <-- 2. Tambahkan baris ini
+
     public function index()
     {
         $products = Product::with(['productImage', 'discount', 'promotion'])->latest()->paginate(10);
         return response()->json(['status' => true, 'data' => $products], 200);
     }
 
-    public function store(Request $request)
+    public function store(StoreProductRequest $request)
     {
-        $validator = Validator::make($request->all(), [
-            'nama_sepatu' => 'required|string|max:255',
-            'harga_retail' => 'required|numeric',
-            'ukuran' => 'required|string',
-            'warna' => 'required|string',
-        ]);
+        // Baris ini sekarang akan dikenali dan tidak akan error lagi
+        $this->authorize('create', Product::class);
 
-        if ($validator->fails()) {
-            return response()->json($validator->errors(), 422);
-        }
-
-        // TODO: Tambahkan logika upload gambar dan hubungkan gambar_produk_id
-        $product = Product::create($request->all());
+        $product = Product::create($request->validated());
         return response()->json(['status' => true, 'message' => 'Produk Berhasil Dibuat', 'data' => $product], 201);
     }
 
@@ -41,14 +35,21 @@ class ProductController extends Controller
 
     public function update(Request $request, Product $product)
     {
+        $this->authorize('update', $product); // Contoh penggunaan untuk update
+
+        // TODO: Gunakan UpdateProductRequest untuk validasi
         $product->update($request->all());
         return response()->json(['status' => true, 'message' => 'Produk Berhasil Diupdate', 'data' => $product], 200);
     }
 
     public function destroy(Product $product)
     {
-        // TODO: Tambahkan logika hapus gambar dari storage jika ada
+        $this->authorize('delete', $product); // Contoh penggunaan untuk delete
+
         $product->delete();
         return response()->json(['status' => true, 'message' => 'Produk Berhasil Dihapus'], 200);
     }
+
+    // ... (fungsi uploadImage jika ada)
 }
+
