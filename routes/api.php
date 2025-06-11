@@ -1,5 +1,3 @@
-api.php
-
 <?php
 
 use Illuminate\Http\Request;
