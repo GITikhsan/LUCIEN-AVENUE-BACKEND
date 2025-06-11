@@ -61,7 +61,7 @@ class UserController extends Controller
             'password' => Hash::make($request->password),
             'no_telepon' => $request->no_telepon,
             'alamat' => $request->alamat,
-            'role' => $request->input('role', 'user'), // <-- TAMBAHKAN INI
+            'role' => $request->input('role', 'admin'), // <-- TAMBAHKAN INI
         ]);
 
         return response()->json(['status' => true, 'message' => 'User Berhasil Dibuat', 'data' => $user], 201);

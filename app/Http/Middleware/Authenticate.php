@@ -12,6 +12,9 @@ class Authenticate extends Middleware
      */
     protected function redirectTo(Request $request): ?string
     {
+        // Periksa apakah request mengharapkan respons JSON.
+        // Jika ya, jangan redirect, biarkan Laravel mengirim error 401.
+        // Jika tidak (misalnya request dari browser biasa), baru redirect ke route 'login'.
         return $request->expectsJson() ? null : route('login');
     }
 }

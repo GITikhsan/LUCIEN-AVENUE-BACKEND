@@ -1,92 +1,41 @@
-api.php
-
 <?php
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\{
-    AdminController,
-    AuthController,
-    CartController,
-    DiscountController,
-    ManagementController,
-    OrderController,
-    OrderItemController,
-    OrderReturnController,
-    PaymentController,
-    ProductController,
-    ProductImageController,
-    PromotionController,
-    ShipmentController,
-    UserController
-};
+use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\ProductController;
+use App\Http\Controllers\Api\OrderController;
+use App\Http\Controllers\Api\UserController;
 
-Route::apiResource('admins', AdminController::class);
-Route::apiResource('carts', CartController::class);
-Route::apiResource('discounts', DiscountController::class);
-Route::apiResource('managements', ManagementController::class);
-Route::apiResource('orders', OrderController::class);
-Route::apiResource('order-items', OrderItemController::class);
-Route::apiResource('order-returns', OrderReturnController::class);
-Route::apiResource('payments', PaymentController::class);
-Route::apiResource('products', ProductController::class);
-// Rute ini bisa diletakkan di dalam grup middleware admin nanti
-Route::post('/products/{product}/upload-image', [ProductController::class, 'uploadImage']);
+/*
+|--------------------------------------------------------------------------
+| API Routes
+|--------------------------------------------------------------------------
+*/
 
-Route::apiResource('product-images', ProductImageController::class);
-Route::apiResource('promotions', PromotionController::class);
-Route::apiResource('shipments', ShipmentController::class);
-Route::apiResource('users', UserController::class);
-
-// --- Rute Publik (tidak perlu login) ---
+// --- RUTE PUBLIK (Tidak Perlu Login) ---
 Route::post('/register', [AuthController::class, 'register']);
-Route::post('/login', [AuthController::class, 'login']);
+Route::post('/login', [AuthController::class, 'login']); // Satu login untuk semua
 Route::get('/products', [ProductController::class, 'index']);
 Route::get('/products/{product}', [ProductController::class, 'show']);
 
 
-// --- Rute Terproteksi (WAJIB login) ---
+// --- RUTE TERPROTEKSI (Wajib Login) ---
 Route::middleware('auth:sanctum')->group(function () {
+
+    // Rute umum untuk user yang sudah login
     Route::get('/user', fn (Request $request) => $request->user());
     Route::post('/logout', [AuthController::class, 'logout']);
-    Route::get('/debug-user', function (Request $request) {
-        return $request->user();
-    });
-    // Rute yang butuh login
+
+    // Rute yang bisa diakses user biasa
     Route::apiResource('orders', OrderController::class);
-    // ...tambahkan rute terproteksi lainnya di sini
-});
 
-Route::get('/ping', function () {
-    return response()->json([
-        'message' => 'pong',
-        'status' => 'success'
-    ]);
-});
+    // Rute yang hanya bisa diakses admin (diatur oleh Policy)
+    Route::post('/products', [ProductController::class, 'store']);
+    Route::put('/products/{product}', [ProductController::class, 'update']);
+    Route::delete('/products/{product}', [ProductController::class, 'destroy']);
+    Route::post('/products/{product}/upload-image', [ProductController::class, 'uploadImage']);
 
-Route::post('/greet', function (Request $request) {
-    $name = $request->input('name');
-    return response()->json([
-        'message' => "Hello, $name!",
-        'status' => 'success'
-    ]);
-});
-
-Route::get('/hello', function () {
-    return response()->json(['message' => 'Hello from Laravel!']);
-});
-
-// Authentication User
-// Public routes for authentication
-Route::post('/login', [UserController::class, 'login']);
-Route::post('/users', [UserController::class, 'store']); // For registration
-
-// Protected routes (require authentication)
-Route::middleware('auth:sanctum')->group(function () {
-    Route::post('/logout', [UserController::class, 'logout']);
-    Route::get('/user', function (Request $request) {
-        return $request->user();
-    });
-    // You can add other user-related routes here
-    Route::apiResource('users', UserController::class)->except(['store']);
+    // Rute untuk mengelola semua user (contoh, bisa diatur oleh UserPolicy nanti)
+    Route::apiResource('users', UserController::class);
 });

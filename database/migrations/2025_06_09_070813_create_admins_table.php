@@ -20,8 +20,10 @@ return new class extends Migration
             // FK Sesuai Permintaan Anda
             $table->foreignId('pengiriman_id')->nullable()->constrained('shipments', 'pengiriman_id'); // FK
             $table->foreignId('produk_id')->nullable()->constrained('products', 'produk_id'); // FK
-            // Nama FK 'manajemenP_id' diubah menjadi 'manajemen_id' agar cocok dengan tabel 'managements'
             $table->foreignId('manajemen_id')->nullable()->constrained('managements', 'manajemen_id'); // FK
+
+            // TAMBAHKAN BARIS INI
+            $table->timestamps(); // Ini akan membuat kolom created_at dan updated_at
         });
     }
 
