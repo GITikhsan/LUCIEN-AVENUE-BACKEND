@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('pembelian')->nullable();
             $table->text('pengembalian')->nullable();
             $table->string('no_telepon')->nullable();
+            $table->string('jenis_kelamin')->nullable();
             $table->timestamps(); // Termasuk tanggal_dibuat
         });
     }

@@ -39,6 +39,7 @@ class User extends Authenticatable
         'pembelian',
         'pengembalian',
         'no_telepon',
+        'jenis_kelamin',
     ];
 
     /**
