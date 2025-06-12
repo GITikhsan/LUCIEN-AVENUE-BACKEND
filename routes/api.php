@@ -19,7 +19,7 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::get('/products', [ProductController::class, 'index']);
 Route::get('/products/{product}', [ProductController::class, 'show']);
 
-// Rute untuk tes koneksi dari frontend
+// Rute untuk tes koneksi dari frontend (Cukup satu di sini)
 Route::get('/ping', function () {
     return response()->json(['message' => 'pong! koneksi berhasil!'], 200);
 });
@@ -43,4 +43,8 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Rute untuk mengelola semua user (contoh, bisa diatur oleh UserPolicy nanti)
     Route::apiResource('users', UserController::class);
+    Route::get('/ping', function () {
+    return response()->json(['message' => 'pong! koneksi sukses!'], 200);
+});
+
 });
