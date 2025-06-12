@@ -15,9 +15,14 @@ use App\Http\Controllers\Api\UserController;
 
 // --- RUTE PUBLIK (Tidak Perlu Login) ---
 Route::post('/register', [AuthController::class, 'register']);
-Route::post('/login', [AuthController::class, 'login']); // Satu login untuk semua
+Route.post('/login', [AuthController::class, 'login']);
 Route::get('/products', [ProductController::class, 'index']);
 Route::get('/products/{product}', [ProductController::class, 'show']);
+
+// Rute untuk tes koneksi dari frontend
+Route::get('/ping', function () {
+    return response()->json(['message' => 'pong! koneksi berhasil!'], 200);
+});
 
 
 // --- RUTE TERPROTEKSI (Wajib Login) ---
