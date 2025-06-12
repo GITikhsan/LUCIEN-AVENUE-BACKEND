@@ -43,8 +43,5 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Rute untuk mengelola semua user (contoh, bisa diatur oleh UserPolicy nanti)
     Route::apiResource('users', UserController::class);
-    Route::get('/ping', function () {
-    return response()->json(['message' => 'pong! koneksi sukses!'], 200);
-});
 
 });
