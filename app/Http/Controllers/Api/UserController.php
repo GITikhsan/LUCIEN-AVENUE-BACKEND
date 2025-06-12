@@ -64,7 +64,7 @@ class UserController extends Controller
             'role' => $request->input('role', 'admin'), // <-- TAMBAHKAN INI
         ]);
 
-        return response()->json(['status' => true, 'message' => 'User Berhasil Dibuat', 'data' => $user], 201);
+        return response()->json(['status' => true, 'message' => 'User Created Successfully', 'data' => $user], 201);
     }
 
     public function show(User $user)
@@ -82,12 +82,12 @@ class UserController extends Controller
 
         $user->update($validated);
 
-        return response()->json(['status' => true, 'message' => 'User Berhasil Diupdate', 'data' => $user], 200);
+        return response()->json(['status' => true, 'message' => 'User Successfully Updated', 'data' => $user], 200);
     }
 
     public function destroy(User $user)
     {
         $user->delete();
-        return response()->json(['status' => true, 'message' => 'User Berhasil Dihapus'], 200);
+        return response()->json(['status' => true, 'message' => 'User Successfully Deleted'], 200);
     }
 }
