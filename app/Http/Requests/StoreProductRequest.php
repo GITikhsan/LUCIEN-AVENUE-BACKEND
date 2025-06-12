@@ -8,20 +8,27 @@ class StoreProductRequest extends FormRequest
 {
     public function authorize(): bool
     {
-        return true; // Diasumsikan admin yang boleh
+        // Izinkan request jika pengguna sudah login atau punya hak akses
+        // Ganti 'create' dengan nama permission di Policy Anda jika berbeda
+        return $this->user()->can('create', \App\Models\Product::class);
     }
 
     public function rules(): array
     {
         return [
             'nama_sepatu' => 'required|string|max:255',
-            'brand' => 'nullable|string|max:100',
-            'harga_retail' => 'required|numeric|min:0',
-            'ukuran' => 'required|string|max:10',
-            'warna' => 'required|string|max:50',
-            'sku' => 'nullable|string|max:100|unique:products,sku',
-            'diskon_id' => 'nullable|exists:discounts,diskon_id',
-            'promo_id' => 'nullable|exists:promotions,promo_id',
+            'brand' => 'required|string',
+            'harga_retail' => 'required|numeric',
+            'sku' => 'required|string|unique:products,sku',
+            'ukuran' => 'required|string',
+            'warna' => 'required|string',
+            'gender' => 'nullable|string',
+            'material' => 'nullable|string',
+            'dimensi' => 'nullable|string',
+            'tanggal_rilis' => 'nullable|date',
+            'deskripsi' => 'nullable|string',
+            // Validasi untuk gambar: boleh kosong, harus gambar, tipe tertentu, maks 2MB
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048'
         ];
     }
 }
