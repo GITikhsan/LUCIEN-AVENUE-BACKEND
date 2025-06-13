@@ -3,44 +3,51 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Discount; // GANTI DENGAN MODEL YANG SESUAI
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreDiscountRequest;
+use App\Models\Discount;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class DiscountController extends Controller
 {
-    // Menampilkan semua data
+    use AuthorizesRequests;
+
     public function index()
     {
-        $data = Discount::paginate(10);
-        return response()->json(['status' => true, 'data' => $data], 200);
+        $discounts = Discount::latest()->paginate(10);
+        return response()->json(['status' => true, 'data' => $discounts], 200);
     }
 
-    // Menyimpan data baru
-    public function store(Request $request)
+    public function store(StoreDiscountRequest $request)
     {
-        // TODO: Tambahkan validasi
-        $data = Discount::create($request->all());
-        return response()->json(['status' => true, 'message' => 'Data Berhasil Dibuat', 'data' => $data], 201);
+        // Cek hak akses menggunakan Policy
+        $this->authorize('create', Discount::class);
+
+        // Buat diskon baru dengan data yang sudah tervalidasi
+        $discount = Discount::create($request->validated());
+
+        return response()->json(['status' => true, 'message' => 'Diskon berhasil dibuat', 'data' => $discount], 201);
     }
 
-    // Menampilkan satu data
-    public function show(Discount $discount) // Ganti variabelnya
+    public function show(Discount $discount)
     {
         return response()->json(['status' => true, 'data' => $discount], 200);
     }
 
-    // Mengupdate data
-    public function update(Request $request, Discount $discount)
+    public function update(StoreDiscountRequest $request, Discount $discount) // Bisa pakai request yang sama
     {
-        // TODO: Tambahkan validasi
-        $discount->update($request->all());
-        return response()->json(['status' => true, 'message' => 'Data Berhasil Diupdate', 'data' => $discount], 200);
+        $this->authorize('update', $discount);
+
+        $discount->update($request->validated());
+
+        return response()->json(['status' => true, 'message' => 'Diskon berhasil diupdate', 'data' => $discount], 200);
     }
 
-    // Menghapus data
     public function destroy(Discount $discount)
     {
+        $this->authorize('delete', $discount);
+
         $discount->delete();
-        return response()->json(['status' => true, 'message' => 'Data Berhasil Dihapus'], 200);
+
+        return response()->json(['status' => true, 'message' => 'Diskon berhasil dihapus'], 200);
     }
 }
