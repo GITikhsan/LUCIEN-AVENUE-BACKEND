@@ -7,23 +7,23 @@ use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\DiscountController;
-// ... Impor controller lain yang Anda butuhkan ...
 
 /*
 |--------------------------------------------------------------------------
 | API Routes
 |--------------------------------------------------------------------------
-|
-| File ini sekarang diatur menjadi dua bagian utama:
-| 1. Rute Publik: Bisa diakses oleh siapa saja.
-| 2. Rute Terproteksi: Wajib login untuk mengakses.
-|
 */
 
 // =========================================================================
 // RUTE PUBLIK (TIDAK PERLU LOGIN)
 // =========================================================================
-Route::post('/register', [AuthController::class, 'register']);
+
+// PERBAIKAN: Rute untuk registrasi (membuat user baru) sekarang ada di sini
+// dan bisa diakses oleh siapa saja.
+Route::post('/users', [UserController::class, 'store']);
+
+
+Route::post('/register', [AuthController::class, 'register']); // Rute ini tidak terpakai oleh Vue Anda, tapi tidak apa-apa
 Route::post('/login', [AuthController::class, 'login']);
 
 // Siapa saja boleh melihat daftar produk dan detailnya
@@ -59,6 +59,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('/discounts/{discount}', [DiscountController::class, 'update']);
     Route::delete('/discounts/{discount}', [DiscountController::class, 'destroy']);
 
-    // Rute untuk mengelola semua user
-    Route::apiResource('users', UserController::class);
+    // PERBAIKAN: Rute untuk mengelola user, KECUALI untuk membuat user (store)
+    // karena sudah kita pindahkan ke bagian Rute Publik di atas.
+    Route::apiResource('users', UserController::class)->except(['store']);
 });
