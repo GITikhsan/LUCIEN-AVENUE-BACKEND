@@ -14,12 +14,17 @@ use App\Http\Controllers\Api\UserController;
 */
 
 // --- RUTE PUBLIK (Tidak Perlu Login) ---
+
+// Rute ini ada, tapi tidak digunakan oleh Vue Anda. Kita biarkan saja.
 Route::post('/register', [AuthController::class, 'register']);
+
+// INI PERBAIKANNYA: Rute untuk membuat user baru (POST /users) sekarang bersifat publik
+Route::post('/users', [UserController::class, 'store']);
+
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/products', [ProductController::class, 'index']);
 Route::get('/products/{product}', [ProductController::class, 'show']);
 
-// Rute untuk tes koneksi dari frontend (Cukup satu di sini)
 Route::get('/ping', function () {
     return response()->json(['message' => 'pong! koneksi berhasil!'], 200);
 });
@@ -41,7 +46,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('/products/{product}', [ProductController::class, 'destroy']);
     Route::post('/products/{product}/upload-image', [ProductController::class, 'uploadImage']);
 
-    // Rute untuk mengelola semua user (contoh, bisa diatur oleh UserPolicy nanti)
-    Route::apiResource('users', UserController::class);
-
+    // Rute untuk mengelola user, TAPI KECUALI membuat user baru (store)
+    // Karena 'store' sudah kita pindah ke atas (publik)
+    Route::apiResource('users', UserController::class)->except(['store']);
 });
