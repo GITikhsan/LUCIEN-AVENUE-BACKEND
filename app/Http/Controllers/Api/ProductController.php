@@ -24,7 +24,7 @@ class ProductController extends Controller
     public function store(StoreProductRequest $request)
     {
         // Authorize sudah ditangani oleh StoreProductRequest
-        
+
         $validatedData = $request->validated();
 
         // Cek jika ada file gambar yang di-upload dari frontend
@@ -68,12 +68,12 @@ class ProductController extends Controller
                 $oldPath = str_replace('/storage', 'public', $product->image);
                 Storage::delete($oldPath);
             }
-            
+
             // 2. Simpan gambar baru dan dapatkan URL-nya
             $path = $request->file('image')->store('products', 'public');
             $validatedData['image'] = Storage::url($path);
         }
-        
+
         $product->update($validatedData);
 
         return response()->json(['status' => true, 'message' => 'Produk Berhasil Diupdate', 'data' => $product], 200);
@@ -90,7 +90,7 @@ class ProductController extends Controller
         }
 
         $product->delete();
-        
+
         // Sesuai konvensi, hapus berhasil sebaiknya mengembalikan status 204 No Content
         return response()->json(['status' => true, 'message' => 'Produk Berhasil Dihapus'], 204);
     }
