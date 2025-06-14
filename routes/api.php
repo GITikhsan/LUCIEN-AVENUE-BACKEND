@@ -24,6 +24,10 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::get('/products', [ProductController::class, 'index']);      // Melihat semua produk
 Route::get('/products/{product}', [ProductController::class, 'show']); // Melihat detail produk
 
+Route::get('/ping', function() {
+    return response()->json(['message' => 'pong! API is ready.']);
+});
+
 // =========================================================================
 // RUTE TERPROTEKSI (WAJIB LOGIN DENGAN TOKEN)
 // =========================================================================
@@ -44,7 +48,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('/products/{product}', [ProductController::class, 'update']);
     Route::delete('/products/{product}', [ProductController::class, 'destroy']);
     Route::post('/products/{product}/upload-image', [ProductController::class, 'uploadImage']);
-    
+
     // Manajemen Diskon (Hanya bisa diakses oleh user dengan hak akses, misal: Admin)
     Route::apiResource('discounts', DiscountController::class);
     // Tambahkan rute terproteksi lainnya di sini (orders, products, etc.)
