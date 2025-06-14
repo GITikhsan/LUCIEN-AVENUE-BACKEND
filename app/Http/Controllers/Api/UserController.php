@@ -50,7 +50,8 @@ class UserController extends Controller
         // Memastikan role default adalah 'user' jika tidak dispesifikkan oleh admin
         $validatedData['role'] = $request->input('role', 'user');
 
-        $user = User::create($validatedData);
+        // Versi Anda
+        $user = User::where('email', $request['email'])->firstOrFail();
 
         return response()->json(['status' => true, 'message' => 'Pengguna berhasil dibuat oleh Admin', 'data' => $user], 201);
     }
