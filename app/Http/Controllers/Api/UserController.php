@@ -3,91 +3,88 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
-
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
+use App\Models\User;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    public function login(Request $request)
-    {
-        $validator = Validator::make($request->all(), [
-            'email' => 'required|email',
-            'password' => 'required|string',
-        ]);
+    use AuthorizesRequests;
 
-        if ($validator->fails()) {
-            return response()->json(['status' => false, 'message' => 'Validation error', 'errors' => $validator->errors()], 422);
-        }
-
-        $user = User::where('email', 'like', '%' . $request->email . '%')->first();
-
-        if (!$user || !Hash::check($request->password, $user->password)) {
-            return response()->json(['status' => false, 'message' => 'Invalid credentials'], 401);
-        }
-
-        // Generate a token for the user
-        $token = $user->createToken('auth-token')->plainTextToken;
-
-        return response()->json([
-            'status' => true,
-            'message' => 'Login successful',
-            'data' => $user,
-            'token' => $token,
-        ], 200);
-    }
-    public function logout(Request $request)
-    {
-        $request->user()->currentAccessToken()->delete();
-
-        return response()->json(['status' => true, 'message' => 'Successfully logged out'], 200);
-    }
+    /**
+     * Menampilkan daftar semua pengguna.
+     * Hanya bisa diakses oleh admin.
+     */
     public function index()
     {
+        // Memeriksa hak akses melalui UserPolicy@viewAny
+        $this->authorize('viewAny', User::class);
+
         $users = User::latest()->paginate(10);
         return response()->json(['status' => true, 'data' => $users], 200);
     }
 
+    /**
+     * Menyimpan pengguna baru (dibuat oleh admin).
+     * Untuk registrasi publik, gunakan AuthController@register.
+     */
     public function store(StoreUserRequest $request)
     {
-        $user = User::create([
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'no_telepon' => $request->no_telepon,
-            'alamat' => $request->alamat,
-            'role' => $request->input('role', 'admin'), // <-- TAMBAHKAN INI
-        ]);
+        // Memeriksa hak akses melalui UserPolicy@create
+        $this->authorize('create', User::class);
 
-        return response()->json(['status' => true, 'message' => 'User Created Successfully', 'data' => $user], 201);
+        $validatedData = $request->validated();
+        $validatedData['password'] = Hash::make($validatedData['password']);
+
+        // Memastikan role default adalah 'user' jika tidak dispesifikkan oleh admin
+        $validatedData['role'] = $request->input('role', 'user');
+
+        $user = User::create($validatedData);
+
+        return response()->json(['status' => true, 'message' => 'Pengguna berhasil dibuat oleh Admin', 'data' => $user], 201);
     }
 
+    /**
+     * Menampilkan detail satu pengguna.
+     */
     public function show(User $user)
     {
+        // Memeriksa hak akses melalui UserPolicy@view
+        $this->authorize('view', $user);
+
         return response()->json(['status' => true, 'data' => $user], 200);
     }
 
+    /**
+     * Mengupdate data pengguna.
+     */
     public function update(UpdateUserRequest $request, User $user)
     {
-        $validated = $request->validated();
+        // Memeriksa hak akses melalui UserPolicy@update
+        $this->authorize('update', $user);
 
-        if (isset($validated['password'])) {
-            $validated['password'] = Hash::make($validated['password']);
+        $validatedData = $request->validated();
+        if (isset($validatedData['password'])) {
+            $validatedData['password'] = Hash::make($validatedData['password']);
         }
 
-        $user->update($validated);
+        $user->update($validatedData);
 
-        return response()->json(['status' => true, 'message' => 'User Successfully Updated', 'data' => $user], 200);
+        return response()->json(['status' => true, 'message' => 'Pengguna berhasil diupdate', 'data' => $user], 200);
     }
 
+    /**
+     * Menghapus data pengguna.
+     */
     public function destroy(User $user)
     {
+        // Memeriksa hak akses melalui UserPolicy@delete
+        $this->authorize('delete', $user);
+
         $user->delete();
-        return response()->json(['status' => true, 'message' => 'User Successfully Deleted'], 200);
+
+        return response()->json(['status' => true, 'message' => 'Pengguna berhasil dihapus'], 200);
     }
 }

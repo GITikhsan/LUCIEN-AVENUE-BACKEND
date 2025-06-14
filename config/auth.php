@@ -11,8 +11,6 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-
-        // Guard Sanctum akan menggunakan provider default (users)
         'sanctum' => [
             'driver' => 'sanctum',
             'provider' => null,

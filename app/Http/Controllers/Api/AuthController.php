@@ -16,25 +16,24 @@ class AuthController extends Controller
         // 1. TAMBAHKAN VALIDASI UNTUK no_telepon
         $validator = Validator::make($request->all(), [
             'first_name' => 'required|string|max:255',
-            'last_name' => 'required|string|max:255',
+            'last_name' => 'nullable|string|max:255', // <-- TAMBAHKAN/UBAH BARIS INI
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
-            'no_telepon' => 'required|string|max:15', // <-- Tambahkan ini
+            'no_telepon' => 'required|string|max:15',
         ]);
 
         if ($validator->fails()) {
             return response()->json($validator->errors(), 422);
         }
 
-        // 2. TAMBAHKAN no_telepon SAAT MEMBUAT USER
+        // Pastikan kita juga menyimpan last_name jika ada
         $user = User::create([
             'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
+            'last_name' => $request->last_name, // <-- TAMBAHKAN BARIS INI
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'no_telepon' => $request->no_telepon, // <-- Tambahkan ini
-
-
+            'no_telepon' => $request->no_telepon,
+            'role' => 'user',
         ]);
 
         // Buat token untuk user yang baru register
