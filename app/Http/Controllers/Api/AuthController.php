@@ -51,7 +51,7 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         if (!Auth::attempt($request->only('email', 'password'))) {
-            return response()->json(['message' => 'Email atau Password salah'], 401);
+            return response()->json(['message' => 'Incorrect email or password.'], 401);
         }
 
         $user = Auth::user();
@@ -70,7 +70,7 @@ class AuthController extends Controller
     public function logout(Request $request)
     {
         $request->user()->currentAccessToken()->delete();
-        
-        return response()->json(['message' => 'Anda telah berhasil logout']);
+
+        return response()->json(['message' => 'You have successfully logged out']);
     }
 }
