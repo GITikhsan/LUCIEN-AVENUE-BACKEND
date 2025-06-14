@@ -39,6 +39,10 @@ Route::get('/products/{product}', [ProductController::class, 'show']);
 // Siapa saja boleh melihat daftar diskon
 Route::get('/discounts', [DiscountController::class, 'index']);
 
+Route::get('/ping', function () {
+    return response()->json(['message' => 'pong! koneksi berhasil!'], 200);
+});
+
 
 // =========================================================================
 // RUTE TERPROTEKSI (WAJIB LOGIN)
