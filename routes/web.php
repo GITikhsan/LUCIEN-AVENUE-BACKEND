@@ -25,7 +25,7 @@ Route::get('/fashion', function () {
 Route::get('/homePage', function () {
     return view('user.homePage');
 });
-// use App\Livewire\Profile; 
+// use App\Livewire\Profile;
 // Route::get('/profile', Profile::class);
 Route::get('/profile', function () {
     return view('user.profile');
@@ -120,10 +120,10 @@ Route::get('/payment', function () {
 });
 /*--------------*/
 
-use App\Livewire\Counter; 
+use App\Livewire\Counter;
 Route::get('/counter', Counter::class);
 
-use App\Livewire\AboutUs; 
+use App\Livewire\AboutUs;
 Route::get('/about-us', AboutUs::class);
 
 

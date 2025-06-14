@@ -17,11 +17,17 @@ use App\Http\Controllers\Api\DiscountController;
 | 1. Rute Publik: Bisa diakses oleh siapa saja.
 | 2. Rute Terproteksi: Wajib login untuk mengakses, hak akses diatur oleh Policy.
 |
+|
+| File ini diatur menjadi dua bagian utama:
+| 1. Rute Publik: Bisa diakses oleh siapa saja.
+| 2. Rute Terproteksi: Wajib login untuk mengakses, hak akses diatur oleh Policy.
+|
 */
 
 // =========================================================================
 // RUTE PUBLIK (TIDAK PERLU LOGIN)
 // =========================================================================
+Route::post('/register', [AuthController::class, 'register']);
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
@@ -29,6 +35,7 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::get('/products', [ProductController::class, 'index']);
 Route::get('/products/{product}', [ProductController::class, 'show']);
 
+// Siapa saja boleh melihat daftar diskon
 // Siapa saja boleh melihat daftar diskon
 Route::get('/discounts', [DiscountController::class, 'index']);
 
@@ -39,11 +46,13 @@ Route::get('/discounts', [DiscountController::class, 'index']);
 Route::middleware('auth:sanctum')->group(function () {
 
     // Rute umum untuk user yang sedang login
+    // Rute umum untuk user yang sedang login
     Route::get('/user', fn (Request $request) => $request->user());
     Route::post('/logout', [AuthController::class, 'logout']);
 
     // --- Rute yang bisa diakses user biasa ---
     Route::apiResource('orders', OrderController::class);
+    // ...tambahkan rute lain untuk user di sini...
     // ...tambahkan rute lain untuk user di sini...
 
     // --- Rute yang HANYA bisa diakses ADMIN (diatur oleh Policy) ---
@@ -53,10 +62,16 @@ Route::middleware('auth:sanctum')->group(function () {
     // Untuk update, kita gunakan POST dengan _method: 'PUT' dari form-data, atau langsung PUT jika frontend mendukung
     Route::match(['PUT', 'PATCH'], '/products/{product}', [ProductController::class, 'update']);
     Route::delete('/products/{product}', [ProductController::class, 'destroy']);
+    // Untuk update, kita gunakan POST dengan _method: 'PUT' dari form-data, atau langsung PUT jika frontend mendukung
+    Route::match(['PUT', 'PATCH'], '/products/{product}', [ProductController::class, 'update']);
+    Route::delete('/products/{product}', [ProductController::class, 'destroy']);
 
     // Rute untuk membuat, mengupdate, dan menghapus diskon
     Route::apiResource('discounts', DiscountController::class)->except(['index']);
+    Route::apiResource('discounts', DiscountController::class)->except(['index']);
 
+    // Rute untuk mengelola semua user
+    Route::apiResource('users', UserController::class);
     // Rute untuk mengelola semua user
     Route::apiResource('users', UserController::class);
 });
