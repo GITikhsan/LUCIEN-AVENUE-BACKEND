@@ -22,12 +22,12 @@ class StoreUserRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            // Aturan untuk pendaftaran sederhana
-            'first_name' => 'required|string|max:255',
-            'last_name'  => 'nullable|string|max:255', // Boleh kosong
-            'email'      => 'required|string|email|max:255|unique:users,email', // Wajib, format email, unik di tabel users
-            'password'   => 'required|string|min:8', // Wajib, minimal 8 karakter
+    return [
+        'first_name' => 'required|string|max:255',
+        'last_name' => 'nullable|string|max:255', // <-- Ganti 'required' menjadi 'nullable'
+        'email' => 'required|string|email|max:255|unique:users,email',
+        'password' => 'required|string|min:8|confirmed',
+        'no_telepon' => 'required|string|max:15',
         ];
     }
 }

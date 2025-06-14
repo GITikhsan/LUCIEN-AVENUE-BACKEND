@@ -17,7 +17,7 @@ return [
     'allowed_methods' => ['*'],
 
     'allowed_origins' => [
-        'http://localhost:5174' // <-- Perubahan 2: Menyesuaikan port dengan error Anda
+        'http://localhost:5173' // <-- Perubahan 2: Menyesuaikan port dengan error Anda
     ],
 
     'allowed_origins_patterns' => [],
