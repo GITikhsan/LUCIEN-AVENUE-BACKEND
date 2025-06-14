@@ -31,6 +31,7 @@ class Product extends Model
         'diskon_id',
         'gambar_produk_id',
         'promo_id',
+        'image',
     ];
 
     /**
