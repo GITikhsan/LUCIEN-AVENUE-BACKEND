@@ -6,18 +6,23 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-        public function up(): void
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
     {
         Schema::table('products', function (Blueprint $table) {
-            // Tambahkan kolom untuk menyimpan URL gambar setelah kolom deskripsi
-            $table->string('image')->nullable()->after('deskripsi');
+            //
         });
     }
 
+    /**
+     * Reverse the migrations.
+     */
     public function down(): void
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->dropColumn('image');
+            //
         });
     }
 };
