@@ -127,7 +127,6 @@ use App\Livewire\AboutUs;
 Route::get('/about-us', AboutUs::class);
 
 
-    // HOME
-use App\Http\Controllers\HomeController;
-Route::get('/Home', [HomeController::class]);
+
+
 

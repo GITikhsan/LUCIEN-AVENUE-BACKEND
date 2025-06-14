@@ -7,7 +7,7 @@ use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\DiscountController;
-
+use App\Http\Controllers\API\HomeController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -62,4 +62,8 @@ Route::middleware('auth:sanctum')->group(function () {
     // PERBAIKAN: Rute untuk mengelola user, KECUALI untuk membuat user (store)
     // karena sudah kita pindahkan ke bagian Rute Publik di atas.
     Route::apiResource('users', UserController::class)->except(['store']);
+
+
+    // HOME
+    Route::get('/home', [HomeController::class, 'index']);
 });
