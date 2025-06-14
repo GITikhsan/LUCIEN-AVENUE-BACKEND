@@ -32,8 +32,9 @@ class AuthController extends Controller
             'last_name' => $request->last_name, // <-- TAMBAHKAN BARIS INI
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'no_telepon' => $request->no_telepon,
-            'role' => 'user',
+            'no_telepon' => $request->no_telepon, // <-- Tambahkan ini
+            'role' => 'user', // At
+
         ]);
 
         // Buat token untuk user yang baru register

@@ -39,7 +39,7 @@ class UserController extends Controller
             'password' => Hash::make($request->password),
             'no_telepon' => $request->no_telepon,
             'alamat' => $request->alamat,
-            'role' => $request->input('role', 'admin'), // <-- TAMBAHKAN INI
+            'role' => $request->input('role', 'user'), // <-- TAMBAHKAN INI
         ]);
         // Memeriksa hak akses melalui UserPolicy@create
         $this->authorize('create', User::class);

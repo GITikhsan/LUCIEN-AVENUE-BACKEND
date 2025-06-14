@@ -7,7 +7,14 @@ use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\DiscountController;
+use App\Http\Controllers\Dashboard\ProfileController;
 
+
+
+
+Route::get('/ping', function () {
+    return response()->json(['message' => 'pong']);
+});
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -61,21 +68,35 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // --- Rute yang HANYA bisa diakses ADMIN (diatur oleh Policy) ---
     // Rute untuk membuat, mengupdate, dan menghapus produk
-    Route::post('/products', [ProductController::class, 'store']);
-    Route::post('/products/{product}/upload-image', [ProductController::class, 'uploadImage']);
-    // Untuk update, kita gunakan POST dengan _method: 'PUT' dari form-data, atau langsung PUT jika frontend mendukung
-    Route::match(['PUT', 'PATCH'], '/products/{product}', [ProductController::class, 'update']);
-    Route::delete('/products/{product}', [ProductController::class, 'destroy']);
-    // Untuk update, kita gunakan POST dengan _method: 'PUT' dari form-data, atau langsung PUT jika frontend mendukung
-    Route::match(['PUT', 'PATCH'], '/products/{product}', [ProductController::class, 'update']);
-    Route::delete('/products/{product}', [ProductController::class, 'destroy']);
+    // Route::post('/products', [ProductController::class, 'store']);
+    // Route::put('/products/{product}', [ProductController::class, 'update']);
+    // Route::delete('/products/{product}', [ProductController::class, 'destroy']);
+    // Route::post('/products/{product}/upload-image', [ProductController::class, 'uploadImage']);
+
+
+    Route::prefix('products')->group(function () {
+    Route::get('/', [ProductController::class, 'index']);            // Ambil semua produk
+    Route::post('/', [ProductController::class, 'store']);           // Tambah produk baru
+    Route::get('/{product}', [ProductController::class, 'show']);    // Detail produk
+    Route::put('/{product}', [ProductController::class, 'update']);  // Update produk
+    Route::delete('/{product}', [ProductController::class, 'destroy']); // Hapus produk
+
+    // Upload gambar (jika ada fitur upload walaupun kolom `image` tidak digunakan)
+    Route::post('/{product}/upload-image', [ProductController::class, 'uploadImage']);
+    });
 
     // Rute untuk membuat, mengupdate, dan menghapus diskon
     Route::apiResource('discounts', DiscountController::class)->except(['index']);
     Route::apiResource('discounts', DiscountController::class)->except(['index']);
 
-    // Rute untuk mengelola semua user
-    Route::apiResource('users', UserController::class);
-    // Rute untuk mengelola semua user
-    Route::apiResource('users', UserController::class);
+    // PERBAIKAN: Rute untuk mengelola user, KECUALI untuk membuat user (store)
+    // karena sudah kita pindahkan ke bagian Rute Publik di atas.
+    // Route::apiResource('users', UserController::class)->except(['store']);
+
+    // Route::get('/profile', [ProfileController::class, 'profile']);
+
+
 });
+
+
+
