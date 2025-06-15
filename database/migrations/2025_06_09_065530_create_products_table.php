@@ -6,9 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('products', function (Blueprint $table) {
@@ -26,21 +23,18 @@ return new class extends Migration
             $table->decimal('harga_retail', 15, 2);
             $table->text('deskripsi')->nullable();
 
-            // Kolom untuk menyimpan URL gambar yang di-upload
-            $table->string('image')->nullable(); // <-- INI YANG PALING PENTING DITAMBAHKAN
 
-            // Foreign Keys
-            $table->foreignId('diskon_id')->nullable()->constrained('discounts', 'diskon_id');
-            $table->foreignId('gambar_produk_id')->nullable()->constrained('product_images', 'gambar_produk_id');
-            $table->foreignId('promo_id')->nullable()->constrained('promotions', 'promo_id');
+            // Foreign Keys (Versi yang sudah diperbaiki)
+            $table->unsignedBigInteger('diskon_id')->nullable();
+            $table->unsignedBigInteger('promo_id')->nullable();
 
-            $table->timestamps(); // Membuat created_at dan updated_at
+            $table->foreign('diskon_id')->references('diskon_id')->on('discounts')->onDelete('set null');
+            $table->foreign('promo_id')->references('promo_id')->on('promotions')->onDelete('set null');
+
+            $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('products');
