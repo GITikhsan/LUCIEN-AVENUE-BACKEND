@@ -37,10 +37,24 @@ class Product extends Model
     /**
      * Relasi: Satu Produk memiliki satu Gambar (ProductImage).
      */
-        public function images()
+    public function getImageUrlAttribute()
     {
-        return $this->hasMany(ProductImage::class, 'gambar_produk_id', 'gambar_produk_id');
+        if ($this->image) {
+            // Ini akan menghasilkan URL lengkap ke gambar,
+            // contoh: http://localhost:8000/storage/products/nama-file-gambar.jpg
+            return asset('images/' . $this->image);
+        }
+
+        // Gambar default jika produk tidak punya gambar
+        return asset('images/placeholder.jpg');
     }
+
+    /**
+     * Kita tambahkan cast untuk harga agar selalu menjadi angka.
+     */
+    protected $casts = [
+        'harga_retail' => 'float',
+    ];
 
     /**
      * Relasi: Satu Produk memiliki satu Diskon.
