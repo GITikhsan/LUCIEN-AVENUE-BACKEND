@@ -10,7 +10,7 @@ class DatabaseSeeder extends Seeder
     {
         // Panggil seeder-seeder Anda di sini
         $this->call([
-            ProductSeeder::class,
+            //ProductSeeder::class,
             UserSeeder::class,
             // Jika punya seeder lain, tambahkan di sini. Contoh: UserSeeder::class
         ]);

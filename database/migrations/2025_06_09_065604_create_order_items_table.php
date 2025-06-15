@@ -13,6 +13,7 @@ return new class extends Migration
             $table->decimal('harga', 15, 2);
             $table->integer('quantity');
             $table->foreignId('pesanan_id')->constrained('orders', 'pesanan_id'); // FK
+            $table->foreignId('produk_id')->constrained('products', 'produk_id');
         });
     }
 
