@@ -19,16 +19,19 @@ class ProductPolicy
 
     public function create(User $user): bool
     {
-        return $user->role === 'admin';
+        // Diizinkan untuk semua user yang login (sesuai permintaan awal)
+        return true;
     }
 
     public function update(User $user, Product $product): bool
     {
-        return $user->role === 'admin';
+        // Diizinkan untuk semua user yang login (sesuai permintaan awal)
+        return true;
     }
 
     public function delete(User $user, Product $product): bool
     {
+        // Hanya admin yang bisa menghapus
         return $user->role === 'admin';
     }
 }

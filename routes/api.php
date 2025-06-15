@@ -8,6 +8,9 @@ use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\DiscountController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\OrderController;
+use App\Http\Controllers\Api\OrderItemController;
+use App\Http\Controllers\Api\CartController;
+use App\Http\Controllers\Api\ProductImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,7 +56,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('discounts', DiscountController::class);
     // Tambahkan rute terproteksi lainnya di sini (orders, products, etc.)
     // ...
-
+    Route::apiResource('order-items', OrderItemController::class)->only(['index', 'show']);
     Route::apiResource('carts', CartController::class);
+    Route::apiResource('product-images', ProductImageController::class)->except(['create', 'edit', 'update']);
 
 });

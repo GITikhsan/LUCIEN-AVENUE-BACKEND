@@ -3,44 +3,65 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\ProductImage; // GANTI DENGAN MODEL YANG SESUAI
+use App\Models\ProductImage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests; // <-- Tambahkan ini
 
 class ProductImageController extends Controller
 {
-    // Menampilkan semua data
+    use AuthorizesRequests; // <-- Tambahkan ini
+
     public function index()
     {
-        $data = ProductImage::paginate(10);
-        return response()->json(['status' => true, 'data' => $data], 200);
+        $this->authorize('viewAny', ProductImage::class);
+        $images = ProductImage::latest()->paginate(10);
+        return response()->json(['status' => true, 'data' => $images], 200);
     }
 
-    // Menyimpan data baru
     public function store(Request $request)
     {
-        // TODO: Tambahkan validasi
-        $data = ProductImage::create($request->all());
-        return response()->json(['status' => true, 'message' => 'Data Berhasil Dibuat', 'data' => $data], 201);
+        $this->authorize('create', ProductImage::class);
+
+        $request->validate([
+            'product_id' => 'required|exists:products,id',
+            'image'      => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        // Simpan file gambar dan dapatkan path-nya
+        $path = $request->file('image')->store('public/product_images');
+
+        $image = ProductImage::create([
+            'product_id' => $request->product_id,
+            'image_path' => Storage::url($path), // Simpan URL yang dapat diakses publik
+        ]);
+
+        return response()->json(['status' => true, 'message' => 'Gambar Berhasil Diunggah', 'data' => $image], 201);
     }
 
-    // Menampilkan satu data
-    public function show(ProductImage $product_image) // Ganti variabelnya
+    public function show(ProductImage $productImage)
     {
-        return response()->json(['status' => true, 'data' => $product_image], 200);
+        $this->authorize('view', $productImage);
+        return response()->json(['status' => true, 'data' => $productImage], 200);
     }
 
-    // Mengupdate data
-    public function update(Request $request, ProductImage $product_image)
-    {
-        // TODO: Tambahkan validasi
-        $product_image->update($request->all());
-        return response()->json(['status' => true, 'message' => 'Data Berhasil Diupdate', 'data' => $product_image], 200);
-    }
+    // Metode update biasanya tidak digunakan untuk gambar, lebih umum hapus dan tambah baru.
+    // Jadi, saya akan melewati implementasi update.
 
-    // Menghapus data
-    public function destroy(ProductImage $product_image)
+    public function destroy(ProductImage $productImage)
     {
-        $product_image->delete();
-        return response()->json(['status' => true, 'message' => 'Data Berhasil Dihapus'], 200);
+        $this->authorize('delete', $productImage);
+
+        // Hapus file dari storage
+        // Mengonversi URL publik kembali ke path storage internal
+        $path = str_replace('/storage', 'public', $productImage->image_path);
+        if (Storage::exists($path)) {
+            Storage::delete($path);
+        }
+
+        // Hapus record dari database
+        $productImage->delete();
+
+        return response()->json(['status' => true, 'message' => 'Gambar Berhasil Dihapus'], 200);
     }
 }
