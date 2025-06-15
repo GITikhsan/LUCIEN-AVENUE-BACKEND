@@ -15,6 +15,7 @@ class Product extends Model
     /**
      * Atribut yang dapat diisi.
      */
+
     protected $fillable = [
         'nama_sepatu',
         'brand',
@@ -29,9 +30,7 @@ class Product extends Model
         'harga_retail',
         'deskripsi',
         'diskon_id',
-        'gambar_produk_id',
         'promo_id',
-        'image',
     ];
 
     /**
@@ -39,7 +38,7 @@ class Product extends Model
      */
     public function productImages()
     {
-        return $this->hasMany(ProductImage::class, 'product_id');
+        return $this->hasMany(ProductImage::class, 'produk_id');
     }
 
     /**
@@ -47,11 +46,11 @@ class Product extends Model
      */
     public function discount()
     {
-        // return $this->belongsTo(Discount::class, 'diskon_id');
+        return $this->belongsTo(Discount::class, 'diskon_id');
     }
 
     public function promotion()
     {
-        // return $this->belongsTo(Promotion::class, 'promo_id');
+        return $this->belongsTo(Promotion::class, 'promo_id');
     }
 }
