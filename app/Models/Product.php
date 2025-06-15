@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
@@ -37,9 +38,9 @@ class Product extends Model
     /**
      * Relasi: Satu Produk memiliki satu Gambar (ProductImage).
      */
-    public function productImages()
+    public function images(): HasMany
     {
-        return $this->hasMany(ProductImage::class, 'product_id');
+        return $this->hasMany(ProductImage::class, 'produk_id', 'produk_id');
     }
 
     /**

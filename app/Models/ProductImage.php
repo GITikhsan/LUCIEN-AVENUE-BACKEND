@@ -4,31 +4,32 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class ProductImage extends Model
 {
     use HasFactory;
 
-    // Definisikan primary key custom jika ada
     protected $primaryKey = 'gambar_produk_id';
 
+    // Nama tabel jika tidak mengikuti konvensi Laravel (product_images)
+    // protected $table = 'nama_tabel_gambarmu';
+
     /**
-     * Tentukan kolom mana saja yang boleh diisi secara massal (mass assignment).
-     * Ini penting untuk keamanan dan kemudahan saat membuat data baru.
-     *
+     * Tentukan kolom mana saja yang boleh diisi secara massal.
      * @var array
      */
-    protected $fillable = ['produk_id', 'path'];
+    protected $fillable = [
+        'produk_id',
+        'image_path' // <<< Baris 'path' sudah dihapus dari sini
+    ];
 
     /**
      * Mendefinisikan relasi "belongsTo": Satu gambar dimiliki oleh SATU produk.
-     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function product()
+    public function product(): BelongsTo
     {
-        // Laravel akan menghubungkan 'produk_id' di tabel ini
-        // dengan 'produk_id' di tabel Product.
         return $this->belongsTo(Product::class, 'produk_id', 'produk_id');
     }
 }
