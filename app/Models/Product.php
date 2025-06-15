@@ -37,9 +37,9 @@ class Product extends Model
     /**
      * Relasi: Satu Produk memiliki satu Gambar (ProductImage).
      */
-    public function productImage()
+        public function images()
     {
-        return $this->belongsTo(ProductImage::class, 'gambar_produk_id', 'gambar_produk_id');
+        return $this->hasMany(ProductImage::class, 'gambar_produk_id', 'gambar_produk_id');
     }
 
     /**
