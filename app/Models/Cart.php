@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
+use App\Models\Product;
 
 class Cart extends Model
 {
@@ -12,5 +14,24 @@ class Cart extends Model
     protected $table = 'carts';
     protected $primaryKey = 'keranjang_id';
 
-    protected $fillable = ['kuantitas', 'harga_satuan', 'subtotal'];
+    // Kolom-kolom yang bisa diisi
+    protected $fillable = [
+        'user_id',
+        'product_id',
+        'kuantitas',
+        'harga_satuan',
+        'subtotal',
+    ];
+
+    // Relasi ke User
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    // Relasi ke Product
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
 }

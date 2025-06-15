@@ -53,4 +53,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('discounts', DiscountController::class);
     // Tambahkan rute terproteksi lainnya di sini (orders, products, etc.)
     // ...
+
+    Route::apiResource('carts', CartController::class);
+
 });
