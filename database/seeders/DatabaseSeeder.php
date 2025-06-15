@@ -12,7 +12,10 @@ class DatabaseSeeder extends Seeder
         $this->call([
             //ProductSeeder::class,
             UserSeeder::class,
+            ProductSeeder::class,
             // Jika punya seeder lain, tambahkan di sini. Contoh: UserSeeder::class
         ]);
+
+
     }
 }

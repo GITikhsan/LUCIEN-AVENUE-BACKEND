@@ -23,8 +23,10 @@ class ProductFactory extends Factory
             'deskripsi' => $this->faker->paragraph(2),
             // Biarkan foreign key null untuk saat ini
             'diskon_id' => null,
-            'gambar_produk_id' => null,
+
             'promo_id' => null,
+            'created_at' => now(),
+            'updated_at' => now(),
         ];
     }
 }
