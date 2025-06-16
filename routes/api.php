@@ -11,12 +11,19 @@ use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\OrderItemController;
 use App\Http\Controllers\Api\CartController;
 use App\Http\Controllers\Api\ProductImageController;
+use App\Http\Controllers\Api\WilayahController; 
 
 /*
 |--------------------------------------------------------------------------
 | API Routes
 |--------------------------------------------------------------------------
 */
+
+// Rute Wilayah
+Route::get('/wilayah/provinsi', [WilayahController::class, 'getProvinces']);
+Route::get('/wilayah/kota/{provinceId}', [WilayahController::class, 'getRegencies']);
+Route::get('/wilayah/kecamatan/{regencyId}', [WilayahController::class, 'getDistricts']);
+Route::get('/wilayah/desa/{districtId}', [WilayahController::class, 'getVillages']);
 
 // =========================================================================
 // RUTE PUBLIK (TIDAK PERLU LOGIN)
@@ -26,7 +33,7 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/products', [ProductController::class, 'index']);      // Melihat semua produk
 Route::get('/products/{product}', [ProductController::class, 'show']); // Melihat detail produk
-
+Route::post('/address', [ProfileController::class, 'updateAddress']);
 Route::get('/ping', function() {
     return response()->json(['message' => 'pong! API is ready.']);
 });

@@ -54,4 +54,23 @@ class ProfileController extends Controller
             'user' => $user,
         ]);
     }
+    public function updateAddress(Request $request)
+    {
+        // Validasi data yang masuk dari frontend
+        $validated = $request->validate([
+            'alamat' => 'required|string|max:1000', // Pastikan ada field 'alamat'
+        ]);
+
+        // Ambil user yang sedang login
+        $user = $request->user();
+
+        // Update kolom 'alamat' di database
+        $user->alamat = $validated['alamat'];
+        $user->save();
+
+        return response()->json([
+            'message' => 'Alamat berhasil disimpan!',
+            'user' => $user, // Kirim kembali data user yang sudah terupdate
+        ]);
+    }
 }

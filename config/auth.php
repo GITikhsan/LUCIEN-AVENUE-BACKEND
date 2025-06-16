@@ -12,8 +12,8 @@ return [
             'provider' => 'users',
         ],
         'sanctum' => [
-            'driver' => 'sanctum',
-            'provider' => null,
+        'driver' => 'sanctum',
+        'provider' => 'users',
         ],
     ],
 
