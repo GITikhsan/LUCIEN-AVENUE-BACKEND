@@ -3,44 +3,50 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Promotion; // GANTI DENGAN MODEL YANG SESUAI
+use App\Http\Requests\StorePromotionRequest;
+use App\Models\Promotion;
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class PromotionController extends Controller
 {
-    // Menampilkan semua data
+    use AuthorizesRequests;
+
     public function index()
     {
-        $data = Promotion::paginate(10);
-        return response()->json(['status' => true, 'data' => $data], 200);
+        $promotions = Promotion::latest()->paginate(10);
+        return response()->json(['status' => true, 'data' => $promotions], 200);
     }
 
-    // Menyimpan data baru
-    public function store(Request $request)
+    public function store(StorePromotionRequest $request)
     {
-        // TODO: Tambahkan validasi
-        $data = Promotion::create($request->all());
-        return response()->json(['status' => true, 'message' => 'Data Berhasil Dibuat', 'data' => $data], 201);
+        $this->authorize('create', Promotion::class);
+
+        $promotion = Promotion::create($request->validated());
+
+        return response()->json(['status' => true, 'message' => 'Promosi berhasil dibuat', 'data' => $promotion], 201);
     }
 
-    // Menampilkan satu data
-    public function show(Promotion $promotion) // Ganti variabelnya
+    public function show(Promotion $promotion)
     {
         return response()->json(['status' => true, 'data' => $promotion], 200);
     }
 
-    // Mengupdate data
-    public function update(Request $request, Promotion $promotion)
+    public function update(StorePromotionRequest $request, Promotion $promotion)
     {
-        // TODO: Tambahkan validasi
-        $promotion->update($request->all());
-        return response()->json(['status' => true, 'message' => 'Data Berhasil Diupdate', 'data' => $promotion], 200);
+        $this->authorize('update', $promotion);
+
+        $promotion->update($request->validated());
+
+        return response()->json(['status' => true, 'message' => 'Promosi berhasil diupdate', 'data' => $promotion], 200);
     }
 
-    // Menghapus data
     public function destroy(Promotion $promotion)
     {
+        $this->authorize('delete', $promotion);
+
         $promotion->delete();
-        return response()->json(['status' => true, 'message' => 'Data Berhasil Dihapus'], 200);
+
+        return response()->json(['status' => true, 'message' => 'Promosi berhasil dihapus'], 200);
     }
 }

@@ -35,7 +35,7 @@ class ProfileController extends Controller
 
         $field = $request->field;
         $value = $request->value;
-        
+
         // Cek jika email yang diupdate sudah ada
         if ($field === 'email' && User::where('email', $value)->where('user_id', '!=', $user->user_id)->exists()) {
             return response()->json(['message' => 'Email sudah digunakan.'], 422);
@@ -54,23 +54,27 @@ class ProfileController extends Controller
             'user' => $user,
         ]);
     }
-    public function updateAddress(Request $request)
+    public function getShippingAddress(Request $request)
     {
-        // Validasi data yang masuk dari frontend
-        $validated = $request->validate([
-            'alamat' => 'required|string|max:1000', // Pastikan ada field 'alamat'
-        ]);
-
-        // Ambil user yang sedang login
+        // Ambil data user yang sedang login
         $user = $request->user();
 
-        // Update kolom 'alamat' di database
-        $user->alamat = $validated['alamat'];
-        $user->save();
+        // Asumsi kolom-kolom alamat ada di tabel 'users'
+        // Ganti 'phone_number' dan 'address' dengan NAMA KOLOM YANG SEBENARNYA di database Anda.
+        $addressData = [
+                'recipientName' => $user->first_name . ' ' . $user->last_name,
+                'email'         => $user->email,
+                'phoneNumber'   => $user->no_telepon,
+                'fullAddress'   => $user->address,
+                'isDefault'     => true
+            ];
 
-        return response()->json([
-            'message' => 'Alamat berhasil disimpan!',
-            'user' => $user, // Kirim kembali data user yang sudah terupdate
-        ]);
+        // Validasi: Jika alamatnya kosong, kirim pesan error
+        if (empty($user->address)) {
+            return response()->json(['message' => 'Alamat pengiriman untuk user ini belum diatur.'], 404);
+        }
+
+        // Jika alamat ada, kirim datanya
+        return response()->json($addressData);
     }
 }

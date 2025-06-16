@@ -21,6 +21,39 @@ class OrderController extends Controller
         return response()->json([/*'status' => true,*/ 'data' => $orders], 200);
     }
 
+
+   public function getSummaryForCheckout(Request $request)
+    {
+        try {
+            $user = $request->user();
+
+            // PERBAIKAN: Menambahkan pengecekan user untuk mencegah 'user_id is null'
+            if (!$user) {
+                return response()->json(['message' => 'User tidak terautentikasi.'], 401);
+            }
+
+            // Kueri ini sekarang akan berjalan dengan benar karena kolom 'status' sudah ada
+            $order = Order::where('user_id', $user->id)
+                          ->where('status', 'pending')
+                          ->with('products') // Asumsi relasi 'products' sudah didefinisikan di model Order
+                          ->latest()
+                          ->first();
+
+            // PENTING: Pastikan ada data pesanan 'pending' untuk user ini di database Anda
+            if (!$order) {
+                return response()->json(['message' => 'Tidak ada pesanan aktif untuk checkout.'], 404);
+            }
+
+            return response()->json($order);
+
+        } catch (\Exception $e) {
+            // Jaring pengaman ini akan menangkap error lain yang mungkin muncul
+            return response()->json([
+                'message' => 'Terjadi kesalahan internal saat mengambil ringkasan pesanan.',
+                'error' => $e->getMessage()
+            ], 500);
+        }
+    }
     public function store(Request $request)
     {
         // TODO: Logika pembuatan pesanan yang sesungguhnya lebih kompleks.
