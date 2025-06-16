@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use App\Models\User;
 
 class ProfileController extends Controller
@@ -117,7 +118,7 @@ class ProfileController extends Controller
 
         } catch (\Exception $e) {
             // Jika terjadi error lain, catat di log dan kirim respons error 500
-            \Log::error('Error updating address: '.$e->getMessage());
+            Log::error('Error updating address: '.$e->getMessage());
             return response()->json(['message' => 'Terjadi kesalahan pada server.'], 500);
         }
     }
