@@ -16,7 +16,7 @@ class ProductController extends Controller
     public function index()
     {
         // Menggunakan 'images' sesuai nama fungsi relasi di Model Product
-        $products = Product::with(['images', 'discount', 'promotion'])->latest()->paginate(10);
+        $products = Product::with(['images'])->latest()->paginate(10);
         return response()->json(['status' => true, 'data' => $products], 200);
     }
 
