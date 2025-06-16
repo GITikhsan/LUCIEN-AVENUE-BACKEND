@@ -62,4 +62,17 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('product-images', ProductImageController::class)->except(['create', 'edit', 'update']);
     Route::apiResource('promotions', PromotionController::class); // <-- Tambahkan ini
 
+  
+    // ... rute yang sudah ada
+
+    // RUTE UNTUK HALAMAN CHECKOUT
+    Route::get('/checkout/summary', [OrderController::class, 'getSummaryForCheckout']);
+
+    // ==========================================================
+    // TAMBAHKAN RUTE INI
+    // ==========================================================
+    Route::get('/checkout/address', [ProfileController::class, 'getShippingAddress']);
+
+
+
 });
