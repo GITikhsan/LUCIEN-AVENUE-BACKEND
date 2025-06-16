@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests; // <-- Tambahkan ini
 
+
 class ProductImageController extends Controller
 {
     use AuthorizesRequests; // <-- Tambahkan ini
@@ -24,7 +25,7 @@ class ProductImageController extends Controller
         $this->authorize('create', ProductImage::class);
 
         $request->validate([
-            'product_id' => 'required|exists:products,id',
+            'produk_id' => 'required|exists:products,id',
             'image'      => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
@@ -32,7 +33,7 @@ class ProductImageController extends Controller
         $path = $request->file('image')->store('public/product_images');
 
         $image = ProductImage::create([
-            'product_id' => $request->product_id,
+            'produk_id' => $request->produk_id,
             'image_path' => Storage::url($path), // Simpan URL yang dapat diakses publik
         ]);
 
