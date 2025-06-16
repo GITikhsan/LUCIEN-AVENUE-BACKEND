@@ -66,7 +66,7 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         // Menggunakan 'images' sesuai nama fungsi relasi di Model Product
-        $product->load(['images', 'discount', 'promotion']);
+        $product->load(['images']);
         return response()->json(['status' => true, 'data' => $product], 200);
     }
 

@@ -17,7 +17,7 @@ class Cart extends Model
     // Kolom-kolom yang bisa diisi
     protected $fillable = [
         'user_id',
-        'product_id',
+        'produk_id',
         'kuantitas',
         'harga_satuan',
         'subtotal',

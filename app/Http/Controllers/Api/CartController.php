@@ -29,17 +29,17 @@ class CartController extends Controller
    public function store(Request $request)
 {
     $request->validate([
-        'product_id' => 'required|exists:products,id',
+        'produk_id' => 'required|exists:products,id',
         'kuantitas' => 'required|integer|min:1'
     ]);
 
     $user = $request->user();
-    $productId = $request->product_id;
+    $productId = $request->produk_id;
     $kuantitasBaru = $request->kuantitas;
 
     // Cek apakah item produk ini sudah ada di keranjang user
     $cart = Cart::where('user_id', $user->id)
-                ->where('product_id', $productId)
+                ->where('produk_id', $productId)
                 ->first();
 
     if ($cart) {
@@ -54,7 +54,7 @@ class CartController extends Controller
         // Tambah data baru ke cart
         $cart = Cart::create([
             'user_id' => $user->id,
-            'product_id' => $productId,
+            'produk_id' => $productId,
             'kuantitas' => $kuantitasBaru,
             'harga_satuan' => $harga,
             'subtotal' => $harga * $kuantitasBaru

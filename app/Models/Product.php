@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Model;
 
+use App\Models\Discount;   // <<< PENTING: PASTIKAN INI ADA DAN TIDAK ADA TYPO
+use App\Models\Promotion;  // <<< PENTING: PASTIKAN INI ADA DAN TIDAK ADA TYPO
+use App\Models\ProductImage;
+
 class Product extends Model
 {
     use HasFactory;
@@ -48,11 +52,11 @@ class Product extends Model
      */
     public function discount()
     {
-        // return $this->belongsTo(Discount::class, 'diskon_id');
+        return $this->belongsTo(Discount::class, 'diskon_id');
     }
 
     public function promotion()
     {
-        // return $this->belongsTo(Promotion::class, 'promo_id');
+        return $this->belongsTo(Promotion::class, 'promo_id');
     }
 }
