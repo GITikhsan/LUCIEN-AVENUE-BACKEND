@@ -34,7 +34,7 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/products', [ProductController::class, 'index']);      // Melihat semua produk
 Route::get('/products/{product}', [ProductController::class, 'show']); // Melihat detail produk
-Route::post('/address', [ProfileController::class, 'updateAddress']);
+
 Route::get('/ping', function() {
     return response()->json(['message' => 'pong! API is ready.']);
 });
@@ -80,6 +80,6 @@ Route::middleware('auth:sanctum')->group(function () {
     // ==========================================================
     Route::get('/checkout/address', [ProfileController::class, 'getShippingAddress']);
 
-
+    Route::post('/address', [ProfileController::class, 'updateAddress']);
 
 });

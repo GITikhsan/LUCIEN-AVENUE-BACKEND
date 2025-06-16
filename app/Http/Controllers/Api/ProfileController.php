@@ -77,4 +77,48 @@ class ProfileController extends Controller
         // Jika alamat ada, kirim datanya
         return response()->json($addressData);
     }
+    /**
+     * Membuat atau mengupdate alamat user.
+     */
+    public function updateAddress(Request $request)
+    {
+        // 1. Validasi data yang dikirim dari frontend
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'phone' => 'required|string|max:20',
+            'address' => 'required|string|max:1000',
+            'city' => 'required|string|max:100',
+            'label' => 'nullable|string|max:50',
+            'note' => 'nullable|string|max:255',
+        ]);
+
+        try {
+            // 2. Ambil data user yang sedang login
+            $user = $request->user();
+            if (!$user) {
+                return response()->json(['message' => 'User tidak ditemukan.'], 401);
+            }
+
+            // 3. Karena tabel 'users' Anda hanya punya satu kolom `alamat`,
+            // kita gabungkan datanya menjadi satu string.
+            // (Saran: Untuk jangka panjang, lebih baik buat tabel 'addresses' terpisah)
+            $fullAddress = "{$validatedData['label']}: {$validatedData['address']}, {$validatedData['city']}. (Penerima: {$validatedData['name']})";
+
+            // 4. Update data di database
+            $user->alamat = $fullAddress;
+            $user->no_telepon = $validatedData['phone'];
+            $user->save();
+
+            // 5. Kirim respons berhasil
+            return response()->json([
+                'message' => 'Alamat berhasil diperbarui!',
+                'user' => $user
+            ], 200);
+
+        } catch (\Exception $e) {
+            // Jika terjadi error lain, catat di log dan kirim respons error 500
+            \Log::error('Error updating address: '.$e->getMessage());
+            return response()->json(['message' => 'Terjadi kesalahan pada server.'], 500);
+        }
+    }
 }
