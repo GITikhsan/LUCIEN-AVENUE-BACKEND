@@ -13,79 +13,66 @@ class CartController extends Controller
 {
     $user = $request->user(); // ambil user yang sedang login
 
-    $data = Cart::with('product')
+    $cartItems = Cart::with('product') // Pastikan relasi 'product' ada di Model Cart
         ->where('user_id', $user->id)
         ->get();
 
-    return response()->json([
-        'status' => true,
-        'data' => $data
-    ], 200);
+     return response()->json([
+            'status' => true,
+            'data' => $cartItems
+        ], 200);
 }
-
 
 
     // Menyimpan data baru
    public function store(Request $request)
-{
-    $request->validate([
-        'produk_id' => 'required|exists:products,id',
-        'kuantitas' => 'required|integer|min:1'
-    ]);
-
-    $user = $request->user();
-    $productId = $request->produk_id;
-    $kuantitasBaru = $request->kuantitas;
-
-    // Cek apakah item produk ini sudah ada di keranjang user
-    $cart = Cart::where('user_id', $user->id)
-                ->where('produk_id', $productId)
-                ->first();
-
-    if ($cart) {
-        // Jika sudah ada, update kuantitas dan subtotal
-        $cart->kuantitas += $kuantitasBaru;
-        $cart->subtotal = $cart->kuantitas * $cart->harga_satuan;
-        $cart->save();
-    } else {
-        // Ambil harga dari produk
-        $harga = \App\Models\Product::findOrFail($productId)->price;
-
-        // Tambah data baru ke cart
-        $cart = Cart::create([
-            'user_id' => $user->id,
-            'produk_id' => $productId,
-            'kuantitas' => $kuantitasBaru,
-            'harga_satuan' => $harga,
-            'subtotal' => $harga * $kuantitasBaru
+    {
+        $request->validate([
+            'produk_id' => 'required|exists:products,id', // Menggunakan 'product_id'
+            'kuantitas' => 'required|integer|min:1'      // Menggunakan 'quantity'
         ]);
-    }
 
-    return response()->json([
-        'status' => true,
-        'message' => 'Item berhasil ditambahkan ke keranjang',
-        'data' => $cart
-    ], 201);
-}
+        $user = $request->user();
+        $productId = $request->product_id;
+        $quantity = $request->quantity;
+
+        // Cek apakah item sudah ada di keranjang user
+        $cartItem = Cart::where('user_id', $user->id)
+                        ->where('produk_id', $productId)
+                        ->first();
+
+        if ($cartItem) {
+            // Jika sudah ada, update kuantitasnya
+            $cartItem->quantity += $quantity;
+            $cartItem->save();
+        } else {
+            // Jika belum ada, buat item baru
+            $cartItem = Cart::create([
+                'user_id' => $user->id,
+                'produk_id' => $productId,
+                'kuantitas' => $quantity
+            ]);
+        }
+
+        return response()->json([
+            'status' => true,
+            'message' => 'Item berhasil ditambahkan ke keranjang',
+            'data' => $cartItem->load('product') // Kirim kembali data dengan relasi produk
+        ], 201);
+    }
 
 public function destroy(Cart $cart)
-{
-    $user = request()->user();
+    {
+        $user = request()->user();
 
-    // Pastikan hanya user pemilik yang bisa menghapus
-    if ($cart->user_id !== $user->id) {
-        return response()->json([
-            'status' => false,
-            'message' => 'Tidak diizinkan menghapus item ini.'
-        ], 403);
+        // Pastikan hanya pemilik yang bisa menghapus
+        if ($cart->user_id !== $user->id) {
+            return response()->json(['message' => 'Aksi tidak diizinkan.'], 403);
+        }
+
+        $cart->delete();
+
+        return response()->json(['message' => 'Item berhasil dihapus dari keranjang.'], 200);
     }
-
-    $cart->delete();
-
-    return response()->json([
-        'status' => true,
-        'message' => 'Item berhasil dihapus dari keranjang.'
-    ], 200);
-}
 
 }
