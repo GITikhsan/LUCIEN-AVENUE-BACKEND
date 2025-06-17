@@ -24,6 +24,12 @@ class StoreProductRequest extends FormRequest
             'deskripsi' => 'nullable|string',
             'ukuran' => 'required|string',
             'warna' => 'required|string',
+            'sku' => 'required|string|max:255',
+            'gender' => 'nullable|string|max:255',
+            'material' => 'nullable|string|max:255',
+            'dimensi' => 'nullable|string|max:255',
+            'tanggal_rilis' => 'nullable|date',
+
             'images' => 'required|array',
             'images.*' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048'
         ];

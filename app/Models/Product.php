@@ -23,7 +23,6 @@ class Product extends Model
     protected $fillable = [
         'nama_sepatu',
         'brand',
-        'jenis',
         'material',
         'ukuran',
         'warna',
