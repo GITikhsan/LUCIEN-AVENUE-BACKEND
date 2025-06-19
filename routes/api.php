@@ -86,5 +86,12 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('carts', CartController::class);
     // ... route-route lain yang butuh login
+ });
+
+
 });
-});
+
+// ==========================================================
+    // TAMBAHKAN Filter INI
+    // ==========================================================
+    Route::get('/products', [ProductController::class, 'filter']);
