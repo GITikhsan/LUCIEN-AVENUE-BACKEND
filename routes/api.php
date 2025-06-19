@@ -13,6 +13,7 @@ use App\Http\Controllers\Api\CartController;
 use App\Http\Controllers\Api\ProductImageController;
 use App\Http\Controllers\Api\WilayahController;
 use App\Http\Controllers\Api\PromotionController;
+use App\Http\Controllers\Api\FilterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -91,7 +92,5 @@ Route::middleware('auth:sanctum')->group(function () {
 
 });
 
-// ==========================================================
-    // TAMBAHKAN Filter INI
-    // ==========================================================
-    Route::get('/products', [ProductController::class, 'filter']);
+Route::get('/products/filter', [FilterController::class, 'filter']);
+
