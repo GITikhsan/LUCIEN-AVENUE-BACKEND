@@ -38,7 +38,9 @@ class ProductController extends Controller
                 // Simpan setiap file ke direktori 'public/product_images' di storage Laravel
                 // Contoh path: storage/app/public/product_images/nama_file_unik.jpg
                 // Pastikan kamu sudah menjalankan 'php artisan storage:link' agar bisa diakses publik.
-                $path = $imageFile->store('public/product_images');
+                Storage::makeDirectory('public/product_images');
+                $path = $imageFile->store('product_images', 'public');
+
 
                 // Dapatkan URL yang bisa diakses publik
                 // Misalnya: /storage/product_images/nama_file_unik.jpg
@@ -97,7 +99,9 @@ class ProductController extends Controller
             // Kemudian simpan gambar-gambar baru (mirip dengan logika store)
             $newProductImagesData = [];
             foreach ($request->file('images') as $imageFile) {
-                $path = $imageFile->store('public/product_images');
+                Storage::makeDirectory('public/product_images');
+                $path = $imageFile->store('product_images', 'public');
+
                 $publicPath = Storage::url($path);
                 $newProductImagesData[] = ['image_path' => $publicPath];
             }
