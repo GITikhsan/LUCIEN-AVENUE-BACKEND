@@ -10,14 +10,66 @@ use Illuminate\Support\Facades\Log; // Tambahkan ini untuk logging
 class CartController extends Controller
 {
     // Method index (tidak ada perubahan)
+
     public function index(Request $request)
-    {
+{
+    $user = $request->user();
+    $cartItems = Cart::with('product')
+        ->where('user_id', $user->user_id)
+        ->get();
+
+    // Hitung total harga semua item
+    $totalHarga = $cartItems->sum(function ($item) {
+        return $item->product->harga_retail * $item->kuantitas;
+    });
+
+    // Tambahkan total harga per item (jika ingin di-embed langsung)
+    $cartItems->transform(function ($item) {
+        $item->total_harga_item = $item->product->harga_retail * $item->kuantitas;
+        return $item;
+    });
+
+    return response()->json([
+        'status' => true,
+        'data' => $cartItems,
+        'total_harga' => $totalHarga
+    ], 200);
+}
+
+    public function update(Request $request, $id)
+{
+    Log::info('--- Update Cart Quantity ---');
+    Log::info('Cart ID: ' . $id);
+    Log::info('Request:', $request->all());
+
+    $request->validate([
+        'kuantitas' => 'required|integer|min:1',
+    ]);
+
+    try {
         $user = $request->user();
-        $cartItems = Cart::with('product')
-            ->where('user_id', $user->user_id)
-            ->get();
-        return response()->json(['status' => true, 'data' => $cartItems], 200);
+        $cart = Cart::where('id', $id)->where('user_id', $user->user_id)->firstOrFail();
+
+        $cart->kuantitas = $request->kuantitas;
+        $cart->save();
+
+        Log::info('Berhasil update kuantitas cart.');
+
+        return response()->json([
+    'status' => true,
+    'message' => 'Quantity updated successfully.',
+    'data' => $cart->load('product')->append('total_harga_item')
+    ], 200);
+    } catch (\Exception $e) {
+        Log::error('Gagal update cart: ' . $e->getMessage());
+
+        return response()->json([
+            'status' => false,
+            'message' => 'Failed to update quantity.',
+            'error' => $e->getMessage()
+        ], 500);
     }
+}
 
     // Method store (DENGAN PERBAIKAN)
    public function store(Request $request)
@@ -59,10 +111,10 @@ class CartController extends Controller
         Log::info('Proses simpan/update ke database berhasil.');
 
         return response()->json([
-            'status' => true,
-            'message' => 'Item berhasil ditambahkan ke keranjang',
-            'data' => $cartItem->load('product')
-        ], 201);
+    'status' => true,
+    'message' => 'Item berhasil ditambahkan ke keranjang',
+    'data' => $cartItem->load('product')->append('total_harga_item')
+], 201);
 
     } catch (\Exception $e) {
         // Jika ada crash, ini akan tercatat

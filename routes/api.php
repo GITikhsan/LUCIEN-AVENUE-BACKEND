@@ -45,8 +45,11 @@ Route::get('/wilayah/desa/{districtId}', [WilayahController::class, 'getVillages
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/products', [ProductController::class, 'index']);
+Route::get('/products/filter', [FilterController::class, 'filter']);
 Route::get('/products/{product}', [ProductController::class, 'show']);
 Route::get('/ping', fn () => response()->json(['message' => 'pong! API is ready.']));
+
+
 
 // Rute yang dilindungi dengan Sanctum
 Route::middleware('auth:sanctum')->group(function () {
@@ -89,6 +92,3 @@ Route::middleware('auth:sanctum')->group(function () {
     // ... route-route lain yang butuh login
 
 });
-
-Route::get('/products/filter', [FilterController::class, 'filter']);
-
