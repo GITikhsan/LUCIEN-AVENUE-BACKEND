@@ -15,7 +15,7 @@ class AuthServiceProvider extends ServiceProvider
     protected $policies = [
         Product::class => ProductPolicy::class,
         User::class => UserPolicy::class,
-        Promotion::class => PromotionPolicy::class, // <-- 3. Tambahkan baris ini
+        \App\Models\Promotion::class => \App\Policies\PromotionPolicy::class,
 
     ];
 

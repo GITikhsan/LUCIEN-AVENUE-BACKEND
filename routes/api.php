@@ -27,68 +27,52 @@ Route::get('/wilayah/kota/{provinceId}', [WilayahController::class, 'getRegencie
 Route::get('/wilayah/kecamatan/{regencyId}', [WilayahController::class, 'getDistricts']);
 Route::get('/wilayah/desa/{districtId}', [WilayahController::class, 'getVillages']);
 
-// =========================================================================
-// RUTE PUBLIK (TIDAK PERLU LOGIN)
-// =========================================================================
-
+// Rute publik
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
-Route::get('/products', [ProductController::class, 'index']);      // Melihat semua produk
-Route::get('/products/{product}', [ProductController::class, 'show']); // Melihat detail produk
+Route::get('/products', [ProductController::class, 'index']);
+Route::get('/products/{product}', [ProductController::class, 'show']);
+Route::get('/ping', fn () => response()->json(['message' => 'pong! API is ready.']));
 
-Route::get('/ping', function() {
-    return response()->json(['message' => 'pong! API is ready.']);
-});
-
-// =========================================================================
-// RUTE TERPROTEKSI (WAJIB LOGIN DENGAN TOKEN)
-// =========================================================================
+// Rute yang dilindungi dengan Sanctum
 Route::middleware('auth:sanctum')->group(function () {
 
-    // Profil User yang sedang Login
+    // Auth & Profil
     Route::get('/user', [ProfileController::class, 'getProfile']);
     Route::post('/profile/update', [ProfileController::class, 'updateField']);
     Route::post('/logout', [AuthController::class, 'logout']);
 
+    // Orders & Items
     Route::apiResource('orders', OrderController::class);
+    Route::apiResource('order-items', OrderItemController::class)->only(['index', 'show']);
 
-    // Manajemen User (Hanya bisa diakses oleh user dengan hak akses, misal: Admin)
+    // User Management
     Route::apiResource('users', UserController::class);
 
-    // Manajemen Produk (Hanya bisa diakses oleh user dengan hak akses, misal: Admin)
+    // Products
     Route::post('/products', [ProductController::class, 'store']);
     Route::put('/products/{product}', [ProductController::class, 'update']);
     Route::delete('/products/{product}', [ProductController::class, 'destroy']);
     Route::post('/products/{product}/upload-image', [ProductController::class, 'uploadImage']);
 
-    // Manajemen Diskon (Hanya bisa diakses oleh user dengan hak akses, misal: Admin)
+    // Discount
     Route::apiResource('discounts', DiscountController::class);
-    // Tambahkan rute terproteksi lainnya di sini (orders, products, etc.)
-    // ...
-    Route::apiResource('order-items', OrderItemController::class)->only(['index', 'show']);
 
+    // Product Images
     Route::apiResource('product-images', ProductImageController::class)->except(['create', 'edit', 'update']);
-    Route::apiResource('promotions', PromotionController::class); // <-- Tambahkan ini
 
+    // Promotion
+    Route::apiResource('promotions', PromotionController::class);
+    Route::post('/promotions/apply-coupon', [PromotionController::class, 'applyCoupon']);
 
-    // ... rute yang sudah ada
-
-    // RUTE UNTUK HALAMAN CHECKOUT
+    // Checkout
     Route::get('/checkout/summary', [OrderController::class, 'getSummaryForCheckout']);
-
-    // ==========================================================
-    // TAMBAHKAN RUTE INI
-    // ==========================================================
     Route::get('/checkout/address', [ProfileController::class, 'getShippingAddress']);
-
     Route::post('/address', [ProfileController::class, 'updateAddress']);
 
-
-    Route::middleware('auth:sanctum')->group(function () {
+    // Cart
     Route::apiResource('carts', CartController::class);
     // ... route-route lain yang butuh login
- });
-
 
 });
 
