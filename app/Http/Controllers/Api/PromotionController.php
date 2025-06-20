@@ -29,6 +29,8 @@ class PromotionController extends Controller
         }
     }
 
+
+
     public function store(StorePromotionRequest $request)
     {
         $this->authorize('create', Promotion::class);
@@ -44,12 +46,15 @@ class PromotionController extends Controller
 
 public function applyCoupon(Request $request)
 {
+    // Validasi input, ini sudah benar.
     $request->validate([
         'coupon_code' => 'required|string',
         'products' => 'required|array|min:1',
-        'products.*' => 'integer',
+        'products.*.productId' => 'required|integer',
+        'products.*.quantity' => 'required|integer|min:1',
     ]);
 
+    // Mencari promosi, ini sudah benar.
     $promotion = Promotion::where('kode', strtoupper($request->coupon_code))
         ->where('selesai_tanggal', '>=', now())
         ->first();
@@ -58,29 +63,44 @@ public function applyCoupon(Request $request)
         return response()->json([
             'success' => false,
             'message' => 'Kupon tidak ditemukan atau sudah kedaluwarsa.'
-        ], 400);
+        ], 404); // Status 404 lebih tepat untuk "tidak ditemukan"
     }
 
-    // Ambil produk berdasarkan produk_id
-    $products = DB::table('products')
-        ->whereIn('produk_id', $request->products)
+    // [FIX 1] Ekstrak 'productId' dari array objek menjadi array biasa.
+    $productIds = collect($request->products)->pluck('productId')->all();
+
+    // Ambil data produk dari database menggunakan array ID yang sudah benar.
+    $productsFromDb = DB::table('products')
+        ->whereIn('produk_id', $productIds)
         ->select('produk_id', 'harga_retail')
         ->get();
 
-    if ($products->isEmpty()) {
+    if ($productsFromDb->isEmpty()) {
         return response()->json([
             'success' => false,
-            'message' => 'Produk tidak ditemukan.'
+            'message' => 'Produk yang relevan dengan promo tidak ditemukan.'
         ], 404);
     }
 
-    $originalTotal = $products->sum('harga_retail');
+    // Buat pemetaan dari productId ke kuantitasnya untuk kemudahan akses.
+    $productQuantities = collect($request->products)->keyBy('productId');
+
+    // [FIX 2] Hitung total harga dengan mengalikan harga satuan dan kuantitas.
+    $originalTotal = 0;
+    foreach ($productsFromDb as $product) {
+        // Ambil kuantitas dari request, jika tidak ada default ke 1.
+        $quantity = $productQuantities[$product->produk_id]['quantity'] ?? 1;
+        $originalTotal += $product->harga_retail * $quantity;
+    }
+
+    // Perhitungan diskon dan total akhir sekarang akurat.
     $discount = ($promotion->diskonP / 100) * $originalTotal;
     $finalTotal = $originalTotal - $discount;
 
-    // Hapus kupon setelah digunakan
+    // Hapus kupon setelah digunakan.
     $promotion->delete();
 
+    // Kembalikan response dengan data yang sudah benar.
     return response()->json([
         'success' => true,
         'original_total' => round($originalTotal, 2),
@@ -91,7 +111,6 @@ public function applyCoupon(Request $request)
         'message' => 'Kupon berhasil digunakan dan telah dihapus dari sistem.'
     ]);
 }
-
     public function show(Promotion $promotion)
     {
         $this->authorize('view', $promotion);

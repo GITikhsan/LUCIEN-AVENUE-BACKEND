@@ -49,7 +49,7 @@ class OrderController extends Controller
             // Format data sesuai yang dibutuhkan v-for di Checkout.vue
             return [
                 'productId'   => $item->product->produk_id,
-                'name'        => $item->product->name,
+                'nama_sepatu' => $item->product->nama_sepatu, 
                 'image'       => $item->product->image_url,
                 'quantity'    => $item->kuantitas,
                 'price'       => $price,
