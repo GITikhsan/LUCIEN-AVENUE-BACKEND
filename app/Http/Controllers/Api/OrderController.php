@@ -64,8 +64,9 @@ class OrderController extends Controller
         $finalData = [
             'products'     => $productsForCheckout,
             'subtotal'     => $grandTotal,
-            'shippingCost' => $shippingCost,
-            'total'        => $grandTotal + $shippingCost
+            // 'shippingCost' => $shippingCost,
+            'total'        => $grandTotal
+            // + $shippingCost
         ];
 
         Log::info('[Checkout] Berhasil membuat summary. Mengirim data ke frontend.');
