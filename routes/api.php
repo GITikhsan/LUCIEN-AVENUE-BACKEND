@@ -25,7 +25,7 @@ use App\Http\Controllers\Api\FilterController;
 // OPERASI PAKSA JAWAB
 // =========================================================================
 // Rute asli diberi komentar.
-// Route::get('/wilayah/provinsi', [WilayahController::class, 'getProvinces']); 
+// Route::get('/wilayah/provinsi', [WilayahController::class, 'getProvinces']);
 
 Route::get('/wilayah/provinsi', function () {
     $path = storage_path('app/wilayah/provinces.json');
