@@ -25,7 +25,17 @@ use App\Http\Controllers\Api\FilterController;
 // OPERASI PAKSA JAWAB
 // =========================================================================
 // Rute asli diberi komentar.
-Route::get('/wilayah/provinsi', [WilayahController::class, 'getProvinces']); 
+// Route::get('/wilayah/provinsi', [WilayahController::class, 'getProvinces']); 
+
+Route::get('/wilayah/provinsi', function () {
+    $path = storage_path('app/wilayah/provinces.json');
+    return response()->json([
+        'file_exists' => file_exists($path),
+        'content_raw' => file_exists($path) ? file_get_contents($path) : 'N/A',
+        'decoded' => file_exists($path) ? json_decode(file_get_contents($path), true) : 'N/A'
+    ]);
+});
+
 // [FIXED] Nama method diubah dari 'getRegencies' menjadi 'getCities' agar sesuai dengan Controller yang baru
 Route::get('/wilayah/kota/{provinceId}', [WilayahController::class, 'getCities']);
 Route::get('/wilayah/kecamatan/{regencyId}', [WilayahController::class, 'getDistricts']);

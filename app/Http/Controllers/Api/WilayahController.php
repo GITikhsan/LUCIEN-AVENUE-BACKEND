@@ -14,18 +14,15 @@ class WilayahController extends Controller
      */
     private function getLocalWilayahData($path)
     {
-        // Cek apakah file yang diminta ada di dalam storage/app/
-        if (!Storage::exists($path)) {
-            // Jika tidak ada, kirim response error 404 Not Found
+        if (!Storage::disk('local')->exists($path)) {
             return response()->json(['message' => 'Data wilayah tidak ditemukan di server pada path: ' . $path], 404);
         }
 
-        // Jika file ada, baca isinya
-        $jsonContent = Storage::get($path);
-        
-        // Mengembalikan response JSON yang valid
+        $jsonContent = Storage::disk('local')->get($path);
         return response()->json(json_decode($jsonContent));
     }
+
+
     
     public function getProvinces()
     {
