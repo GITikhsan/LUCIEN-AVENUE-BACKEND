@@ -200,5 +200,21 @@ class ProductController extends Controller
         return response()->json(['status' => true, 'message' => 'Produk Berhasil Dihapus'], 200);
     }
 
+    public function search(Request $request)
+        {
+            $query = $request->input('q');
+
+            if (!$query) {
+                return response()->json([], 200);
+            }
+
+            $products = Product::with('images')
+                ->where('nama_sepatu', 'like', '%' . $query . '%')
+                ->get();
+
+            return response()->json($products);
+        }
+
+
 
 }

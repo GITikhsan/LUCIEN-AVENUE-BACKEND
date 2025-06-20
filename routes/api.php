@@ -25,7 +25,7 @@ use App\Http\Controllers\Api\FilterController;
 // OPERASI PAKSA JAWAB
 // =========================================================================
 // Rute asli diberi komentar.
-// Route::get('/wilayah/provinsi', [WilayahController::class, 'getProvinces']); 
+// Route::get('/wilayah/provinsi', [WilayahController::class, 'getProvinces']);
 
 Route::get('/wilayah/provinsi', function () {
     $path = storage_path('app/wilayah/provinces.json');
@@ -45,6 +45,7 @@ Route::get('/wilayah/desa/{districtId}', [WilayahController::class, 'getVillages
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/products', [ProductController::class, 'index']);
+Route::get('/products/search', [ProductController::class, 'search']);
 Route::get('/products/filter', [FilterController::class, 'filter']);
 Route::get('/products/{product}', [ProductController::class, 'show']);
 Route::get('/ping', fn () => response()->json(['message' => 'pong! API is ready.']));
