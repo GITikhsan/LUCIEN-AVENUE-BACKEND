@@ -29,4 +29,11 @@ class Cart extends Model
     {
         return $this->belongsTo(Product::class, 'produk_id');
     }
+
+    protected $appends = ['total_harga_item'];
+
+    public function getTotalHargaItemAttribute()
+    {
+    return $this->product ? $this->product->harga_retail * $this->kuantitas : 0;
+}
 }
