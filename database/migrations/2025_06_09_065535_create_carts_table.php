@@ -9,10 +9,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('carts', function (Blueprint $table) {
-            $table->id('keranjang_id'); // PK
+            $table->id(); // Ini akan membuat primary key 'id'
+
+            // Kode ini menghubungkan ke kolom PK Anda yang sudah benar
+            $table->foreignId('user_id')->constrained('users', 'user_id')->onDelete('cascade');
+            $table->foreignId('produk_id')->constrained('products', 'produk_id')->onDelete('cascade');
+
             $table->integer('kuantitas');
-            $table->decimal('harga_satuan', 15, 2);
-            $table->decimal('subtotal', 15, 2);
             $table->timestamps();
         });
     }

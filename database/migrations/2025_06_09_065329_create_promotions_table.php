@@ -14,7 +14,7 @@ return new class extends Migration
             $table->timestamp('mulai_tanggal')->nullable();
             $table->timestamp('selesai_tanggal')->nullable();
             $table->decimal('diskonP', 5, 2);
-            $table->string('kode')->unique();
+            $table->string('kode');
         });
     }
 

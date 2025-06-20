@@ -16,7 +16,7 @@ return new class extends Migration
             // jadi saya menggunakan foreign key biasa.
             $table->foreignId('pesanan_id')->constrained('orders', 'pesanan_id'); // FK
             $table->foreignId('produk_id')->constrained('products', 'produk_id'); // FK
-            $table->foreignId('keranjang_id')->constrained('carts', 'keranjang_id'); // FK
+            $table->foreignId('keranjang_id')->constrained('carts')->onDelete('cascade'); // FK
             $table->foreignId('user_id')->constrained('users', 'user_id'); // FK
             $table->timestamps();
         });

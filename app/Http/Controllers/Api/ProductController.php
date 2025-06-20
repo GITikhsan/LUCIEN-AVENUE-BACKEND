@@ -16,8 +16,75 @@ class ProductController extends Controller
     public function index()
     {
         // Menggunakan 'images' sesuai nama fungsi relasi di Model Product
-        $products = Product::with('images')->latest()->paginate(10);
+        $products = Product::with('images')->latest()->paginate(100);
         return response()->json(['status' => true, 'data' => $products], 200);
+
+
+        ////////////////////////////////////////////////////
+
+        $query = Product::query();
+
+    // Filter gender
+    if ($request->filled('gender')) {
+        $query->where('gender', $request->gender);
+    }
+
+    // Filter ukuran (size)
+    if ($request->filled('ukuran')) {
+        $query->where('ukuran', $request->ukuran);
+    }
+
+    // Filter diskon
+    if ($request->filled('discount')) {
+        $query->where('discount', '>=', $request->discount);
+    }
+
+    // Filter rentang harga
+    if ($request->filled('price_range')) {
+        if (str_contains($request->price_range, '+')) {
+            $min = intval(str_replace('+', '', $request->price_range));
+            $query->where('harga_retail', '>=', $min);
+        } else {
+            [$min, $max] = explode('-', $request->price_range);
+            $query->whereBetween('harga_retail', [(int)$min, (int)$max]);
+        }
+    }
+
+    // Filter warna (color)
+    if ($request->filled('colors')) {
+        $colors = explode(',', $request->colors);
+        $query->whereIn('warna', $colors);
+    }
+
+    // Filter brand
+    if ($request->filled('brands')) {
+        $brands = explode(',', $request->brands);
+        $query->whereIn('brand', $brands);
+    }
+
+    // Sorting
+    switch ($request->sort) {
+        case 'Price: Low to High':
+            $query->orderBy('harga_retail', 'asc');
+            break;
+        case 'Price: High to Low':
+            $query->orderBy('harga_retail', 'desc');
+            break;
+        case 'Newest':
+            $query->orderBy('tanggal_rilis', 'desc');
+            break;
+        default:
+            $query->orderBy('produk_id', 'asc'); // default
+            break;
+    }
+
+    // Pagination (opsional)
+    $products = $query->paginate(12);
+
+    return response()->json([
+        'data' => $products
+    ]);
+    ////////////////////////////////////////////////////////////////
     }
 
     public function store(StoreProductRequest $request)
@@ -38,7 +105,9 @@ class ProductController extends Controller
                 // Simpan setiap file ke direktori 'public/product_images' di storage Laravel
                 // Contoh path: storage/app/public/product_images/nama_file_unik.jpg
                 // Pastikan kamu sudah menjalankan 'php artisan storage:link' agar bisa diakses publik.
-                $path = $imageFile->store('public/product_images');
+                Storage::makeDirectory('public/product_images');
+                $path = $imageFile->store('product_images', 'public');
+
 
                 // Dapatkan URL yang bisa diakses publik
                 // Misalnya: /storage/product_images/nama_file_unik.jpg
@@ -97,7 +166,9 @@ class ProductController extends Controller
             // Kemudian simpan gambar-gambar baru (mirip dengan logika store)
             $newProductImagesData = [];
             foreach ($request->file('images') as $imageFile) {
-                $path = $imageFile->store('public/product_images');
+                Storage::makeDirectory('public/product_images');
+                $path = $imageFile->store('product_images', 'public');
+
                 $publicPath = Storage::url($path);
                 $newProductImagesData[] = ['image_path' => $publicPath];
             }
@@ -128,4 +199,6 @@ class ProductController extends Controller
         $product->delete();
         return response()->json(['status' => true, 'message' => 'Produk Berhasil Dihapus'], 200);
     }
+
+
 }
