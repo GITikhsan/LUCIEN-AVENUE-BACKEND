@@ -9,12 +9,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('promotions', function (Blueprint $table) {
-            $table->id('promo_id'); // PK
+            $table->id('promo_id'); // Primary Key
             $table->string('nama_promo');
-            $table->timestamp('mulai_tanggal')->nullable();
-            $table->timestamp('selesai_tanggal')->nullable();
+            $table->dateTime('mulai_tanggal')->nullable(); // <-- Diganti dari timestamp
+            $table->dateTime('selesai_tanggal')->nullable(); // <-- Diganti dari timestamp
             $table->decimal('diskonP', 5, 2);
             $table->string('kode');
+            $table->timestamps(); // created_at & updated_at
         });
     }
 

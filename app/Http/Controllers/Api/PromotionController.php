@@ -16,11 +16,17 @@ class PromotionController extends Controller
 
     public function index()
     {
-        $promotions = Promotion::latest()->paginate(10);
-        return response()->json([
-            'status' => true,
-            'data' => $promotions
-        ], 200);
+        try {
+            $promotions = Promotion::all();
+            return response()->json([
+                'data' => $promotions
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'message' => 'Gagal mengambil promo',
+                'error' => $e->getMessage()
+            ], 500);
+        }
     }
 
     public function store(StorePromotionRequest $request)
