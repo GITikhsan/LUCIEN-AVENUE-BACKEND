@@ -21,9 +21,13 @@ use App\Http\Controllers\Api\FilterController;
 |--------------------------------------------------------------------------
 */
 
-// Rute Wilayah
-Route::get('/wilayah/provinsi', [WilayahController::class, 'getProvinces']);
-Route::get('/wilayah/kota/{provinceId}', [WilayahController::class, 'getRegencies']);
+// =========================================================================
+// OPERASI PAKSA JAWAB
+// =========================================================================
+// Rute asli diberi komentar.
+Route::get('/wilayah/provinsi', [WilayahController::class, 'getProvinces']); 
+// [FIXED] Nama method diubah dari 'getRegencies' menjadi 'getCities' agar sesuai dengan Controller yang baru
+Route::get('/wilayah/kota/{provinceId}', [WilayahController::class, 'getCities']);
 Route::get('/wilayah/kecamatan/{regencyId}', [WilayahController::class, 'getDistricts']);
 Route::get('/wilayah/desa/{districtId}', [WilayahController::class, 'getVillages']);
 
