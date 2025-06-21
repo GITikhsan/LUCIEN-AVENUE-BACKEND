@@ -34,11 +34,6 @@ class ProductController extends Controller
         $query->where('ukuran', $request->ukuran);
     }
 
-    // Filter diskon
-    if ($request->filled('discount')) {
-        $query->where('discount', '>=', $request->discount);
-    }
-
     // Filter rentang harga
     if ($request->filled('price_range')) {
         if (str_contains($request->price_range, '+')) {
