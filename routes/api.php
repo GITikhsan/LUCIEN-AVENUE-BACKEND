@@ -22,24 +22,17 @@ use App\Http\Controllers\Api\FilterController;
 */
 
 // =========================================================================
-// OPERASI PAKSA JAWAB
+// WILAYAH ROUTES
 // =========================================================================
-// Rute asli diberi komentar.
-// Route::get('/wilayah/provinsi', [WilayahController::class, 'getProvinces']);
-
-Route::get('/wilayah/provinsi', function () {
-    $path = storage_path('app/wilayah/provinces.json');
-    return response()->json([
-        'file_exists' => file_exists($path),
-        'content_raw' => file_exists($path) ? file_get_contents($path) : 'N/A',
-        'decoded' => file_exists($path) ? json_decode(file_get_contents($path), true) : 'N/A'
-    ]);
+// Gunakan controller method untuk provinces (hapus route debug)
+Route::prefix('wilayah')->group(function () {
+    Route::get('/provinsi', [WilayahController::class, 'provinsi']);
+    Route::get('/provinsi/search', [WilayahController::class, 'searchProvinsi']);
+    Route::get('/kabupaten/{provinsi_id}', [WilayahController::class, 'kabupaten']);
+    Route::get('/kecamatan/{kabupaten_id}', [WilayahController::class, 'kecamatan']);
+    Route::get('/kelurahan/{kecamatan_id}', [WilayahController::class, 'kelurahan']);
+    Route::get('/all/{provinsi_id?}/{kabupaten_id?}/{kecamatan_id?}', [WilayahController::class, 'getAllData']);
 });
-
-// [FIXED] Nama method diubah dari 'getRegencies' menjadi 'getCities' agar sesuai dengan Controller yang baru
-Route::get('/wilayah/kota/{provinceId}', [WilayahController::class, 'getCities']);
-Route::get('/wilayah/kecamatan/{regencyId}', [WilayahController::class, 'getDistricts']);
-Route::get('/wilayah/desa/{districtId}', [WilayahController::class, 'getVillages']);
 
 // Rute publik
 Route::post('/register', [AuthController::class, 'register']);
@@ -49,8 +42,6 @@ Route::get('/products/search', [ProductController::class, 'search']);
 Route::get('/products/filter', [FilterController::class, 'filter']);
 Route::get('/products/{product}', [ProductController::class, 'show']);
 Route::get('/ping', fn () => response()->json(['message' => 'pong! API is ready.']));
-
-
 
 // Rute yang dilindungi dengan Sanctum
 Route::middleware('auth:sanctum')->group(function () {

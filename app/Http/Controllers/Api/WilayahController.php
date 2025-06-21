@@ -3,53 +3,97 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Storage;
+use App\Services\WilayahApiService;
+use Illuminate\Http\JsonResponse;
 
 class WilayahController extends Controller
 {
-    /**
-     * Fungsi internal untuk mengambil data dari file JSON di storage.
-     * @param string $path Path ke file JSON di dalam storage/app/
-     * @return \Illuminate\Http\JsonResponse
-     */
-    private function getLocalWilayahData($path)
+    protected $wilayahService;
+
+    public function __construct(WilayahApiService $wilayahService)
     {
-        if (!Storage::disk('local')->exists($path)) {
-            return response()->json(['message' => 'Data wilayah tidak ditemukan di server pada path: ' . $path], 404);
+        $this->wilayahService = $wilayahService;
+    }
+
+    /**
+     * Helper untuk membuat respons API yang konsisten.
+     */
+    private function apiResponse(bool $success, string $message, $data = [], int $statusCode = 200): JsonResponse
+    {
+        // Memastikan 'data' selalu berupa array untuk konsistensi di frontend
+        if (is_null($data)) {
+            $data = [];
         }
 
-        $jsonContent = Storage::disk('local')->get($path);
-        return response()->json(json_decode($jsonContent));
+        return response()->json([
+            'success' => $success,
+            'message' => $message,
+            'data'    => $data,
+        ], $statusCode);
     }
 
-
-    
-    public function getProvinces()
+    /**
+     * Mengambil daftar semua provinsi.
+     */
+    public function provinsi(): JsonResponse
     {
-        // Path ini sudah benar, mencari file tunggal.
-        // MEMBACA: storage/app/wilayah/provinces.json
-        return $this->getLocalWilayahData('wilayah/provinces.json');
+        try {
+            $responseFromService = $this->wilayahService->getProvinsi();
+            // FIX: Mengambil array 'data' dari dalam respons service untuk menghindari nesting ganda.
+            $provinces = $responseFromService['data'] ?? [];
+
+            return $this->apiResponse(true, 'Data provinsi berhasil diambil', $provinces);
+        } catch (\Exception $e) {
+            // Jika terjadi error, kirim array kosong agar frontend tidak rusak.
+            return $this->apiResponse(false, 'Gagal mengambil data provinsi: ' . $e->getMessage(), [], 500);
+        }
     }
 
-    // Nama fungsi diubah agar lebih sesuai (opsional, tapi direkomendasikan)
-    public function getCities($provinceId)
+    /**
+     * Mengambil daftar kabupaten/kota berdasarkan ID provinsi.
+     */
+    public function kabupaten($provinsiId): JsonResponse
     {
-        // [FIXED] Path diubah dari 'regencies' menjadi 'kota' agar sesuai dengan URL API
-        // SEKARANG MEMBACA: storage/app/wilayah/kota/{provinceId}.json
-        return $this->getLocalWilayahData("wilayah/kota/{$provinceId}.json");
-    }
-    
-    public function getDistricts($regencyId)
-    {
-        // [FIXED] Path diubah dari 'districts' menjadi 'kecamatan' agar sesuai dengan URL API
-        // SEKARANG MEMBACA: storage/app/wilayah/kecamatan/{regencyId}.json
-        return $this->getLocalWilayahData("wilayah/kecamatan/{$regencyId}.json");
+        try {
+            $responseFromService = $this->wilayahService->getKabupaten($provinsiId);
+            // FIX: Mengambil array 'data' dari dalam respons service.
+            $regencies = $responseFromService['data'] ?? [];
+            
+            return $this->apiResponse(true, 'Data kabupaten berhasil diambil', $regencies);
+        } catch (\Exception $e) {
+            return $this->apiResponse(false, 'Gagal mengambil data kabupaten: ' . $e->getMessage(), [], 500);
+        }
     }
 
-    public function getVillages($districtId)
+    /**
+     * Mengambil daftar kecamatan berdasarkan ID kabupaten/kota.
+     */
+    public function kecamatan($kabupatenId): JsonResponse
     {
-        // [FIXED] Path diubah dari 'villages' menjadi 'desa' agar sesuai dengan URL API
-        // SEKARANG MEMBACA: storage/app/wilayah/desa/{districtId}.json
-        return $this->getLocalWilayahData("wilayah/desa/{$districtId}.json");
+        try {
+            $responseFromService = $this->wilayahService->getKecamatan($kabupatenId);
+            // FIX: Mengambil array 'data' dari dalam respons service.
+            $districts = $responseFromService['data'] ?? [];
+
+            return $this->apiResponse(true, 'Data kecamatan berhasil diambil', $districts);
+        } catch (\Exception $e) {
+            return $this->apiResponse(false, 'Gagal mengambil data kecamatan: ' . $e->getMessage(), [], 500);
+        }
+    }
+
+    /**
+     * Mengambil daftar kelurahan/desa berdasarkan ID kecamatan.
+     */
+    public function kelurahan($kecamatanId): JsonResponse
+    {
+        try {
+            $responseFromService = $this->wilayahService->getKelurahan($kecamatanId);
+            // FIX: Mengambil array 'data' dari dalam respons service.
+            $villages = $responseFromService['data'] ?? [];
+
+            return $this->apiResponse(true, 'Data kelurahan berhasil diambil', $villages);
+        } catch (\Exception $e) {
+            return $this->apiResponse(false, 'Gagal mengambil data kelurahan: ' . $e->getMessage(), [], 500);
+        }
     }
 }

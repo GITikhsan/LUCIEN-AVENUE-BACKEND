@@ -127,6 +127,8 @@ use App\Livewire\AboutUs;
 Route::get('/about-us', AboutUs::class);
 
 
-
+Route::get('/cek-php', function() {
+    phpinfo();
+});
 
 
