@@ -28,6 +28,7 @@ class StoreProductRequest extends FormRequest
             'gender' => 'nullable|string|max:255',
             'material' => 'nullable|string|max:255',
             'dimensi' => 'nullable|string|max:255',
+            'stok' => 'required|numeric',
             'tanggal_rilis' => 'nullable|date',
 
             'images' => 'required|array',
