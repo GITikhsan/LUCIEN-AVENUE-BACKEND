@@ -8,6 +8,7 @@ use App\Models\Cart; // <-- PENTING: Tambahkan ini
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log; // <-- PENTING: Tambahkan ini
 
+
 class OrderController extends Controller
 {
     /**
@@ -26,7 +27,7 @@ class OrderController extends Controller
         Log::info('[Checkout] User terautentikasi: ' . $user->user_id);
 
         // Mengambil semua item dari KERANJANG BELANJA (CART) user
-        $cartItems = Cart::with('product')->where('user_id', $user->user_id)->get();
+        $cartItems = Cart::with('product.images')->where('user_id', $user->user_id)->get();
         Log::info('[Checkout] Menemukan ' . $cartItems->count() . ' item di keranjang.');
 
         // Jika keranjang kosong, kirim pesan error yang benar
@@ -48,13 +49,17 @@ class OrderController extends Controller
 
             // Format data sesuai yang dibutuhkan v-for di Checkout.vue
             return [
-                'productId'   => $item->product->produk_id,
-                'nama_sepatu' => $item->product->nama_sepatu, 
-                'image'       => $item->product->image_url,
-                'quantity'    => $item->kuantitas,
-                'price'       => $price,
-                'size'        => $item->product->size, // Jika ada
-            ];
+    'productId'   => $item->product->produk_id,
+    'nama_sepatu' => $item->product->nama_sepatu,
+    'quantity'    => $item->kuantitas,
+    'price'       => $price,
+    'size'        => $item->product->size,
+    'images'      => $item->product->images->map(function ($img) {
+        return [
+            'image_path' => $img->image_path
+        ];
+    })->toArray(),
+];
         })->filter(); // Hapus item null
 
         // Asumsi ongkir, bisa dikembangkan
