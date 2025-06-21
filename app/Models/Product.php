@@ -30,6 +30,7 @@ class Product extends Model
         'tanggal_rilis',
         'sku',
         'dimensi',
+        'stok',
         'harga_retail',
         'deskripsi',
     ];

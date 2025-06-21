@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
+use App\Models\Product;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log; // Tambahkan ini untuk logging
+use Illuminate\Support\Facades\Log;
+use App\Http\Requests\StoreProductRequest; // Tambahkan ini untuk logging
 
 class CartController extends Controller
 {
@@ -14,7 +16,7 @@ class CartController extends Controller
     public function index(Request $request)
 {
     $user = $request->user();
-    $cartItems = Cart::with('product')
+    $cartItems = Cart::with('product.images')
         ->where('user_id', $user->user_id)
         ->get();
 
