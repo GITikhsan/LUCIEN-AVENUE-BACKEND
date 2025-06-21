@@ -20,13 +20,13 @@ class ProductPolicy
     public function create(User $user): bool
     {
         // Diizinkan untuk semua user yang login (sesuai permintaan awal)
-        return true;
+        return $user->role === 'admin';
     }
 
     public function update(User $user, Product $product): bool
     {
         // Diizinkan untuk semua user yang login (sesuai permintaan awal)
-        return true;
+        return $user->role === 'admin';
     }
 
     public function delete(User $user, Product $product): bool
