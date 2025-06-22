@@ -53,6 +53,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', [ProfileController::class, 'getProfile']);
     Route::post('/profile/update', [ProfileController::class, 'updateField']);
     Route::post('/logout', [AuthController::class, 'logout']);
+    Route::delete('/user/delete', [ProfileController::class, 'destroy']);
 
     // Orders & Items
     Route::apiResource('orders', OrderController::class);
