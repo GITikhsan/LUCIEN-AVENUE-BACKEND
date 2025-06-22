@@ -4,136 +4,64 @@ namespace App\Services;
 
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Http\Client\RequestException;
 
 class WilayahApiService
 {
     private $baseUrl;
-
+    
     public function __construct()
     {
-        // MENGGUNAKAN SUMBER API BARU YANG LEBIH STABIL
-        $this->baseUrl = 'https://farizdotid.com/api/daerah';
+        // Menggunakan URL GitHub yang stabil
+        $this->baseUrl = 'https://raw.githubusercontent.com/emsifa/api-wilayah-indonesia/master/api';
     }
 
-    // di dalam file WilayahApiService.php
-
-    public function getProvinsi()
+    private function fetchData(string $cacheKey, string $endpoint)
     {
-        $cacheKey = 'provinsi_farizdotid';
         if (Cache::has($cacheKey)) {
             return Cache::get($cacheKey);
         }
 
         try {
-            $response = Http::timeout(20)->get($this->baseUrl . '/provinsi');
+            // Menambahkan withoutVerifying() dan User-Agent untuk mengatasi masalah koneksi
+            $response = Http::withoutVerifying()
+                            ->withHeaders([
+                                'User-Agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36'
+                            ])
+                            ->timeout(20)
+                            ->get($this->baseUrl . $endpoint);
 
-            // --- TAMBAHKAN BARIS INI UNTUK MELIHAT DATA MENTAH ---
-            dd($response->json()); 
-
-            // Kode di bawah ini tidak akan sempat dijalankan karena dd()
-            $response->throw();
-
-            $data = $response->json()['provinsi'] ?? [];
-
-            if (!empty($data)) {
-                Cache::put($cacheKey, $data, 3600 * 24);
+            if ($response->successful()) {
+                $data = $response->json();
+                if (is_array($data) && !empty($data)) {
+                    Cache::put($cacheKey, $data, 3600 * 24); // Cache 1 hari
+                }
+                return $data;
             }
-            return $data;
+            return [];
 
         } catch (\Exception $e) {
             report($e);
             return [];
         }
+    }
+
+    public function getProvinsi()
+    {
+        return $this->fetchData('provinsi_github_final', '/provinces.json');
     }
 
     public function getKabupaten($provinsiId)
     {
-        $cacheKey = "kabupaten_of_{$provinsiId}_farizdotid";
-        if (Cache::has($cacheKey)) {
-            return Cache::get($cacheKey);
-        }
-
-        try {
-            $response = Http::timeout(20)->get($this->baseUrl . "/kota?id_provinsi={$provinsiId}");
-            $response->throw();
-
-            // API ini membungkus hasilnya di dalam key 'kota_kabupaten'
-            $data = $response->json()['kota_kabupaten'] ?? [];
-
-            if (!empty($data)) {
-                Cache::put($cacheKey, $data, 3600 * 24);
-            }
-            return $data;
-
-        } catch (\Exception $e) {
-            report($e);
-            return [];
-        }
+        return $this->fetchData("kabupaten_github_of_{$provinsiId}", "/regencies/{$provinsiId}.json");
     }
 
     public function getKecamatan($kabupatenId)
     {
-        // Nama kolom di API ini adalah 'id' dan 'nama'
-        // Sementara di frontend kita menggunakan 'id' dan 'name'.
-        // Service ini akan mengubahnya agar cocok.
-        $cacheKey = "kecamatan_of_{$kabupatenId}_farizdotid";
-        if (Cache::has($cacheKey)) {
-            return Cache::get($cacheKey);
-        }
-
-        try {
-            $response = Http::timeout(20)->get($this->baseUrl . "/kecamatan?id_kota={$kabupatenId}");
-            $response->throw();
-
-            $dataApi = $response->json()['kecamatan'] ?? [];
-            $formattedData = [];
-            foreach ($dataApi as $item) {
-                $formattedData[] = [
-                    'id' => $item['id'],
-                    'name' => $item['nama'] // Mengubah 'nama' menjadi 'name'
-                ];
-            }
-
-            if (!empty($formattedData)) {
-                Cache::put($cacheKey, $formattedData, 3600 * 24);
-            }
-            return $formattedData;
-
-        } catch (\Exception $e) {
-            report($e);
-            return [];
-        }
+        return $this->fetchData("kecamatan_github_of_{$kabupatenId}", "/districts/{$kabupatenId}.json");
     }
 
     public function getKelurahan($kecamatanId)
     {
-        $cacheKey = "kelurahan_of_{$kecamatanId}_farizdotid";
-        if (Cache::has($cacheKey)) {
-            return Cache::get($cacheKey);
-        }
-
-        try {
-            $response = Http::timeout(20)->get($this->baseUrl . "/kelurahan?id_kecamatan={$kecamatanId}");
-            $response->throw();
-
-            $dataApi = $response->json()['kelurahan'] ?? [];
-            $formattedData = [];
-            foreach ($dataApi as $item) {
-                $formattedData[] = [
-                    'id' => $item['id'],
-                    'name' => $item['nama'] // Mengubah 'nama' menjadi 'name'
-                ];
-            }
-
-            if (!empty($formattedData)) {
-                Cache::put($cacheKey, $formattedData, 3600 * 24);
-            }
-            return $formattedData;
-
-        } catch (\Exception $e) {
-            report($e);
-            return [];
-        }
+        return $this->fetchData("kelurahan_github_of_{$kecamatanId}", "/villages/{$kecamatanId}.json");
     }
 }
