@@ -14,6 +14,7 @@ use App\Http\Controllers\Api\ProductImageController;
 use App\Http\Controllers\Api\WilayahController;
 use App\Http\Controllers\Api\PromotionController;
 use App\Http\Controllers\Api\FilterController;
+use App\Http\Controllers\Api\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +43,8 @@ Route::get('/products/search', [ProductController::class, 'search']);
 Route::get('/products/filter', [FilterController::class, 'filter']);
 Route::get('/products/{product}', [ProductController::class, 'show']);
 Route::get('/ping', fn () => response()->json(['message' => 'pong! API is ready.']));
+Route::get('/dashboard/summary', [DashboardController::class, 'summary']);
+
 
 // Rute yang dilindungi dengan Sanctum
 Route::middleware('auth:sanctum')->group(function () {
