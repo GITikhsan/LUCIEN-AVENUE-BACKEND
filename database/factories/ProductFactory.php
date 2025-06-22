@@ -15,7 +15,7 @@ class ProductFactory extends Factory
             'material' => 'Canvas',
             'ukuran' => $this->faker->numberBetween(39, 44),
             'warna' => $this->faker->safeColorName(),
-            'gender' => $this->faker->randomElement(['Pria', 'Wanita', 'Unisex']),
+            'gender' => $this->faker->randomElement(['Male', 'Female', 'Unisex']),
             'tanggal_rilis' => now(),
             'sku' => $this->faker->unique()->ean8(),
             'dimensi' => '30x20x10 cm',
