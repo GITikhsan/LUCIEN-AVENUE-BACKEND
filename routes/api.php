@@ -16,6 +16,7 @@ use App\Http\Controllers\Api\PromotionController;
 use App\Http\Controllers\Api\FilterController;
 use App\Http\Controllers\Api\DashboardController;
 
+use App\Http\Controllers\Api\PaymentController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -43,6 +44,7 @@ Route::get('/products/search', [ProductController::class, 'search']);
 Route::get('/products/filter', [FilterController::class, 'filter']);
 Route::get('/products/{product}', [ProductController::class, 'show']);
 Route::get('/ping', fn () => response()->json(['message' => 'pong! API is ready.']));
+Route::post('/payment/callback', [PaymentController::class, 'callback']);
 Route::get('/dashboard/summary', [DashboardController::class, 'summary']);
 
 
@@ -87,4 +89,18 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('carts', CartController::class);
     // ... route-route lain yang butuh login
 
+    //Payment(midtrans)
+    Route::middleware('auth:sanctum')->post('/payment', [PaymentController::class, 'makePayment']);
+
+    Route::middleware('auth:sanctum')->get('/checkout/address', [ProfileController::class, 'getShippingAddress']);
+
+     // Checkout
+    Route::get('/checkout/summary', [OrderController::class, 'getSummaryForCheckout']);
+    Route::get('/checkout/address', [ProfileController::class, 'getShippingAddress']);
+
+    // =================================================================
+    // TAMBAHKAN BARIS INI (Penyebab error 404)
+    // =================================================================
+    Route::post('/order/create-from-cart', [OrderController::class, 'storeOrderFromCart']);
+    // =================================================================
 });

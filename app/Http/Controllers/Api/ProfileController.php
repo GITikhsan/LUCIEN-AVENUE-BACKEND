@@ -56,28 +56,35 @@ class ProfileController extends Controller
         ]);
     }
     public function getShippingAddress(Request $request)
-    {
-        // Ambil data user yang sedang login
-        $user = $request->user();
+{
+    // 1. Ambil data user yang sedang login
+    $user = $request->user();
 
-        // Asumsi kolom-kolom alamat ada di tabel 'users'
-        // Ganti 'phone_number' dan 'address' dengan NAMA KOLOM YANG SEBENARNYA di database Anda.
-        $addressData = [
-                'recipientName' => $user->first_name . ' ' . $user->last_name,
-                'email'         => $user->email,
-                'phoneNumber'   => $user->no_telepon,
-                'fullAddress'   => $user->address,
-                'isDefault'     => true
-            ];
-
-        // Validasi: Jika alamatnya kosong, kirim pesan error
-        if (empty($user->address)) {
-            return response()->json(['message' => 'Alamat pengiriman untuk user ini belum diatur.'], 404);
-        }
-
-        // Jika alamat ada, kirim datanya
-        return response()->json($addressData);
+    // 2. Periksa apakah kolom alamat user kosong atau tidak.
+    // INI ADALAH PENYEBAB UTAMA ERROR 404 ANDA.
+    // Jika di database kolom 'alamat' untuk user ini NULL/kosong, maka akan error.
+    if (empty($user->alamat)) {
+        return response()->json(['message' => 'Kolom alamat untuk user ini masih kosong di database.'], 404);
     }
+
+    // 3. Buat struktur JSON yang dibutuhkan oleh frontend Vue.js Anda
+    // Kita gunakan nama kolom yang PASTI BENAR dari file migrasi Anda.
+    $shippingAddress = [
+        'recipientName' => $user->first_name . ' ' . $user->last_name,
+        'email'         => $user->email,
+
+        // Nama kolom di migrasi adalah 'no_telepon'
+        'phoneNumber'   => $user->no_telepon,
+
+        // Nama kolom di migrasi adalah 'alamat'
+        'fullAddress'   => $user->alamat,
+
+        'isDefault'     => true, // Anggap saja selalu default
+    ];
+
+    // 4. Kirim data ke frontend
+    return response()->json($shippingAddress);
+}
     /**
      * Membuat atau mengupdate alamat user.
      */

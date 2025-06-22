@@ -7,7 +7,7 @@ use App\Models\Order;
 use App\Models\Cart; // <-- PENTING: Tambahkan ini
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log; // <-- PENTING: Tambahkan ini
-
+use App\Models\OrderItem;
 
 class OrderController extends Controller
 {
@@ -84,12 +84,56 @@ class OrderController extends Controller
     public function index(Request $request)
     {
         $userId = $request->user()->user_id;
-        $orders = Order::where('user_id', $userId)
-                         ->with(['items.product'])
-                         ->latest()
-                         ->get();
-        return response()->json(['data' => $orders], 200);
+        $order = Order::where('user_id', $userId)
+              ->where('status', 'pending')
+              ->with(['items.product'])
+              ->latest()
+              ->first();
+
+return response()->json($order);
     }
+
+    public function storeOrderFromCart(Request $request)
+{
+    $user = $request->user();
+    $cartItems = \App\Models\Cart::with('product')->where('user_id', $user->user_id)->get();
+
+    if ($cartItems->isEmpty()) {
+        return response()->json(['message' => 'Keranjang kosong.'], 400);
+    }
+
+    $total = $cartItems->sum(fn($item) => $item->product->harga_retail * $item->kuantitas);
+
+    // ================== PERBAIKAN DI BAGIAN INI ==================
+    // Membuat Order baru.
+    // Dihapus 'nama_penerima' dan 'alamat' karena kolomnya tidak ada di tabel 'orders'.
+    // Tabel 'orders' hanya menyimpan data inti pesanan.
+    $order = \App\Models\Order::create([
+        'user_id'       => $user->user_id,
+        'jumlah_total'  => $total,
+        'status_pesanan'=> 'pending',
+    ]);
+
+    // ================== PERBAIKAN DI BAGIAN INI ==================
+    // Menyimpan setiap item ke tabel order_items.
+    // Nama kolom disesuaikan dengan file migrasi 'order_items'.
+    foreach ($cartItems as $item) {
+        OrderItem::create([
+            'pesanan_id' => $order->pesanan_id,   // BENAR: Sesuai migrasi 'order_items'
+            'produk_id'  => $item->produk_id,
+            'quantity'   => $item->kuantitas,    // BENAR: Sesuai migrasi (bukan 'kuantitas')
+            'harga'      => $item->product->harga_retail,
+        ]);
+    }
+
+    // Mengosongkan keranjang setelah pesanan berhasil dibuat
+    \App\Models\Cart::where('user_id', $user->user_id)->delete();
+
+    return response()->json([
+        'message' => 'Pesanan berhasil dibuat.',
+        'pesanan_id' => $order->pesanan_id // Mengirim ID pesanan untuk proses pembayaran
+    ], 201);
+}
 
     // Anda bisa menambahkan method 'store' di sini nanti untuk membuat pesanan
     // setelah user menekan tombol "Bayar Sekarang".

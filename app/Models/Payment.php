@@ -10,9 +10,18 @@ class Payment extends Model
     use HasFactory;
 
     protected $table = 'payments';
-    protected $primaryKey = 'pembayaran_id';
+    
 
-    protected $fillable = ['metode_pembayaran', 'password', 'status_pembayaran', 'jumlah', 'pesanan_id'];
+    protected $primaryKey = 'pembayaran_id';
+    public $timestamps = false;
+
+    protected $fillable = [
+        'metode_pembayaran',
+        'password',
+        'status_pembayaran',
+        'jumlah',
+        'pesanan_id',
+    ];
 
     /**
      * Relasi: Satu Pembayaran dimiliki oleh satu Order.
