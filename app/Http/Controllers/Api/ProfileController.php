@@ -122,4 +122,34 @@ class ProfileController extends Controller
             return response()->json(['message' => 'Terjadi kesalahan pada server.'], 500);
         }
     }
+    public function destroy(Request $request)
+    {
+        try {
+            // Dapatkan user yang sedang login dari token
+            $user = $request->user();
+
+            // Opsional: Log siapa yang menghapus akun untuk audit
+            Log::info('User deletion request initiated by user ID: ' . $user->id);
+
+            // Hapus token yang sedang digunakan untuk logout
+            $user->currentAccessToken()->delete();
+
+            // Hapus record user dari database
+            $user->delete();
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Your account has been successfully deleted.'
+            ], 200);
+
+        } catch (\Exception $e) {
+            // Jika terjadi error, log error tersebut
+            Log::error('Failed to delete user ID: ' . $request->user()->id . ' - Error: ' . $e->getMessage());
+
+            return response()->json([
+                'success' => false,
+                'message' => 'An error occurred while deleting your account.'
+            ], 500);
+        }
+    }
 }
