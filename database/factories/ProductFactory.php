@@ -10,8 +10,8 @@ class ProductFactory extends Factory
     {
         return [
             'nama_sepatu' => 'Sepatu ' . $this->faker->unique()->word(),
-            'brand' => $this->faker->randomElement(['Nike', 'Adidas', 'Puma', 'Vans']),
-            'jenis' => 'Sneakers',
+            'brand' => $this->faker->randomElement(['Nike', 'Adidas', 'Yeezy', 'Air Jordan', 'Louis Vuitton']),
+            'jenis' => $this->faker->randomElement(['Sneakers', 'Running', 'Basketball', 'Casual']),
             'material' => 'Canvas',
             'ukuran' => $this->faker->numberBetween(39, 44),
             'warna' => $this->faker->safeColorName(),
@@ -21,6 +21,7 @@ class ProductFactory extends Factory
             'dimensi' => '30x20x10 cm',
             'harga_retail' => $this->faker->numberBetween(750000, 2500000),
             'deskripsi' => $this->faker->paragraph(2),
+            'stok' => $this->faker->numberBetween(10, 100),
             // Biarkan foreign key null untuk saat ini
             'diskon_id' => null,
 
