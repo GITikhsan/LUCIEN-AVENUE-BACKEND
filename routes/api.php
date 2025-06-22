@@ -59,6 +59,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Orders & Items
     Route::apiResource('orders', OrderController::class);
+    Route::post('/orders/{order}/cancel', [OrderController::class, 'cancelOrder']);
     Route::apiResource('order-items', OrderItemController::class)->only(['index', 'show']);
 
     // User Management

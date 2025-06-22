@@ -9,16 +9,15 @@ return [
     */
 
     'paths' => [
-        'api/*', 
-        'sanctum/csrf-cookie', 
+        'api/*',
+        'sanctum/csrf-cookie',
         'ping' // <-- Perubahan 1: Menambahkan 'ping' agar diizinkan
     ],
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => [
-        'http://localhost:5173' // <-- Perubahan 2: Menyesuaikan port dengan error Anda
-    ],
+    'allowed_origins' => ['http://localhost:5173', 'http://localhost:5174'],
+
 
     'allowed_origins_patterns' => [],
 

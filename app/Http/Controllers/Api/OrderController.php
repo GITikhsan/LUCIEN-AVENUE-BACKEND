@@ -8,6 +8,7 @@ use App\Models\Cart; // <-- PENTING: Tambahkan ini
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log; // <-- PENTING: Tambahkan ini
 use App\Models\OrderItem;
+use App\Models\Product;
 
 class OrderController extends Controller
 {
@@ -82,16 +83,18 @@ class OrderController extends Controller
     // (index, store, show, dll.)
 
     public function index(Request $request)
-    {
-        $userId = $request->user()->user_id;
-        $order = Order::where('user_id', $userId)
-              ->where('status', 'pending')
-              ->with(['items.product'])
-              ->latest()
-              ->first();
+{
+    $user = $request->user();
 
-return response()->json($order);
-    }
+    // Ambil SEMUA pesanan milik user ini, urutkan dari yang paling baru
+    $orders = \App\Models\Order::where('user_id', $user->user_id)
+        ->where('is_hidden', false)
+        ->with('items.product.images')
+        ->latest() // Mengurutkan dari yang terbaru (sama dengan ->orderBy('created_at', 'desc'))
+        ->get();
+
+    return response()->json($orders);
+}
 
     public function storeOrderFromCart(Request $request)
 {
@@ -126,8 +129,7 @@ return response()->json($order);
         ]);
     }
 
-    // Mengosongkan keranjang setelah pesanan berhasil dibuat
-    \App\Models\Cart::where('user_id', $user->user_id)->delete();
+
 
     return response()->json([
         'message' => 'Pesanan berhasil dibuat.',
@@ -135,6 +137,57 @@ return response()->json($order);
     ], 201);
 }
 
+
+public function cancelOrder(Request $request, Order $order)
+{
+    // 1. Otorisasi: Pastikan user yang request adalah pemilik order
+   if ($request->user()->user_id !== $order->user_id) {
+        return response()->json(['message' => 'Unauthorized'], 403);
+    }
+
+    // 2. Validasi: Pastikan hanya order 'pending' yang bisa dibatalkan
+    if ($order->status_pesanan !== 'pending') {
+        return response()->json(['message' => 'Hanya pesanan yang masih pending yang bisa dibatalkan.'], 422);
+    }
+
+    // 3. Logika Mengembalikan Stok (Sangat Penting)
+    // Kita ambil semua item dari pesanan ini
+    foreach ($order->items as $item) {
+        // Cari produk terkait
+        $product = Product::find($item->produk_id);
+        if ($product) {
+            // Tambahkan kembali stoknya
+            $product->increment('stok', $item->quantity); // Asumsi nama kolom stok adalah 'stok'
+        }
+    }
+
+    // 4. Ubah status pesanan menjadi 'dibatalkan'
+    $order->update(['status_pesanan' => 'dibatalkan']);
+
+    // 5. Beri respons berhasil
+    return response()->json([
+        'message' => 'Pesanan berhasil dibatalkan.',
+        'order' => $order, // Kirim data order yang sudah diupdate
+    ]);
+}
+
+public function destroy(Request $request, Order $order)
+{
+    // 1. Otorisasi: Pastikan user adalah pemilik order
+    if ($request->user()->user_id !== $order->user_id) {
+        return response()->json(['message' => 'Unauthorized'], 403);
+    }
+
+    // 2. Validasi: Hanya order yang sudah selesai/batal yang bisa disembunyikan
+    if (!in_array($order->status_pesanan, ['dibayar', 'dibatalkan', 'selesai'])) { // Ganti 'selesai' jika Anda punya status lain
+        return response()->json(['message' => 'Hanya pesanan yang sudah selesai atau dibatalkan yang bisa dihapus dari riwayat.'], 422);
+    }
+
+    // 3. Aksi: Update kolom is_hidden menjadi true
+    $order->update(['is_hidden' => true]);
+
+    return response()->json(['message' => 'Riwayat pesanan berhasil dihapus.']);
+}
     // Anda bisa menambahkan method 'store' di sini nanti untuk membuat pesanan
     // setelah user menekan tombol "Bayar Sekarang".
 }

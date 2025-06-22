@@ -70,10 +70,19 @@ class PaymentController extends Controller
 
             // Update status pesanan jika pembayaran sukses
             if ($transaction === 'settlement') {
-                $payment->order->update([
-                    'status_pesanan' => 'dibayar'
-                ]);
-            }
+        // Ambil data order dari relasi payment
+        $order = $payment->order;
+
+        // Pastikan order ditemukan
+        if ($order) {
+            // Update status pesanan menjadi 'dibayar'
+            $order->update(['status_pesanan' => 'dibayar']);
+
+            // --- TAMBAHKAN LOGIKA INI ---
+            // Kosongkan keranjang milik user yang melakukan order ini
+            \App\Models\Cart::where('user_id', $order->user_id)->delete();
+        }
+    }
         }
 
         return response()->json(['status' => 'success']);
