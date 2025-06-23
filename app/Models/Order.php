@@ -12,7 +12,15 @@ class Order extends Model
     protected $table = 'orders';
     protected $primaryKey = 'pesanan_id';
 
-    protected $fillable = ['tanggal_pesanan', 'jumlah_total', 'status_pesanan', 'user_id'];
+    protected $fillable = [
+    'user_id',
+    'jumlah_total',
+    'status_pesanan',
+    'is_hidden',
+    'subtotal',
+    'discount',
+    'promotion_code',
+];
 
     /**
      * Relasi: Satu Order dimiliki oleh satu User.

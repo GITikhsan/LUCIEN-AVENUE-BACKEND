@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Api;
-
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\Cart; // <-- PENTING: Tambahkan ini
@@ -97,46 +97,79 @@ class OrderController extends Controller
 }
 
     public function storeOrderFromCart(Request $request)
-{
-    $user = $request->user();
-    $cartItems = \App\Models\Cart::with('product')->where('user_id', $user->user_id)->get();
-
-    if ($cartItems->isEmpty()) {
-        return response()->json(['message' => 'Keranjang kosong.'], 400);
-    }
-
-    $total = $cartItems->sum(fn($item) => $item->product->harga_retail * $item->kuantitas);
-
-    // ================== PERBAIKAN DI BAGIAN INI ==================
-    // Membuat Order baru.
-    // Dihapus 'nama_penerima' dan 'alamat' karena kolomnya tidak ada di tabel 'orders'.
-    // Tabel 'orders' hanya menyimpan data inti pesanan.
-    $order = \App\Models\Order::create([
-        'user_id'       => $user->user_id,
-        'jumlah_total'  => $total,
-        'status_pesanan'=> 'pending',
-    ]);
-
-    // ================== PERBAIKAN DI BAGIAN INI ==================
-    // Menyimpan setiap item ke tabel order_items.
-    // Nama kolom disesuaikan dengan file migrasi 'order_items'.
-    foreach ($cartItems as $item) {
-        OrderItem::create([
-            'pesanan_id' => $order->pesanan_id,   // BENAR: Sesuai migrasi 'order_items'
-            'produk_id'  => $item->produk_id,
-            'quantity'   => $item->kuantitas,    // BENAR: Sesuai migrasi (bukan 'kuantitas')
-            'harga'      => $item->product->harga_retail,
+    {
+        // 1. Validasi input dari frontend
+        $request->validate([
+            'final_total' => 'required|numeric|min:0',
+            'discount'    => 'required|numeric|min:0',
+            // Anda bisa menambahkan validasi kode promo jika frontend juga mengirimkannya
+            'promotion_code' => 'nullable|string',
         ]);
+
+        $user = $request->user();
+        $cartItems = Cart::with('product')->where('user_id', $user->user_id)->get();
+
+        if ($cartItems->isEmpty()) {
+            return response()->json(['message' => 'Keranjang kosong.'], 400);
+        }
+
+        // --- INI BAGIAN YANG DIPERBAIKI ---
+
+        // 2. Gunakan data dari request, BUKAN menghitung ulang
+        $finalTotal = $request->input('final_total');
+        $discountAmount = $request->input('discount');
+        $promotionCode = $request->input('promotion_code'); // Ambil kode promo jika ada
+
+        // Mulai database transaction untuk keamanan
+        DB::beginTransaction();
+        try {
+            // 3. Buat order dengan data yang sudah benar
+            $order = Order::create([
+                'user_id'           => $user->user_id,
+                'jumlah_total'      => $finalTotal, // <-- BENAR: Gunakan total akhir
+                'status_pesanan'    => 'pending',
+                'discount'          => $discountAmount, // <-- BARU: Simpan jumlah diskon
+                'promotion_code'    => $promotionCode,  // <-- BARU: Simpan kode promo yang dipakai
+                'subtotal'          => $finalTotal + $discountAmount, // <-- BARU: Hitung subtotal
+            ]);
+
+            // 4. Pindahkan item dari keranjang ke order_items
+            foreach ($cartItems as $item) {
+                if (!$item->product) continue;
+
+                OrderItem::create([
+                    'pesanan_id' => $order->pesanan_id,
+                    'produk_id'  => $item->produk_id,
+                    'quantity'   => $item->kuantitas,
+                    'harga'      => $item->product->harga_retail,
+                ]);
+
+                // Kurangi stok produk (PENTING!)
+                $item->product->decrement('stok', $item->kuantitas);
+            }
+
+            // 5. Kosongkan keranjang user
+            Cart::where('user_id', $user->user_id)->delete();
+
+            // Selesaikan transaksi
+            DB::commit();
+
+            return response()->json([
+                'message'    => 'Pesanan berhasil dibuat.',
+                'pesanan_id' => $order->pesanan_id // Kirim ID untuk proses pembayaran
+            ], 201);
+
+        } catch (\Exception $e) {
+            // Jika ada error, batalkan semua operasi database
+            DB::rollBack();
+
+            // Kirim pesan error
+            return response()->json([
+                'message' => 'Terjadi kesalahan saat membuat pesanan.',
+                'error' => $e->getMessage()
+            ], 500);
+        }
     }
-
-
-
-    return response()->json([
-        'message' => 'Pesanan berhasil dibuat.',
-        'pesanan_id' => $order->pesanan_id // Mengirim ID pesanan untuk proses pembayaran
-    ], 201);
-}
-
 
 public function cancelOrder(Request $request, Order $order)
 {
