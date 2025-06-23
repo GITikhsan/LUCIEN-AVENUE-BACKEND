@@ -30,7 +30,7 @@ class ProfileController extends Controller
 
         // Validasi input
         $request->validate([
-            'field' => 'required|string|in:first_name,last_name,email,no_telepon,password', // Sesuaikan dengan field yang boleh diubah
+            'field' => 'required|string|in:first_name,last_name,email,no_telepon,jenis_kelamin,tanggal_lahir,password', // Sesuaikan dengan field yang boleh diubah
             'value' => 'required|string|max:255',
         ]);
 
