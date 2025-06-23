@@ -14,20 +14,34 @@ use Illuminate\Support\Str;
 class PaymentController extends Controller
 {
     // Buat Snap Token dan Simpan Data Pembayaran
-    public function makePayment(Request $request)
+  public function makePayment(Request $request)
 {
+    $request->validate([
+        'amount' => 'required|numeric|min:1',
+        'pesanan_id' => 'required|exists:orders,pesanan_id',
+    ]);
+
     MidtransConfig::init();
 
-    // Mengambil data pesanan dari database
-    // findOrFail akan error jika pesanan_id dari frontend tidak ditemukan
     $order = Order::findOrFail($request->pesanan_id);
 
-    // Menyiapkan parameter untuk Midtrans
-    // 'gross_amount' disesuaikan dengan nama kolom di tabel orders Anda ('jumlah_total')
+    // =======================================================
+    // --- TAMBAHKAN BLOK PERBAIKAN INI ---
+    // =======================================================
+    // Jika total harga dari frontend (setelah diskon) berbeda dengan
+    // yang tersimpan di database, update database dengan harga final.
+    if ($order->jumlah_total != $request->amount) {
+        $order->update(['jumlah_total' => $request->amount]);
+    }
+    // =======================================================
+    // --- AKHIR DARI BLOK PERBAIKAN ---
+    // =======================================================
+
+    // Sekarang, kita lanjutkan proses dengan data yang sudah akurat
     $params = [
         'transaction_details' => [
-            'order_id' => 'ORDER-' . $order->pesanan_id . '-' . time(), // Dibuat lebih unik
-            'gross_amount' => $order->jumlah_total, // BENAR: Menggunakan jumlah_total
+            'order_id' => 'ORDER-' . $order->pesanan_id . '-' . time(),
+            'gross_amount' => $request->amount,
         ],
         'customer_details' => [
             'first_name' => $request->name ?? 'Customer',
@@ -37,18 +51,15 @@ class PaymentController extends Controller
 
     $snapToken = Snap::getSnapToken($params);
 
-    // Menyimpan data ke tabel 'payments'
-    // 'pesanan_id' dan 'jumlah' disesuaikan dengan nama kolom yang benar
     Payment::create([
         'metode_pembayaran' => $request->metode_pembayaran ?? 'midtrans',
         'status_pembayaran' => 'pending',
-        'jumlah'            => $order->jumlah_total, // BENAR: Menggunakan jumlah_total
-        'pesanan_id'        => $order->pesanan_id,   // BENAR: Menggunakan pesanan_id (bukan id)
+        'jumlah'            => $request->amount,
+        'pesanan_id'        => $order->pesanan_id,
     ]);
 
     return response()->json(['token' => $snapToken]);
 }
-
     // Callback dari Midtrans
     public function callback(Request $request)
     {
