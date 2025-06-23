@@ -31,7 +31,8 @@ class ProductController extends Controller
 
     // Filter ukuran (size)
     if ($request->filled('ukuran')) {
-        $query->where('ukuran', $request->ukuran);
+        $sizes = explode(',', $request->ukuran);
+        $query->whereIn('ukuran', $sizes);
     }
 
     // Filter rentang harga
