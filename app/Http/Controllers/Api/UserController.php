@@ -97,4 +97,12 @@ class UserController extends Controller
 
         return response()->json(['status' => true, 'message' => 'Pengguna berhasil dihapus'], 200);
     }
+/////////////////////////////////////////////////////////////////////////////
+    public function getCustomer()
+    {
+        $customers = User::where('role', 'user')->get();
+        return response()->json(['data' => $customers]);
+
+    }
+    /////////////////////////////////////////////////////////////////////////////
 }

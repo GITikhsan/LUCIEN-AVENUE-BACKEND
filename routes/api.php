@@ -104,4 +104,8 @@ Route::middleware('auth:sanctum')->group(function () {
     // =================================================================
     Route::post('/order/create-from-cart', [OrderController::class, 'storeOrderFromCart']);
     // =================================================================
+
+
+
+    Route::get('/customers', [UserController::class, 'getCustomer']);
 });
