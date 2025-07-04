@@ -106,6 +106,6 @@ Route::middleware('auth:sanctum')->group(function () {
     // =================================================================
 
 
-
+    Route::get('/admin/orders', [OrderController::class, 'getAllOrdersForAdmin'])->middleware('auth:sanctum');
     Route::get('/customers', [UserController::class, 'getCustomer']);
 });
