@@ -64,3 +64,73 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 # vellare
 
 # tes
+
+# 👤 Akses Demo & Akun Pengujian
+
+Untuk mempermudah juri/pengguna, kami telah menyediakan prototype yang dapat diakses secara online serta akun demo.
+
+- **Link Demo**: [MASUKKAN LINK DEPLOY PROYEK DI SINI] (optional)
+- **Link Postman / Dokumentasi API**: [MASUKKAN LINK DOKUMENTASI API DI SINI]
+- **Email**: `admin@lucien.com`
+- **Password**: `admin123`
+
+---
+
+
+---
+
+## 📌 Status Prototipe
+
+Repositori ini berisi prototype untuk proyek final. Tidak semua fitur yang tercantum dalam deskripsi telah diimplementasikan sepenuhnya. Fokus kami untuk fase ini adalah menghadirkan fungsionalitas inti yang solid.
+
+### ✅ Fitur yang Sudah Diimplementasikan:
+
+- [x] Autentikasi Pengguna (Login & Register)
+- [x] Pelacakan Pemasukan & Pengeluaran (Tambah, Lihat)
+
+---
+
+## 💡 Fitur Aplikasi
+
+Berikut adalah fitur-fitur yang kami rencanakan untuk **Lucien Avenue**:
+
+### 1. Manajemen Keuangan
+
+#### ➤ Pelacakan Pengeluaran & Pemasukan
+Fitur untuk melacak dan memonitor pengeluaran serta pemasukan pengguna secara *real-time* dengan kemampuan kategorisasi transaksi.
+
+#### ➤ Manajemen Transaksi
+Pengguna dapat dengan mudah mengelola transaksi mereka, termasuk menambah, mengubah, atau menghapus data keuangan.
+
+---
+
+## 🛠️ Teknologi
+
+- Laravel 10
+- MySQL
+- Sanctum (Autentikasi)
+- REST API
+- JSON wilayah lokal (provinsi, kota, dll)
+
+---
+
+## 📦 Cara Menjalankan
+```bash
+git clone https://github.com/GITikhsan/LUCIEN-AVENUE-BACKEND.git
+cd LUCIEN-AVENUE-BACKEND
+composer install
+cp .env.example .env
+php artisan key:generate
+php artisan migrate --seed
+php artisan serve
+
+```xampp
+create database vellare
+
+👨‍💻 Tim Kami
+23.11.5560 Bagus Putra Wiratama
+23.11.5506 Ikhsanuddin Ahmad Fauzi
+23.11.5553 Puantorian Antasena Handoko 
+23.11.5519 Muhammad Zaidan Elha Rasyad
+23.11.5521 Wahid Nurrohim
+23.11.5533 Wahyu Adi Nugroho 
