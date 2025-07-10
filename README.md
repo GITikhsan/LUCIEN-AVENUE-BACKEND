@@ -131,6 +131,3 @@ create database vellare
 23.11.5560 Bagus Putra Wiratama
 23.11.5506 Ikhsanuddin Ahmad Fauzi
 23.11.5553 Puantorian Antasena Handoko 
-23.11.5519 Muhammad Zaidan Elha Rasyad
-23.11.5521 Wahid Nurrohim
-23.11.5533 Wahyu Adi Nugroho 
